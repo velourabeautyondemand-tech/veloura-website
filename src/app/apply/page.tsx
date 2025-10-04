@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook, PartyPopper } from "lucide-react";
+import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook, PartyPopper, Briefcase, DollarSign, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -34,6 +34,24 @@ const formSchema = z.object({
   instagram: z.string().url().optional().or(z.literal('')),
   facebook: z.string().url().optional().or(z.literal('')),
 });
+
+const benefits = [
+    {
+        icon: Briefcase,
+        title: "Be Your Own Boss",
+        description: "Enjoy the freedom to set your own schedule and work when you want. You have full control over your availability."
+    },
+    {
+        icon: DollarSign,
+        title: "Maximize Your Earnings",
+        description: "Keep a majority of your earnings from every appointment. We offer a competitive commission structure that rewards your hard work."
+    },
+    {
+        icon: Sparkles,
+        title: "Focus on Your Craft",
+        description: "We handle the marketing, booking, and payment processing, so you can concentrate on what you do best: creating beautiful nails."
+    }
+];
 
 export default function ApplyPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -70,10 +88,27 @@ export default function ApplyPage() {
       <Header />
       <main className="flex-1 bg-secondary/30 py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
+            <section id="why-join-us" className="mb-16">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Why Join the Nails On the Go Team?</h2>
+                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">We empower talented nail technicians to build their own business with the support of a strong brand behind them.</p>
+                </div>
+                <div className="grid md:grid-cols-3 gap-8 text-center">
+                    {benefits.map((benefit, index) => (
+                        <div key={index} className="bg-card p-8 rounded-xl shadow-md">
+                            <div className="mb-4">
+                                <benefit.icon className="h-12 w-12 text-primary mx-auto" />
+                            </div>
+                            <h3 className="text-xl font-bold font-headline mb-2">{benefit.title}</h3>
+                            <p className="text-muted-foreground">{benefit.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
           <Card className="max-w-3xl mx-auto shadow-lg">
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold font-headline">Become a Nails Pro on the Go</CardTitle>
-              <CardDescription className="text-lg text-muted-foreground pt-2">Join our network of elite mobile nail technicians. Apply below!</CardDescription>
+              <CardTitle className="text-3xl font-bold font-headline">Join Our Nails On the Go Team</CardTitle>
+              <CardDescription className="text-lg text-muted-foreground pt-2">Ready to take control of your career? Apply below!</CardDescription>
               <p className="text-sm text-muted-foreground pt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
             </CardHeader>
             <CardContent>
@@ -278,5 +313,3 @@ export default function ApplyPage() {
     </div>
   );
 }
-
-    
