@@ -139,7 +139,7 @@ export default function ApplyPage() {
                                <Input placeholder="e.g. Downtown, Anytown" {...field} className="pl-10" />
                             </div>
                           </FormControl>
-                          <FormDescription>Your primary city or neighborhood for clients.</FormDescription>
+                          <FormDescription>Your primary city or neighborhood for clients within a 6-mile service radius.</FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
