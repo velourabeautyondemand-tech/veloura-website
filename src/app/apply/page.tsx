@@ -1,9 +1,10 @@
 "use client";
 
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook } from "lucide-react";
+import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook, PartyPopper } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -19,7 +20,6 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
-import { useToast } from "@/hooks/use-toast";
 import { Separator } from "@/components/ui/separator";
 
 const formSchema = z.object({
@@ -36,7 +36,7 @@ const formSchema = z.object({
 });
 
 export default function ApplyPage() {
-    const { toast } = useToast();
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -57,11 +57,12 @@ export default function ApplyPage() {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values);
-        toast({
-            title: "Application Submitted!",
-            description: "Thank you for applying. We will review your application and get back to you soon.",
-        });
+        setIsSubmitted(true);
+    }
+    
+    function handleNewApplication() {
         form.reset();
+        setIsSubmitted(false);
     }
 
   return (
@@ -76,142 +77,31 @@ export default function ApplyPage() {
               <p className="text-sm text-muted-foreground pt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
             </CardHeader>
             <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <FormField
-                      control={form.control}
-                      name="fullName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Full Name</FormLabel>
-                          <FormControl>
-                            <div className="relative">
-                               <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input placeholder="Jessica Lee" {...field} className="pl-10" />
-                            </div>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email Address</FormLabel>
-                          <FormControl>
-                             <div className="relative">
-                               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input placeholder="you@example.com" {...field} className="pl-10" />
-                            </div>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Phone Number</FormLabel>
-                          <FormControl>
-                            <div className="relative">
-                               <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input placeholder="(123) 456-7890" {...field} className="pl-10" />
-                            </div>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="serviceArea"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Service Area</FormLabel>
-                           <FormControl>
-                            <div className="relative">
-                               <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input placeholder="e.g. Downtown, Anytown" {...field} className="pl-10" />
-                            </div>
-                          </FormControl>
-                          <FormDescription>Your primary city or neighborhood for clients within a 6-mile service radius.</FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="licenseNumber"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Professional License Number</FormLabel>
-                           <FormControl>
-                            <div className="relative">
-                               <Award className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input placeholder="AB-123456" {...field} className="pl-10" />
-                            </div>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="licenseUpload"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Upload License Copy</FormLabel>
-                          <FormControl>
-                            <div className="relative">
-                               <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input type="file" {...licenseFileRef} className="pl-10 file:text-primary file:font-medium" />
-                            </div>
-                          </FormControl>
-                          <FormDescription>Please upload a PDF or image of your license.</FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                     <FormField
-                      control={form.control}
-                      name="resumeUpload"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Upload Resume</FormLabel>
-                          <FormControl>
-                            <div className="relative">
-                               <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input type="file" {...resumeFileRef} className="pl-10 file:text-primary file:font-medium" />
-                            </div>
-                          </FormControl>
-                          <FormDescription>Optional. Please upload a PDF or DOCX file.</FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <Separator />
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-medium">Social Media (Optional)</h3>
-                    <p className="text-sm text-muted-foreground">
-                        Provide links to your professional social media profiles for our review. These will not be displayed to customers.
-                    </p>
+              {isSubmitted ? (
+                <div className="text-center py-12">
+                  <PartyPopper className="mx-auto h-16 w-16 text-accent" />
+                  <h2 className="mt-6 text-2xl font-bold font-headline">Application Submitted!</h2>
+                  <p className="mt-2 text-muted-foreground">
+                    Thank you for your interest in joining Nails On the Go! We have received your application and will review it shortly.
+                  </p>
+                  <Button onClick={handleNewApplication} className="mt-8" variant="outline">
+                    Submit Another Application
+                  </Button>
+                </div>
+              ) : (
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <FormField
                         control={form.control}
-                        name="instagram"
+                        name="fullName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Instagram</FormLabel>
+                            <FormLabel>Full Name</FormLabel>
                             <FormControl>
                               <div className="relative">
-                                <Instagram className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                                <Input placeholder="https://instagram.com/yourprofile" {...field} className="pl-10" />
+                                 <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input placeholder="Jessica Lee" {...field} className="pl-10" />
                               </div>
                             </FormControl>
                             <FormMessage />
@@ -220,42 +110,166 @@ export default function ApplyPage() {
                       />
                       <FormField
                         control={form.control}
-                        name="facebook"
+                        name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Facebook</FormLabel>
+                            <FormLabel>Email Address</FormLabel>
                             <FormControl>
-                              <div className="relative">
-                                <Facebook className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                                <Input placeholder="https://facebook.com/yourprofile" {...field} className="pl-10" />
+                               <div className="relative">
+                                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input placeholder="you@example.com" {...field} className="pl-10" />
                               </div>
                             </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Phone Number</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input placeholder="(123) 456-7890" {...field} className="pl-10" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="serviceArea"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Service Area</FormLabel>
+                             <FormControl>
+                              <div className="relative">
+                                 <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input placeholder="e.g. Downtown, Anytown" {...field} className="pl-10" />
+                              </div>
+                            </FormControl>
+                            <FormDescription>Your primary city or neighborhood for clients within a 6-mile service radius.</FormDescription>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="licenseNumber"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Professional License Number</FormLabel>
+                             <FormControl>
+                              <div className="relative">
+                                 <Award className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input placeholder="AB-123456" {...field} className="pl-10" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="licenseUpload"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Upload License Copy</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                 <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input type="file" {...licenseFileRef} className="pl-10 file:text-primary file:font-medium" />
+                              </div>
+                            </FormControl>
+                            <FormDescription>Please upload a PDF or image of your license.</FormDescription>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
                        <FormField
                         control={form.control}
-                        name="twitter"
+                        name="resumeUpload"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Twitter / X</FormLabel>
+                            <FormLabel>Upload Resume</FormLabel>
                             <FormControl>
                               <div className="relative">
-                                <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                                <Input placeholder="https://x.com/yourprofile" {...field} className="pl-10" />
+                                 <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input type="file" {...resumeFileRef} className="pl-10 file:text-primary file:font-medium" />
                               </div>
                             </FormControl>
+                            <FormDescription>Optional. Please upload a PDF or DOCX file.</FormDescription>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
                     </div>
-                  </div>
-                  
-                  <Button type="submit" className="w-full text-lg" size="lg" variant="accent">Submit Application</Button>
-                </form>
-              </Form>
+                    <Separator />
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Social Media (Optional)</h3>
+                      <p className="text-sm text-muted-foreground">
+                          Provide links to your professional social media profiles for our review. These will not be displayed to customers.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <FormField
+                          control={form.control}
+                          name="instagram"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Instagram</FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Instagram className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                  <Input placeholder="https://instagram.com/yourprofile" {...field} className="pl-10" />
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="facebook"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Facebook</FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Facebook className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                  <Input placeholder="https://facebook.com/yourprofile" {...field} className="pl-10" />
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                         <FormField
+                          control={form.control}
+                          name="twitter"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Twitter / X</FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                  <Input placeholder="https://x.com/yourprofile" {...field} className="pl-10" />
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
+                    
+                    <Button type="submit" className="w-full text-lg" size="lg" variant="accent">Submit Application</Button>
+                  </form>
+                </Form>
+              )}
             </CardContent>
           </Card>
         </div>
@@ -264,3 +278,5 @@ export default function ApplyPage() {
     </div>
   );
 }
+
+    
