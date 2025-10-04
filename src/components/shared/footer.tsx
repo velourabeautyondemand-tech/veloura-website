@@ -14,7 +14,7 @@ export default function Footer() {
             <span className="font-bold text-lg font-headline">Nails On the Go</span>
           </div>
           <nav className="flex items-center space-x-6 text-sm font-medium">
-            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
+            <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Press</Link>
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>

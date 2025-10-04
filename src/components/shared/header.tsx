@@ -16,6 +16,7 @@ const navLinks = [
   { href: "/#technicians", label: "Find a Technician" },
   { href: "/#services", label: "Services" },
   { href: "/apply", label: "For Technicians" },
+  { href: "/about", label: "About Us" },
 ];
 
 export default function Header() {
