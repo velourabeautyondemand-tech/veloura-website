@@ -25,7 +25,7 @@ const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
   phone: z.string().min(10, "Please enter a valid phone number."),
-  address: z.string().min(5, "Please enter a valid address."),
+  serviceArea: z.string().min(3, "Please enter a valid service area."),
   licenseNumber: z.string().min(1, "License number is required."),
   licenseUpload: z.any().refine(files => files?.length === 1, "License upload is required."),
   resumeUpload: z.any(),
@@ -40,7 +40,7 @@ export default function ApplyPage() {
             fullName: "",
             email: "",
             phone: "",
-            address: "",
+            serviceArea: "",
             licenseNumber: "",
         },
     });
@@ -122,16 +122,17 @@ export default function ApplyPage() {
                     />
                     <FormField
                       control={form.control}
-                      name="address"
+                      name="serviceArea"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Base Address</FormLabel>
+                          <FormLabel>Service Area</FormLabel>
                            <FormControl>
                             <div className="relative">
                                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input placeholder="123 Main St, Anytown" {...field} className="pl-10" />
+                               <Input placeholder="e.g. Downtown, Anytown" {...field} className="pl-10" />
                             </div>
                           </FormControl>
+                          <FormDescription>Your primary city or neighborhood for clients.</FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
