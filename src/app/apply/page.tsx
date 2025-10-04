@@ -64,7 +64,7 @@ export default function ApplyPage() {
             <CardHeader className="text-center">
               <CardTitle className="text-3xl font-bold font-headline">Become a Nails Pro on the Go</CardTitle>
               <CardDescription className="text-lg text-muted-foreground pt-2">Join our network of elite mobile nail technicians. Apply below!</CardDescription>
-              <p className="text-sm text-muted-foreground pt-2">Please note: An in-person live interview is required. Date and location to be determined upon application selection.</p>
+              <p className="text-sm text-muted-foreground pt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
             </CardHeader>
             <CardContent>
               <Form {...form}>
