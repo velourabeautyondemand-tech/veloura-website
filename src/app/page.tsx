@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Search } from 'lucide-react';
@@ -77,7 +78,6 @@ export default function Home() {
                     <CardContent className="p-4">
                       <h3 className="text-lg font-semibold font-headline">{service.name}</h3>
                       <p className="text-sm text-muted-foreground mt-1">{service.duration} mins</p>
-                      <p className="text-lg font-bold text-primary mt-2">${service.price.toFixed(2)}</p>
                     </CardContent>
                   </Card>
                 );
