@@ -71,7 +71,6 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                         </div>
                         <div className="text-right">
                             <p className="font-bold text-lg text-primary">${service.price.toFixed(2)}</p>
-                            <Button size="sm" variant="accent" className="mt-1">Select</Button>
                         </div>
                      </div>
                   ))}
@@ -124,7 +123,7 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
               <Card className="sticky top-24 shadow-xl">
                 <CardHeader>
                   <CardTitle className="font-headline text-2xl">Book an Appointment</CardTitle>
-                  <CardDescription>Select a date and time.</CardDescription>
+                  <CardDescription>Booking will be available soon!</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
@@ -133,13 +132,14 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                         mode="single"
                         selected={new Date()}
                         className="rounded-md border"
+                        disabled
                     />
                   </div>
                    <div>
                     <h3 className="font-semibold mb-2 flex items-center"><Clock className="w-4 h-4 mr-2" /> Time</h3>
                     <div className="grid grid-cols-3 gap-2">
                         {['09:00 AM', '11:00 AM', '01:00 PM', '03:00 PM', '05:00 PM', '07:00 PM'].map(time => (
-                            <Button key={time} variant="outline">{time}</Button>
+                            <Button key={time} variant="outline" disabled>{time}</Button>
                         ))}
                     </div>
                   </div>
@@ -158,7 +158,7 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                         <span>$55.00</span>
                     </div>
                   </div>
-                  <Button size="lg" className="w-full text-lg" variant="accent">Request to Book</Button>
+                  <Button size="lg" className="w-full text-lg" variant="accent" disabled>Request to Book</Button>
                 </CardContent>
               </Card>
             </div>

@@ -41,9 +41,7 @@ export default function Header() {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" asChild>
-                <Link href="/bookings">My Bookings</Link>
-            </Button>
+            
             <Button variant="accent" asChild>
                 <Link href="/admin">Admin Dashboard</Link>
             </Button>
@@ -83,9 +81,7 @@ export default function Header() {
                 ))}
               </div>
               <div className="flex flex-col space-y-2 pt-6 border-t">
-                 <Button variant="ghost" asChild>
-                    <Link href="/bookings">My Bookings</Link>
-                </Button>
+                 
                 <Button variant="accent" asChild>
                     <Link href="/admin">Admin Dashboard</Link>
                 </Button>

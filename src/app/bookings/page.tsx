@@ -37,19 +37,6 @@ export default function BookingsPage() {
           <Tag className="w-4 h-4 mr-2" /> ${booking.price.toFixed(2)}
         </div>
       </CardContent>
-      {booking.status === 'upcoming' && (
-        <CardFooter className="flex gap-2">
-          <Button variant="outline">Reschedule</Button>
-          <Button variant="destructive">Cancel</Button>
-        </CardFooter>
-      )}
-       {booking.status === 'completed' && (
-        <CardFooter>
-          <Button variant="accent" asChild>
-            <Link href={`/technicians/${booking.technicianId}`}>Book Again</Link>
-          </Button>
-        </CardFooter>
-      )}
     </Card>
   );
 
@@ -59,39 +46,12 @@ export default function BookingsPage() {
       <main className="flex-1 bg-secondary/30 py-12">
         <div className="container mx-auto px-4 md:px-6">
           <h1 className="text-3xl font-bold mb-8 font-headline">My Bookings</h1>
-          <Tabs defaultValue="upcoming" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:w-[400px]">
-              <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-              <TabsTrigger value="past">Past & Cancelled</TabsTrigger>
-            </TabsList>
-            <TabsContent value="upcoming">
-              {upcomingBookings.length > 0 ? (
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6">
-                  {upcomingBookings.map(booking => <BookingCard key={booking.id} booking={booking} />)}
-                </div>
-              ) : (
-                <div className="text-center py-20 border-2 border-dashed rounded-lg mt-6">
-                    <NailIcon className="mx-auto h-12 w-12 text-muted-foreground"/>
-                    <h3 className="mt-4 text-lg font-medium">No upcoming bookings</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">Time for some self-care?</p>
-                    <Button className="mt-6" variant="accent" asChild><Link href="/">Book a Service</Link></Button>
-                </div>
-              )}
-            </TabsContent>
-            <TabsContent value="past">
-              {pastBookings.length > 0 ? (
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6">
-                  {pastBookings.map(booking => <BookingCard key={booking.id} booking={booking} />)}
-                </div>
-              ) : (
-                 <div className="text-center py-20 border-2 border-dashed rounded-lg mt-6">
-                    <NailIcon className="mx-auto h-12 w-12 text-muted-foreground"/>
-                    <h3 className="mt-4 text-lg font-medium">No past bookings</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">Your booking history will appear here.</p>
-                </div>
-              )}
-            </TabsContent>
-          </Tabs>
+          <div className="text-center py-20 border-2 border-dashed rounded-lg mt-6">
+              <NailIcon className="mx-auto h-12 w-12 text-muted-foreground"/>
+              <h3 className="mt-4 text-lg font-medium">Coming Soon!</h3>
+              <p className="mt-2 text-sm text-muted-foreground">We are getting ready to launch! You'll be able to see your bookings here.</p>
+              <Button className="mt-6" variant="accent" asChild><Link href="/">Go to Homepage</Link></Button>
+          </div>
         </div>
       </main>
       <Footer />
