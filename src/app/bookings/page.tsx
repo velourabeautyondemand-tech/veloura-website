@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calendar, Tag, User, Clock, Sprout } from 'lucide-react';
+import { Calendar, Tag, User, Clock } from 'lucide-react';
 import { bookings } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
+import { NailIcon } from '@/components/shared/logo';
 
 export default function BookingsPage() {
   const upcomingBookings = bookings.filter(b => b.status === 'upcoming');
@@ -70,7 +71,7 @@ export default function BookingsPage() {
                 </div>
               ) : (
                 <div className="text-center py-20 border-2 border-dashed rounded-lg mt-6">
-                    <Sprout className="mx-auto h-12 w-12 text-muted-foreground"/>
+                    <NailIcon className="mx-auto h-12 w-12 text-muted-foreground"/>
                     <h3 className="mt-4 text-lg font-medium">No upcoming bookings</h3>
                     <p className="mt-2 text-sm text-muted-foreground">Time for some self-care?</p>
                     <Button className="mt-6" variant="accent" asChild><Link href="/">Book a Service</Link></Button>
@@ -84,7 +85,7 @@ export default function BookingsPage() {
                 </div>
               ) : (
                  <div className="text-center py-20 border-2 border-dashed rounded-lg mt-6">
-                    <Sprout className="mx-auto h-12 w-12 text-muted-foreground"/>
+                    <NailIcon className="mx-auto h-12 w-12 text-muted-foreground"/>
                     <h3 className="mt-4 text-lg font-medium">No past bookings</h3>
                     <p className="mt-2 text-sm text-muted-foreground">Your booking history will appear here.</p>
                 </div>

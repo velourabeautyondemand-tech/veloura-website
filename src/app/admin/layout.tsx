@@ -14,8 +14,9 @@ import {
   SidebarInset,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Sprout, LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut, UserCircle } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { NailIcon } from "@/components/shared/logo";
 
 const adminNavItems = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -39,7 +40,7 @@ export default function AdminLayout({
         <Sidebar>
           <SidebarHeader>
              <Link href="/" className="flex items-center gap-2">
-                <Sprout className="w-6 h-6 text-primary" />
+                <NailIcon className="w-6 h-6 text-primary" />
                 <span className="font-semibold font-headline text-lg">Nails On the Go</span>
              </Link>
           </SidebarHeader>

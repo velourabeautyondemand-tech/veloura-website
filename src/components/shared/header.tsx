@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, Sprout } from "lucide-react"
+import { Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -9,6 +9,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { NailIcon } from "./logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -23,7 +24,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <div className="mr-auto flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Sprout className="h-6 w-6 text-primary" />
+            <NailIcon className="h-6 w-6 text-primary" />
             <span className="font-bold inline-block font-headline">Nails On the Go</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -66,7 +67,7 @@ export default function Header() {
             <div className="flex flex-col h-full">
               <div className="flex items-center border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
-                  <Sprout className="h-6 w-6 text-primary" />
+                  <NailIcon className="h-6 w-6 text-primary" />
                   <span className="font-bold">Nails On the Go</span>
                 </Link>
               </div>

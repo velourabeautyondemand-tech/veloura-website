@@ -14,9 +14,10 @@ import {
   SidebarInset,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Sprout, Briefcase, Calendar, DollarSign, User, LogOut } from "lucide-react";
+import { Briefcase, Calendar, DollarSign, User, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { technicians } from "@/lib/data";
+import { NailIcon } from "@/components/shared/logo";
 
 const techNavItems = [
     { href: "/technician/dashboard", label: "Jobs", icon: Briefcase },
@@ -39,7 +40,7 @@ export default function TechnicianLayout({
         <Sidebar>
           <SidebarHeader>
              <Link href="/" className="flex items-center gap-2">
-                <Sprout className="w-6 h-6 text-primary" />
+                <NailIcon className="w-6 h-6 text-primary" />
                 <span className="font-semibold font-headline text-lg">Nails On the Go</span>
              </Link>
           </SidebarHeader>
