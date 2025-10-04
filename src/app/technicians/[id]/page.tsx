@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Star, MapPin, Sparkles, Calendar as CalendarIcon, Clock } from 'lucide-react';
+import Link from 'next/link';
+import { Star, MapPin, Sparkles, Calendar as CalendarIcon, Clock, Twitter, Instagram, Facebook } from 'lucide-react';
 
 import { technicians, services as allServices } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -53,6 +54,25 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                       </div>
                     </div>
                     <p className="mt-4">{technician.bio}</p>
+                    {technician.socials && (
+                        <div className="flex items-center gap-4 mt-4">
+                            {technician.socials.twitter && (
+                                <Link href={technician.socials.twitter} target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" size="icon"><Twitter className="h-5 w-5" /></Button>
+                                </Link>
+                            )}
+                            {technician.socials.instagram && (
+                                <Link href={technician.socials.instagram} target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" size="icon"><Instagram className="h-5 w-5" /></Button>
+                                </Link>
+                            )}
+                            {technician.socials.facebook && (
+                                <Link href={technician.socials.facebook} target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" size="icon"><Facebook className="h-5 w-5" /></Button>
+                                </Link>
+                            )}
+                        </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>

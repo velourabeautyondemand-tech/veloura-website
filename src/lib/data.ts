@@ -17,6 +17,11 @@ export type Technician = {
   services: string[]; // array of service ids
   avatarId: string;
   reviews: { reviewer: string; comment: string; rating: number }[];
+  socials?: {
+    twitter?: string;
+    instagram?: string;
+    facebook?: string;
+  };
 };
 
 export type Booking = {
@@ -67,7 +72,12 @@ export const technicians: Technician[] = [
       { reviewer: 'Charlie', comment: 'Good service, but was a bit late.', rating: 4 },
       { reviewer: 'Diana', comment: 'Incredible attention to detail. Best manicure I have ever had. She is a true artist and very professional.', rating: 5},
       { reviewer: 'Eve', comment: 'The results were nice, but the process felt rushed. I expected a more relaxing experience for the price.', rating: 3}
-    ]
+    ],
+    socials: {
+        twitter: 'https://twitter.com/jessicanails',
+        instagram: 'https://instagram.com/jessicanails',
+        facebook: 'https://facebook.com/jessicanails'
+    }
   },
   {
     id: '2',
@@ -82,7 +92,10 @@ export const technicians: Technician[] = [
       { reviewer: 'Frank', comment: 'Maria gives the best pedicures in town. Period.', rating: 5 },
       { reviewer: 'Grace', comment: 'So relaxing, I almost fell asleep. My feet have never been softer.', rating: 5 },
       { reviewer: 'Heidi', comment: 'A wonderful experience, although a bit pricey.', rating: 4}
-    ]
+    ],
+    socials: {
+        instagram: 'https://instagram.com/mariasspanails',
+    }
   },
   {
     id: '3',
