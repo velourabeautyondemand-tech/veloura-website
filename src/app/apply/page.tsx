@@ -62,7 +62,7 @@ export default function ApplyPage() {
         <div className="container mx-auto px-4 md:px-6">
           <Card className="max-w-3xl mx-auto shadow-lg">
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold font-headline">Become a Nail Pro On the Go</CardTitle>
+              <CardTitle className="text-3xl font-bold font-headline">Join our Nails On the Go Team</CardTitle>
               <CardDescription className="text-lg text-muted-foreground pt-2">Join our network of elite mobile nail technicians. Apply below!</CardDescription>
             </CardHeader>
             <CardContent>
