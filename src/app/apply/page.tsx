@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Upload, User, Mail, Phone, MapPin, Award } from "lucide-react";
+import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +20,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 import { useToast } from "@/hooks/use-toast";
+import { Separator } from "@/components/ui/separator";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -29,6 +30,9 @@ const formSchema = z.object({
   licenseNumber: z.string().min(1, "License number is required."),
   licenseUpload: z.any().refine(files => files?.length === 1, "License upload is required."),
   resumeUpload: z.any(),
+  twitter: z.string().url().optional().or(z.literal('')),
+  instagram: z.string().url().optional().or(z.literal('')),
+  facebook: z.string().url().optional().or(z.literal('')),
 });
 
 export default function ApplyPage() {
@@ -42,6 +46,9 @@ export default function ApplyPage() {
             phone: "",
             serviceArea: "",
             licenseNumber: "",
+            twitter: "",
+            instagram: "",
+            facebook: "",
         },
     });
     
@@ -187,6 +194,63 @@ export default function ApplyPage() {
                         </FormItem>
                       )}
                     />
+                  </div>
+                  <Separator />
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-medium">Social Media (Optional)</h3>
+                    <p className="text-sm text-muted-foreground">
+                        Provide links to your professional social media profiles for our review. These will not be displayed to customers.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <FormField
+                        control={form.control}
+                        name="instagram"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Instagram</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <Instagram className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                <Input placeholder="https://instagram.com/yourprofile" {...field} className="pl-10" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="facebook"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Facebook</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <Facebook className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                <Input placeholder="https://facebook.com/yourprofile" {...field} className="pl-10" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                       <FormField
+                        control={form.control}
+                        name="twitter"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Twitter / X</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                <Input placeholder="https://x.com/yourprofile" {...field} className="pl-10" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                   </div>
                   
                   <Button type="submit" className="w-full text-lg" size="lg" variant="accent">Submit Application</Button>
