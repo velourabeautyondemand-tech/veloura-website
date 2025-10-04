@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook, PartyPopper, Briefcase, DollarSign, Sparkles } from "lucide-react";
+import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook, PartyPopper, Briefcase, DollarSign, Sparkles, ShieldCheck, Users } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -50,7 +50,17 @@ const benefits = [
         icon: Sparkles,
         title: "Focus on Your Craft",
         description: "We handle the marketing, booking, and payment processing, so you can concentrate on what you do best: creating beautiful nails."
-    }
+    },
+    {
+        icon: Users,
+        title: "Access a Wide Client Base",
+        description: "We connect you with a steady stream of clients who have busy schedules and are looking for premium, at-home nail services."
+    },
+    {
+        icon: ShieldCheck,
+        title: "Your Safety is Our Priority",
+        description: "We provide a safe working environment by running background checks for house calls and providing insurance for all our technicians."
+    },
 ];
 
 export default function ApplyPage() {
@@ -93,21 +103,21 @@ export default function ApplyPage() {
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Why Join the Nails On the Go Team?</h2>
                     <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">We empower talented nail technicians to build their own business with the support of a strong brand behind them.</p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8 text-center">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center items-stretch">
                     {benefits.map((benefit, index) => (
-                        <div key={index} className="bg-card p-8 rounded-xl shadow-md">
+                        <div key={index} className="bg-card p-8 rounded-xl shadow-md flex flex-col">
                             <div className="mb-4">
                                 <benefit.icon className="h-12 w-12 text-primary mx-auto" />
                             </div>
                             <h3 className="text-xl font-bold font-headline mb-2">{benefit.title}</h3>
-                            <p className="text-muted-foreground">{benefit.description}</p>
+                            <p className="text-muted-foreground flex-grow">{benefit.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
           <Card className="max-w-3xl mx-auto shadow-lg">
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold font-headline">Join Our Nails On the Go Team</CardTitle>
+              <CardTitle className="text-3xl font-bold font-headline">Become a Nails Pro on the Go</CardTitle>
               <CardDescription className="text-lg text-muted-foreground pt-2">Ready to take control of your career? Apply below!</CardDescription>
               <p className="text-sm text-muted-foreground pt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
             </CardHeader>
@@ -313,3 +323,4 @@ export default function ApplyPage() {
     </div>
   );
 }
+    
