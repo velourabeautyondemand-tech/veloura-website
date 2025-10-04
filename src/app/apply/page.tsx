@@ -28,6 +28,7 @@ const formSchema = z.object({
   address: z.string().min(5, "Please enter a valid address."),
   licenseNumber: z.string().min(1, "License number is required."),
   licenseUpload: z.any().refine(files => files?.length === 1, "License upload is required."),
+  resumeUpload: z.any(),
 });
 
 export default function ApplyPage() {
@@ -44,7 +45,8 @@ export default function ApplyPage() {
         },
     });
     
-    const fileRef = form.register("licenseUpload");
+    const licenseFileRef = form.register("licenseUpload");
+    const resumeFileRef = form.register("resumeUpload");
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values);
@@ -159,10 +161,27 @@ export default function ApplyPage() {
                           <FormControl>
                             <div className="relative">
                                <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                               <Input type="file" {...fileRef} className="pl-10 file:text-primary file:font-medium" />
+                               <Input type="file" {...licenseFileRef} className="pl-10 file:text-primary file:font-medium" />
                             </div>
                           </FormControl>
                           <FormDescription>Please upload a PDF or image of your license.</FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                     <FormField
+                      control={form.control}
+                      name="resumeUpload"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Upload Resume</FormLabel>
+                          <FormControl>
+                            <div className="relative">
+                               <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                               <Input type="file" {...resumeFileRef} className="pl-10 file:text-primary file:font-medium" />
+                            </div>
+                          </FormControl>
+                          <FormDescription>Optional. Please upload a PDF or DOCX file.</FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
