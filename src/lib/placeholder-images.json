@@ -1,3 +1,124 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "service_1",
+      "description": "Classic Manicure",
+      "imageUrl": "https://images.unsplash.com/photo-1595320378041-72f4c1490773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxuYWlsJTIwbWFuaWN1cmV8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nail manicure"
+    },
+    {
+      "id": "service_2",
+      "description": "Gel Manicure",
+      "imageUrl": "https://images.unsplash.com/photo-1693776528358-57530ad993ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnZWwlMjBuYWlsc3xlbnwwfHx8fDE3NTk1MDkzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gel nails"
+    },
+    {
+      "id": "service_3",
+      "description": "Spa Pedicure",
+      "imageUrl": "https://images.unsplash.com/photo-1634235421232-7dee1989eb0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxuYWlsJTIwcGVkaWN1cmV8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nail pedicure"
+    },
+    {
+      "id": "service_4",
+      "description": "Nail Art",
+      "imageUrl": "https://images.unsplash.com/photo-1696342003838-4a8f9f36588c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bmFpbCUyMGFydHxlbnwwfHx8fDE3NTk1NzUwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nail art"
+    },
+    {
+      "id": "service_5",
+      "description": "Acrylic Full Set",
+      "imageUrl": "https://images.unsplash.com/photo-1719494206679-24a205905578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhY3J5bGljJTIwbmFpbHN8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "acrylic nails"
+    },
+    {
+      "id": "service_6",
+      "description": "Dip Powder Nails",
+      "imageUrl": "https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaXAlMjBwb3dkZXJ8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dip powder"
+    },
+    {
+      "id": "service_7",
+      "description": "Nail Repair",
+      "imageUrl": "https://images.unsplash.com/photo-1585728472630-f7370bbb4a31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxicm9rZW4lMjBuYWlsfGVufDB8fHx8MTc1OTU5MzQ1NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "broken nail"
+    },
+    {
+      "id": "service_8",
+      "description": "Polish Change",
+      "imageUrl": "https://images.unsplash.com/photo-1602585578130-c9076e09330d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxuYWlsJTIwcG9saXNofGVufDB8fHx8MTc1OTUxMTI3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nail polish"
+    },
+    {
+      "id": "service_9",
+      "description": "Deluxe Pedicure",
+      "imageUrl": "https://images.unsplash.com/photo-1559185590-d545a0c5a1dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmb290JTIwc3BhfGVufDB8fHx8MTc1OTU5MzQ1NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "foot spa"
+    },
+    {
+      "id": "service_10",
+      "description": "Paraffin Wax Treatment",
+      "imageUrl": "https://images.unsplash.com/photo-1694610882150-4de206edf95a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwYXJhZmZpbiUyMHdheHxlbnwwfHx8fDE3NTk1OTM0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paraffin wax"
+    },
+    {
+      "id": "service_11",
+      "description": "French Manicure",
+      "imageUrl": "https://images.unsplash.com/photo-1599316329891-19df7fa9580d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmcmVuY2glMjBtYW5pY3VyZXxlbnwwfHx8fDE3NTk1NzUwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "french manicure"
+    },
+    {
+      "id": "service_12",
+      "description": "Gel-X Extensions",
+      "imageUrl": "https://images.unsplash.com/photo-1645566372784-7d017ad7643b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bmFpbCUyMGV4dGVuc2lvbnN8ZW58MHx8fHwxNzU5NTc1MDA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nail extensions"
+    },
+    {
+      "id": "service_13",
+      "description": "Men's Sport Manicure",
+      "imageUrl": "https://images.unsplash.com/photo-1615837955432-86ef05084cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYWxlJTIwaGFuZHN8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male hands"
+    },
+    {
+      "id": "service_14",
+      "description": "Cuticle Care",
+      "imageUrl": "https://images.unsplash.com/photo-1671871695722-b91911e9c072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjdXRpY2xlJTIwb2lsfGVufDB8fHx8MTc1OTU5MzQ1NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cuticle oil"
+    },
+    {
+      "id": "service_15",
+      "description": "Hand Massage",
+      "imageUrl": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW5kJTIwbWFzc2FnZXxlbnwwfHx8fDE3NTk1OTM0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hand massage"
+    },
+    {
+      "id": "tech_avatar_1",
+      "description": "Avatar for Jessica",
+      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "tech_avatar_2",
+      "description": "Avatar for Maria",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzU5NTQ4MjA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "tech_avatar_3",
+      "description": "Avatar for Chloe",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMGZhY2V8ZW58MHx8fHwxNzU5NTU5OTg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman face"
+    },
+    {
+      "id": "tech_avatar_4",
+      "description": "Avatar for Ben",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "tech_avatar_5",
+      "description": "Avatar for Sarah",
+      "imageUrl": "https://images.unsplash.com/photo-1614436201459-156d322d38c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbWlsaW5nJTIwd29tYW58ZW58MHx8fHwxNzU5NTExMjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling woman"
+    }
+  ]
 }
