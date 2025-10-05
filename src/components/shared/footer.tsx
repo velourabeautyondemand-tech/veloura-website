@@ -26,7 +26,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>&copy; {year} Beauty on the Go. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-2">
+            <p>&copy; {year} Beauty on the Go. All rights reserved.</p>
+            <p className="text-xs">powered by iAmDreamMaker Production Group</p>
+          </div>
           <div className="flex space-x-4 mt-4 sm:mt-0">
             <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
             <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
