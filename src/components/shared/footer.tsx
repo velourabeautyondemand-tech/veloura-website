@@ -19,11 +19,7 @@ export default function Footer() {
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Press</Link>
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
           </nav>
-          <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <Link href="#" aria-label="Twitter"><Twitter className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" /></Link>
-            <Link href="#" aria-label="Facebook"><Facebook className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" /></Link>
-            <Link href="#" aria-label="Instagram"><Instagram className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" /></Link>
-          </div>
+          
         </div>
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
           <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-2">
