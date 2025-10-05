@@ -96,16 +96,16 @@ export default function ApplyPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1 bg-secondary/30 py-12 md:py-24">
+      <main className="flex-1 bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
             <section id="why-join-us" className="mb-16">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Why Join the Nails On the Go Team?</h2>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">We empower talented nail technicians to build their own business with the support of a strong brand behind them.</p>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Why Join the Beauty on the Go Team?</h2>
+                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">We empower talented technicians to build their own business with the support of a strong brand behind them.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center items-stretch">
                     {benefits.map((benefit, index) => (
-                        <div key={index} className="bg-card p-8 rounded-xl shadow-md flex flex-col">
+                        <div key={index} className="bg-card p-8 rounded-xl shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 flex flex-col">
                             <div className="mb-4">
                                 <benefit.icon className="h-12 w-12 text-primary mx-auto" />
                             </div>
@@ -115,9 +115,9 @@ export default function ApplyPage() {
                     ))}
                 </div>
             </section>
-          <Card className="max-w-3xl mx-auto shadow-lg">
+          <Card className="max-w-3xl mx-auto shadow-2xl bg-card/80 backdrop-blur-sm">
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold font-headline">Become a Nails Pro on the Go</CardTitle>
+              <CardTitle className="text-3xl font-bold font-headline">Become a Beauty Pro on the Go</CardTitle>
               <CardDescription className="text-lg text-muted-foreground pt-2">Ready to take control of your career? Apply below!</CardDescription>
               <p className="text-sm text-muted-foreground pt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
             </CardHeader>
@@ -127,7 +127,7 @@ export default function ApplyPage() {
                   <PartyPopper className="mx-auto h-16 w-16 text-accent" />
                   <h2 className="mt-6 text-2xl font-bold font-headline">Application Submitted!</h2>
                   <p className="mt-2 text-muted-foreground">
-                    Thank you for your interest in joining Nails On the Go! We have received your application and will review it shortly.
+                    Thank you for your interest in joining Beauty on the Go! We have received your application and will review it shortly.
                   </p>
                   <Button onClick={handleNewApplication} className="mt-8" variant="outline">
                     Submit Another Application

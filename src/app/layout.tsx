@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Nails On the Go',
-  description: 'Book professional nail technicians to your door.',
+  title: 'Beauty on the Go',
+  description: 'Book professional beauty technicians to your door.',
 };
 
 export default function RootLayout({

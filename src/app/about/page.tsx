@@ -42,7 +42,7 @@ export default function AboutPage() {
                         <div className="max-w-3xl mx-auto">
                             <NailIcon className="w-16 h-16 text-primary mx-auto mb-4" />
                             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                                The Art of Nail Care, Redefined.
+                                The Art of Beauty, Redefined.
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
                                 We're bringing luxury, convenience, and empowerment to the forefront of the beauty industry.
@@ -58,13 +58,13 @@ export default function AboutPage() {
                             <div className="prose lg:prose-lg max-w-none text-muted-foreground">
                                 <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">Our Story</h2>
                                 <p>
-                                    Nails On the Go was born from a simple realization: in our fast-paced world, finding time for self-care is a challenge. Our founder, a busy professional with a passion for beautifully crafted nails, often struggled to fit salon appointments into her packed schedule. She dreamt of a service that didn't force a choice between a demanding career and personal pampering.
+                                    Beauty on the Go was born from a simple realization: in our fast-paced world, finding time for self-care is a challenge. Our founder, a busy professional with a passion for beautifully crafted nails, often struggled to fit salon appointments into her packed schedule. She dreamt of a service that didn't force a choice between a demanding career and personal pampering.
                                 </p>
                                 <p>
                                     Why couldn't the luxury and expertise of a high-end nail salon come to you?
                                 </p>
                                 <p>
-                                    This question sparked an idea. What if there was a platform that connected talented, independent nail technicians with clients seeking convenience without sacrificing quality? A service that would empower artists to be their own bosses and allow clients to receive five-star treatment in the comfort of their own space. From this vision, Nails On the Go was created—a seamless, safe, and sophisticated solution for modern nail care.
+                                    This question sparked an idea. What if there was a platform that connected talented, independent beauty technicians with clients seeking convenience without sacrificing quality? A service that would empower artists to be their own bosses and allow clients to receive five-star treatment in the comfort of their own space. From this vision, Beauty on the Go was created—a seamless, safe, and sophisticated solution for modern beauty care.
                                 </p>
                             </div>
                             <div>

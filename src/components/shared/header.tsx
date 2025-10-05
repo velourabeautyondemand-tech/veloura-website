@@ -25,8 +25,8 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <div className="mr-auto flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <NailIcon className="h-6 w-6 text-primary" />
-            <span className="font-bold inline-block font-headline">Nails On the Go</span>
+            <NailIcon className="h-6 w-6" />
+            <span className="font-bold inline-block font-headline">Beauty on the Go</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map(link => (
@@ -66,8 +66,8 @@ export default function Header() {
             <div className="flex flex-col h-full">
               <div className="flex items-center border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
-                  <NailIcon className="h-6 w-6 text-primary" />
-                  <span className="font-bold">Nails On the Go</span>
+                  <NailIcon className="h-6 w-6" />
+                  <span className="font-bold">Beauty on the Go</span>
                 </Link>
               </div>
               <div className="flex-1 flex flex-col pt-6 space-y-4">
