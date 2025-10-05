@@ -69,12 +69,12 @@ export default function AboutPage() {
                             </div>
                             <div>
                                 <Image
-                                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtZWV0aW5nJTIwdGVhbXxlbnwwfHx8fDE3NTk3NTAyOTF8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                                    alt="Team planning session"
+                                    src="https://images.unsplash.com/photo-1596462502236-42332a76b158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmYXNoaW9uJTIwYmVhdXR5JTIwdGVhbXxlbnwwfHx8fDE3NjA2NDAxNjV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                                    alt="Beauty team working together"
                                     width={600}
                                     height={400}
                                     className="rounded-xl shadow-lg w-full"
-                                    data-ai-hint="meeting team"
+                                    data-ai-hint="fashion team"
                                 />
                             </div>
                         </div>
