@@ -40,7 +40,14 @@ export default function AboutPage() {
                 <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50 text-center">
                      <div className="container mx-auto px-4 md:px-6">
                         <div className="max-w-3xl mx-auto">
-                            <NailIcon className="w-16 h-16 text-primary mx-auto mb-4" />
+                            <Image
+                                src="/logo.png"
+                                alt="Beauty on the Go Logo"
+                                width={200}
+                                height={200}
+                                className="mx-auto mb-8 rounded-2xl"
+                                data-ai-hint="logo"
+                            />
                             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
                                 The Art of Beauty, Redefined.
                             </h1>
