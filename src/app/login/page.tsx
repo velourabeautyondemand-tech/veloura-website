@@ -5,8 +5,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { useAuth } from '@/firebase'; // Using the centralized hook
+import { useAuth, useFirestore } from '@/firebase'; // Using the centralized hook
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -32,6 +33,7 @@ const formSchema = z.object({
 export default function LoginPage() {
   const router = useRouter();
   const auth = useAuth();
+  const firestore = useFirestore();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,8 +49,29 @@ export default function LoginPage() {
     setIsLoading(true);
     setError(null);
     try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      router.push('/admin');
+      const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+      const user = userCredential.user;
+
+      if (user && firestore) {
+        const userDocRef = doc(firestore, 'users', user.uid);
+        const userDoc = await getDoc(userDocRef);
+
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          if (userData.role === 'admin') {
+            router.push('/admin');
+          } else if (userData.role === 'technician') {
+            router.push('/technician/dashboard');
+          } else {
+             router.push('/'); // Fallback for other roles or no role
+          }
+        } else {
+          // No user profile found, redirect to a default page
+          setError('User profile not found.');
+          router.push('/');
+        }
+      }
+
     } catch (error: any) {
       setError(error.message);
     } finally {
@@ -63,8 +86,8 @@ export default function LoginPage() {
           <Link href="/" className="inline-block mb-4">
             <NailIcon className="h-12 w-12 mx-auto" />
           </Link>
-          <CardTitle className="text-2xl font-bold font-headline">Admin Login</CardTitle>
-          <CardDescription>Enter your credentials to access the dashboard.</CardDescription>
+          <CardTitle className="text-2xl font-bold font-headline">Member Login</CardTitle>
+          <CardDescription>Enter your credentials to access your dashboard.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -76,7 +99,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="admin@example.com" {...field} />
+                      <Input placeholder="you@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -10,6 +10,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { NailIcon } from "./logo";
+import { useUser, useAuth } from "@/firebase";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -18,6 +20,16 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const { user, isUserLoading } = useUser();
+  const auth = useAuth();
+  const router = useRouter();
+
+  const handleSignOut = () => {
+    auth.signOut().then(() => {
+      router.push('/login');
+    });
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
@@ -40,13 +52,22 @@ export default function Header() {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-            
-            <Button variant="accent" asChild>
-                <Link href="/admin">Admin Dashboard</Link>
-            </Button>
-            <Button asChild>
-                <Link href="/technician/dashboard">Technician Dashboard</Link>
-            </Button>
+            {!isUserLoading && !user && (
+              <Button asChild variant="ghost">
+                <Link href="/login">Login</Link>
+              </Button>
+            )}
+             {!isUserLoading && user && (
+              <>
+                <Button variant="accent" asChild>
+                    <Link href="/admin">Admin Dashboard</Link>
+                </Button>
+                <Button asChild>
+                    <Link href="/technician/dashboard">Technician Dashboard</Link>
+                </Button>
+                <Button onClick={handleSignOut} variant="outline">Sign Out</Button>
+              </>
+            )}
         </div>
 
         <Sheet>
@@ -80,13 +101,22 @@ export default function Header() {
                 ))}
               </div>
               <div className="flex flex-col space-y-2 pt-6 border-t">
-                 
-                <Button variant="accent" asChild>
-                    <Link href="/admin">Admin Dashboard</Link>
-                </Button>
-                <Button asChild>
-                    <Link href="/technician/dashboard">Technician Dashboard</Link>
-                </Button>
+                 {!isUserLoading && !user && (
+                    <Button asChild>
+                        <Link href="/login">Login</Link>
+                    </Button>
+                 )}
+                 {!isUserLoading && user && (
+                    <>
+                        <Button variant="accent" asChild>
+                            <Link href="/admin">Admin Dashboard</Link>
+                        </Button>
+                        <Button asChild>
+                            <Link href="/technician/dashboard">Technician Dashboard</Link>
+                        </Button>
+                        <Button onClick={handleSignOut} variant="outline">Sign Out</Button>
+                    </>
+                 )}
               </div>
             </div>
           </SheetContent>

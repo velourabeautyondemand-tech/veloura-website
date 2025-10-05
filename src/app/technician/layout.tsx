@@ -18,6 +18,9 @@ import { Briefcase, Calendar, DollarSign, User, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { technicians } from "@/lib/data";
 import { NailIcon } from "@/components/shared/logo";
+import { useAuth } from "@/firebase";
+import { useRouter } from "next/navigation";
+import { AuthRequired } from "@/components/auth-required";
 
 const techNavItems = [
     { href: "/technician/dashboard", label: "Jobs", icon: Briefcase },
@@ -26,13 +29,21 @@ const techNavItems = [
     { href: "/technician/profile", label: "Profile", icon: User },
 ];
 
-export default function TechnicianLayout({
+function TechnicianLayoutContent({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
   const currentTech = technicians[0]; // mock current technician
+  const auth = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    auth.signOut().then(() => {
+      router.push('/login');
+    });
+  };
   
   return (
     <SidebarProvider>
@@ -64,7 +75,7 @@ export default function TechnicianLayout({
           <SidebarFooter>
              <SidebarMenu>
                 <SidebarMenuItem>
-                    <SidebarMenuButton tooltip="Logout">
+                    <SidebarMenuButton tooltip="Logout" onClick={handleLogout}>
                         <LogOut className="w-5 h-5" />
                         <span>Logout</span>
                     </SidebarMenuButton>
@@ -90,4 +101,16 @@ export default function TechnicianLayout({
       </div>
     </SidebarProvider>
   );
+}
+
+export default function TechnicianLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <AuthRequired>
+      <TechnicianLayoutContent>{children}</TechnicianLayoutContent>
+    </AuthRequired>
+  )
 }
