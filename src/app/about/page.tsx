@@ -31,6 +31,8 @@ const values = [
     },
 ]
 
+const logoDataUri = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAADAFBMVEXXGBrgACDXGBrgACDXGBrgACDXGBrgACDXGBrgACDXGBrgACDXGBroZmb++Pj76+vtbm7cISHjQE والدYWF88PDjRETjQEDmRETdGRn87u798fH+/v7tcnLpHh7vgoL40NDsZmbfLCzuior3yMj87+/mS0v99vbzra3pamp+fn7lPz/88PD++fn76en64uLzsbHwjo7ucnL65ubiamrfHBz4zc3wbW3ucHD52dn2xcXnU1Ptb2/ydnb63t70u7vznJzhMTHeJibfKSn1vb3zhYXkdnb1xMTRBwfxmZnldXXpZGTbExP2ycnldHTQS0vWRkbURUXTRUXSQ0PPOjrNOzvMPz/OYWHMc3PMeXnLg4PLiorLioq9h4e9jo6+kZGtgnqvg3qehHGVfHOJeh2QeRyLcRmLbRmJahn62NjpXV3lSUnlRUXXODjXOjrYOzvXQUHXQEDWPz/OYmLYZWWygoKYiIiZh4eYiYmWjIyVj4+Uj4+VlJSWlpaYmJieoaGipKSkpqamp6enqKioqqqqq6urrKysra2trq6ur6+vsLCwsbGxsrKys7OztLS0t7e3ubm5urq6u7u7vLy8vb29vr6+v7+/wMDAw8PDxMTExsbGx8fHyMjIycnJysrKy8vLzMzMzc3Nzs7O0NDQ0dHR0tLS1dXV1tbW19fX2NjY2dnZ2tra29vb3Nzc3t7e4eHh4uLi4+Pj5OTk5eXl5ubm5+fn6enp6urq6+vr7Ozs7u7u7+/v8PDw8fHx8vLy8/Pz9PT09fX19vb29/f3+Pj4+fn5+vr6+/v7/Pz8/f39/v7+///////8///7///6///5///4///3///2///1///z///y///x///w///v///u///t///s///r///q///p///o///n///m///l///k///j///i///h///g///f///e///d///c///b///a///Z///Y///X///W///V///U///T///S///R///Q///P///O///N///M///L///K///J///I///H///G///F///E///D///C///B///A//9380SAAAAABnRSTlP//////////////////////////////wCg3w8/AAABHklEQVR42u3cR2oCMRhAYYmIiIjd27v/q+06FhZ2Lp0D8iF3vC14PAwB9w8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJj5M5zSjH1W2L7ztK3/D+90bTqWpW637TddC+1b2/9/3bC9b+v/tzV8Z1T3/Xe8rP9p/W/7S/vV+r/S/9T/tf6v/a/9AOC/4W8gW3+e/gC8/gb+NfL1h/FfINt/nf4FsPW/4W+Rrf+OfwHa/jf8bWSz/h/o9t/w/89t/d/z19/1//W337s9b/4eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAT98A3Y6Y+mNOLAAAAABJRU5ErkJggg==";
+
 export default function AboutPage() {
     return (
         <div className="flex flex-col min-h-screen">
@@ -41,12 +43,11 @@ export default function AboutPage() {
                      <div className="container mx-auto px-4 md:px-6">
                         <div className="max-w-3xl mx-auto">
                             <Image
-                                src="/logo.png"
+                                src={logoDataUri}
                                 alt="Beauty on the Go Logo"
                                 width={200}
                                 height={200}
                                 className="mx-auto mb-8 rounded-2xl"
-                                data-ai-hint="logo"
                             />
                             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
                                 The Art of Beauty, Redefined.
