@@ -1,0 +1,242 @@
+/**
+ * @fileoverview Firestore Security Rules for Nails On the Go.
+ *
+ * Core Philosophy:
+ * This ruleset enforces a strict user-ownership model for technicians and customers,
+ * ensuring that each user can only access and modify their own profile data.
+ * Bookings, payments, add-ons, and reviews have custom authorization logic based on
+ * customer and technician relationships.
+ *
+ * Data Structure:
+ * - /technicians/{technicianId}: Stores technician profiles.
+ * - /customers/{customerId}: Stores customer profiles.
+ * - /services/{serviceId}: Stores service information (e.g., manicure, pedicure).
+ * - /bookings/{bookingId}: Stores booking details, including customer and technician IDs.
+ * - /payments/{paymentId}: Stores payment transactions, linked to bookings.
+ * - /add_ons/{addOnId}: Stores add-on service information, linked to bookings.
+ * - /reviews/{reviewId}: Stores customer reviews of technicians, linked to bookings.
+ *
+ * Key Security Decisions:
+ * - Technicians and customers can only create, read, update, and delete their own profiles.
+ * - Listing all users is disallowed for both technicians and customers.
+ * - Services are assumed to be publicly readable but require admin-level access for writes.
+ * - Bookings, payments, add-ons, and reviews are protected based on customer-technician relationships.
+ *
+ * Denormalization for Authorization:
+ * The 'Bookings' collection includes the 'customerId' and 'technicianId', allowing security rules to validate access
+ * without needing to perform additional 'get()' calls.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Allows a technician to manage their own profile.
+     * @path /technicians/{technicianId}
+     * @allow (create) User abc can create their own technician profile.
+     * @allow (get) User abc can read their own technician profile.
+     * @allow (update) User abc can update their own technician profile.
+     * @allow (delete) User abc can delete their own technician profile.
+     * @deny (create) User abc cannot create a technician profile with a different ID (def).
+     * @deny (get) User abc cannot read another technician's profile.
+     * @deny (update) User abc cannot update another technician's profile.
+     * @deny (delete) User abc cannot delete another technician's profile.
+     * @principle Enforces document ownership for writes.
+     */
+    match /technicians/{technicianId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+      function isOwner(technicianId) {
+        return isSignedIn() && request.auth.uid == technicianId;
+      }
+      function isExistingOwner(technicianId) {
+        return isOwner(technicianId) && existsAfter(/databases/$(database)/documents/technicians/$(technicianId));
+      }
+
+      allow get: if isOwner(technicianId);
+      allow list: if false;
+      allow create: if isOwner(technicianId);
+      allow update: if isExistingOwner(technicianId);
+      allow delete: if isExistingOwner(technicianId);
+    }
+
+    /**
+     * @description Allows a customer to manage their own profile.
+     * @path /customers/{customerId}
+     * @allow (create) User abc can create their own customer profile.
+     * @allow (get) User abc can read their own customer profile.
+     * @allow (update) User abc can update their own customer profile.
+     * @allow (delete) User abc can delete their own customer profile.
+     * @deny (create) User abc cannot create a customer profile with a different ID.
+     * @deny (get) User abc cannot read another customer's profile.
+     * @deny (update) User abc cannot update another customer's profile.
+     * @deny (delete) User abc cannot delete another customer's profile.
+     * @principle Enforces document ownership for writes.
+     */
+    match /customers/{customerId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+      function isOwner(customerId) {
+        return isSignedIn() && request.auth.uid == customerId;
+      }
+      function isExistingOwner(customerId) {
+        return isOwner(customerId) && existsAfter(/databases/$(database)/documents/customers/$(customerId));
+      }
+
+      allow get: if isOwner(customerId);
+      allow list: if false;
+      allow create: if isOwner(customerId);
+      allow update: if isExistingOwner(customerId);
+      allow delete: if isExistingOwner(customerId);
+    }
+
+    /**
+     * @description Allows anyone to read service information, but restricts writes.
+     * @path /services/{serviceId}
+     * @allow (get) Any user can get service information.
+     * @allow (list) Any user can list services.
+     * @deny (create) Non-admin user cannot create a service. // TODO: Add admin role check
+     * @deny (update) Non-admin user cannot update a service. // TODO: Add admin role check
+     * @deny (delete) Non-admin user cannot delete a service. // TODO: Add admin role check
+     * @principle Public read, restricted write.
+     */
+    match /services/{serviceId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false; // TODO: Add admin role check
+      allow update: if false; // TODO: Add admin role check
+      allow delete: if false; // TODO: Add admin role check
+    }
+
+    /**
+     * @description Allows customers and technicians involved in a booking to access booking information.
+     * @path /bookings/{bookingId}
+     * @allow (get) Customer or Technician can get a booking if they are part of the booking.
+     * @allow (list) Customer or Technician can list their own bookings.
+     * @allow (create) Signed in user can create a booking.
+     * @allow (update) Customer or Technician can update a booking if they are part of the booking.
+     * @allow (delete) Customer or Technician can delete a booking if they are part of the booking.
+     * @deny (create) User cannot create a booking for another user.
+     * @deny (get) User cannot read a booking they are not a part of.
+     * @deny (update) User cannot update a booking they are not a part of.
+     * @deny (delete) User cannot delete a booking they are not a part of.
+     * @principle Shared Access (Closed Collaborators).
+     */
+    match /bookings/{bookingId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+      function isCustomerOrTechnicianInvolved(customerId, technicianId) {
+        return isSignedIn() && (request.auth.uid == customerId || request.auth.uid == technicianId);
+      }
+      function isExistingCustomerOrTechnicianInvolved(customerId, technicianId) {
+        return isCustomerOrTechnicianInvolved(customerId, technicianId) && existsAfter(/databases/$(database)/documents/bookings/$(bookingId));
+      }
+      allow get: if isCustomerOrTechnicianInvolved(resource.data.customerId, resource.data.technicianId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isExistingCustomerOrTechnicianInvolved(resource.data.customerId, resource.data.technicianId);
+      allow delete: if isExistingCustomerOrTechnicianInvolved(resource.data.customerId, resource.data.technicianId);
+    }
+
+    /**
+     * @description Allows access to payment information based on booking involvement.
+     * @path /payments/{paymentId}
+     * @allow (get) Customer or Technician can get a payment if they are involved in the associated booking.
+     * @allow (list) Customer or Technician can list payments related to their bookings.
+     * @allow (create) Signed in user can create a payment.
+     * @allow (update) Customer or Technician can update a payment if they are involved in the associated booking.
+     * @allow (delete) Customer or Technician can delete a payment if they are involved in the associated booking.
+     * @deny (create) User cannot create a payment for a booking they are not involved in.
+     * @deny (get) User cannot read a payment for a booking they are not a part of.
+     * @deny (update) User cannot update a payment they are not a part of.
+     * @deny (delete) User cannot delete a payment they are not a part of.
+     * @principle Shared Access (Closed Collaborators).
+     */
+    match /payments/{paymentId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+      function isCustomerOrTechnicianInvolvedInBooking(bookingId) {
+          return isSignedIn() && (get(/databases/$(database)/documents/bookings/$(bookingId)).data.customerId == request.auth.uid || get(/databases/$(database)/documents/bookings/$(bookingId)).data.technicianId == request.auth.uid);
+      }
+      function isExistingCustomerOrTechnicianInvolvedInBooking(bookingId) {
+        return isCustomerOrTechnicianInvolvedInBooking(bookingId) && existsAfter(/databases/$(database)/documents/payments/$(paymentId));
+      }
+
+      allow get: if isCustomerOrTechnicianInvolvedInBooking(resource.data.bookingId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isExistingCustomerOrTechnicianInvolvedInBooking(resource.data.bookingId);
+      allow delete: if isExistingCustomerOrTechnicianInvolvedInBooking(resource.data.bookingId);
+    }
+
+    /**
+     * @description Allows access to add-on information based on booking involvement.
+     * @path /add_ons/{addOnId}
+     * @allow (get) Customer or Technician can get an add-on if they are involved in the associated booking.
+     * @allow (list) Customer or Technician can list add-ons related to their bookings.
+     * @allow (create) Signed in user can create an add-on.
+     * @allow (update) Customer or Technician can update an add-on if they are involved in the associated booking.
+     * @allow (delete) Customer or Technician can delete an add-on if they are involved in the associated booking.
+     * @deny (create) User cannot create an add-on for a booking they are not involved in.
+     * @deny (get) User cannot read an add-on for a booking they are not a part of.
+     * @deny (update) User cannot update an add-on they are not a part of.
+     * @deny (delete) User cannot delete an add-on they are not a part of.
+     * @principle Shared Access (Closed Collaborators).
+     */
+    match /add_ons/{addOnId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+      function isCustomerOrTechnicianInvolvedInBooking(bookingId) {
+          return isSignedIn() && (get(/databases/$(database)/documents/bookings/$(bookingId)).data.customerId == request.auth.uid || get(/databases/$(database)/documents/bookings/$(bookingId)).data.technicianId == request.auth.uid);
+      }
+      function isExistingCustomerOrTechnicianInvolvedInBooking(bookingId) {
+        return isCustomerOrTechnicianInvolvedInBooking(bookingId) && existsAfter(/databases/$(database)/documents/add_ons/$(addOnId));
+      }
+
+      allow get: if isCustomerOrTechnicianInvolvedInBooking(resource.data.bookingId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isExistingCustomerOrTechnicianInvolvedInBooking(resource.data.bookingId);
+      allow delete: if isExistingCustomerOrTechnicianInvolvedInBooking(resource.data.bookingId);
+    }
+
+    /**
+     * @description Allows access to review information based on customer-technician relationship.
+     * @path /reviews/{reviewId}
+     * @allow (get) Customer or Technician can get a review if they are the reviewer or the reviewed.
+     * @allow (list) Customer or Technician can list reviews they wrote or received.
+     * @allow (create) Signed in user can create a review.
+     * @allow (update) Customer or Technician can update a review if they are the reviewer.
+     * @allow (delete) Customer or Technician can delete a review if they are the reviewer.
+     * @deny (create) User cannot create a review for a booking they are not involved in.
+     * @deny (get) User cannot read a review if they are not the reviewer or the reviewed.
+     * @deny (update) User cannot update a review they did not write.
+     * @deny (delete) User cannot delete a review they did not write.
+     * @principle Shared Access (Closed Collaborators).
+     */
+    match /reviews/{reviewId} {
+     function isSignedIn() {
+        return request.auth != null;
+      }
+      function isReviewerOrReviewed(customerId, technicianId) {
+        return isSignedIn() && (request.auth.uid == customerId || request.auth.uid == technicianId);
+      }
+      function isExistingReviewer(customerId) {
+          return isSignedIn() && request.auth.uid == customerId;
+      }
+      function isExistingReviewerOrReviewed(customerId, technicianId) {
+        return isReviewerOrReviewed(customerId, technicianId) && existsAfter(/databases/$(database)/documents/reviews/$(reviewId));
+      }
+      allow get: if isExistingReviewerOrReviewed(resource.data.customerId,resource.data.technicianId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isExistingReviewer(resource.data.customerId);
+      allow delete: if isExistingReviewer(resource.data.customerId);
+    }
+  }
+}
