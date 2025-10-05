@@ -22,11 +22,12 @@ export default function Home() {
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
+               <Badge variant="secondary" className="mb-4 text-sm">Launching Soon!</Badge>
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
                 Luxury Beauty Care, Delivered to You
               </h1>
               <p className="mt-6 text-lg text-muted-foreground">
-                Browse professional beauty technicians and book an appointment at your home, office, or anywhere you are.
+                We're getting ready to launch! We are currently looking for talented technicians to join our exclusive team.
               </p>
               <div className="mt-10 max-w-xl mx-auto">
                 <Button size="lg" variant="accent" asChild>
