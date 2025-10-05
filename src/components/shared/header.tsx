@@ -13,8 +13,6 @@ import { NailIcon } from "./logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/#technicians", label: "Find a Technician" },
-  { href: "/#services", label: "Services" },
   { href: "/apply", label: "For Technicians" },
   { href: "/about", label: "About Us" },
 ];
