@@ -61,10 +61,10 @@ export default function AboutPage() {
                                     Beauty on the Go was born from a simple realization: in our fast-paced world, finding time for self-care is a challenge. Our founder, a busy professional with a passion for beautifully crafted nails, often struggled to fit salon appointments into her packed schedule. She dreamt of a service that didn't force a choice between a demanding career and personal pampering.
                                 </p>
                                 <p>
-                                    Why couldn't the luxury and expertise of a high-end nail salon come to you?
+                                    It all started with a simple question: "Why couldn't the luxury and expertise of a high-end nail salon come to you?" This spark grew into a vision for a comprehensive beauty platform.
                                 </p>
                                 <p>
-                                    This question sparked an idea. What if there was a platform that connected talented, independent beauty technicians with clients seeking convenience without sacrificing quality? A service that would empower artists to be their own bosses and allow clients to receive five-star treatment in the comfort of their own space. From this vision, Beauty on the Go was created—a seamless, safe, and sophisticated solution for modern beauty care.
+                                    We're launching with our first love—exquisite nail care—and will soon expand to include talented makeup and hair artists. From this vision, Beauty on the Go was created: a seamless, safe, and sophisticated solution for modern beauty, empowering artists and delivering five-star treatment to your door.
                                 </p>
                             </div>
                             <div>
