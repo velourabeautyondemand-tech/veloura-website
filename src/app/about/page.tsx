@@ -69,12 +69,12 @@ export default function AboutPage() {
                             </div>
                             <div>
                                 <Image
-                                    src="https://picsum.photos/seed/fashionteam/600/400"
-                                    alt="Beauty team working together"
+                                    src="https://picsum.photos/seed/stylishwoman/600/400"
+                                    alt="Stylish woman in front of a building"
                                     width={600}
                                     height={400}
                                     className="rounded-xl shadow-lg w-full"
-                                    data-ai-hint="fashion team"
+                                    data-ai-hint="stylish woman"
                                 />
                             </div>
                         </div>
