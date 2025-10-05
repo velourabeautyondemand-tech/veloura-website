@@ -38,7 +38,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-16 sm:py-24">
+        {/* <section id="services" className="py-16 sm:py-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Services</h2>
@@ -70,7 +70,7 @@ export default function Home() {
               })}
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </div>
