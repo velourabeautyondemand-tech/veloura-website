@@ -17,6 +17,9 @@ import {
 import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NailIcon } from "@/components/shared/logo";
+import { useAuth } from "@/firebase";
+import { useRouter } from "next/navigation";
+import { AuthRequired } from "@/components/auth-required";
 
 const adminNavItems = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -27,12 +30,20 @@ const adminNavItems = [
     { href: "/admin/services", label: "Services", icon: Settings },
 ];
 
-export default function AdminLayout({
+function AdminLayoutContent({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const auth = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    auth.signOut().then(() => {
+      router.push('/login');
+    });
+  };
   
   return (
     <SidebarProvider>
@@ -64,7 +75,7 @@ export default function AdminLayout({
           <SidebarFooter>
              <SidebarMenu>
                 <SidebarMenuItem>
-                    <SidebarMenuButton tooltip="Logout">
+                    <SidebarMenuButton tooltip="Logout" onClick={handleLogout}>
                         <LogOut className="w-5 h-5" />
                         <span>Logout</span>
                     </SidebarMenuButton>
@@ -90,4 +101,17 @@ export default function AdminLayout({
       </div>
     </SidebarProvider>
   );
+}
+
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <AuthRequired>
+      <AdminLayoutContent>{children}</AdminLayoutContent>
+    </AuthRequired>
+  )
 }

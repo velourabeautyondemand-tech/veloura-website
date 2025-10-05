@@ -1,5 +1,31 @@
 {
   "entities": {
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User Profile",
+      "type": "object",
+      "description": "Represents a user's profile information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user.",
+          "format": "email"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the user (e.g., admin, technician, customer)."
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "role"
+      ]
+    },
     "Technician": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "Technician",
@@ -341,12 +367,27 @@
   },
   "auth": {
     "providers": [
-      "password",
-      "anonymous"
+      "password"
     ]
   },
   "firestore": {
     "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile information, including their role.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, corresponding to their Firebase Auth UID."
+            }
+          ]
+        }
+      },
       {
         "path": "/technicians/{technicianId}",
         "definition": {
@@ -354,7 +395,7 @@
           "schema": {
             "$ref": "#/backend/entities/Technician"
           },
-          "description": "Stores technician profile information. Technician owns their profile via path-based ownership.",
+          "description": "Stores technician profile information. Accessible by admins.",
           "params": [
             {
               "name": "technicianId",
@@ -370,7 +411,7 @@
           "schema": {
             "$ref": "#/backend/entities/Customer"
           },
-          "description": "Stores customer profile information. Customer owns their profile via path-based ownership.",
+          "description": "Stores customer profile information. Accessible by admins.",
           "params": [
             {
               "name": "customerId",
@@ -402,7 +443,7 @@
           "schema": {
             "$ref": "#/backend/entities/Booking"
           },
-          "description": "Stores booking information. Includes customerId and technicianId for authorization.",
+          "description": "Stores booking information. Accessible by admins, and the relevant customer and technician.",
           "params": [
             {
               "name": "bookingId",
@@ -410,56 +451,9 @@
             }
           ]
         }
-      },
-      {
-        "path": "/payments/{paymentId}",
-        "definition": {
-          "entityName": "Payment",
-          "schema": {
-            "$ref": "#/backend/entities/Payment"
-          },
-          "description": "Stores payment information. References bookingId.",
-          "params": [
-            {
-              "name": "paymentId",
-              "description": "The unique identifier of the payment."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/add_ons/{addOnId}",
-        "definition": {
-          "entityName": "AddOn",
-          "schema": {
-            "$ref": "#/backend/entities/AddOn"
-          },
-          "description": "Stores information about add-on services. References bookingId.",
-          "params": [
-            {
-              "name": "addOnId",
-              "description": "The unique identifier of the add-on service."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/reviews/{reviewId}",
-        "definition": {
-          "entityName": "Review",
-          "schema": {
-            "$ref": "#/backend/entities/Review"
-          },
-          "description": "Stores reviews given by customers for technicians. Includes customerId, technicianId, and bookingId.",
-          "params": [
-            {
-              "name": "reviewId",
-              "description": "The unique identifier of the review."
-            }
-          ]
-        }
       }
-    ],
-    "reasoning": "The Firestore structure is designed to support the Nails On the Go application, focusing on technician onboarding, mobile booking, in-app payments, and job management. It prioritizes authorization independence and secure list operations. User data (Technicians and Customers) is stored in path-based collections for simple ownership checks. Booking, Payment, AddOn, and Review entities are modeled to maintain clear relationships and support denormalization for authorization.\n\nAuthorization Independence is achieved by denormalizing authorization-relevant data. For instance, the `Bookings` collection includes the `customerId` and `technicianId`, allowing security rules to validate access without needing to perform additional `get()` calls. The `Technicians` collection is segregated from customer data to ensure technicians' sensitive information remains secure. The use of path-based ownership (`/users/{userId}/...`) and denormalized IDs within documents helps avoid complex hierarchical dependencies and maintains atomic operations.\n\nQAPs are supported by segregating data with different access requirements into distinct collections. Technician applications, for example, are managed separately from approved technician profiles. The structure uses path-based ownership for user-specific data, which supports secure `list` operations. For collaborative data, the membership map approach (though not directly implemented here due to the nature of the entities) could be applied in future collaborative features to ensure only authorized users can access specific resources."
+    ]
   }
 }
+
+    
