@@ -39,7 +39,7 @@ const benefits = [
     {
         icon: Briefcase,
         title: "Be Your Own Boss",
-        description: "Enjoy the freedom to set your own schedule and work when you want. You have full control over your availability."
+        description: "Enjoy the freedom to set your own schedule and work when you want. With a $0 sign-up fee and a free app to manage your business, you have full control."
     },
     {
         icon: DollarSign,
