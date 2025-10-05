@@ -54,29 +54,17 @@ export default function AboutPage() {
                 {/* Our Story Section */}
                 <section id="story" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="grid lg:grid-cols-2 gap-12 items-center">
-                            <div className="prose lg:prose-lg max-w-none text-muted-foreground">
-                                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">Our Story</h2>
-                                <p>
-                                    Beauty on the Go was born from a simple realization: in our fast-paced world, finding time for self-care is a challenge. Our founder, a busy professional with a passion for staying fashionable and feeling her best, often struggled to fit beauty appointments into her packed schedule. She dreamt of a service that didn't force a choice between a demanding career and personal pampering.
-                                </p>
-                                <p>
-                                    It all started with a simple question: "Why couldn't the luxury and expertise of a high-end salon come to you?" This spark grew into a vision for a comprehensive beauty platform.
-                                </p>
-                                <p>
-                                    We're launching with our first love—exquisite nail care—and will soon expand to include talented makeup and hair artists. From this vision, Beauty on the Go was created: a seamless, safe, and sophisticated solution for modern beauty, empowering artists and delivering five-star treatment to your door.
-                                </p>
-                            </div>
-                            <div>
-                                <Image
-                                    src="https://picsum.photos/seed/stylishwoman/600/400"
-                                    alt="Stylish woman in front of a building"
-                                    width={600}
-                                    height={400}
-                                    className="rounded-xl shadow-lg w-full"
-                                    data-ai-hint="stylish woman"
-                                />
-                            </div>
+                        <div className="prose lg:prose-lg max-w-2xl mx-auto text-muted-foreground">
+                            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6 text-center">Our Story</h2>
+                            <p>
+                                Beauty on the Go was born from a simple realization: in our fast-paced world, finding time for self-care is a challenge. Our founder, a busy professional with a passion for staying fashionable and feeling her best, often struggled to fit beauty appointments into her packed schedule. She dreamt of a service that didn't force a choice between a demanding career and personal pampering.
+                            </p>
+                            <p>
+                                It all started with a simple question: "Why couldn't the luxury and expertise of a high-end salon come to you?" This spark grew into a vision for a comprehensive beauty platform.
+                            </p>
+                            <p>
+                                We're launching with our first love—exquisite nail care—and will soon expand to include talented makeup and hair artists. From this vision, Beauty on the Go was created: a seamless, safe, and sophisticated solution for modern beauty, empowering artists and delivering five-star treatment to your door.
+                            </p>
                         </div>
                     </div>
                 </section>
