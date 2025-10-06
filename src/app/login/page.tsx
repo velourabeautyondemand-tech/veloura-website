@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useAuth, useFirestore, useUser, useDoc, useMemoFirebase } from '@/firebase'; // Using the centralized hook
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc } from 'firebase/firestore';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -38,6 +38,14 @@ export default function LoginPage() {
   const { user, isUserLoading } = useUser();
   const [error, setError] = useState<string | null>(null);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: 'admin@example.com',
+      password: 'password',
+    },
+  });
 
   const userDocRef = useMemoFirebase(() => {
     if (!firestore || !user) return null;
