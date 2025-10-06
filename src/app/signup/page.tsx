@@ -5,9 +5,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { useAuth, useFirestore, addDocumentNonBlocking } from '@/firebase';
+import { useAuth, useFirestore, setDocumentNonBlocking } from '@/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { collection, doc } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -57,13 +57,13 @@ export default function SignUpPage() {
       const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
       const user = userCredential.user;
 
-      // Create a user profile in Firestore
+      // Create a user profile in Firestore using a non-blocking write
       const userDocRef = doc(firestore, 'users', user.uid);
-      await setDoc(userDocRef, {
+      setDocumentNonBlocking(userDocRef, {
         id: user.uid,
         email: user.email,
         role: 'customer', // Default role
-      });
+      }, {});
       
       toast({
         title: "Account Created!",
