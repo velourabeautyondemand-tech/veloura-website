@@ -2,6 +2,9 @@
 
 import Link from "next/link"
 import { Menu } from "lucide-react"
+import { useUser, useAuth, useFirestore, useDoc, useMemoFirebase } from "@/firebase";
+import { doc } from "firebase/firestore";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -10,8 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { NailIcon } from "./logo";
-import { useUser, useAuth } from "@/firebase";
-import { useRouter } from "next/navigation";
+
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,10 +21,18 @@ const navLinks = [
   { href: "/about", label: "Our Story" },
 ];
 
-export default function Header() {
+function UserNavButtons() {
   const { user, isUserLoading } = useUser();
   const auth = useAuth();
+  const firestore = useFirestore();
   const router = useRouter();
+
+  const userDocRef = useMemoFirebase(() => {
+    if (!firestore || !user) return null;
+    return doc(firestore, 'users', user.uid);
+  }, [firestore, user]);
+  
+  const { data: userProfile } = useDoc<{role: string}>(userDocRef);
 
   const handleSignOut = () => {
     auth.signOut().then(() => {
@@ -30,6 +40,42 @@ export default function Header() {
     });
   };
 
+  if (isUserLoading) {
+    return null; // Or a loading spinner
+  }
+
+  if (!user) {
+    return (
+       <Button asChild variant="ghost">
+          <Link href="/login">Sign In</Link>
+       </Button>
+    )
+  }
+
+  return (
+    <>
+      {userProfile?.role === 'admin' && (
+        <Button variant="accent" asChild>
+          <Link href="/admin">Admin Dashboard</Link>
+        </Button>
+      )}
+      {userProfile?.role === 'technician' && (
+        <Button asChild>
+          <Link href="/technician/dashboard">Technician Dashboard</Link>
+        </Button>
+      )}
+      {userProfile?.role === 'customer' && (
+         <Button asChild>
+            <Link href="/bookings">My Bookings</Link>
+        </Button>
+      )}
+      <Button onClick={handleSignOut} variant="outline">Sign Out</Button>
+    </>
+  )
+}
+
+
+export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
@@ -52,22 +98,7 @@ export default function Header() {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-            {!isUserLoading && !user && (
-              <Button asChild variant="ghost">
-                <Link href="/login">Login</Link>
-              </Button>
-            )}
-             {!isUserLoading && user && (
-              <>
-                <Button variant="accent" asChild>
-                    <Link href="/admin">Admin Dashboard</Link>
-                </Button>
-                <Button asChild>
-                    <Link href="/technician/dashboard">Technician Dashboard</Link>
-                </Button>
-                <Button onClick={handleSignOut} variant="outline">Sign Out</Button>
-              </>
-            )}
+          <UserNavButtons />
         </div>
 
         <Sheet>
@@ -101,22 +132,7 @@ export default function Header() {
                 ))}
               </div>
               <div className="flex flex-col space-y-2 pt-6 border-t">
-                 {!isUserLoading && !user && (
-                    <Button asChild>
-                        <Link href="/login">Login</Link>
-                    </Button>
-                 )}
-                 {!isUserLoading && user && (
-                    <>
-                        <Button variant="accent" asChild>
-                            <Link href="/admin">Admin Dashboard</Link>
-                        </Button>
-                        <Button asChild>
-                            <Link href="/technician/dashboard">Technician Dashboard</Link>
-                        </Button>
-                        <Button onClick={handleSignOut} variant="outline">Sign Out</Button>
-                    </>
-                 )}
+                 <UserNavButtons />
               </div>
             </div>
           </SheetContent>
