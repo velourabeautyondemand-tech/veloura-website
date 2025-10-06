@@ -41,7 +41,7 @@ export default function AboutPage() {
                      <div className="container mx-auto px-4 md:px-6">
                         <div className="max-w-3xl mx-auto">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                                The Art of Beauty, Redefined.
+                                From nails to hair to makeup, our professionals come to you so you can feel your best — no traffic, no waiting, no rushing.
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
                                 Where beauty meets your schedule
