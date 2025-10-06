@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useCollection, useMemoFirebase } from '@/firebase';
@@ -26,12 +27,12 @@ import Link from 'next/link';
 export default function ApplicationsPage() {
   const firestore = useFirestore();
   
-  const techniciansQuery = useMemoFirebase(() => {
+  const applicationsQuery = useMemoFirebase(() => {
       if (!firestore) return null;
-      return query(collection(firestore, 'technicians'));
+      return query(collection(firestore, 'technician_applications'));
   }, [firestore]);
 
-  const { data: applications, isLoading, error } = useCollection(techniciansQuery);
+  const { data: applications, isLoading, error } = useCollection(applicationsQuery);
 
   return (
     <Card>

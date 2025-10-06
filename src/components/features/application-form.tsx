@@ -58,7 +58,7 @@ export function ApplicationForm() {
     async function onSubmit(values: z.infer<typeof formSchema>) {
         if (!firestore) return;
         try {
-            const techniciansCol = collection(firestore, "technicians");
+            const techniciansCol = collection(firestore, "technician_applications");
             
             const { licenseUpload, resumeUpload, ...applicationData } = values;
 
@@ -231,7 +231,7 @@ export function ApplicationForm() {
                     <FormLabel>Upload Resume</FormLabel>
                     <FormControl>
                         <div className="relative">
-                        <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Upload className="absolute left-3 top-1-2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input type="file" {...resumeFileRef} className="pl-10 file:text-primary file:font-medium" />
                         </div>
                     </FormControl>

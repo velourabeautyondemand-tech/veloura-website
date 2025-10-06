@@ -1,7 +1,8 @@
+
 'use client';
 
 import { notFound, useRouter } from 'next/navigation';
-import { useDoc, useFirestore, useMemoFirebase, updateDocumentNonBlocking } from '@/firebase';
+import { useDoc, useFirestore, useMemoFirebase, updateDocumentNonBlocking, setDocumentNonBlocking } from '@/firebase';
 import { doc } from 'firebase/firestore';
 import {
   Card,
@@ -22,22 +23,31 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
   const router = useRouter();
   const { toast } = useToast();
 
-  const technicianDocRef = useMemoFirebase(() => {
+  const applicationDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
-    return doc(firestore, 'technicians', params.id);
+    return doc(firestore, 'technician_applications', params.id);
   }, [firestore, params.id]);
 
-  const { data: application, isLoading, error } = useDoc(technicianDocRef);
+  const { data: application, isLoading, error } = useDoc(applicationDocRef);
 
   const handleUpdateStatus = (status: 'approved' | 'rejected') => {
-    if (!technicianDocRef) return;
-    
-    let newRole = 'customer'; // default role
+    if (!applicationDocRef || !application) return;
+
     if (status === 'approved') {
-        newRole = 'technician';
+        const newTechnicianRef = doc(firestore, 'technicians', params.id);
+        const { ...technicianData } = application;
+        
+        // Add to main technicians collection
+        setDocumentNonBlocking(newTechnicianRef, {
+            ...technicianData,
+            applicationStatus: 'approved',
+            role: 'technician',
+            id: params.id,
+        }, {});
     }
 
-    updateDocumentNonBlocking(technicianDocRef, { applicationStatus: status, role: newRole });
+    // Update the original application status
+    updateDocumentNonBlocking(applicationDocRef, { applicationStatus: status });
 
     toast({
         title: `Application ${status}`,
