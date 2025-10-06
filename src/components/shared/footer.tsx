@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Twitter, Instagram, Facebook } from "lucide-react";
 import { NailIcon } from "./logo";
@@ -11,7 +12,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center space-x-2 mb-4 md:mb-0">
             <NailIcon className="h-6 w-6" />
-            <span className="font-bold text-lg font-headline">Beauty on the Go</span>
+            <span className="font-bold text-lg font-headline">VÉLOURA</span>
           </div>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link>
@@ -27,7 +28,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
           <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-2">
-            <p>&copy; {year} Beauty on the Go. All rights reserved.</p>
+            <p>&copy; {year} VÉLOURA. All rights reserved.</p>
             <p className="text-xs">powered by iAmDreamMaker Production Group</p>
           </div>
           <div className="flex space-x-4 mt-4 sm:mt-0">

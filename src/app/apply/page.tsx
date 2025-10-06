@@ -129,7 +129,7 @@ export default function ApplyPage() {
         <div className="container mx-auto px-4 md:px-6">
             <section id="why-join-us" className="mb-16">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Why Join the Beauty on the Go Team?</h2>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Why Join the VÉLOURA Team?</h2>
                     <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">We empower talented technicians to build their own business with the support of a strong brand behind them.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center items-stretch">
@@ -146,7 +146,7 @@ export default function ApplyPage() {
             </section>
           <Card className="max-w-3xl mx-auto shadow-2xl bg-card/80 backdrop-blur-sm">
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold font-headline">Become a Beauty Pro on the Go</CardTitle>
+              <CardTitle className="text-3xl font-bold font-headline">Become a VÉLOURA Pro</CardTitle>
               <CardDescription className="text-lg text-muted-foreground pt-2">Ready to take control of your career? Apply below!</CardDescription>
               <p className="text-sm text-muted-foreground pt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
             </CardHeader>
@@ -156,7 +156,7 @@ export default function ApplyPage() {
                   <PartyPopper className="mx-auto h-16 w-16 text-accent" />
                   <h2 className="mt-6 text-2xl font-bold font-headline">Application Submitted!</h2>
                   <p className="mt-2 text-muted-foreground">
-                    Thank you for your interest in joining Beauty on the Go! We have received your application and will review it shortly.
+                    Thank you for your interest in joining VÉLOURA! We have received your application and will review it shortly.
                   </p>
                   <Button onClick={handleNewApplication} className="mt-8" variant="outline">
                     Submit Another Application
@@ -311,6 +311,3 @@ export default function ApplyPage() {
     </div>
   );
 }
-    
-
-    

@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -12,7 +13,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Beauty on the Go',
+  title: 'VÉLOURA',
   description: 'Book professional beauty technicians to your door.',
 };
 
