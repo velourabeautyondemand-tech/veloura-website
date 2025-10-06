@@ -1,124 +1,128 @@
 /**
- * @file Firebase Security Rules for the Nail Tech Platform
+ * @file Firestore Security Rules
+ * @description This ruleset enforces a role-based access control model with owner-only restrictions for user profiles.
  *
- * @core_philosophy This ruleset enforces a user-ownership model for user profiles
- *   and restricts access to other data based on user roles and relationships.
- *   It prioritizes secure authorization with flexible data shapes for prototyping.
- * @data_structure
- *   - /users/{userId}: Stores user profile information, accessible only to the user themselves.
- *   - /technicians/{technicianId}: Stores technician profiles, accessible only to admins.
- *   - /customers/{customerId}: Stores customer profiles, accessible only to admins.
- *   - /services/{serviceId}: Stores service information, managed by admins.
- *   - /bookings/{bookingId}: Stores booking information. Accessible by admins, the relevant customer, and technician.
- * @key_security_decisions
- *   - User listing is disabled to prevent unauthorized data scraping.
- *   - Data validation is limited to ownership and relational integrity checks
- *     to allow for rapid prototyping and schema evolution.
+ * Data Structure:
+ * - /users/{userId}: Stores user profile information, accessible only to the user themselves.
+ * - /technicians/{technicianId}: Stores technician profile information, accessible only to admins (currently disabled, see TODO).
+ * - /customers/{customerId}: Stores customer profile information, accessible only to admins (currently disabled, see TODO).
+ * - /services/{serviceId}: Stores information about the services offered, accessible only to admins (currently disabled, see TODO).
+ * - /bookings/{bookingId}: Stores booking information, accessible only to admins, and the relevant customer and technician (currently disabled, see TODO).
+ *
+ * Key Security Decisions:
+ * - User listing is disallowed for all collections.
+ * - Admin role enforcement is a placeholder; proper admin role implementation is required.
+ * - Default security posture for ambiguous relationships is strict owner-only access.
+ *
+ * Denormalization for Authorization:
+ *   - User profiles are stored under /users/{userId}, ensuring that `request.auth.uid` always matches `userId`.
+ *
+ * Structural Segregation:
+ *   - There is no deliberate segregation between public and private data. All data is treated as private unless explicitly opened.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Manages user profile data, ensuring users can only access their own profiles.
+     * @description Enforces owner-only access to user profiles.
      * @path /users/{userId}
      * @allow (create) - User with UID 'user123' can create their profile at /users/user123.
-     * @allow (get, update, delete) - User with UID 'user123' can read, update, and delete their profile at /users/user123.
-     * @deny (create, get, update, delete) - User with UID 'user456' cannot access profile data at /users/user123.
-     * @principle Enforces document ownership for all operations on user profiles.
+     * @deny (create) - User with UID 'user123' cannot create a profile at /users/otherUser.
+     * @allow (get, update, delete) - User with UID 'user123' can get, update and delete their own profile at /users/user123.
+     * @deny (get, update, delete) - User with UID 'user123' cannot get, update, or delete another user's profile at /users/otherUser.
+     * @principle Enforces document ownership for writes.
      */
     match /users/{userId} {
-      // Verified authentication
-      function isSignedIn() {
-        return request.auth != null;
-      }
-
-      // Authenticated user is the owner
+      // Helper function to check if the authenticated user is the owner of the document.
       function isOwner(userId) {
-        return request.auth.uid == userId;
+        return request.auth != null && request.auth.uid == userId;
       }
 
-      // Authenticated user is the owner
+      // Helper function to check if the authenticated user is the owner of the existing document.
       function isExistingOwner(userId) {
         return isOwner(userId) && resource != null;
       }
-
       allow get: if isOwner(userId);
       allow list: if false;
-      allow create: if isSignedIn() && request.auth.uid == userId;
-      allow update: if isExistingOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
       allow delete: if isExistingOwner(userId);
     }
 
     /**
-     * @description Manages technician profiles. Only admins can access and manage these profiles.
+     * @description Controls access to technician profiles. Currently only allows admins to manage technicians.
      * @path /technicians/{technicianId}
-     * @allow (create) - An admin can create a technician profile at /technicians/tech123.
-     * @allow (get, update, delete) - An admin can read, update, and delete a technician profile at /technicians/tech123.
-     * @deny (create, get, update, delete) - A non-admin user cannot access technician profile data.
-     * @principle Restricts technician profile management to authorized personnel (admins).
+     * @allow (create, get, update, delete) - If isAdmin() returns true.
+     * @deny (create, get, update, delete) - If isAdmin() returns false.
+     * @principle Restricts access to admins.
      */
     match /technicians/{technicianId} {
-      // Anyone can read the technician profile
-      allow get: if true;
-      // Anyone can list the technician profile
-      allow list: if true;
-      allow create: if false;  // TODO: Add admin check once roles are implemented.
-      allow update: if false; // TODO: Add admin check once roles are implemented.
-      allow delete: if false; // TODO: Add admin check once roles are implemented.
+      function isAdmin() {
+        return false; // TODO: Implement proper admin role check.
+      }
+      allow get: if isAdmin();
+      allow list: if false;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
 
-        /**
-     * @description Manages customer profiles. Only admins can access and manage these profiles.
+    /**
+     * @description Controls access to customer profiles. Currently only allows admins to manage customers.
      * @path /customers/{customerId}
-     * @allow (create) - An admin can create a customer profile at /customers/customer123.
-     * @allow (get, update, delete) - An admin can read, update, and delete a customer profile at /customers/customer123.
-     * @deny (create, get, update, delete) - A non-admin user cannot access customer profile data.
-     * @principle Restricts customer profile management to authorized personnel (admins).
+     * @allow (create, get, update, delete) - If isAdmin() returns true.
+     * @deny (create, get, update, delete) - If isAdmin() returns false.
+     * @principle Restricts access to admins.
      */
     match /customers/{customerId} {
-      // Anyone can read the customer profile
-      allow get: if true;
-      // Anyone can list the customer profile
-      allow list: if true;
-      allow create: if false; // TODO: Add admin check once roles are implemented.
-      allow update: if false; // TODO: Add admin check once roles are implemented.
-      allow delete: if false; // TODO: Add admin check once roles are implemented.
+      function isAdmin() {
+        return false; // TODO: Implement proper admin role check.
+      }
+      allow get: if isAdmin();
+      allow list: if false;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
 
     /**
-     * @description Manages service definitions. Only admins can create, update, and delete services.
+     * @description Controls access to service definitions. Currently only allows admins to manage services.
      * @path /services/{serviceId}
-     * @allow (create) - An admin can create a service at /services/service123.
-     * @allow (get, update, delete) - An admin can read, update, and delete a service at /services/service123.
-     * @deny (create, get, update, delete) - A non-admin user cannot manage services.
-     * @principle Ensures only authorized personnel can modify service offerings.
+     * @allow (create, get, update, delete) - If isAdmin() returns true.
+     * @deny (create, get, update, delete) - If isAdmin() returns false.
+     * @principle Restricts access to admins.
      */
     match /services/{serviceId} {
-      // Anyone can read the service
-      allow get: if true;
-      // Anyone can list the service
-      allow list: if true;
-      allow create: if false; // TODO: Add admin check once roles are implemented.
-      allow update: if false; // TODO: Add admin check once roles are implemented.
-      allow delete: if false; // TODO: Add admin check once roles are implemented.
+      function isAdmin() {
+        return false; // TODO: Implement proper admin role check.
+      }
+      allow get: if isAdmin();
+      allow list: if false;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
 
     /**
-     * @description Manages bookings. Accessible by admins, and the relevant customer and technician.
+     * @description Controls access to booking information. Currently only allows admins, the customer, and the technician to manage bookings.
      * @path /bookings/{bookingId}
-     * @allow (create) - An admin, customer, or technician can create a booking.
-     * @allow (get, update, delete) - An admin, the customer who made the booking, or the assigned technician can access and manage the booking.
-     * @deny (create, get, update, delete) - A user who is not an admin, the booking's customer, or the booking's technician cannot access or modify the booking.
+     * @allow (create, get, update, delete) - If isAdmin() or isCustomerOrTechnician() returns true.
+     * @deny (create, get, update, delete) - If isAdmin() or isCustomerOrTechnician() returns false.
+     * @principle Restricts access to admins, the customer, and the technician.
      */
     match /bookings/{bookingId} {
-      // Anyone can read the booking
-      allow get: if true;
-      // Anyone can list the booking
-      allow list: if true;
-      allow create: if false; // TODO: Add customer/tech check once roles are implemented.
-      allow update: if false; // TODO: Add customer/tech check once roles are implemented.
-      allow delete: if false; // TODO: Add customer/tech check once roles are implemented.
+      function isAdmin() {
+        return false; // TODO: Implement proper admin role check.
+      }
+      function isCustomerOrTechnician() {
+        return false; // TODO: Implement customer/technician role check based on booking data.
+      }
+      allow get: if isAdmin() || isCustomerOrTechnician();
+      allow list: if false;
+      allow create: if isAdmin() || isCustomerOrTechnician();
+      allow update: if isAdmin() || isCustomerOrTechnician();
+      allow delete: if isAdmin() || isCustomerOrTechnician();
     }
   }
 }
