@@ -7,7 +7,7 @@ import { doc } from 'firebase/firestore';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Loader2, Edit, Mail } from 'lucide-react';
+import { Loader2, Edit, Mail, User } from 'lucide-react';
 
 export default function AdminProfilePage() {
     const { user, isUserLoading } = useUser();
@@ -34,6 +34,8 @@ export default function AdminProfilePage() {
         return <p>No profile found.</p>
     }
 
+    const fallbackInitial = userProfile.firstName ? userProfile.firstName.charAt(0) : userProfile.email.charAt(0);
+
     return (
         <div className="space-y-6">
             <Card>
@@ -47,10 +49,19 @@ export default function AdminProfilePage() {
                 <CardContent>
                     <div className="flex flex-col md:flex-row items-start gap-6">
                          <Avatar className="w-32 h-32 border-4 border-primary">
-                            <AvatarImage src="https://picsum.photos/seed/admin-profile/400/400" data-ai-hint="person face" alt="Admin" />
-                            <AvatarFallback className="text-4xl">A</AvatarFallback>
+                            <AvatarImage src={userProfile.profileImageUrl || "https://picsum.photos/seed/admin-profile/400/400"} data-ai-hint="person face" alt="Admin" />
+                            <AvatarFallback className="text-4xl">{fallbackInitial}</AvatarFallback>
                         </Avatar>
-                        <div className="flex-1 pt-4">
+                        <div className="flex-1 pt-4 space-y-4">
+                            {(userProfile.firstName || userProfile.lastName) && (
+                                <div className="flex items-center gap-3">
+                                    <User className="w-5 h-5 text-muted-foreground" />
+                                    <div>
+                                        <h3 className="font-semibold">Name</h3>
+                                        <p className="text-muted-foreground">{userProfile.firstName} {userProfile.lastName}</p>
+                                    </div>
+                                </div>
+                            )}
                             <div className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-muted-foreground" />
                                 <div>

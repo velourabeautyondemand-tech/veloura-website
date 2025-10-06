@@ -31,6 +31,8 @@ import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 
 const profileFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required."),
+  lastName: z.string().min(1, "Last name is required."),
   email: z.string().email(),
   profileImage: z.any(),
 });
@@ -51,6 +53,8 @@ export default function EditAdminProfilePage() {
   const form = useForm<z.infer<typeof profileFormSchema>>({
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
+      firstName: '',
+      lastName: '',
       email: '',
     },
   });
@@ -58,6 +62,8 @@ export default function EditAdminProfilePage() {
   useEffect(() => {
     if (userProfile) {
         form.reset({
+            firstName: userProfile.firstName || '',
+            lastName: userProfile.lastName || '',
             email: userProfile.email || '',
         });
     }
@@ -101,8 +107,8 @@ export default function EditAdminProfilePage() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <div className="flex items-center gap-4">
                     <Avatar className="h-24 w-24">
-                        <AvatarImage src="https://picsum.photos/seed/admin-profile/400/400" data-ai-hint="person face" alt="Admin" />
-                        <AvatarFallback className="text-3xl">A</AvatarFallback>
+                        <AvatarImage src={userProfile?.profileImageUrl || "https://picsum.photos/seed/admin-profile/400/400"} data-ai-hint="person face" alt="Admin" />
+                        <AvatarFallback className="text-3xl">{userProfile?.firstName?.charAt(0) || userProfile?.email?.charAt(0) || 'A'}</AvatarFallback>
                     </Avatar>
                     <FormField
                     control={form.control}
@@ -122,6 +128,35 @@ export default function EditAdminProfilePage() {
                         <FormMessage />
                         </FormItem>
                     )}
+                    />
+                </div>
+
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>First Name</FormLabel>
+                            <FormControl>
+                            <Input placeholder="Your first name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                        )}
+                    />
+                     <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Last Name</FormLabel>
+                            <FormControl>
+                            <Input placeholder="Your last name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                        )}
                     />
                 </div>
                 

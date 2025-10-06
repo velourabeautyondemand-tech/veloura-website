@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -17,9 +18,11 @@ import {
 import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NailIcon } from "@/components/shared/logo";
-import { useAuth } from "@/firebase";
+import { useAuth, useUser, useDoc, useFirestore, useMemoFirebase } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { AuthRequired } from "@/components/auth-required";
+import { doc } from 'firebase/firestore';
+
 
 const adminNavItems = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -37,13 +40,24 @@ function AdminLayoutContent({
 }) {
   const pathname = usePathname();
   const auth = useAuth();
+  const { user } = useUser();
+  const firestore = useFirestore();
   const router = useRouter();
+
+  const userDocRef = useMemoFirebase(() => {
+    if (!firestore || !user) return null;
+    return doc(firestore, 'users', user.uid);
+  }, [firestore, user]);
+
+  const { data: userProfile } = useDoc(userDocRef);
 
   const handleLogout = () => {
     auth.signOut().then(() => {
       router.push('/login');
     });
   };
+  
+  const fallbackInitial = userProfile?.firstName ? userProfile.firstName.charAt(0) : userProfile?.email?.charAt(0) || 'A';
   
   return (
     <SidebarProvider>
@@ -98,8 +112,8 @@ function AdminLayoutContent({
                 </div>
                 <h1 className="text-xl font-semibold font-headline">Admin Dashboard</h1>
                 <Avatar>
-                    <AvatarImage src="https://picsum.photos/seed/admin/200/200" data-ai-hint="person face"/>
-                    <AvatarFallback>A</AvatarFallback>
+                    <AvatarImage src={userProfile?.profileImageUrl || "https://picsum.photos/seed/admin/200/200"} data-ai-hint="person face"/>
+                    <AvatarFallback>{fallbackInitial}</AvatarFallback>
                 </Avatar>
             </header>
             <main className="flex-1 overflow-y-auto p-6 bg-secondary/30">
