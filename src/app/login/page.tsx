@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { useAuth, useFirestore, useUser } from '@/firebase'; // Using the centralized hook
+import { useAuth, useFirestore, useUser, useDoc, useMemoFirebase } from '@/firebase'; // Using the centralized hook
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 
@@ -37,52 +37,43 @@ export default function LoginPage() {
   const firestore = useFirestore();
   const { user, isUserLoading } = useUser();
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
+  const userDocRef = useMemoFirebase(() => {
+    if (!firestore || !user) return null;
+    return doc(firestore, 'users', user.uid);
+  }, [firestore, user]);
+
+  const { data: userProfile, isLoading: isProfileLoading } = useDoc(userDocRef);
 
   // Redirect if user is already logged in
   useEffect(() => {
-    const checkUserRoleAndRedirect = async () => {
-        if (user && firestore) {
-            const userDocRef = doc(firestore, 'users', user.uid);
-            const userDoc = await getDoc(userDocRef);
-            if (userDoc.exists()) {
-                const userData = userDoc.data();
-                if (userData.role === 'admin') {
-                    router.push('/admin');
-                } else if (userData.role === 'technician') {
-                    router.push('/technician/dashboard');
-                } else {
-                    router.push('/');
-                }
-            } else {
-                router.push('/');
-            }
-        }
-    };
-    checkUserRoleAndRedirect();
-  }, [user, firestore, router]);
+    if (user && userProfile && !isProfileLoading) {
+      if (userProfile.role === 'admin') {
+        router.push('/admin');
+      } else if (userProfile.role === 'technician') {
+        router.push('/technician/dashboard');
+      } else {
+        router.push('/');
+      }
+    }
+  }, [user, userProfile, isProfileLoading, router]);
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
+    setIsLoggingIn(true);
     setError(null);
     try {
       await signInWithEmailAndPassword(auth, values.email, values.password);
-      // The useEffect will handle the redirect
+      // The useEffect will handle the redirect after user and profile are loaded.
     } catch (error: any) {
       setError(error.message);
     } finally {
-      setIsLoading(false);
+      setIsLoggingIn(false);
     }
   }
+  
+  const isLoading = isUserLoading || isLoggingIn || (user && isProfileLoading);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-secondary/30">
@@ -135,8 +126,8 @@ export default function LoginPage() {
                   <AlertDescription>{error}</AlertDescription>
                 </Alert>
               )}
-              <Button type="submit" className="w-full" disabled={isLoading || isUserLoading}>
-                {isLoading || isUserLoading ? <Loader2 className="animate-spin" /> : 'Sign In'}
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? <Loader2 className="animate-spin" /> : 'Sign In'}
               </Button>
             </form>
           </Form>

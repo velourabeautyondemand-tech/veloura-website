@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAuth, useFirestore, setDocumentNonBlocking } from '@/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { collection, doc } from 'firebase/firestore';
+import { doc } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -57,12 +57,15 @@ export default function SignUpPage() {
       const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
       const user = userCredential.user;
 
+      // Determine role based on email
+      const role = values.email === 'admin@example.com' ? 'admin' : 'customer';
+
       // Create a user profile in Firestore using a non-blocking write
       const userDocRef = doc(firestore, 'users', user.uid);
       setDocumentNonBlocking(userDocRef, {
         id: user.uid,
         email: user.email,
-        role: 'customer', // Default role
+        role: role, 
       }, {});
       
       toast({
@@ -72,8 +75,13 @@ export default function SignUpPage() {
 
       router.push('/login');
 
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: any)
+      {
+        if (error.code === 'auth/email-already-in-use') {
+            setError('This email address is already in use. Please log in or use a different email.');
+        } else {
+            setError(error.message);
+        }
     } finally {
       setIsLoading(false);
     }
