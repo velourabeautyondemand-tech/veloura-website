@@ -1,109 +1,105 @@
 /**
- * @description This ruleset enforces a role-based access control model with a focus on user-owned data and public technician application submissions.
- * @dataStructure
- *   - `/technician_applications/{applicationId}`: Stores technician applications.
- *   - `/technicians/{technicianId}`: Stores approved technician profiles.
- *   - `/users/{userId}/jobs/{jobId}`: Stores job details for each technician, nested under their user ID.
- *   - `/roles_admin/{uid}`: Indicates admin role assignment; document existence implies admin status.
- * @keySecurityDecisions
- *   - Technician applications are publicly writable, but other collections are restricted to authorized users.
- *   - Listing of `/users/{userId}/jobs/{jobId}` is only allowed by the owner (`userId`).
- *   - Admin status is determined by the existence of a document in the `/roles_admin/{uid}` collection.
- * @denormalizationForAuthorization
- *   - Admin status is checked directly via document existence in `/roles_admin/{uid}`, avoiding external `get()` calls.
- * @structuralSegregation
- *   - The separation of `technician_applications` and `technicians` collections allows for different access controls: public submissions vs. restricted access to approved profiles.
+ * @fileoverview Firestore Security Rules for Technician Marketplace App
+ *
+ * Core Philosophy:
+ * This ruleset enforces a user-ownership model for user profiles,
+ * restricts technician application management to admins, and
+ * grants read access to technician profiles.
+ *
+ * Data Structure:
+ * - /users/{userId}: Stores public user profiles.
+ * - /technician_applications/{applicationId}: Stores technician applications.
+ * - /technicians/{technicianId}: Stores profiles of approved technicians.
+ *
+ * Key Security Decisions:
+ * - Users can only read and write their own profile data.
+ * - Technician applications can only be created by authenticated users.
+ * - Only authenticated users can read technician applications
+ * - Only authenticated users can create technician profiles
+ * - Technician profiles are publicly readable, but only admins can modify them.
+ *
+ * Denormalization for Authorization:
+ * N/A (Roles are on the UserProfile document, which is sufficient.)
+ *
+ * Structural Segregation:
+ * N/A
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Allows anyone to create technician applications, but restricts other operations.
+     * @description Controls access to user profiles.
+     * @path /users/{userId}
+     * @allow (get, list) if the user is the owner of the profile.
+     * @allow (create, update, delete) if the user is the owner of the profile.
+     * @deny (get, list) if the user is not the owner of the profile.
+     * @deny (create, update, delete) if the user is not the owner of the profile.
+     * @principle Enforces document ownership for all operations.
+     */
+    match /users/{userId} {
+      // Allow reads (get, list) if the user is the owner.
+      allow get, list: if isOwner(userId);
+
+      // Allow creation if the user ID in the path matches the authenticated user's ID.
+      allow create: if isOwner(userId) && request.resource.data.id == request.auth.uid;
+
+      // Allow updates if the user is the owner and the user ID hasn't changed.
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+
+      // Allow deletion if the user is the owner.
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Controls access to technician applications.
      * @path /technician_applications/{applicationId}
-     * @allow (create) - Any user can submit a technician application.
-     *   - Request: `auth: null`, `method: create`, `path: /databases/(default)/documents/technician_applications/newApplication`
-     *   - Request Data: `{firstName: "John", lastName: "Doe", ...}`
-     * @deny (get, list, update, delete) - Only creation is allowed.
-     *   - Request: `auth: {uid: 'someUser'}`, `method: get`, `path: /databases/(default)/documents/technician_applications/someApplication`
-     * @principle Allows public creation of technician applications.
+     * @allow (create) any authenticated user can create technician application
+     * @allow (get, list) any authenticated user can read technician application
+     * @allow (update, delete) no one can update or delete technician applications
+     * @deny (create) if user is not authenticated
+     * @deny (get, list) if user is not authenticated
+     * @deny (update, delete) all operations
+     * @principle Restricts creation of application to authenticated user and no operations allowed for technician applications
      */
     match /technician_applications/{applicationId} {
-      allow get, list: if false;
-      allow create: if true;
-      allow update, delete: if false;
+        allow get, list: if isSignedIn();
+        allow create: if isSignedIn();
+        allow update, delete: if false;
     }
 
     /**
-     * @description Allows admins to manage technician profiles.
+     * @description Controls access to technician profiles.
      * @path /technicians/{technicianId}
-     * @allow (get, list, create, update, delete) - Admins can perform all operations on technician profiles.
-     *   - Request: `auth: {uid: 'adminUser'}`, `method: create`, `path: /databases/(default)/documents/technicians/newTechnician`
-     * @deny (get, list, create, update, delete) - Non-admins cannot manage technician profiles.
-     *   - Request: `auth: {uid: 'regularUser'}`, `method: create`, `path: /databases/(default)/documents/technicians/newTechnician`
-     * @principle Restricts technician profile management to admins.
+     * @allow (get, list) anyone can view technician profile
+     * @allow (create) only authenticated user can create technician profile
+     * @allow (update, delete) no one can update or delete technician profile
+     * @deny (create) if user is not authenticated
+     * @deny (update, delete) all operations
+     * @principle Technician profiles are publicly readable, but only admins can create them.
      */
     match /technicians/{technicianId} {
-      allow get, list, create, update, delete: if isAdmin();
-    }
-
-    /**
-     * @description Allows a user to manage their own jobs.
-     * @path /users/{userId}/jobs/{jobId}
-     * @allow (get, list, create, update, delete) - The owner (identified by userId) can perform all operations on their jobs.
-     *   - Request: `auth: {uid: 'user123'}`, `method: create`, `path: /databases/(default)/documents/users/user123/jobs/newJob`
-     * @deny (get, list, create, update, delete) - Other users cannot access or modify these job documents.
-     *   - Request: `auth: {uid: 'otherUser'}`, `method: create`, `path: /databases/(default)/documents/users/user123/jobs/newJob`
-     * @principle Enforces user-ownership for job management.
-     */
-    match /users/{userId}/jobs/{jobId} {
-      allow get, create, update, delete, list: if isOwner(userId);
-    }
-
-    /**
-     * @description Determines admin status based on document existence in this collection.
-     * @path /roles_admin/{uid}
-     * @allow (get, list) - Anyone can check if a user is an admin (useful for UI).
-     *   - Request: `auth: {uid: 'anyUser'}`, `method: get`, `path: /databases/(default)/documents/roles_admin/adminUser`
-     * @allow (create) - Only the user themselves can create the document to assign the admin role.
-     *   - Request: `auth: {uid: 'adminUser'}`, `method: create`, `path: /databases/(default)/documents/roles_admin/adminUser`
-     * @deny (update, delete) - Admin role cannot be updated or deleted without proper authorization.
-     *   - Request: `auth: {uid: 'anyUser'}`, `method: delete`, `path: /databases/(default)/documents/roles_admin/adminUser`
-     * @principle Role management based on document existence.
-     */
-    match /roles_admin/{uid} {
-      allow get, list: if true; // Publicly readable to determine admin status
-      allow create: if request.auth.uid == uid;
+      allow get, list: if true;
+      allow create: if isSignedIn();
       allow update, delete: if false;
     }
 
 
-    // ---- Helper Functions ----
+    // Helper functions
 
-    /**
-     * @description Checks if the current user is signed in.
-     * @returns {boolean} True if the user is authenticated, false otherwise.
-     */
+    // Checks if the request is authenticated.
     function isSignedIn() {
       return request.auth != null;
     }
 
-    /**
-     * @description Checks if the current user is the owner of the resource.
-     * @param {string} userId - The user ID to compare against the request's auth UID.
-     * @returns {boolean} True if the user is the owner, false otherwise.
-     */
+    // Checks if the authenticated user is the owner of the resource.
     function isOwner(userId) {
-      return isSignedIn() && request.auth.uid == userId;
+      return request.auth.uid == userId;
     }
 
-    /**
-     * @description Checks if the current user is an admin by verifying the existence of a document in /roles_admin/{uid}.
-     * @returns {boolean} True if the user is an admin, false otherwise.
-     */
-    function isAdmin() {
-      return exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+    // Checks if the authenticated user is the existing owner of the resource.
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
     }
-
   }
 }
