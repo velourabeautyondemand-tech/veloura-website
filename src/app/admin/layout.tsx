@@ -51,13 +51,13 @@ function AdminLayoutContent({
 
   const { data: userProfile } = useDoc(userDocRef);
 
-  const pendingTechniciansQuery = useMemoFirebase(() => {
+  const pendingApplicationsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    return query(collection(firestore, 'technicians'), where('applicationStatus', '==', 'pending'));
+    return query(collection(firestore, 'technician_applications'), where('applicationStatus', '==', 'pending'));
   }, [firestore]);
 
-  const { data: pendingTechnicians } = useCollection(pendingTechniciansQuery);
-  const pendingApplicationsCount = pendingTechnicians?.length || 0;
+  const { data: pendingApplications } = useCollection(pendingApplicationsQuery);
+  const pendingApplicationsCount = pendingApplications?.length || 0;
 
   const handleLogout = () => {
     auth.signOut().then(() => {

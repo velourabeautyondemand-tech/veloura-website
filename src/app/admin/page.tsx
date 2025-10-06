@@ -60,24 +60,25 @@ export default function AdminDashboardPage() {
 
   const bookingsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
+    // This is a placeholder as bookings collection does not exist yet
     return query(collection(firestore, 'bookings'));
   }, [firestore]);
 
-  const pendingTechniciansQuery = useMemoFirebase(() => {
+  const pendingApplicationsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    return query(collection(firestore, 'technicians'), where('applicationStatus', '==', 'pending'));
+    return query(collection(firestore, 'technician_applications'), where('applicationStatus', '==', 'pending'));
   }, [firestore]);
 
   const { data: technicians, isLoading: techniciansLoading } = useCollection(techniciansQuery);
   const { data: bookings, isLoading: bookingsLoading } = useCollection(bookingsQuery);
-  const { data: pendingTechnicians, isLoading: pendingTechniciansLoading } = useCollection(pendingTechniciansQuery);
+  const { data: pendingApplicationsData, isLoading: pendingApplicationsLoading } = useCollection(pendingApplicationsQuery);
 
-  const isLoading = techniciansLoading || bookingsLoading || pendingTechniciansLoading;
+  const isLoading = techniciansLoading || bookingsLoading || pendingApplicationsLoading;
 
   const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + b.totalAmount, 0) || 0;
   const totalBookings = bookings?.length || 0;
   const totalTechnicians = technicians?.length || 0;
-  const pendingApplications = pendingTechnicians?.length || 0;
+  const pendingApplications = pendingApplicationsData?.length || 0;
 
   // Note: Chart data is still static for this version.
   // A more complex implementation would be needed to aggregate Firestore data by month.
@@ -205,7 +206,7 @@ export default function AdminDashboardPage() {
                   <TableCell className="text-right">${booking.totalAmount.toFixed(2)}</TableCell>
                 </TableRow>
               ))}
-               {bookings?.length === 0 && (
+               {(!bookings || bookings.length === 0) && (
                 <TableRow>
                     <TableCell colSpan={5} className="text-center text-muted-foreground py-10">No bookings found.</TableCell>
                 </TableRow>

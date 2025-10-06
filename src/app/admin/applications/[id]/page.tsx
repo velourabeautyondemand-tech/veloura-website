@@ -31,7 +31,7 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
   const { data: application, isLoading, error } = useDoc(applicationDocRef);
 
   const handleUpdateStatus = (status: 'approved' | 'rejected') => {
-    if (!applicationDocRef || !application) return;
+    if (!applicationDocRef || !application || !firestore) return;
 
     if (status === 'approved') {
         const newTechnicianRef = doc(firestore, 'technicians', params.id);
@@ -41,7 +41,6 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
         setDocumentNonBlocking(newTechnicianRef, {
             ...technicianData,
             applicationStatus: 'approved',
-            role: 'technician',
             id: params.id,
         }, {});
     }

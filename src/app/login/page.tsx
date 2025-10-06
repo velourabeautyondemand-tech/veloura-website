@@ -1,11 +1,12 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { useAuth, useFirestore } from '@/firebase'; // Using the centralized hook
+import { useState, useEffect } from 'react';
+import { useAuth, useFirestore, useUser } from '@/firebase'; // Using the centralized hook
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 
@@ -34,6 +35,7 @@ export default function LoginPage() {
   const router = useRouter();
   const auth = useAuth();
   const firestore = useFirestore();
+  const { user, isUserLoading } = useUser();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -45,33 +47,36 @@ export default function LoginPage() {
     },
   });
 
+  // Redirect if user is already logged in
+  useEffect(() => {
+    const checkUserRoleAndRedirect = async () => {
+        if (user && firestore) {
+            const userDocRef = doc(firestore, 'users', user.uid);
+            const userDoc = await getDoc(userDocRef);
+            if (userDoc.exists()) {
+                const userData = userDoc.data();
+                if (userData.role === 'admin') {
+                    router.push('/admin');
+                } else if (userData.role === 'technician') {
+                    router.push('/technician/dashboard');
+                } else {
+                    router.push('/');
+                }
+            } else {
+                router.push('/');
+            }
+        }
+    };
+    checkUserRoleAndRedirect();
+  }, [user, firestore, router]);
+
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     setError(null);
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
-      const user = userCredential.user;
-
-      if (user && firestore) {
-        const userDocRef = doc(firestore, 'users', user.uid);
-        const userDoc = await getDoc(userDocRef);
-
-        if (userDoc.exists()) {
-          const userData = userDoc.data();
-          if (userData.role === 'admin') {
-            router.push('/admin');
-          } else if (userData.role === 'technician') {
-            router.push('/technician/dashboard');
-          } else {
-             router.push('/'); // Fallback for other roles or no role
-          }
-        } else {
-          // No user profile found, redirect to a default page
-          setError('User profile not found.');
-          router.push('/');
-        }
-      }
-
+      await signInWithEmailAndPassword(auth, values.email, values.password);
+      // The useEffect will handle the redirect
     } catch (error: any) {
       setError(error.message);
     } finally {
@@ -99,7 +104,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input placeholder="admin@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -112,7 +117,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input type="password" placeholder="••••••••" {...field} />
+                      <Input type="password" placeholder="password" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -125,14 +130,15 @@ export default function LoginPage() {
                   <AlertDescription>{error}</AlertDescription>
                 </Alert>
               )}
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? <Loader2 className="animate-spin" /> : 'Sign In'}
+              <Button type="submit" className="w-full" disabled={isLoading || isUserLoading}>
+                {isLoading || isUserLoading ? <Loader2 className="animate-spin" /> : 'Sign In'}
               </Button>
             </form>
           </Form>
         </CardContent>
-        <CardFooter className="text-center text-sm">
+        <CardFooter className="text-center text-sm flex-col space-y-2">
             <p>Don't have an account? <Link href="/signup" className="font-semibold text-primary hover:underline">Sign up</Link></p>
+            <p className="text-xs text-muted-foreground">Admin: admin@example.com / password</p>
         </CardFooter>
       </Card>
     </div>
