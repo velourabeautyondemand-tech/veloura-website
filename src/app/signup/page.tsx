@@ -5,10 +5,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { useAuth, useFirestore } from '@/firebase'; // Using the centralized hook
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-
+import { useAuth, useFirestore, addDocumentNonBlocking } from '@/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { collection, doc, setDoc } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -24,18 +23,21 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertTriangle, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { NailIcon } from '@/components/shared/logo';
+import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
   email: z.string().email('Please enter a valid email address.'),
   password: z.string().min(6, 'Password must be at least 6 characters.'),
 });
 
-export default function LoginPage() {
+export default function SignUpPage() {
   const router = useRouter();
   const auth = useAuth();
   const firestore = useFirestore();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,28 +51,26 @@ export default function LoginPage() {
     setIsLoading(true);
     setError(null);
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+      if (!auth || !firestore) {
+        throw new Error("Firebase not initialized");
+      }
+      const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
       const user = userCredential.user;
 
-      if (user && firestore) {
-        const userDocRef = doc(firestore, 'users', user.uid);
-        const userDoc = await getDoc(userDocRef);
+      // Create a user profile in Firestore
+      const userDocRef = doc(firestore, 'users', user.uid);
+      await setDoc(userDocRef, {
+        id: user.uid,
+        email: user.email,
+        role: 'customer', // Default role
+      });
+      
+      toast({
+        title: "Account Created!",
+        description: "You have successfully signed up. Please log in.",
+      });
 
-        if (userDoc.exists()) {
-          const userData = userDoc.data();
-          if (userData.role === 'admin') {
-            router.push('/admin');
-          } else if (userData.role === 'technician') {
-            router.push('/technician/dashboard');
-          } else {
-             router.push('/'); // Fallback for other roles or no role
-          }
-        } else {
-          // No user profile found, redirect to a default page
-          setError('User profile not found.');
-          router.push('/');
-        }
-      }
+      router.push('/login');
 
     } catch (error: any) {
       setError(error.message);
@@ -83,11 +83,11 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-secondary/30">
       <Card className="mx-auto max-w-sm w-full shadow-2xl">
         <CardHeader className="text-center">
-          <Link href="/" className="inline-block mb-4">
+           <Link href="/" className="inline-block mb-4">
             <NailIcon className="h-12 w-12 mx-auto" />
           </Link>
-          <CardTitle className="text-2xl font-bold font-headline">Member Login</CardTitle>
-          <CardDescription>Enter your credentials to access your dashboard.</CardDescription>
+          <CardTitle className="text-2xl font-bold font-headline">Create an Account</CardTitle>
+          <CardDescription>Sign up to start your beauty journey.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -121,18 +121,18 @@ export default function LoginPage() {
               {error && (
                 <Alert variant="destructive">
                   <AlertTriangle className="h-4 w-4" />
-                  <AlertTitle>Login Failed</AlertTitle>
+                  <AlertTitle>Sign-up Failed</AlertTitle>
                   <AlertDescription>{error}</AlertDescription>
                 </Alert>
               )}
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? <Loader2 className="animate-spin" /> : 'Login'}
+                {isLoading ? <Loader2 className="animate-spin" /> : 'Sign Up'}
               </Button>
             </form>
           </Form>
         </CardContent>
         <CardFooter className="text-center text-sm">
-            <p>Don't have an account? <Link href="/signup" className="font-semibold text-primary hover:underline">Sign up</Link></p>
+            <p>Already have an account? <Link href="/login" className="font-semibold text-primary hover:underline">Log in</Link></p>
         </CardFooter>
       </Card>
     </div>
