@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { useAuth, useFirestore, useUser, useDoc, useMemoFirebase } from '@/firebase'; // Using the centralized hook
+import { useAuth, useFirestore, useUser, useDoc, useMemoFirebase } from '@/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc } from 'firebase/firestore';
 
@@ -22,7 +22,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { AlertTriangle, Loader2 } from 'lucide-react';
+import { AlertTriangle, Loader2, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 import { NailIcon } from '@/components/shared/logo';
 
@@ -31,7 +31,7 @@ const formSchema = z.object({
   password: z.string().min(6, 'Password must be at least 6 characters.'),
 });
 
-export default function LoginPage() {
+export default function AdminLoginPage() {
   const router = useRouter();
   const auth = useAuth();
   const firestore = useFirestore();
@@ -42,8 +42,8 @@ export default function LoginPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      email: 'admin@example.com',
+      password: 'password',
     },
   });
 
@@ -54,26 +54,29 @@ export default function LoginPage() {
 
   const { data: userProfile, isLoading: isProfileLoading } = useDoc(userDocRef);
 
-  // Redirect if user is already logged in
   useEffect(() => {
-    if (user && userProfile && !isProfileLoading) {
-      if (userProfile.role === 'admin') {
-        router.push('/admin');
-      } else if (userProfile.role === 'technician') {
-        router.push('/technician/dashboard');
-      } else {
-        router.push('/');
-      }
+    if (user && userProfile && userProfile.role === 'admin') {
+      router.push('/admin');
     }
-  }, [user, userProfile, isProfileLoading, router]);
+  }, [user, userProfile, router]);
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoggingIn(true);
     setError(null);
     try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      // The useEffect will handle the redirect after user and profile are loaded.
+      const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+      const idTokenResult = await userCredential.user.getIdTokenResult();
+      
+      const userDoc = await doc(firestore, 'users', userCredential.user.uid).get();
+
+      if (userDoc.exists() && userDoc.data().role === 'admin') {
+         // The useEffect will handle the redirect
+      } else {
+        await auth.signOut();
+        setError('Access denied. This account is not an administrator.');
+      }
+
     } catch (error: any) {
       setError(error.message);
     } finally {
@@ -90,8 +93,8 @@ export default function LoginPage() {
           <Link href="/" className="inline-block mb-4">
             <NailIcon className="h-12 w-12 mx-auto" />
           </Link>
-          <CardTitle className="text-2xl font-bold font-headline">Member Login</CardTitle>
-          <CardDescription>Enter your credentials to access your dashboard.</CardDescription>
+          <CardTitle className="text-2xl font-bold font-headline flex items-center justify-center gap-2"><ShieldCheck className="w-7 h-7 text-primary" /> Admin Login</CardTitle>
+          <CardDescription>Enter your administrator credentials.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -103,7 +106,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input placeholder="admin@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -114,14 +117,14 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <div className="flex justify-between items-baseline">
+                     <div className="flex justify-between items-baseline">
                         <FormLabel>Password</FormLabel>
                         <Link href="/forgot-password" passHref className="text-sm font-medium text-primary hover:underline">
                             Forgot Password?
                         </Link>
                     </div>
                     <FormControl>
-                      <Input type="password" placeholder="••••••••" {...field} />
+                      <Input type="password" placeholder="password" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -140,9 +143,8 @@ export default function LoginPage() {
             </form>
           </Form>
         </CardContent>
-        <CardFooter className="text-center text-sm flex-col space-y-2">
-            <p>Don't have an account? <Link href="/signup" className="font-semibold text-primary hover:underline">Sign up</Link></p>
-            <p className="text-xs text-muted-foreground"><Link href="/admin/login" className="font-semibold text-primary hover:underline">Admin Login</Link></p>
+         <CardFooter className="text-center text-sm">
+             <Link href="/login" className="font-semibold text-primary hover:underline">Not an admin? Go to member login</Link>
         </CardFooter>
       </Card>
     </div>

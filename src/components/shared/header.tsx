@@ -37,7 +37,7 @@ function UserNavButtons() {
 
   const handleSignOut = () => {
     auth.signOut().then(() => {
-      router.push('/login');
+      router.push('/');
     });
   };
 

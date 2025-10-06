@@ -2,19 +2,21 @@
 "use client";
 
 import { useUser } from "@/firebase";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 
 export function AuthRequired({ children }: { children: React.ReactNode }) {
   const { user, isUserLoading } = useUser();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isUserLoading && !user) {
-      router.push("/login");
+      const loginPath = pathname.startsWith('/admin') ? '/admin/login' : '/login';
+      router.push(loginPath);
     }
-  }, [user, isUserLoading, router]);
+  }, [user, isUserLoading, router, pathname]);
 
   if (isUserLoading || !user) {
     return (
