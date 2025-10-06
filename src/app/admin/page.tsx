@@ -1,5 +1,7 @@
+
 "use client";
 
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -23,9 +25,10 @@ import {
 } from "@/components/ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart } from "recharts";
 import { Badge } from "@/components/ui/badge";
-import { Users, BookOpen, DollarSign, Loader2 } from "lucide-react";
+import { Users, BookOpen, DollarSign, Loader2, Bell } from "lucide-react";
 import { useCollection, useFirestore, useMemoFirebase } from "@/firebase";
 import { collection, query, where } from "firebase/firestore";
+import { cn } from "@/lib/utils";
 
 const chartData = [
   { month: "January", revenue: 0, bookings: 0 },
@@ -120,16 +123,21 @@ export default function AdminDashboardPage() {
              <p className="text-xs text-muted-foreground">Total registered technicians</p>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">New Applications</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">+{pendingApplications}</div>
-            <p className="text-xs text-muted-foreground">Pending review</p>
-          </CardContent>
-        </Card>
+        <Link href="/admin/applications">
+          <Card className={cn(
+            "transition-all hover:shadow-lg",
+            pendingApplications > 0 && "bg-primary/10 border-primary animate-pulse"
+            )}>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">New Applications</CardTitle>
+              <Bell className={cn("h-4 w-4 text-muted-foreground", pendingApplications > 0 && "text-primary")} />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">+{pendingApplications}</div>
+              <p className="text-xs text-muted-foreground">Pending review</p>
+            </CardContent>
+          </Card>
+        </Link>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">

@@ -15,18 +15,18 @@ import {
   SidebarInset,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut, User } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut, User, Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NailIcon } from "@/components/shared/logo";
-import { useAuth, useUser, useDoc, useFirestore, useMemoFirebase } from "@/firebase";
+import { useAuth, useUser, useDoc, useFirestore, useMemoFirebase, useCollection } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { AuthRequired } from "@/components/auth-required";
-import { doc } from 'firebase/firestore';
+import { doc, collection, query, where } from 'firebase/firestore';
 
 
 const adminNavItems = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-    { href: "/admin/applications", label: "Applications", icon: Users },
+    { href: "/admin/applications", label: "Applications", icon: Users, notificationKey: "pendingApplications" },
     { href: "/admin/bookings", label: "Bookings", icon: BookOpen },
     { href: "/admin/payments", label: "Payments", icon: CreditCard },
     { href: "/admin/reports", label: "Reports", icon: BarChart3 },
@@ -50,6 +50,14 @@ function AdminLayoutContent({
   }, [firestore, user]);
 
   const { data: userProfile } = useDoc(userDocRef);
+
+  const pendingTechniciansQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, 'technicians'), where('applicationStatus', '==', 'pending'));
+  }, [firestore]);
+
+  const { data: pendingTechnicians } = useCollection(pendingTechniciansQuery);
+  const pendingApplicationsCount = pendingTechnicians?.length || 0;
 
   const handleLogout = () => {
     auth.signOut().then(() => {
@@ -80,6 +88,11 @@ function AdminLayoutContent({
                     >
                       <item.icon className="w-5 h-5" />
                       <span>{item.label}</span>
+                       {item.notificationKey === "pendingApplications" && pendingApplicationsCount > 0 && (
+                          <span className="ml-auto flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
+                            {pendingApplicationsCount}
+                          </span>
+                        )}
                     </SidebarMenuButton>
                   </Link>
                 </SidebarMenuItem>
