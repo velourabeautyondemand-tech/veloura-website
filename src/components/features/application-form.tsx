@@ -65,7 +65,8 @@ export function ApplicationForm() {
             addDocumentNonBlocking(techniciansCol, {
                 ...applicationData,
                 applicationStatus: 'pending',
-                availability: '{"monday": "9am-5pm", "tuesday": "9am-5pm"}',
+                // These are now optional in the new schema, but good to have defaults
+                availability: '{"monday": "9am-5pm", "tuesday": "9am-5pm"}', 
                 serviceRadius: 6,
             });
 

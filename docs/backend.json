@@ -1,65 +1,107 @@
+
 {
   "entities": {
-    "Technician": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Technician",
+    "UserProfile": {
+      "title": "User Profile",
       "type": "object",
-      "description": "Represents a technician in the system, including their application details, availability, and service area.",
+      "description": "Represents a user's profile information.",
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the technician."
-        },
-        "firstName": {
-          "type": "string",
-          "description": "First name of the technician."
-        },
-        "lastName": {
-          "type": "string",
-          "description": "Last name of the technician."
+          "description": "The user's unique ID."
         },
         "email": {
           "type": "string",
-          "description": "Email address of the technician.",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["customer", "technician", "admin"],
+          "description": "The user's role in the system."
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "profileImageUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": ["id", "email", "role"]
+    },
+    "TechnicianApplication": {
+      "title": "Technician Application",
+      "type": "object",
+      "description": "Represents a technician's application.",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
           "format": "email"
         },
         "phone": {
-          "type": "string",
-          "description": "Phone number of the technician."
+          "type": "string"
         },
         "serviceArea": {
-          "type": "string",
-          "description": "The primary service area (e.g., city) the technician operates in."
+          "type": "string"
         },
         "licenseNumber": {
-          "type": "string",
-          "description": "The technician's professional license number."
+          "type": "string"
         },
         "applicationStatus": {
           "type": "string",
-          "description": "The status of the technician's application (e.g., pending, approved, rejected)."
-        },
-        "availability": {
-          "type": "string",
-          "description": "JSON string representing the technician's weekly availability."
-        },
-        "serviceRadius": {
-          "type": "number",
-          "description": "The radius (in miles) within which the technician is willing to travel for appointments."
+          "enum": ["pending", "approved", "rejected"]
         }
       },
-      "required": [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        "phone",
-        "serviceArea",
-        "licenseNumber",
-        "applicationStatus",
-        "availability",
-        "serviceRadius"
-      ]
+      "required": ["firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
+    },
+    "Technician": {
+      "title": "Technician",
+      "type": "object",
+      "description": "Represents an approved technician.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "serviceArea": {
+          "type": "string"
+        },
+        "licenseNumber": {
+          "type": "string"
+        },
+        "applicationStatus": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "string"
+        },
+        "serviceRadius": {
+          "type": "number"
+        }
+      },
+      "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
     }
   },
   "auth": {
@@ -69,76 +111,25 @@
     ]
   },
   "firestore": {
-    "structure": [
-      {
-        "path": "/technician_applications/{applicationId}",
-        "definition": {
-          "entityName": "Technician",
-          "schema": {
-            "$ref": "#/backend/entities/Technician"
-          },
-          "description": "Stores technician applications submitted by users. No authentication required for creating new applications.",
-          "params": [
-            {
-              "name": "applicationId",
-              "description": "The unique identifier for the technician application."
-            }
-          ]
-        }
+    "collections": {
+      "/users/{userId}": {
+        "schema": {
+          "$ref": "#/entities/UserProfile"
+        },
+        "description": "Stores public user profiles."
       },
-      {
-        "path": "/technicians/{technicianId}",
-        "definition": {
-          "entityName": "Technician",
-          "schema": {
-            "$ref": "#/backend/entities/Technician"
-          },
-          "description": "Stores approved technician profiles.  Includes all technician details. ",
-          "params": [
-            {
-              "name": "technicianId",
-              "description": "The unique identifier for the technician."
-            }
-          ]
-        }
+      "/technician_applications/{applicationId}": {
+        "schema": {
+          "$ref": "#/entities/TechnicianApplication"
+        },
+        "description": "Stores submitted applications from potential technicians."
       },
-      {
-        "path": "/users/{userId}/jobs/{jobId}",
-        "definition": {
-          "entityName": "job",
-          "schema": {
-            "$ref": "#/backend/entities/Technician"
-          },
-          "description": "Stores job details for each technician. Jobs are nested under the corresponding technician's user ID.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier of the technician (user ID)."
-            },
-            {
-              "name": "jobId",
-              "description": "The unique identifier for the job."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/roles_admin/{uid}",
-        "definition": {
-          "entityName": "admin_role",
-          "schema": {
-            "$ref": "#/backend/entities/Technician"
-          },
-          "description": "Stores admin role assignments. If a document exists for a user ID, that user is an admin.",
-          "params": [
-            {
-              "name": "uid",
-              "description": "The Firebase UID of the admin user."
-            }
-          ]
-        }
+      "/technicians/{technicianId}": {
+        "schema": {
+          "$ref": "#/entities/Technician"
+        },
+        "description": "Stores profiles of approved and active technicians."
       }
-    ],
-    "reasoning": "This Firestore structure prioritizes security, scalability, and debuggability based on the provided application requirements and core design principles. It addresses the reported 'Missing or insufficient permissions' error by implementing proper access control for technician application submissions. The structure ensures Authorization Independence through denormalization, supports secure list operations, and facilitates clear authorization rules. The structure is as follows:\n\n1.  `/technician_applications` Collection:\n    *   This collection stores technician applications. Any unauthenticated user can create documents in this collection, allowing open application submissions.\n    *   `applicationStatus` field indicates the status of the application (e.g., pending, approved, rejected). This enables filtering and different UI presentations based on the status.\n\n2.  `/technicians` Collection:\n    *   Approved technicians are added to this collection. This separation ensures that only approved technicians appear in the browsing and booking features.\n    *   Technician documents contain all necessary technician details, including availability, service area, and service radius, supporting the mobile booking feature.\n\n3.  `/users/{userId}/jobs/{jobId}` Collection:\n    *   Each technician has their own subcollection of jobs. The `userId` is the technician's UID.\n    *   Each job document contains customer information, service details, notes, add-ons, and status, supporting job management and payment processing.\n\n4.  `/roles_admin/{uid}` Collection:\n    *   This collection determines who is an admin. The document ID is the user's UID. If a document exists for a user, they are an admin.\n\nThis structure achieves **Authorization Independence** by avoiding `get()` calls in security rules. Specifically, the access control for technician applications is determined solely by whether the user is authenticated or not, not by any parent document's attributes.  The `members` map in the `/technicians/{technicianId}` document denormalizes role information, removing the need to `get()` role information during write operations. This significantly simplifies security rules and ensures atomic operations.\n\nIt supports the required **QAPs (Rules are not Filters)**.  The use of separate collections for `technician_applications` and `technicians` ensures that listing technicians for browsing only returns approved and active technicians. The roles collection facilitates secure admin operations without requiring complex filtering.\n"
+    }
   }
 }
