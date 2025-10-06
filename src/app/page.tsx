@@ -37,41 +37,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Services Section */}
-        {/* <section id="services" className="py-16 sm:py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Services</h2>
-              <p className="mt-4 text-lg text-muted-foreground">From quick touch-ups to luxurious spa treatments.</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {services.slice(0, 8).map((service) => {
-                const image = PlaceHolderImages.find(p => p.id === service.imageId);
-                return (
-                  <Card key={service.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <CardHeader className="p-0">
-                      {image && (
-                         <Image
-                           src={image.imageUrl}
-                           alt={service.name}
-                           width={600}
-                           height={400}
-                           className="w-full h-48 object-cover"
-                           data-ai-hint={image.imageHint}
-                         />
-                      )}
-                    </CardHeader>
-                    <CardContent className="p-4">
-                      <h3 className="text-lg font-semibold font-headline">{service.name}</h3>
-                      <p className="text-sm text-muted-foreground mt-1">{service.duration} mins</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section> */}
       </main>
       <Footer />
     </div>
