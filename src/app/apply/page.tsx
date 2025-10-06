@@ -7,7 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Upload, User, Mail, Phone, MapPin, Award, PartyPopper, Briefcase, DollarSign, Sparkles, ShieldCheck, Users } from "lucide-react";
 import { useFirestore } from "@/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection } from "firebase/firestore";
+import { addDocumentNonBlocking } from "@/firebase/non-blocking-updates";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -88,17 +89,22 @@ export default function ApplyPage() {
         if (!firestore) return;
         try {
             const techniciansCol = collection(firestore, "technicians");
-            await addDoc(techniciansCol, {
-                ...values,
+            
+            // We are not handling file uploads yet, so we will exclude them from the object sent to Firestore.
+            const { licenseUpload, resumeUpload, ...applicationData } = values;
+
+            addDocumentNonBlocking(techniciansCol, {
+                ...applicationData,
                 applicationStatus: 'pending',
                 // For now, we will hardcode some values. We can make these dynamic later.
                 availability: '{"monday": "9am-5pm", "tuesday": "9am-5pm"}',
                 serviceRadius: 6,
             });
 
-            // We are not handling file uploads yet.
-            console.log("License file:", values.licenseUpload[0]);
-            console.log("Resume file:", values.resumeUpload[0]);
+            console.log("License file (not uploaded):", values.licenseUpload[0]?.name);
+            if(values.resumeUpload[0]) {
+                console.log("Resume file (not uploaded):", values.resumeUpload[0]?.name);
+            }
 
             setIsSubmitted(true);
         } catch (error) {
