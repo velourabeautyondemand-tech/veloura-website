@@ -23,17 +23,17 @@ import {
 } from "@/components/ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart } from "recharts";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Users, CreditCard, BookOpen, DollarSign } from "lucide-react";
-import { bookings, technicians } from "@/lib/data";
+import { Users, BookOpen, DollarSign, Loader2 } from "lucide-react";
+import { useCollection, useFirestore, useMemoFirebase } from "@/firebase";
+import { collection, query, where } from "firebase/firestore";
 
 const chartData = [
-  { month: "January", revenue: 1860, bookings: 80 },
-  { month: "February", revenue: 3050, bookings: 200 },
-  { month: "March", revenue: 2370, bookings: 120 },
-  { month: "April", revenue: 730, bookings: 190 },
-  { month: "May", revenue: 2090, bookings: 130 },
-  { month: "June", revenue: 2140, bookings: 150 },
+  { month: "January", revenue: 0, bookings: 0 },
+  { month: "February", revenue: 0, bookings: 0 },
+  { month: "March", revenue: 0, bookings: 0 },
+  { month: "April", revenue: 0, bookings: 0 },
+  { month: "May", revenue: 0, bookings: 0 },
+  { month: "June", revenue: 0, bookings: 0 },
 ];
 
 const chartConfig = {
@@ -48,10 +48,47 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function AdminDashboardPage() {
-  const totalRevenue = bookings.filter(b => b.status === 'completed').reduce((sum, b) => sum + b.price, 0);
+  const firestore = useFirestore();
+
+  const techniciansQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, 'technicians'));
+  }, [firestore]);
+
+  const bookingsQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, 'bookings'));
+  }, [firestore]);
+
+  const pendingTechniciansQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, 'technicians'), where('applicationStatus', '==', 'pending'));
+  }, [firestore]);
+
+  const { data: technicians, isLoading: techniciansLoading } = useCollection(techniciansQuery);
+  const { data: bookings, isLoading: bookingsLoading } = useCollection(bookingsQuery);
+  const { data: pendingTechnicians, isLoading: pendingTechniciansLoading } = useCollection(pendingTechniciansQuery);
+
+  const isLoading = techniciansLoading || bookingsLoading || pendingTechniciansLoading;
+
+  const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + b.totalAmount, 0) || 0;
+  const totalBookings = bookings?.length || 0;
+  const totalTechnicians = technicians?.length || 0;
+  const pendingApplications = pendingTechnicians?.length || 0;
+
+  // Note: Chart data is still static for this version.
+  // A more complex implementation would be needed to aggregate Firestore data by month.
 
   return (
     <div className="space-y-6">
+       {isLoading && (
+          <div className="flex justify-center items-center py-10">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <p className="ml-4">Loading dashboard data...</p>
+          </div>
+        )}
+      {!isLoading && (
+      <>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -60,7 +97,7 @@ export default function AdminDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">${totalRevenue.toFixed(2)}</div>
-            <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+            <p className="text-xs text-muted-foreground">Based on completed bookings</p>
           </CardContent>
         </Card>
         <Card>
@@ -69,8 +106,8 @@ export default function AdminDashboardPage() {
             <BookOpen className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+{bookings.length}</div>
-            <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+            <div className="text-2xl font-bold">+{totalBookings}</div>
+            <p className="text-xs text-muted-foreground">All time bookings</p>
           </CardContent>
         </Card>
          <Card>
@@ -79,8 +116,8 @@ export default function AdminDashboardPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+{technicians.length}</div>
-            <p className="text-xs text-muted-foreground">+2 since last month</p>
+            <div className="text-2xl font-bold">+{totalTechnicians}</div>
+             <p className="text-xs text-muted-foreground">Total registered technicians</p>
           </CardContent>
         </Card>
         <Card>
@@ -89,8 +126,8 @@ export default function AdminDashboardPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+5</div>
-            <p className="text-xs text-muted-foreground">3 pending review</p>
+            <div className="text-2xl font-bold">+{pendingApplications}</div>
+            <p className="text-xs text-muted-foreground">Pending review</p>
           </CardContent>
         </Card>
       </div>
@@ -99,7 +136,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle>Revenue Overview</CardTitle>
-            <CardDescription>Monthly revenue for the last 6 months.</CardDescription>
+            <CardDescription>Monthly revenue for the last 6 months (Static Data).</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[250px] w-full">
@@ -116,7 +153,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle>Bookings Overview</CardTitle>
-            <CardDescription>Monthly bookings for the last 6 months.</CardDescription>
+            <CardDescription>Monthly bookings for the last 6 months (Static Data).</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[250px] w-full">
@@ -141,29 +178,36 @@ export default function AdminDashboardPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Customer</TableHead>
-                <TableHead>Technician</TableHead>
-                <TableHead>Service</TableHead>
+                <TableHead>Customer ID</TableHead>
+                <TableHead>Technician ID</TableHead>
+                <TableHead>Service ID</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className="text-right">Amount</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {bookings.slice(0, 5).map(booking => (
+              {bookings?.slice(0, 5).map(booking => (
                 <TableRow key={booking.id}>
-                  <TableCell>{booking.customerName}</TableCell>
-                  <TableCell>{booking.technicianName}</TableCell>
-                  <TableCell>{booking.serviceName}</TableCell>
+                  <TableCell className="font-mono text-xs">{booking.customerId}</TableCell>
+                  <TableCell className="font-mono text-xs">{booking.technicianId}</TableCell>
+                  <TableCell className="font-mono text-xs">{booking.serviceId}</TableCell>
                   <TableCell>
                     <Badge variant={booking.status === 'completed' ? 'secondary' : booking.status === 'cancelled' ? 'destructive' : 'default'}>{booking.status}</Badge>
                   </TableCell>
-                  <TableCell className="text-right">${booking.price.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">${booking.totalAmount.toFixed(2)}</TableCell>
                 </TableRow>
               ))}
+               {bookings?.length === 0 && (
+                <TableRow>
+                    <TableCell colSpan={5} className="text-center text-muted-foreground py-10">No bookings found.</TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </CardContent>
       </Card>
+      </>
+      )}
     </div>
   );
 }
