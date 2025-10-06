@@ -74,7 +74,7 @@ function AdminLayoutContent({
           <SidebarHeader>
              <Link href="/" className="flex items-center gap-2">
                 <NailIcon className="w-6 h-6" />
-                <span className="font-semibold font-headline text-lg">Beauty on the Go</span>
+                <span className="font-semibold font-headline text-lg">VÉLOURA</span>
              </Link>
           </SidebarHeader>
           <SidebarContent>
