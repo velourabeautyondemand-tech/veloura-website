@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -24,7 +25,7 @@ export default function TechnicianProfilePage() {
                         <CardTitle className="font-headline text-2xl">My Profile</CardTitle>
                         <CardDescription>This is how your profile appears to customers.</CardDescription>
                     </div>
-                    <Button variant="outline"><Edit className="mr-2 h-4 w-4" /> Edit Profile</Button>
+                    <Button asChild variant="outline"><Link href="/technician/profile/edit"><Edit className="mr-2 h-4 w-4" /> Edit Profile</Link></Button>
                 </CardHeader>
                 <CardContent>
                     <div className="flex flex-col md:flex-row items-start gap-6">
