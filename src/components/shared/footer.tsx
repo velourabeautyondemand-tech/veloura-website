@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
+            <Link href="https://www.indeed.com/viewjob?jk=c35c02dd395e9fb9&from=shareddesktop_copy" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Press</Link>
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
              <Link href="https://www.instagram.com/beauty_on_the_go_group/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
