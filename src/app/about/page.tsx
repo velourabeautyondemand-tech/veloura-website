@@ -93,8 +93,8 @@ export default function AboutPage() {
                 <section className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="bg-primary/10 rounded-xl p-12 text-center">
-                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary-foreground">Ready to Experience the Difference?</h2>
-                             <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">Whether you're looking for the perfect manicure or the perfect career, your journey starts here.</p>
+                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Ready to Experience the Difference?</h2>
+                             <p className="mt-4 text-lg text-primary/80 max-w-2xl mx-auto">Whether you're looking for the perfect manicure or the perfect career, your journey starts here.</p>
                              <div className="mt-8 flex justify-center gap-4">
                                  <Button asChild size="lg" variant="accent">
                                      <Link href="/apply">Join Our Team</Link>
