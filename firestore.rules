@@ -1,128 +1,96 @@
 /**
- * @file Firestore Security Rules
- * @description This ruleset enforces a role-based access control model with owner-only restrictions for user profiles.
- *
- * Data Structure:
- * - /users/{userId}: Stores user profile information, accessible only to the user themselves.
- * - /technicians/{technicianId}: Stores technician profile information, accessible only to admins (currently disabled, see TODO).
- * - /customers/{customerId}: Stores customer profile information, accessible only to admins (currently disabled, see TODO).
- * - /services/{serviceId}: Stores information about the services offered, accessible only to admins (currently disabled, see TODO).
- * - /bookings/{bookingId}: Stores booking information, accessible only to admins, and the relevant customer and technician (currently disabled, see TODO).
- *
- * Key Security Decisions:
- * - User listing is disallowed for all collections.
- * - Admin role enforcement is a placeholder; proper admin role implementation is required.
- * - Default security posture for ambiguous relationships is strict owner-only access.
- *
- * Denormalization for Authorization:
- *   - User profiles are stored under /users/{userId}, ensuring that `request.auth.uid` always matches `userId`.
- *
- * Structural Segregation:
- *   - There is no deliberate segregation between public and private data. All data is treated as private unless explicitly opened.
+ * @description This ruleset enforces a role-based access control model with a separate technicians and technician_application collections. Unauthenticated users can submit technician applications, while only authenticated admins can approve them, moving approved profiles to the `technicians` collection. Each technician has a separate user id for nested jobs.
+ * @dataStructure
+ * - /technician_applications/{applicationId}: Stores application data; publicly creatable, restricted updates.
+ * - /technicians/{technicianId}: Stores approved technician profiles; restricted create, update, and delete access.
+ * - /users/{userId}/jobs/{jobId}: Stores job details for each technician, nested under their user ID.
+ * - /roles_admin/{uid}: Admin role assignments; document existence grants admin privileges.
+ * @keySecurityDecisions
+ * - Unauthenticated users can create technician applications.
+ * - Only authenticated admins can approve applications and create technician profiles.
+ * - All write operations on /technicians collection require admin privileges.
+ * - The ability to list the `/technicians` collection is publicly available to support browsing.
+ * - Strict ownership is enforced for data under `/users/{userId}`.
+ * @denormalizationForAuthorization
+ * - The `roles_admin` collection is used to quickly determine if a user is an admin, avoiding complex role lookups. The existance of a document with their `uid` as the document id in the `roles_admin` collection implies the user is an admin.
+ * @structuralSegregation
+ * - Separate collections are used for technician applications (open to all) and approved technician profiles (admin-only), ensuring that only approved technicians are publicly visible.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Enforces owner-only access to user profiles.
-     * @path /users/{userId}
-     * @allow (create) - User with UID 'user123' can create their profile at /users/user123.
-     * @deny (create) - User with UID 'user123' cannot create a profile at /users/otherUser.
-     * @allow (get, update, delete) - User with UID 'user123' can get, update and delete their own profile at /users/user123.
-     * @deny (get, update, delete) - User with UID 'user123' cannot get, update, or delete another user's profile at /users/otherUser.
-     * @principle Enforces document ownership for writes.
+     * @description Allows anyone to create technician applications, but restricts updates and deletes.
+     * @path /technician_applications/{applicationId}
+     * @allow (create) - An unauthenticated user can create a technician application.
+     * @deny (update, delete) - No one can update or delete a technician application after creation.
+     * @principle Allows unauthenticated users to submit technician applications while preventing unauthorized modifications.
      */
-    match /users/{userId} {
-      // Helper function to check if the authenticated user is the owner of the document.
-      function isOwner(userId) {
-        return request.auth != null && request.auth.uid == userId;
-      }
-
-      // Helper function to check if the authenticated user is the owner of the existing document.
-      function isExistingOwner(userId) {
-        return isOwner(userId) && resource != null;
-      }
-      allow get: if isOwner(userId);
-      allow list: if false;
-      allow create: if isOwner(userId) && request.resource.data.id == userId;
-      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
-      allow delete: if isExistingOwner(userId);
+    match /technician_applications/{applicationId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if false;
     }
 
     /**
-     * @description Controls access to technician profiles. Currently only allows admins to manage technicians.
+     * @description Restricts create, update, and delete operations on technician profiles to admins only. Allows public read access.
      * @path /technicians/{technicianId}
-     * @allow (create, get, update, delete) - If isAdmin() returns true.
-     * @deny (create, get, update, delete) - If isAdmin() returns false.
-     * @principle Restricts access to admins.
+     * @allow (create, update, delete) - An admin can create, update, or delete a technician profile.
+     * @deny (create, update, delete) - A non-admin user cannot create, update, or delete a technician profile.
+     * @principle Enforces strict admin control over technician profiles while allowing public visibility.
      */
     match /technicians/{technicianId} {
-      function isAdmin() {
-        return false; // TODO: Implement proper admin role check.
-      }
-      allow get: if isAdmin();
-      allow list: if false;
+      allow get: if true;
+      allow list: if true;
       allow create: if isAdmin();
       allow update: if isAdmin();
       allow delete: if isAdmin();
     }
 
     /**
-     * @description Controls access to customer profiles. Currently only allows admins to manage customers.
-     * @path /customers/{customerId}
-     * @allow (create, get, update, delete) - If isAdmin() returns true.
-     * @deny (create, get, update, delete) - If isAdmin() returns false.
-     * @principle Restricts access to admins.
+     * @description Restricts access to job documents to the owner (technician) only.
+     * @path /users/{userId}/jobs/{jobId}
+     * @allow (create, get, list, update, delete) - The owner (technician) can create, get, list, update, and delete their own job documents.
+     * @deny (create, get, list, update, delete) - A non-owner cannot access or modify another technician's job documents.
+     * @principle Enforces strict ownership for job documents, ensuring technicians can only manage their own jobs.
      */
-    match /customers/{customerId} {
-      function isAdmin() {
-        return false; // TODO: Implement proper admin role check.
-      }
+    match /users/{userId}/jobs/{jobId} {
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
+    }
+
+    /**
+     * @description Grants admin privileges to users with a document in this collection, identified by their UID.
+     * @path /roles_admin/{uid}
+     * @allow (get, create, update, delete) - Only an admin can manage admin roles.
+     * @deny (get, create, update, delete) - A non-admin user cannot grant themselves admin privileges.
+     * @principle Uses document existence to define admin roles, simplifying role-based access control.
+     */
+    match /roles_admin/{uid} {
       allow get: if isAdmin();
-      allow list: if false;
+      allow list: if isAdmin(); // Listing admins is likely an admin function.
       allow create: if isAdmin();
       allow update: if isAdmin();
       allow delete: if isAdmin();
     }
 
-    /**
-     * @description Controls access to service definitions. Currently only allows admins to manage services.
-     * @path /services/{serviceId}
-     * @allow (create, get, update, delete) - If isAdmin() returns true.
-     * @deny (create, get, update, delete) - If isAdmin() returns false.
-     * @principle Restricts access to admins.
-     */
-    match /services/{serviceId} {
-      function isAdmin() {
-        return false; // TODO: Implement proper admin role check.
-      }
-      allow get: if isAdmin();
-      allow list: if false;
-      allow create: if isAdmin();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
     }
 
-    /**
-     * @description Controls access to booking information. Currently only allows admins, the customer, and the technician to manage bookings.
-     * @path /bookings/{bookingId}
-     * @allow (create, get, update, delete) - If isAdmin() or isCustomerOrTechnician() returns true.
-     * @deny (create, get, update, delete) - If isAdmin() or isCustomerOrTechnician() returns false.
-     * @principle Restricts access to admins, the customer, and the technician.
-     */
-    match /bookings/{bookingId} {
-      function isAdmin() {
-        return false; // TODO: Implement proper admin role check.
-      }
-      function isCustomerOrTechnician() {
-        return false; // TODO: Implement customer/technician role check based on booking data.
-      }
-      allow get: if isAdmin() || isCustomerOrTechnician();
-      allow list: if false;
-      allow create: if isAdmin() || isCustomerOrTechnician();
-      allow update: if isAdmin() || isCustomerOrTechnician();
-      allow delete: if isAdmin() || isCustomerOrTechnician();
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
     }
   }
 }

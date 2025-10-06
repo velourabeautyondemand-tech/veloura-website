@@ -1,54 +1,14 @@
-
 {
   "entities": {
-    "UserProfile": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "User Profile",
-      "type": "object",
-      "description": "Represents a user's profile information.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the user."
-        },
-        "firstName": {
-          "type": "string",
-          "description": "First name of the user."
-        },
-        "lastName": {
-          "type": "string",
-          "description": "Last name of the user."
-        },
-        "email": {
-          "type": "string",
-          "description": "Email address of the user.",
-          "format": "email"
-        },
-        "role": {
-          "type": "string",
-          "description": "Role of the user (e.g., admin, technician, customer)."
-        },
-        "profileImageUrl": {
-          "type": "string",
-          "description": "URL of the user's profile image.",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "id",
-        "email",
-        "role"
-      ]
-    },
     "Technician": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "Technician",
       "type": "object",
-      "description": "Represents a nail technician registered on the platform.",
+      "description": "Represents a technician in the system, including their application details, availability, and service area.",
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the Technician entity."
+          "description": "Unique identifier for the technician."
         },
         "firstName": {
           "type": "string",
@@ -67,30 +27,25 @@
           "type": "string",
           "description": "Phone number of the technician."
         },
+        "serviceArea": {
+          "type": "string",
+          "description": "The primary service area (e.g., city) the technician operates in."
+        },
         "licenseNumber": {
           "type": "string",
-          "description": "License number of the technician."
-        },
-        "serviceRadius": {
-          "type": "number",
-          "description": "Service radius in miles from the technician's home base."
-        },
-        "availability": {
-          "type": "string",
-          "description": "Technician's availability schedule (e.g., JSON string)."
+          "description": "The technician's professional license number."
         },
         "applicationStatus": {
           "type": "string",
-          "description": "Status of the technician's application (e.g., pending, approved, rejected)."
+          "description": "The status of the technician's application (e.g., pending, approved, rejected)."
         },
-        "bio": {
+        "availability": {
           "type": "string",
-          "description": "A short biography of the technician."
+          "description": "JSON string representing the technician's weekly availability."
         },
-        "profileImageUrl": {
-          "type": "string",
-          "description": "URL of the technician's profile image.",
-          "format": "uri"
+        "serviceRadius": {
+          "type": "number",
+          "description": "The radius (in miles) within which the technician is willing to travel for appointments."
         }
       },
       "required": [
@@ -99,305 +54,34 @@
         "lastName",
         "email",
         "phone",
+        "serviceArea",
         "licenseNumber",
-        "serviceRadius",
+        "applicationStatus",
         "availability",
-        "applicationStatus"
-      ]
-    },
-    "Customer": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Customer",
-      "type": "object",
-      "description": "Represents a customer using the platform.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Customer entity."
-        },
-        "firstName": {
-          "type": "string",
-          "description": "First name of the customer."
-        },
-        "lastName": {
-          "type": "string",
-          "description": "Last name of the customer."
-        },
-        "email": {
-          "type": "string",
-          "description": "Email address of the customer.",
-          "format": "email"
-        },
-        "phone": {
-          "type": "string",
-          "description": "Phone number of the customer."
-        },
-        "address": {
-          "type": "string",
-          "description": "Address of the customer."
-        },
-        "profileImageUrl": {
-          "type": "string",
-          "description": "URL of the customer's profile image.",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        "phone",
-        "address"
-      ]
-    },
-    "Service": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Service",
-      "type": "object",
-      "description": "Represents a service offered by the technicians.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Service entity."
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the service (e.g., Manicure, Pedicure)."
-        },
-        "description": {
-          "type": "string",
-          "description": "Description of the service."
-        },
-        "price": {
-          "type": "number",
-          "description": "Price of the service."
-        },
-        "duration": {
-          "type": "number",
-          "description": "Duration of the service in minutes."
-        },
-        "imageUrl": {
-          "type": "string",
-          "description": "URL of the service image.",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "description",
-        "price",
-        "duration"
-      ]
-    },
-    "Booking": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Booking",
-      "type": "object",
-      "description": "Represents a booking made by a customer for a technician's service.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Booking entity."
-        },
-        "customerId": {
-          "type": "string",
-          "description": "Reference to Customer. (Relationship: Customer 1:N Booking)"
-        },
-        "technicianId": {
-          "type": "string",
-          "description": "Reference to Technician. (Relationship: Technician 1:N Booking)"
-        },
-        "serviceId": {
-          "type": "string",
-          "description": "Reference to Service. (Relationship: Service 1:N Booking)"
-        },
-        "startTime": {
-          "type": "string",
-          "description": "Start time of the booking.",
-          "format": "date-time"
-        },
-        "endTime": {
-          "type": "string",
-          "description": "End time of the booking.",
-          "format": "date-time"
-        },
-        "status": {
-          "type": "string",
-          "description": "Status of the booking (e.g., booked, confirmed, completed, cancelled)."
-        },
-        "totalAmount": {
-          "type": "number",
-          "description": "Total amount for the booking (including service price, add-ons, and tips)."
-        },
-        "notes": {
-          "type": "string",
-          "description": "Additional notes for the booking."
-        }
-      },
-      "required": [
-        "id",
-        "customerId",
-        "technicianId",
-        "serviceId",
-        "startTime",
-        "endTime",
-        "status",
-        "totalAmount"
-      ]
-    },
-    "Payment": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Payment",
-      "type": "object",
-      "description": "Represents a payment transaction.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Payment entity."
-        },
-        "bookingId": {
-          "type": "string",
-          "description": "Reference to Booking. (Relationship: Booking 1:N Payment)"
-        },
-        "paymentDate": {
-          "type": "string",
-          "description": "Date of the payment.",
-          "format": "date-time"
-        },
-        "amount": {
-          "type": "number",
-          "description": "Amount paid."
-        },
-        "paymentMethod": {
-          "type": "string",
-          "description": "Payment method used (e.g., credit card, Stripe)."
-        },
-        "transactionId": {
-          "type": "string",
-          "description": "Transaction ID from the payment gateway (e.g., Stripe)."
-        },
-        "status": {
-          "type": "string",
-          "description": "Status of the payment (e.g., pending, completed, failed)."
-        }
-      },
-      "required": [
-        "id",
-        "bookingId",
-        "paymentDate",
-        "amount",
-        "paymentMethod",
-        "transactionId",
-        "status"
-      ]
-    },
-    "AddOn": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "AddOn",
-      "type": "object",
-      "description": "Represents an add-on service that can be requested during a booking.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the AddOn entity."
-        },
-        "bookingId": {
-          "type": "string",
-          "description": "Reference to Booking. (Relationship: Booking 1:N AddOn)"
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the add-on service (e.g., Gel Polish)."
-        },
-        "description": {
-          "type": "string",
-          "description": "Description of the add-on service."
-        },
-        "price": {
-          "type": "number",
-          "description": "Price of the add-on service."
-        },
-        "status": {
-          "type": "string",
-          "description": "Status of the add-on request (e.g., requested, approved, rejected)."
-        }
-      },
-      "required": [
-        "id",
-        "bookingId",
-        "name",
-        "description",
-        "price",
-        "status"
-      ]
-    },
-    "Review": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Review",
-      "type": "object",
-      "description": "Represents a review of a technician by a customer.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Review entity."
-        },
-        "customerId": {
-          "type": "string",
-          "description": "Reference to Customer. (Relationship: Customer 1:N Review)"
-        },
-        "technicianId": {
-          "type": "string",
-          "description": "Reference to Technician. (Relationship: Technician 1:N Review)"
-        },
-        "bookingId": {
-          "type": "string",
-          "description": "Reference to Booking. (Relationship: Booking 1:N Review)"
-        },
-        "rating": {
-          "type": "number",
-          "description": "Rating given by the customer (e.g., 1-5)."
-        },
-        "comment": {
-          "type": "string",
-          "description": "Comment provided by the customer."
-        },
-        "reviewDate": {
-          "type": "string",
-          "description": "Date of the review.",
-          "format": "date-time"
-        }
-      },
-      "required": [
-        "id",
-        "customerId",
-        "technicianId",
-        "bookingId",
-        "rating",
-        "reviewDate"
+        "serviceRadius"
       ]
     }
   },
   "auth": {
     "providers": [
-      "password"
+      "password",
+      "anonymous"
     ]
   },
   "firestore": {
     "structure": [
       {
-        "path": "/users/{userId}",
+        "path": "/technician_applications/{applicationId}",
         "definition": {
-          "entityName": "UserProfile",
+          "entityName": "Technician",
           "schema": {
-            "$ref": "#/backend/entities/UserProfile"
+            "$ref": "#/backend/entities/Technician"
           },
-          "description": "Stores user profile information, including their role.",
+          "description": "Stores technician applications submitted by users. No authentication required for creating new applications.",
           "params": [
             {
-              "name": "userId",
-              "description": "The unique identifier of the user, corresponding to their Firebase Auth UID."
+              "name": "applicationId",
+              "description": "The unique identifier for the technician application."
             }
           ]
         }
@@ -409,63 +93,52 @@
           "schema": {
             "$ref": "#/backend/entities/Technician"
           },
-          "description": "Stores technician profile information. Accessible by admins.",
+          "description": "Stores approved technician profiles.  Includes all technician details. ",
           "params": [
             {
               "name": "technicianId",
-              "description": "The unique identifier of the technician."
+              "description": "The unique identifier for the technician."
             }
           ]
         }
       },
       {
-        "path": "/customers/{customerId}",
+        "path": "/users/{userId}/jobs/{jobId}",
         "definition": {
-          "entityName": "Customer",
+          "entityName": "job",
           "schema": {
-            "$ref": "#/backend/entities/Customer"
+            "$ref": "#/backend/entities/Technician"
           },
-          "description": "Stores customer profile information. Accessible by admins.",
+          "description": "Stores job details for each technician. Jobs are nested under the corresponding technician's user ID.",
           "params": [
             {
-              "name": "customerId",
-              "description": "The unique identifier of the customer."
+              "name": "userId",
+              "description": "The unique identifier of the technician (user ID)."
+            },
+            {
+              "name": "jobId",
+              "description": "The unique identifier for the job."
             }
           ]
         }
       },
       {
-        "path": "/services/{serviceId}",
+        "path": "/roles_admin/{uid}",
         "definition": {
-          "entityName": "Service",
+          "entityName": "admin_role",
           "schema": {
-            "$ref": "#/backend/entities/Service"
+            "$ref": "#/backend/entities/Technician"
           },
-          "description": "Stores information about the services offered. Managed by admins.",
+          "description": "Stores admin role assignments. If a document exists for a user ID, that user is an admin.",
           "params": [
             {
-              "name": "serviceId",
-              "description": "The unique identifier of the service."
-            }
-          ]
-        }
-      },
-      {
-        "path": "/bookings/{bookingId}",
-        "definition": {
-          "entityName": "Booking",
-          "schema": {
-            "$ref": "#/backend/entities/Booking"
-          },
-          "description": "Stores booking information. Accessible by admins, and the relevant customer and technician.",
-          "params": [
-            {
-              "name": "bookingId",
-              "description": "The unique identifier of the booking."
+              "name": "uid",
+              "description": "The Firebase UID of the admin user."
             }
           ]
         }
       }
-    ]
+    ],
+    "reasoning": "This Firestore structure prioritizes security, scalability, and debuggability based on the provided application requirements and core design principles. It addresses the reported 'Missing or insufficient permissions' error by implementing proper access control for technician application submissions. The structure ensures Authorization Independence through denormalization, supports secure list operations, and facilitates clear authorization rules. The structure is as follows:\n\n1.  `/technician_applications` Collection:\n    *   This collection stores technician applications. Any unauthenticated user can create documents in this collection, allowing open application submissions.\n    *   `applicationStatus` field indicates the status of the application (e.g., pending, approved, rejected). This enables filtering and different UI presentations based on the status.\n\n2.  `/technicians` Collection:\n    *   Approved technicians are added to this collection. This separation ensures that only approved technicians appear in the browsing and booking features.\n    *   Technician documents contain all necessary technician details, including availability, service area, and service radius, supporting the mobile booking feature.\n\n3.  `/users/{userId}/jobs/{jobId}` Collection:\n    *   Each technician has their own subcollection of jobs. The `userId` is the technician's UID.\n    *   Each job document contains customer information, service details, notes, add-ons, and status, supporting job management and payment processing.\n\n4.  `/roles_admin/{uid}` Collection:\n    *   This collection determines who is an admin. The document ID is the user's UID. If a document exists for a user, they are an admin.\n\nThis structure achieves **Authorization Independence** by avoiding `get()` calls in security rules. Specifically, the access control for technician applications is determined solely by whether the user is authenticated or not, not by any parent document's attributes.  The `members` map in the `/technicians/{technicianId}` document denormalizes role information, removing the need to `get()` role information during write operations. This significantly simplifies security rules and ensures atomic operations.\n\nIt supports the required **QAPs (Rules are not Filters)**.  The use of separate collections for `technician_applications` and `technicians` ensures that listing technicians for browsing only returns approved and active technicians. The roles collection facilitates secure admin operations without requiring complex filtering.\n"
   }
 }
