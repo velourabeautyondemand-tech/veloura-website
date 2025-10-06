@@ -1,10 +1,13 @@
+
 "use client";
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Upload, User, Mail, Phone, MapPin, Award, Twitter, Instagram, Facebook, PartyPopper, Briefcase, DollarSign, Sparkles, ShieldCheck, Users } from "lucide-react";
+import { Upload, User, Mail, Phone, MapPin, Award, PartyPopper, Briefcase, DollarSign, Sparkles, ShieldCheck, Users } from "lucide-react";
+import { useFirestore } from "@/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -20,19 +23,17 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
-import { Separator } from "@/components/ui/separator";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  fullName: z.string().min(2, "Full name must be at least 2 characters."),
+  firstName: z.string().min(1, "First name is required."),
+  lastName: z.string().min(1, "Last name is required."),
   email: z.string().email("Please enter a valid email address."),
   phone: z.string().min(10, "Please enter a valid phone number."),
   serviceArea: z.string().min(3, "Please enter a valid service area."),
   licenseNumber: z.string().min(1, "License number is required."),
   licenseUpload: z.any().refine(files => files?.length === 1, "License upload is required."),
   resumeUpload: z.any(),
-  twitter: z.string().url().optional().or(z.literal('')),
-  instagram: z.string().url().optional().or(z.literal('')),
-  facebook: z.string().url().optional().or(z.literal('')),
 });
 
 const benefits = [
@@ -65,27 +66,49 @@ const benefits = [
 
 export default function ApplyPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const firestore = useFirestore();
+    const { toast } = useToast();
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            fullName: "",
+            firstName: "",
+            lastName: "",
             email: "",
             phone: "",
             serviceArea: "",
             licenseNumber: "",
-            twitter: "",
-            instagram: "",
-            facebook: "",
         },
     });
     
     const licenseFileRef = form.register("licenseUpload");
     const resumeFileRef = form.register("resumeUpload");
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
-        setIsSubmitted(true);
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        if (!firestore) return;
+        try {
+            const techniciansCol = collection(firestore, "technicians");
+            await addDoc(techniciansCol, {
+                ...values,
+                applicationStatus: 'pending',
+                // For now, we will hardcode some values. We can make these dynamic later.
+                availability: '{"monday": "9am-5pm", "tuesday": "9am-5pm"}',
+                serviceRadius: 6,
+            });
+
+            // We are not handling file uploads yet.
+            console.log("License file:", values.licenseUpload[0]);
+            console.log("Resume file:", values.resumeUpload[0]);
+
+            setIsSubmitted(true);
+        } catch (error) {
+            console.error("Error submitting application:", error);
+            toast({
+                title: "Submission Failed",
+                description: "There was an error submitting your application. Please try again.",
+                variant: "destructive",
+            });
+        }
     }
     
     function handleNewApplication() {
@@ -139,14 +162,30 @@ export default function ApplyPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <FormField
                         control={form.control}
-                        name="fullName"
+                        name="firstName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Full Name</FormLabel>
+                            <FormLabel>First Name</FormLabel>
                             <FormControl>
                               <div className="relative">
                                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                                 <Input placeholder="Jessica Lee" {...field} className="pl-10" />
+                                 <Input placeholder="Jessica" {...field} className="pl-10" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Last Name</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                 <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                 <Input placeholder="Lee" {...field} className="pl-10" />
                               </div>
                             </FormControl>
                             <FormMessage />
@@ -254,7 +293,7 @@ export default function ApplyPage() {
                       />
                     </div>
                     
-                    <Button type="submit" className="w-full text-lg" size="lg" variant="accent">Submit Application</Button>
+                    <Button type="submit" className="w-full text-lg" size="lg">Submit Application</Button>
                   </form>
                 </Form>
               )}
@@ -266,4 +305,6 @@ export default function ApplyPage() {
     </div>
   );
 }
+    
+
     
