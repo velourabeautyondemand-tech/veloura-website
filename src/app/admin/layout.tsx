@@ -14,7 +14,7 @@ import {
   SidebarInset,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NailIcon } from "@/components/shared/logo";
 import { useAuth } from "@/firebase";
@@ -74,6 +74,14 @@ function AdminLayoutContent({
           </SidebarContent>
           <SidebarFooter>
              <SidebarMenu>
+                <SidebarMenuItem>
+                    <Link href="/admin/profile">
+                        <SidebarMenuButton tooltip="Profile" isActive={pathname.startsWith('/admin/profile')}>
+                            <User className="w-5 h-5" />
+                            <span>Profile</span>
+                        </SidebarMenuButton>
+                    </Link>
+                </SidebarMenuItem>
                 <SidebarMenuItem>
                     <SidebarMenuButton tooltip="Logout" onClick={handleLogout}>
                         <LogOut className="w-5 h-5" />
