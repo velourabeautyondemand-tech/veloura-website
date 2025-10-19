@@ -30,8 +30,8 @@ const formSchema = z.object({
   phone: z.string().min(10, "Please enter a valid phone number."),
   serviceArea: z.string().min(3, "Please enter a valid service area."),
   licenseNumber: z.string().min(1, "License number is required."),
-  licenseUpload: z.any().refine(files => files?.length === 1, "License upload is required."),
-  resumeUpload: z.any(),
+  licenseUpload: z.any().optional(),
+  resumeUpload: z.any().optional(),
 });
 
 
@@ -70,8 +70,10 @@ export function ApplicationForm() {
                 serviceRadius: 6,
             });
 
-            console.log("License file (not uploaded):", values.licenseUpload[0]?.name);
-            if(values.resumeUpload[0]) {
+            if(values.licenseUpload && values.licenseUpload[0]) {
+                console.log("License file (not uploaded):", values.licenseUpload[0]?.name);
+            }
+            if(values.resumeUpload && values.resumeUpload[0]) {
                 console.log("Resume file (not uploaded):", values.resumeUpload[0]?.name);
             }
 
@@ -219,7 +221,7 @@ export function ApplicationForm() {
                         <Input type="file" {...licenseFileRef} className="pl-10 file:text-primary file:font-medium" />
                         </div>
                     </FormControl>
-                    <FormDescription>Please upload a PDF or image of your license.</FormDescription>
+                    <FormDescription>Optional. Please upload a PDF or image of your license.</FormDescription>
                     <FormMessage />
                     </FormItem>
                 )}
