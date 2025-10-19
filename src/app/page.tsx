@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Search } from 'lucide-react';
 
-import { services, technicians } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
