@@ -26,10 +26,6 @@ export default function PartnerAgreementPage() {
                                     <Mail className="w-5 h-5" />
                                     <span>info@iamdreammaker.com</span>
                                 </a>
-                                <a href="tel:+13239897788" className="flex items-center gap-2 hover:text-primary">
-                                    <Phone className="w-5 h-5" />
-                                    <span>(323) 989-7788</span>
-                                </a>
                                 <a href="https://studio.firebase.google.com/project/studio-8096841563-8bcb9/overview" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary">
                                     <Globe className="w-5 h-5" />
                                     <span>VÉLOURA Platform</span>
