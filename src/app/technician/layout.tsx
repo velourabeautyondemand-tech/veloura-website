@@ -15,7 +15,7 @@ import {
   SidebarInset,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Briefcase, Calendar, DollarSign, User, LogOut, BookMarked } from "lucide-react";
+import { Briefcase, Calendar, DollarSign, User, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { technicians } from "@/lib/data";
 import { NailIcon } from "@/components/shared/logo";
@@ -27,7 +27,6 @@ const techNavItems = [
     { href: "/technician/dashboard", label: "Jobs", icon: Briefcase },
     { href: "/technician/schedule", label: "Availability", icon: Calendar },
     { href: "/technician/earnings", label: "Earnings", icon: DollarSign },
-    { href: "/technician/policy-login", label: "Handbook", icon: BookMarked },
     { href: "/technician/profile", label: "Profile", icon: User },
 ];
 

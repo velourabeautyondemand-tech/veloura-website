@@ -34,6 +34,9 @@ const formSchema = z.object({
   licenseNumber: z.string().min(1, "License number is required."),
   licenseUpload: z.any().optional(),
   resumeUpload: z.any().optional(),
+  agreeToTerms: z.boolean().refine(val => val === true, {
+    message: "You must agree to the terms and conditions.",
+  }),
 });
 
 
@@ -51,6 +54,7 @@ export function ApplicationForm() {
             phone: "",
             serviceArea: "",
             licenseNumber: "",
+            agreeToTerms: false,
         },
     });
     
@@ -62,12 +66,11 @@ export function ApplicationForm() {
         try {
             const techniciansCol = collection(firestore, "technician_applications");
             
-            const { licenseUpload, resumeUpload, ...applicationData } = values;
+            const { licenseUpload, resumeUpload, agreeToTerms, ...applicationData } = values;
 
             addDocumentNonBlocking(techniciansCol, {
                 ...applicationData,
                 applicationStatus: 'pending',
-                // These are now optional in the new schema, but good to have defaults
                 availability: '{"monday": "9am-5pm", "tuesday": "9am-5pm"}', 
                 serviceRadius: 6,
             });
@@ -236,7 +239,7 @@ export function ApplicationForm() {
                     <FormLabel>Upload Resume</FormLabel>
                     <FormControl>
                         <div className="relative">
-                        <Upload className="absolute left-3 top-1-2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input type="file" {...resumeFileRef} className="pl-10 file:text-primary file:font-medium" />
                         </div>
                     </FormControl>
@@ -246,6 +249,30 @@ export function ApplicationForm() {
                 )}
                 />
             </div>
+
+            <FormField
+                control={form.control}
+                name="agreeToTerms"
+                render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                    <FormControl>
+                        <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                        <FormLabel>
+                            I have read and agree to the VÉLOURA Partner Handbook & Onboarding Policy Agreement.
+                        </FormLabel>
+                        <FormDescription>
+                            You can review the agreement <Link href="/partner-agreement" target="_blank" className="text-primary hover:underline">here</Link>.
+                        </FormDescription>
+                        <FormMessage />
+                    </div>
+                    </FormItem>
+                )}
+            />
             
             <Button type="submit" className="w-full text-lg" size="lg">Submit Application</Button>
             </form>
