@@ -2,9 +2,10 @@ export type Service = {
   id: string;
   name: string;
   description: string;
-  price: number;
-  duration: number; // in minutes
+  price?: number;
+  duration: string; 
   imageId: string;
+  category: 'Manicures' | 'Add Ons';
 };
 
 export type Technician = {
@@ -34,21 +35,13 @@ export type Booking = {
 };
 
 export const services: Service[] = [
-  { id: '1', name: 'Classic Manicure', description: 'A timeless classic. Includes shaping, cuticle care, a relaxing hand massage, and polish.', price: 35, duration: 45, imageId: 'service_1' },
-  { id: '2', name: 'Gel Manicure', description: 'A long-lasting manicure with gel polish that stays flawless for weeks.', price: 50, duration: 60, imageId: 'service_2' },
-  { id: '3', name: 'Spa Pedicure', description: 'Indulge your feet with an exfoliating scrub, mask, massage, and perfect polish.', price: 60, duration: 75, imageId: 'service_3' },
-  { id: '4', name: 'Nail Art', description: 'Express yourself with custom nail art. Price varies based on complexity.', price: 20, duration: 30, imageId: 'service_4' },
-  { id: '5', name: 'Acrylic Full Set', description: 'Durable and beautiful acrylic extensions for your desired length and shape.', price: 75, duration: 90, imageId: 'service_5' },
-  { id: '6', name: 'Dip Powder Nails', description: 'A strong, durable alternative to gel and acrylics, with a wide range of colors.', price: 55, duration: 70, imageId: 'service_6' },
-  { id: '7', name: 'Nail Repair', description: 'Fix a chipped or broken nail to restore your perfect manicure.', price: 10, duration: 15, imageId: 'service_7' },
-  { id: '8', name: 'Polish Change', description: 'A quick color update for your hands or feet.', price: 20, duration: 20, imageId: 'service_8' },
-  { id: '9', name: 'Deluxe Pedicure', description: 'An upgraded spa pedicure with paraffin wax and extended massage.', price: 80, duration: 90, imageId: 'service_9' },
-  { id: '10', name: 'Paraffin Wax Treatment', description: 'Deeply moisturizes and softens skin on hands or feet.', price: 25, duration: 20, imageId: 'service_10' },
-  { id: '11', name: 'French Manicure', description: 'The iconic clean and classic look with white tips.', price: 45, duration: 50, imageId: 'service_11' },
-  { id: '12', name: 'Gel-X Extensions', description: 'Lightweight, pre-shaped extensions for a perfect set every time.', price: 85, duration: 90, imageId: 'service_12' },
-  { id: '13', name: 'Men\'s Sport Manicure', description: 'A clean and neat look for men, focusing on shaping and cuticle care.', price: 30, duration: 30, imageId: 'service_13' },
-  { id: '14', name: 'Cuticle Care', description: 'Intensive treatment to nourish and maintain healthy cuticles.', price: 15, duration: 15, imageId: 'service_14' },
-  { id: '15', name: 'Hand Massage', description: 'A relaxing 15-minute massage to relieve tension.', price: 20, duration: 15, imageId: 'service_15' },
+  { id: '1', name: 'Structure Gel Manicure', description: 'This includes Russian manicure, ensuring a clean and safe cuticle area. We use builder gel for a strong foundation, promoting natural nail growth. Includes one gel color.', price: 65, duration: '1.5-2 hours', imageId: 'service_2', category: 'Manicures' },
+  { id: '2', name: 'Gel X', description: 'Apres Gel X full set, includes Russian manicure and one gel color. Price may vary based on length.', price: 80, duration: '2-2.5 hours', imageId: 'service_12', category: 'Manicures' },
+  { id: '3', name: 'Russian Manicure', description: 'This is a dry manicure, it provides a clean and safe service with an e-file. Includes regular polish.', price: 45, duration: '45 mins-1 hour', imageId: 'service_1', category: 'Manicures' },
+  { id: '4', name: 'French', description: 'This can be added to any manicure. Price may vary depending on style.', price: 15, duration: 'Varies', imageId: 'service_11', category: 'Add Ons' },
+  { id: '5', name: 'Nail Art', description: 'Price is per nail and varies on intricacy of design.', price: 5, duration: 'Varies', imageId: 'service_4', category: 'Add Ons' },
+  { id: '6', name: 'Repair', description: 'Price is per nail.', price: 5, duration: 'Varies', imageId: 'service_7', category: 'Add Ons' },
+  { id: '7', name: 'Soak Off', description: "This is for any foreign work, if it's my work then it's free.", price: 10, duration: 'Varies', imageId: 'service_10', category: 'Add Ons' },
 ];
 
 export const technicians: Technician[] = [

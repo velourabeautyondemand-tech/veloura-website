@@ -10,6 +10,41 @@ import { Clock, Tag } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
+    const manicures = services.filter(s => s.category === 'Manicures');
+    const addons = services.filter(s => s.category === 'Add Ons');
+
+    const ServiceCard = ({ service }: { service: typeof services[0] }) => {
+        const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
+        return (
+            <Card key={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300">
+                {serviceImage && (
+                    <div className="relative w-full h-48">
+                        <Image
+                            src={serviceImage.imageUrl}
+                            alt={service.name}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={serviceImage.imageHint}
+                        />
+                    </div>
+                )}
+                <CardHeader>
+                    <CardTitle className="font-headline">{service.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                    <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
+                <CardFooter className="flex justify-between items-center bg-muted/50 p-4">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Clock className="w-4 h-4" />
+                        <span>{service.duration}</span>
+                    </div>
+                </CardFooter>
+            </Card>
+        );
+    }
+
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -23,42 +58,25 @@ export default function ServicesPage() {
                             Explore our menu of luxury nail care services, designed to be delivered wherever you are.
                         </p>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                        {services.map((service) => {
-                            const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
-                            return (
-                                <Card key={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300">
-                                    {serviceImage && (
-                                        <div className="relative w-full h-48">
-                                            <Image
-                                                src={serviceImage.imageUrl}
-                                                alt={service.name}
-                                                fill
-                                                className="object-cover"
-                                                data-ai-hint={serviceImage.imageHint}
-                                            />
-                                        </div>
-                                    )}
-                                    <CardHeader>
-                                        <CardTitle className="font-headline">{service.name}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="flex-grow">
-                                        <p className="text-muted-foreground">{service.description}</p>
-                                    </CardContent>
-                                    <CardFooter className="flex justify-between items-center bg-muted/50 p-4">
-                                        <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-                                            <Tag className="w-4 h-4" />
-                                            <span>${service.price.toFixed(2)}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                            <Clock className="w-4 h-4" />
-                                            <span>{service.duration} mins</span>
-                                        </div>
-                                    </CardFooter>
-                                </Card>
-                            );
-                        })}
-                    </div>
+
+                    <section id="manicures" className="mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight text-center mb-8 font-headline">Manicures</h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                            {manicures.map((service) => (
+                                <ServiceCard key={service.id} service={service} />
+                            ))}
+                        </div>
+                    </section>
+                    
+                    <section id="addons" className="mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight text-center mb-8 font-headline">Add Ons</h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                            {addons.map((service) => (
+                                <ServiceCard key={service.id} service={service} />
+                            ))}
+                        </div>
+                    </section>
+
                      <div className="text-center mt-16">
                         <Button size="lg" variant="accent" asChild>
                             <Link href="/apply">Ready to Book? (Coming Soon)</Link>
