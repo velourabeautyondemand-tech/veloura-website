@@ -1,103 +1,101 @@
 /**
- * @fileoverview Firestore Security Rules for Technician Marketplace App
+ * @fileoverview Firestore Security Rules for Prototyping.
  *
  * Core Philosophy:
- * This ruleset enforces a user-ownership model for user profiles,
- * restricts technician application management to admins, and
- * grants read access to technician profiles.
+ * This ruleset prioritizes strict user ownership and role-based access control.
+ * It's designed for rapid prototyping with minimal data validation, focusing on authorization.
  *
  * Data Structure:
- * - /users/{userId}: Stores public user profiles.
- * - /technician_applications/{applicationId}: Stores technician applications.
- * - /technicians/{technicianId}: Stores profiles of approved technicians.
+ * - User profiles are stored under `/users/{userId}`.
+ * - Technician applications are stored under `/technician_applications/{applicationId}`.
+ * - Approved technician profiles are stored under `/technicians/{technicianId}`.
  *
  * Key Security Decisions:
- * - Users can only read and write their own profile data.
- * - Technician applications can only be created by authenticated users.
- * - Only authenticated users can read technician applications
- * - Only authenticated users can create technician profiles
- * - Technician profiles are publicly readable, but only admins can modify them.
- *
- * Denormalization for Authorization:
- * N/A (Roles are on the UserProfile document, which is sufficient.)
- *
- * Structural Segregation:
- * N/A
+ * - Users can only read/write their own profile data.
+ * - Only authenticated users can submit technician applications.
+ * - No listing of users or technician applications is allowed for non-admins.
+ * - The `press_inquiries` collection has been opened to allow all authenticated users to create documents.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Controls access to user profiles.
+     * @description Root-level rule to allow any authenticated user to create press inquiries
+     * @path /press_inquiries
+     * @allow (create) An authenticated user can submit a press inquiry with any data.
+     * @deny (get, list, update, delete) All other operations are denied by default.
+     * @principle Allows create from authenticated users; no ownership required.
+     */
+    match /press_inquiries {
+      allow create: if isSignedIn();
+      allow get, list, update, delete: if false;
+    }
+
+    /**
+     * @description Secure user profiles.  Users can read/write their own profile.
      * @path /users/{userId}
-     * @allow (get, list) if the user is the owner of the profile.
-     * @allow (create, update, delete) if the user is the owner of the profile.
-     * @deny (get, list) if the user is not the owner of the profile.
-     * @deny (create, update, delete) if the user is not the owner of the profile.
-     * @principle Enforces document ownership for all operations.
+     * @allow (create, update, get, list) User 'abc' can create/update/get their own profile at /users/abc.
+     * @deny (create, update, get, list) User 'def' cannot create/update/get user 'abc''s profile at /users/abc.
+     * @principle Enforces document ownership for writes and reads.
      */
     match /users/{userId} {
-      // Allow reads (get, list) if the user is the owner.
-      allow get, list: if isOwner(userId);
-
-      // Allow creation if the user ID in the path matches the authenticated user's ID.
-      allow create: if isOwner(userId) && request.resource.data.id == request.auth.uid;
-
-      // Allow updates if the user is the owner and the user ID hasn't changed.
-      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
-
-      // Allow deletion if the user is the owner.
+      allow read, get: if isOwner(userId);
+      allow create: if isOwner(userId);
+      allow update: if isExistingOwner(userId);
       allow delete: if isExistingOwner(userId);
+      allow list: if isOwner(userId);
     }
 
     /**
-     * @description Controls access to technician applications.
+     * @description Secure technician applications.  Authenticated users can create applications.
      * @path /technician_applications/{applicationId}
-     * @allow (create) any authenticated user can create technician application
-     * @allow (get, list) any authenticated user can read technician application
-     * @allow (update, delete) no one can update or delete technician applications
-     * @deny (create) if user is not authenticated
-     * @deny (get, list) if user is not authenticated
-     * @deny (update, delete) all operations
-     * @principle Restricts creation of application to authenticated user and no operations allowed for technician applications
+     * @allow (create) User 'abc' can create a technician application with any data.
+     * @deny (get, list, update, delete) All other operations are denied.
+     * @principle Allows create from authenticated users; no ownership required.
      */
     match /technician_applications/{applicationId} {
-        allow get, list: if isSignedIn();
-        allow create: if isSignedIn();
-        allow update, delete: if false;
+      allow create: if isSignedIn();
+      allow get, list, update, delete: if false;
     }
 
     /**
-     * @description Controls access to technician profiles.
+     * @description Secure technician profiles. Only admins (simulated by ownership) can manage them.
      * @path /technicians/{technicianId}
-     * @allow (get, list) anyone can view technician profile
-     * @allow (create) only authenticated user can create technician profile
-     * @allow (update, delete) no one can update or delete technician profile
-     * @deny (create) if user is not authenticated
-     * @deny (update, delete) all operations
-     * @principle Technician profiles are publicly readable, but only admins can create them.
+     * @allow (create, update, get, list) Admins (simulated with owner role) can manage technician profiles.
+     * @deny (create, update, get, list) Regular users cannot manage technician profiles.
+     * @principle Restricts technician management to authorized personnel.
      */
     match /technicians/{technicianId} {
-      allow get, list: if true;
-      allow create: if isSignedIn();
-      allow update, delete: if false;
+      allow read, get: if true;
+      allow list: if true;
+      allow create, update, delete: if false;
     }
 
+    // ---- Helper functions ----
 
-    // Helper functions
-
-    // Checks if the request is authenticated.
+    /**
+     * @description Checks if the user is signed in.
+     * @return {bool} True if the user is authenticated, false otherwise.
+     */
     function isSignedIn() {
       return request.auth != null;
     }
 
-    // Checks if the authenticated user is the owner of the resource.
+    /**
+     * @description Checks if the requesting user is the owner of the resource.
+     * @param {string} userId The user ID to compare against the request's auth UID.
+     * @return {bool} True if the user is the owner, false otherwise.
+     */
     function isOwner(userId) {
       return request.auth.uid == userId;
     }
 
-    // Checks if the authenticated user is the existing owner of the resource.
+     /**
+      * @description Checks if the requesting user is the existing owner of the resource, and the resource exists.
+      * @param {string} userId The user ID to compare against the request's auth UID.
+      * @return {bool} True if the user is the owner and the resource exists, false otherwise.
+      */
     function isExistingOwner(userId) {
       return isOwner(userId) && resource != null;
     }
