@@ -46,7 +46,7 @@ export const services: Service[] = [
 
   // Nail Enhancements
   { id: 'nails-acrylic', name: 'Acrylic Full Set', description: 'Add instant length & strength with a flawless finish.', price: 80, duration: '1.5-2 hours', imageId: 'service_5', category: 'Nail Enhancements' },
-  { id: 'nails-dip', name: 'Dip Powder Nails', description: 'Lightweight & long-lasting, no UV light needed. Service includes extensions, bespoke nail art, or luxury add-ons for $80.', price: 60, duration: '1-1.5 hours', imageId: 'service_6', category: 'Nail Enhancements' },
+  { id: 'nails-dip', name: 'Dip Powder Nails', description: 'Lightweight & long-lasting, no UV light needed. Service includes extensions, bespoke nail art, or luxury add-ons.', price: 60, duration: '1-1.5 hours', imageId: 'service_6', category: 'Nail Enhancements' },
 
   // Extras
   { id: 'extra-art', name: 'Nail Art / Design', description: 'From minimalist chic to bold creative designs. Price is per nail.', price: 13, duration: 'Varies', imageId: 'service_4', category: 'Extras' },
