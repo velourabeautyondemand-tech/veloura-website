@@ -59,10 +59,7 @@ export default function AboutPage() {
                                 VÉLOURA was born from a simple realization: in our fast-paced world, finding time for self-care is a challenge. Our founder, a busy professional with a passion for staying fashionable and feeling her best, often struggled to fit beauty appointments into her packed schedule. She dreamt of a service that didn't force a choice between a demanding career and personal pampering.
                             </p>
                             <p>
-                                It all started with a simple question: "Why couldn't the luxury and expertise of a high-end salon come to you?" This spark grew into a vision for a comprehensive beauty platform.
-                            </p>
-                            <p>
-                                We're launching with our first love—exquisite nail care—and will soon expand to include talented makeup and hair artists. From this vision, VÉLOURA was created: a seamless, safe, and sophisticated solution for modern beauty, empowering artists and delivering five-star treatment to your door.
+                                It all started with a simple question: "Why couldn't the luxury and expertise of a high-end salon come to you?" This spark grew into a vision for a comprehensive beauty platform. From this vision, VÉLOURA was created: a seamless, safe, and sophisticated solution for modern beauty, empowering artists and delivering five-star treatment to your door.
                             </p>
                         </div>
                     </div>
