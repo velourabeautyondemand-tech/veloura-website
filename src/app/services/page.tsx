@@ -6,12 +6,18 @@ import { services } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Clock, Tag } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
-    const manicures = services.filter(s => s.category === 'Manicures');
-    const addons = services.filter(s => s.category === 'Add Ons');
+    const serviceCategories = [
+        { title: 'Manicures', services: services.filter(s => s.category === 'Manicures') },
+        { title: 'Pedicures', services: services.filter(s => s.category === 'Pedicures') },
+        { title: 'Nail Enhancements', services: services.filter(s => s.category === 'Nail Enhancements') },
+        { title: 'Makeup', services: services.filter(s => s.category === 'Makeup') },
+        { title: 'Hair', services: services.filter(s => s.category === 'Hair') },
+        { title: 'Extras', services: services.filter(s => s.category === 'Extras') },
+    ];
 
     const ServiceCard = ({ service }: { service: typeof services[0] }) => {
         const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
@@ -34,12 +40,14 @@ export default function ServicesPage() {
                 <CardContent className="flex-grow">
                     <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center bg-muted/50 p-4">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Clock className="w-4 h-4" />
-                        <span>{service.duration}</span>
-                    </div>
-                </CardFooter>
+                {service.duration && (
+                    <CardFooter className="flex justify-between items-center bg-muted/50 p-4">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <Clock className="w-4 h-4" />
+                            <span>{service.duration}</span>
+                        </div>
+                    </CardFooter>
+                )}
             </Card>
         );
     }
@@ -55,27 +63,20 @@ export default function ServicesPage() {
                             Our Services
                         </h1>
                         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Explore our menu of luxury nail care services, designed to be delivered wherever you are.
+                            Explore our menu of luxury beauty services, designed to be delivered wherever you are.
                         </p>
                     </div>
-
-                    <section id="manicures" className="mb-16">
-                        <h2 className="text-3xl font-bold tracking-tight text-center mb-8 font-headline">Manicures</h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                            {manicures.map((service) => (
-                                <ServiceCard key={service.id} service={service} />
-                            ))}
-                        </div>
-                    </section>
                     
-                    <section id="addons" className="mb-16">
-                        <h2 className="text-3xl font-bold tracking-tight text-center mb-8 font-headline">Add Ons</h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                            {addons.map((service) => (
-                                <ServiceCard key={service.id} service={service} />
-                            ))}
-                        </div>
-                    </section>
+                    {serviceCategories.map(category => category.services.length > 0 && (
+                         <section key={category.title} id={category.title.toLowerCase()} className="mb-16">
+                            <h2 className="text-3xl font-bold tracking-tight text-center mb-8 font-headline">{category.title}</h2>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                                {category.services.map((service) => (
+                                    <ServiceCard key={service.id} service={service} />
+                                ))}
+                            </div>
+                        </section>
+                    ))}
 
                      <div className="text-center mt-16">
                         <Button size="lg" variant="accent" asChild>

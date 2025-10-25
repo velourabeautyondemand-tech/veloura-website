@@ -37,58 +37,70 @@
       "imageHint": "dip powder"
     },
     {
-      "id": "service_7",
-      "description": "Nail Repair",
-      "imageUrl": "https://images.unsplash.com/photo-1522338140262-f4615917c184?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuYWlsJTIwZmlsZXxlbnwwfHx8fDE3NTk3NTA1MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "nail tools"
-    },
-    {
-      "id": "service_8",
-      "description": "Polish Change",
-      "imageUrl": "https://images.unsplash.com/photo-1602585578130-c9076e09330d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxuYWlsJTIwcG9saXNofGVufDB8fHx8MTc1OTUxMTI3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "nail polish"
-    },
-    {
       "id": "service_9",
       "description": "Deluxe Pedicure",
       "imageUrl": "https://images.unsplash.com/photo-1559185590-d545a0c5a1dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmb290JTIwc3BhfGVufDB8fHx8MTc1OTU5MzQ1NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "foot spa"
     },
     {
-      "id": "service_10",
-      "description": "Paraffin Wax Treatment",
-      "imageUrl": "https://images.unsplash.com/photo-1694610882150-4de206edf95a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwYXJhZmZpbiUyMHdheHxlbnwwfHx8fDE3NTk1OTM0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "paraffin wax"
+      "id": "makeup_1",
+      "description": "Natural Makeup",
+      "imageUrl": "https://images.unsplash.com/photo-1596496057842-5363e75f5b59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxuYXR1cmFsJTIwbWFrZXVwfGVufDB8fHx8MTY3MjAwMzA1NXww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "natural makeup"
     },
     {
-      "id": "service_11",
-      "description": "French Manicure",
-      "imageUrl": "https://images.unsplash.com/photo-1599316329891-19df7fa9580d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmcmVuY2glMjBtYW5pY3VyZXxlbnwwfHx8fDE3NTk1NzUwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "french manicure"
+      "id": "makeup_2",
+      "description": "Event Makeup",
+      "imageUrl": "https://images.unsplash.com/photo-1616474235283-a4c1b6935242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDR8fGdsYW0lMjBtYWtldXB8ZW58MHx8fHwxNjY2NjE3NTE3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "glam makeup"
     },
     {
-      "id": "service_12",
-      "description": "Gel-X Extensions",
-      "imageUrl": "https://images.unsplash.com/photo-1645566372784-7d017ad7643b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bmFpbCUyMGV4dGVuc2lvbnN8ZW58MHx8fHwxNzU5NTc1MDA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "nail extensions"
+      "id": "makeup_3",
+      "description": "Bridal Makeup",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMG1ha2V1cHxlbnwwfHx8fDE2NjY2MTc1Mzh8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridal makeup"
     },
     {
-      "id": "service_13",
-      "description": "Men's Sport Manicure",
-      "imageUrl": "https://images.unsplash.com/photo-1615837955432-86ef05084cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYWxlJTIwaGFuZHN8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "male hands"
+      "id": "makeup_4",
+      "description": "Makeup Trial",
+      "imageUrl": "https://images.unsplash.com/photo-1552693673-1bf25c79b359?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEyfHxtYWtldXAlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE2NzIwMDMwNDB8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "makeup application"
     },
     {
-      "id": "service_14",
-      "description": "Cuticle Care",
-      "imageUrl": "https://images.unsplash.com/photo-1671871695722-b91911e9c072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjdXRpY2xlJTIwb2lsfGVufDB8fHx8MTc1OTU5MzQ1NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "cuticle oil"
+      "id": "makeup_5",
+      "description": "Bridesmaids Makeup",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridesmaids"
     },
     {
-      "id": "service_15",
-      "description": "Hand Massage",
-      "imageUrl": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW5kJTIwbWFzc2FnZXxlbnwwfHx8fDE3NTk1OTM0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "hand massage"
+      "id": "makeup_6",
+      "description": "Bridal on-site",
+      "imageUrl": "https://images.unsplash.com/photo-1597873496053-10df3a436531?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fGJyaWRhbCUyMGdldHRpbmclMjByZWFkeXxlbnwwfHx8fDE2NzIwMDMxMjF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridal getting ready"
+    },
+    {
+      "id": "hair_1",
+      "description": "Hair Blowout",
+      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "hair blowout"
+    },
+    {
+      "id": "hair_2",
+      "description": "Formal Hair Updo",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "hair updo"
+    },
+    {
+      "id": "hair_3",
+      "description": "Bridal Hair",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridal hair"
+    },
+    {
+      "id": "hair_4",
+      "description": "Hair Trial",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "woman face"
     },
     {
       "id": "tech_avatar_1",

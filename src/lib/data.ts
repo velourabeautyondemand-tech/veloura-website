@@ -1,11 +1,12 @@
+
 export type Service = {
   id: string;
   name: string;
   description: string;
   price?: number;
-  duration: string; 
+  duration?: string;
   imageId: string;
-  category: 'Manicures' | 'Add Ons';
+  category: 'Manicures' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair';
 };
 
 export type Technician = {
@@ -35,13 +36,34 @@ export type Booking = {
 };
 
 export const services: Service[] = [
-  { id: '1', name: 'Structure Gel Manicure', description: 'This includes Russian manicure, ensuring a clean and safe cuticle area. We use builder gel for a strong foundation, promoting natural nail growth. Includes one gel color.', price: 65, duration: '1.5-2 hours', imageId: 'service_2', category: 'Manicures' },
-  { id: '2', name: 'Gel X', description: 'Apres Gel X full set, includes Russian manicure and one gel color. Price may vary based on length.', price: 80, duration: '2-2.5 hours', imageId: 'service_12', category: 'Manicures' },
-  { id: '3', name: 'Russian Manicure', description: 'This is a dry manicure, it provides a clean and safe service with an e-file. Includes regular polish.', price: 45, duration: '45 mins-1 hour', imageId: 'service_1', category: 'Manicures' },
-  { id: '4', name: 'French', description: 'This can be added to any manicure. Price may vary depending on style.', price: 15, duration: 'Varies', imageId: 'service_11', category: 'Add Ons' },
-  { id: '5', name: 'Nail Art', description: 'Price is per nail and varies on intricacy of design.', price: 5, duration: 'Varies', imageId: 'service_4', category: 'Add Ons' },
-  { id: '6', name: 'Repair', description: 'Price is per nail.', price: 5, duration: 'Varies', imageId: 'service_7', category: 'Add Ons' },
-  { id: '7', name: 'Soak Off', description: "This is for any foreign work, if it's my work then it's free.", price: 10, duration: 'Varies', imageId: 'service_10', category: 'Add Ons' },
+  // Manicures
+  { id: 'mani-classic', name: 'Classic Manicure', description: 'Nail shaping, cuticle care & polish of your choice hand massage.', price: 80, duration: '45-60 mins', imageId: 'service_1', category: 'Manicures' },
+  { id: 'mani-gel', name: 'Gel Manicure', description: 'Glossy, chip-free color that lasts up to 2 weeks. Includes hand massage.', price: 100, duration: '60-75 mins', imageId: 'service_2', category: 'Manicures' },
+  
+  // Pedicures
+  { id: 'pedi-classic', name: 'Classic Pedicure', description: 'Soak, exfoliate & polish for clean, refreshed feet. Includes massage.', price: 80, duration: '60 mins', imageId: 'service_3', category: 'Pedicures' },
+  { id: 'pedi-gel', name: 'Gel Pedicure', description: 'Durable, high-shine finish perfect for sandal season.', price: 100, duration: '60-75 mins', imageId: 'service_9', category: 'Pedicures' },
+
+  // Nail Enhancements
+  { id: 'nails-acrylic', name: 'Acrylic Full Set', description: 'Add instant length & strength with a flawless finish.', price: 80, duration: '1.5-2 hours', imageId: 'service_5', category: 'Nail Enhancements' },
+  { id: 'nails-dip', name: 'Dip Powder Nails', description: 'Lightweight & long-lasting, no UV light needed. Service includes extensions, bespoke nail art, or luxury add-ons for $80.', price: 60, duration: '1-1.5 hours', imageId: 'service_6', category: 'Nail Enhancements' },
+
+  // Extras
+  { id: 'extra-art', name: 'Nail Art / Design', description: 'From minimalist chic to bold creative designs. Price is per nail.', price: 13, duration: 'Varies', imageId: 'service_4', category: 'Extras' },
+
+  // Makeup
+  { id: 'makeup-everyday', name: 'Everyday Glam Essentials', description: 'Soft, natural makeup for daytime wear or casual events.', price: 150, duration: '60 mins', imageId: 'makeup_1', category: 'Makeup' },
+  { id: 'makeup-event', name: 'Event Glam / Prom Makeup', description: 'Elegant, long-wear look for parties, proms, or special school events — bold, glowy, and camera-ready.', price: 150, duration: '75-90 mins', imageId: 'makeup_2', category: 'Makeup' },
+  { id: 'makeup-bridal', name: 'Bridal Makeup – Wedding Day', description: 'A flawless, radiant look designed to last. Includes full-face custom makeup tailored to your unique style for a timeless, photo-ready glow.', price: 290, duration: '90-120 mins', imageId: 'makeup_3', category: 'Makeup' },
+  { id: 'makeup-trial', name: 'Makeup Trial', description: 'Discover your perfect look before the big day. This session includes a personalized consultation, skin prep, and a full makeup application.', price: 110, duration: '75–90 mins', imageId: 'makeup_4', category: 'Makeup' },
+  { id: 'makeup-bridesmaids', name: 'Bridesmaids Makeup', description: 'Elegant, camera-ready makeup designed to complement the bride’s look. Includes full-face application and false lashes.', price: 150, duration: '60 mins per person', imageId: 'makeup_5', category: 'Makeup' },
+  { id: 'makeup-full-day-bridal', name: 'Full-Day Bridal Makeup Experience', description: 'Luxury beauty support with your own personal bridal beauty assistant on-site for 5 hours. Includes initial application and touch-ups.', price: 600, duration: '5 hours', imageId: 'makeup_6', category: 'Makeup' },
+
+  // Hair
+  { id: 'hair-glam', name: 'Simple Glam', description: 'Choose from a blowout, curls, waves, or a sleek straight finish for a modern glam vibe.', price: 110, duration: '45–60 mins', imageId: 'hair_1', category: 'Hair' },
+  { id: 'hair-formal', name: 'Event & Formal Styling', description: 'Elegant updos or intricate styles for weddings and special events.', price: 150, duration: '60–90 mins', imageId: 'hair_2', category: 'Hair' },
+  { id: 'hair-bridal', name: 'Bridal Hair', description: 'Customized bridal styling, including prep and wedding-day touch-ups.', price: 290, duration: '90–120 mins', imageId: 'hair_3', category: 'Hair' },
+  { id: 'hair-trial', name: 'Hair Trial', description: 'Test any look for your event. Includes consultation and full styling to refine your desired look.', price: 110, duration: '75–90 mins', imageId: 'hair_4', category: 'Hair' },
 ];
 
 export const technicians: Technician[] = [
@@ -52,7 +74,7 @@ export const technicians: Technician[] = [
     rating: 4.9,
     reviewsCount: 134,
     baseLocation: 'Downtown',
-    services: ['1', '2', '4', '6', '11', '12'],
+    services: ['mani-gel', 'nails-acrylic', 'extra-art'],
     avatarId: 'tech_avatar_1',
     reviews: [
       { reviewer: 'Alice', comment: 'Jessica is absolutely amazing! Her nail art is a masterpiece.', rating: 5 },
@@ -69,7 +91,7 @@ export const technicians: Technician[] = [
     rating: 4.8,
     reviewsCount: 98,
     baseLocation: 'Uptown',
-    services: ['3', '8', '9', '10', '13', '15'],
+    services: ['pedi-classic', 'pedi-gel'],
     avatarId: 'tech_avatar_2',
     reviews: [
       { reviewer: 'Frank', comment: 'Maria gives the best pedicures in town. Period.', rating: 5 },
@@ -84,7 +106,7 @@ export const technicians: Technician[] = [
     rating: 4.9,
     reviewsCount: 210,
     baseLocation: 'Midtown',
-    services: ['1', '5', '7', '12', '14'],
+    services: ['mani-classic', 'nails-acrylic', 'nails-dip'],
     avatarId: 'tech_avatar_3',
     reviews: [
       { reviewer: 'Ivan', comment: 'My acrylics have never looked better. Chloe is a true professional.', rating: 5 },
@@ -100,7 +122,7 @@ export const technicians: Technician[] = [
     rating: 4.7,
     reviewsCount: 75,
     baseLocation: 'East Side',
-    services: ['1', '8', '13', '14', '15'],
+    services: ['mani-classic', 'pedi-classic'],
     avatarId: 'tech_avatar_4',
     reviews: [
         { reviewer: 'Oscar', comment: 'Ben is great. Professional, quick, and my hands look great.', rating: 5 },
@@ -114,7 +136,7 @@ export const technicians: Technician[] = [
     rating: 4.6,
     reviewsCount: 45,
     baseLocation: 'West Side',
-    services: ['1', '2', '6', '8'],
+    services: ['mani-classic', 'mani-gel', 'nails-dip'],
     avatarId: 'tech_avatar_5',
     reviews: [
         { reviewer: 'Quinn', comment: 'Sarah was so sweet and did a fantastic job on my dip nails.', rating: 5 },
@@ -124,11 +146,11 @@ export const technicians: Technician[] = [
 ];
 
 export const bookings: Booking[] = [
-    { id: '1', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '1', technicianName: 'Jessica Lee', serviceId: '2', serviceName: 'Gel Manicure', date: '2024-08-15', time: '10:00 AM', status: 'upcoming', price: 50 },
-    { id: '2', customerId: 'c2', customerName: 'Bob Williams', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: '5', serviceName: 'Acrylic Full Set', date: '2024-08-16', time: '02:00 PM', status: 'upcoming', price: 75 },
-    { id: '3', customerId: 'c3', customerName: 'Charlie Brown', technicianId: '2', technicianName: 'Maria Garcia', serviceId: '3', serviceName: 'Spa Pedicure', date: '2024-07-20', time: '11:00 AM', status: 'completed', price: 60 },
-    { id: '4', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '1', technicianName: 'Jessica Lee', serviceId: '4', serviceName: 'Nail Art', date: '2024-07-10', time: '03:00 PM', status: 'completed', price: 20 },
-    { id: '5', customerId: 'c4', customerName: 'Diana Prince', technicianId: '4', technicianName: 'Ben Carter', serviceId: '13', serviceName: 'Men\'s Sport Manicure', date: '2024-08-18', time: '09:00 AM', status: 'upcoming', price: 30 },
-    { id: '6', customerId: 'c5', customerName: 'Eve Adams', technicianId: '5', technicianName: 'Sarah Kim', serviceId: '6', serviceName: 'Dip Powder Nails', date: '2024-08-01', time: '01:00 PM', status: 'completed', price: 55 },
-    { id: '7', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: '7', serviceName: 'Nail Repair', date: '2024-06-30', time: '04:00 PM', status: 'cancelled', price: 10 },
+    { id: '1', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '1', technicianName: 'Jessica Lee', serviceId: 'mani-gel', serviceName: 'Gel Manicure', date: '2024-08-15', time: '10:00 AM', status: 'upcoming', price: 100 },
+    { id: '2', customerId: 'c2', customerName: 'Bob Williams', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: 'nails-acrylic', serviceName: 'Acrylic Full Set', date: '2024-08-16', time: '02:00 PM', status: 'upcoming', price: 80 },
+    { id: '3', customerId: 'c3', customerName: 'Charlie Brown', technicianId: '2', technicianName: 'Maria Garcia', serviceId: 'pedi-classic', serviceName: 'Classic Pedicure', date: '2024-07-20', time: '11:00 AM', status: 'completed', price: 80 },
+    { id: '4', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '1', technicianName: 'Jessica Lee', serviceId: 'extra-art', serviceName: 'Nail Art', date: '2024-07-10', time: '03:00 PM', status: 'completed', price: 13 },
+    { id: '5', customerId: 'c4', customerName: 'Diana Prince', technicianId: '4', technicianName: 'Ben Carter', serviceId: 'mani-classic', serviceName: 'Classic Manicure', date: '2024-08-18', time: '09:00 AM', status: 'upcoming', price: 80 },
+    { id: '6', customerId: 'c5', customerName: 'Eve Adams', technicianId: '5', technicianName: 'Sarah Kim', serviceId: 'nails-dip', serviceName: 'Dip Powder Nails', date: '2024-08-01', time: '01:00 PM', status: 'completed', price: 60 },
+    { id: '7', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: 'extra-art', serviceName: 'Nail Repair', date: '2024-06-30', time: '04:00 PM', status: 'cancelled', price: 13 },
 ];
