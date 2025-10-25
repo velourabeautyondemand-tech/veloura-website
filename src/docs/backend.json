@@ -127,6 +127,31 @@
         }
       },
       "required": ["name", "publication", "email", "message", "submittedAt"]
+    },
+    "PartnershipInquiry": {
+      "title": "Partnership Inquiry",
+      "type": "object",
+      "description": "Represents a partnership inquiry submission.",
+      "properties": {
+        "companyName": {
+          "type": "string"
+        },
+        "contactName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "message": {
+          "type": "string"
+        },
+        "submittedAt": {
+            "type": "string",
+            "format": "date-time"
+        }
+      },
+      "required": ["companyName", "contactName", "email", "message", "submittedAt"]
     }
   },
   "auth": {
@@ -160,6 +185,12 @@
           "$ref": "#/entities/PressInquiry"
         },
         "description": "Stores submitted press inquiries."
+      },
+      "/partnership_inquiries/{inquiryId}": {
+        "schema": {
+            "$ref": "#/entities/PartnershipInquiry"
+        },
+        "description": "Stores submitted partnership inquiries."
       }
     }
   }

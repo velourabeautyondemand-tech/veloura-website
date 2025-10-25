@@ -3,18 +3,12 @@
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { Button } from '@/components/ui/button';
-import { Handshake, Megaphone, Mail } from 'lucide-react';
+import { Handshake, Megaphone } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { PressInquiryForm } from '@/components/features/press-inquiry-form';
+import { PartnershipInquiryForm } from '@/components/features/partnership-inquiry-form';
 
 export default function PartnerPressPage() {
-
-    const handlePartnershipClick = () => {
-        const subject = "Partnership Inquiry";
-        const mailtoLink = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}`;
-        window.location.href = mailtoLink;
-    }
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -46,13 +40,12 @@ export default function PartnerPressPage() {
                                         VÉLOURA is building a curated community of elite beauty professionals and discerning clients who value premium products and exceptional service. We are actively seeking to partner with innovative beauty brands that align with our commitment to quality, luxury, and convenience.
                                     </p>
                                     <p className="text-muted-foreground mb-6">
-                                        If your company offers high-quality beauty products and you're interested in placing them in the hands of our skilled technicians and loyal customers, we would love to hear from you.
+                                        If your company offers high-quality beauty products and you're interested in placing them in the hands of our skilled technicians and loyal customers, we would love to hear from you. Please fill out the form below to start the conversation.
                                     </p>
-                                    <Button onClick={handlePartnershipClick} variant="accent">
-                                        <Mail className="mr-2 h-5 w-5" />
-                                        Contact for Partnerships
-                                    </Button>
                                 </div>
+                            </div>
+                            <div className="mt-8">
+                                <PartnershipInquiryForm />
                             </div>
                         </section>
 
