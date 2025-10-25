@@ -44,12 +44,14 @@ export function PressInquiryForm() {
             const subject = `Press Inquiry from ${values.name} at ${values.publication}`;
             const body = `Name: ${values.name}\nPublication: ${values.publication}\nEmail: ${values.email}\n\nMessage:\n${values.message}`;
             const mailtoLink = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
             window.location.href = mailtoLink;
-            form.reset();
-             toast({
+            
+            toast({
                 title: "Redirecting to Email Client",
                 description: "Your email application should be opening shortly.",
             });
+            form.reset();
         } catch (error) {
             console.error("Failed to create mailto link:", error);
             toast({
