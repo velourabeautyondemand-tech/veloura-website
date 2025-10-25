@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required."),
@@ -27,6 +28,7 @@ const formSchema = z.object({
 });
 
 export function PressInquiryForm() {
+    const { toast } = useToast();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -38,10 +40,24 @@ export function PressInquiryForm() {
     });
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        const subject = `Press Inquiry from ${values.name} at ${values.publication}`;
-        const body = `Name: ${values.name}\nPublication: ${values.publication}\nEmail: ${values.email}\n\nMessage:\n${values.message}`;
-        const mailtoLink = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoLink;
+        try {
+            const subject = `Press Inquiry from ${values.name} at ${values.publication}`;
+            const body = `Name: ${values.name}\nPublication: ${values.publication}\nEmail: ${values.email}\n\nMessage:\n${values.message}`;
+            const mailtoLink = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            form.reset();
+             toast({
+                title: "Redirecting to Email Client",
+                description: "Your email application should be opening shortly.",
+            });
+        } catch (error) {
+            console.error("Failed to create mailto link:", error);
+            toast({
+                variant: "destructive",
+                title: "Oh no! Something went wrong.",
+                description: "Could not open your email client. Please try again or contact us directly.",
+            });
+        }
     }
     
     return (
