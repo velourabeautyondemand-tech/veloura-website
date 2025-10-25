@@ -11,11 +11,6 @@ export default function TermsOfUsePage() {
                     <div className="prose lg:prose-lg max-w-4xl mx-auto bg-card p-8 rounded-xl shadow-md">
                         <h1 className="font-headline text-4xl">Terms of Use</h1>
                         
-                        <div className="bg-destructive/10 border-l-4 border-destructive text-destructive-foreground p-4 rounded-md my-6">
-                            <h3 className="font-bold">Important Disclaimer</h3>
-                            <p>This is a template and not legal advice. You should consult with a legal professional to ensure this document is complete and appropriate for your specific business needs and jurisdiction.</p>
-                        </div>
-
                         <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
                         <h2>1. Agreement to Terms</h2>
