@@ -40,7 +40,7 @@ export default function PartnerPressPage() {
                                         If your company offers high-quality beauty products and you're interested in placing them in the hands of our skilled technicians and loyal customers, we would love to hear from you.
                                     </p>
                                     <Button asChild variant="accent">
-                                        <a href="mailto:joinus@iamdreammaker.com?subject=Partnership Inquiry">
+                                        <a href="mailto:joinus@iamdreammaker.com?subject=Partnership%20Inquiry">
                                             <Mail className="mr-2 h-5 w-5" />
                                             Contact for Partnerships
                                         </a>
