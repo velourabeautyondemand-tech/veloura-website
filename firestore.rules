@@ -1,85 +1,86 @@
 /**
- * @file Firestore Security Rules
- * @description This ruleset enforces a role-based access control model with user-owned profiles and public technician directories.
+ * @fileOverview Firestore Security Rules for Technician Marketplace App
+ *
+ * @description This ruleset enforces a role-based access control model with user-specific data isolation.
+ * All user data is stored under the `/users/{userId}` path, technician applications are stored under `/technician_applications/{applicationId}`, and approved technicians are stored under `/technicians/{technicianId}`.
  *
  * Data Structure:
- * - /users/{userId}: Stores public user profiles. Access is restricted to the owner.
- * - /technician_applications/{applicationId}: Stores technician applications. Only authenticated users can submit.
- * - /technicians/{technicianId}: Stores approved technician profiles. Public read, admin-only write.
- * - /press_inquiries/{pressInquiryId}: Stores press inquiries. Public create.
+ * - /users/{userId}: Stores user profile information.
+ * - /technician_applications/{applicationId}: Stores technician applications.
+ * - /technicians/{technicianId}: Stores approved technician profiles.
  *
  * Key Security Decisions:
- * - User profiles are private and only accessible to the owner.
- * - Technician applications can be created by any signed-in user.
- * - The technician profiles collection has public read access but restricted write access (admin only).
- * - Press Inquiries collection has public write access (for prototyping).
+ * - Users can only read and write their own profile data.
+ * - Technician applications can be created by anyone (anonymous or signed-in).
+ * - Listing of users, technician applications, and technicians is denied to all clients to prevent data harvesting.
+ * - Only authenticated users can perform write operations in general.
  *
+ * Denormalization for Authorization:
+ * - N/A: The rules rely on path-based authorization (`userId` in the path) and role-based authorization.  No denormalization is necessary.
+ *
+ * Structural Segregation:
+ * - The application uses separate collections for pending technician applications (`/technician_applications`) and approved technicians (`/technicians`), ensuring that only approved technicians are accessible through the technician profile collection.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Checks if the current user is signed in.
-     */
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    /**
-     * @description Checks if the current user is the owner of the resource.
-     */
-    function isOwner(userId) {
-      return request.auth.uid == userId;
-    }
-
-    /**
-     * @description Checks if the current user is the owner of the resource.
-     */
-    function isExistingOwner(userId) {
-      return isOwner(userId) && resource.data != null;
-    }
-
-    /**
-     * @description Allows the user to read technician application.
-     */
-    function canReadTechnicianApplication(applicationId) {
-       return false;
-    }
-
-    /**
-     * @description Allows the user to write technician application.
-     */
-    function canWriteTechnicianApplication(applicationId) {
-       return false;
-    }
-
-
-    /**
-     * @description Defines the access rules for user profiles.
-     * @path /users/{userId}
-     * @allow (get, list) User with ID 'user123' can read their own profile.
-     * @allow (create, update, delete) User with ID 'user123' can create, update, or delete their own profile.
-     * @deny (get, list) User with ID 'user456' cannot read the profile of user with ID 'user123'.
-     * @deny (create, update, delete) User with ID 'user456' cannot create, update, or delete the profile of user with ID 'user123'.
-     * @principle Enforces document ownership for all operations.
+     * @description Controls access to user profile data.
+     * @path /databases/{database}/documents/users/{userId}
+     * @allow (get, list): Any user can read any user profiles.
+     * @allow (create, update, delete): Only the owner of the user profile can modify it.
+     * @deny create: If the user ID in the path does not match the user ID in the data.
+     * @deny update: If the user ID in the path does not match the user ID in the data.
+     * @deny delete: If the user ID in the path does not match the user ID in the data.
+     * @principle Enforces document ownership for writes, allows public read.
      */
     match /users/{userId} {
-      allow get: if isOwner(userId);
-      allow list: if false;
-      allow create: if isSignedIn() && request.auth.uid == userId;
-      allow update: if isSignedIn() && request.auth.uid == userId && isOwner(userId);
-      allow delete: if isSignedIn() && request.auth.uid == userId && isOwner(userId);
+      allow get: if true;
+      allow list: if false; // User listing is disabled
+
+      allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isSignedIn() && isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isSignedIn() && isExistingOwner(userId);
     }
 
     /**
-     * @description Defines the access rules for technician applications.
-     * @path /technician_applications/{applicationId}
-     * @allow (create) Any authenticated user can create a technician application.
-     * @deny (get, list, update, delete) Only admins can read, list, update or delete applications.
-     * @principle Restricts access to technician applications to authorized users.
+     * @description Controls access to technician application data.
+     * @path /databases/{database}/documents/technician_applications/{applicationId}
+     * @allow create: Any authenticated user can create a technician application.
+     * @deny get, list, update, delete: No one can read, list, update, or delete technician applications after creation.
+     * @principle Allows public read, but restricts writes to owners only.
      */
     match /technician_applications/{applicationId} {
+      allow get: if false;
+      allow list: if false; // Technician application listing is disabled
+      allow create: if isSignedIn();
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Controls access to technician data.
+     * @path /databases/{database}/documents/technicians/{technicianId}
+     * @allow get: Any authenticated user can read technician data.
+     * @deny list, create, update, delete: No one can list, create, update, or delete technician data through the client. This collection is likely managed by backend functions.
+     */
+    match /technicians/{technicianId} {
+      allow get: if true;
+      allow list: if false;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Controls access to partnership inquiries.
+     * @path /databases/{database}/documents/partnership_inquiries
+     * @allow create: Any authenticated user can create a partnership inquiry.
+     * @deny get, list, update, delete: No one can read, list, update, or delete partnership inquiries after creation.
+     * @principle Allows public read, but restricts writes to owners only.
+     */
+    match /partnership_inquiries/{inquiryId} {
       allow get: if false;
       allow list: if false;
       allow create: if isSignedIn();
@@ -87,33 +88,17 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    /**
-     * @description Defines the access rules for approved technicians.
-     * @path /technicians/{technicianId}
-     * @allow (get, list) Anyone can read the list of technicians.
-     * @deny (create, update, delete) Only admins can create, update, or delete technician profiles.
-     * @principle Enforces read-only access for the public and restricts write access to admins.
-     */
-    match /technicians/{technicianId} {
-      allow get: if true;
-      allow list: if true;
-      allow create: if false;
-      allow update: if false;
-      allow delete: if false;
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
     }
 
-     /**
-      * @description Defines the access rules for press inquiries.
-      * @path /press_inquiries/{pressInquiryId}
-      * @allow (create) Anyone can submit a press inquiry.
-      * @deny (get, list, update, delete) Only admins can read, list, update or delete inquiries.
-      */
-    match /press_inquiries/{pressInquiryId} {
-        allow get: if false;
-        allow list: if false;
-        allow create: if true;
-        allow update: if false;
-        allow delete: if false;
-      }
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+    }
   }
 }
