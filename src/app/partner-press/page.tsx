@@ -1,4 +1,6 @@
 
+'use client';
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
@@ -7,6 +9,12 @@ import { Separator } from '@/components/ui/separator';
 import { PressInquiryForm } from '@/components/features/press-inquiry-form';
 
 export default function PartnerPressPage() {
+
+    const handlePartnershipClick = () => {
+        const subject = "Partnership Inquiry";
+        window.location.href = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}`;
+    }
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -39,11 +47,9 @@ export default function PartnerPressPage() {
                                     <p className="text-muted-foreground mb-6">
                                         If your company offers high-quality beauty products and you're interested in placing them in the hands of our skilled technicians and loyal customers, we would love to hear from you.
                                     </p>
-                                    <Button asChild variant="accent">
-                                        <a href="mailto:joinus@iamdreammaker.com?subject=Partnership%20Inquiry">
-                                            <Mail className="mr-2 h-5 w-5" />
-                                            Contact for Partnerships
-                                        </a>
+                                    <Button onClick={handlePartnershipClick} variant="accent">
+                                        <Mail className="mr-2 h-5 w-5" />
+                                        Contact for Partnerships
                                     </Button>
                                 </div>
                             </div>
