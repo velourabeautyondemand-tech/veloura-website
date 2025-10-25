@@ -4,6 +4,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Handshake, Megaphone, Mail } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { PressInquiryForm } from '@/components/features/press-inquiry-form';
 
 export default function PartnerPressPage() {
     return (
@@ -68,16 +69,10 @@ export default function PartnerPressPage() {
                                         <li>The future of at-home, on-demand personal care.</li>
                                         <li>A new model for work-life balance for beauty professionals.</li>
                                     </ul>
-                                    <p className="text-muted-foreground mb-6">
-                                        If you're a member of the media interested in our story, our founder's vision, or the innovative platform we're building, please get in touch.
-                                    </p>
-                                    <Button asChild variant="outline">
-                                        <a href="mailto:info@iamdreammaker.com?subject=Press Inquiry">
-                                            <Mail className="mr-2 h-5 w-5" />
-                                            Contact for Press
-                                        </a>
-                                    </Button>
                                 </div>
+                            </div>
+                            <div className="mt-8">
+                                <PressInquiryForm />
                             </div>
                         </section>
 
