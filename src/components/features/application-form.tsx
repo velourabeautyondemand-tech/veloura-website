@@ -9,6 +9,7 @@ import { Upload, User, Mail, Phone, MapPin, Award, PartyPopper } from "lucide-re
 import { useFirestore } from "@/firebase";
 import { collection } from "firebase/firestore";
 import { addDocumentNonBlocking } from "@/firebase/non-blocking-updates";
+import Link from 'next/link';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -22,6 +23,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const formSchema = z.object({
   firstName: z.string().min(1, "First name is required."),
@@ -32,6 +34,9 @@ const formSchema = z.object({
   licenseNumber: z.string().min(1, "License number is required."),
   licenseUpload: z.any().optional(),
   resumeUpload: z.any().optional(),
+  agreement: z.boolean().refine(val => val === true, {
+    message: "You must agree to the Partner Handbook and Policies."
+  }),
 });
 
 
@@ -49,6 +54,7 @@ export function ApplicationForm() {
             phone: "",
             serviceArea: "",
             licenseNumber: "",
+            agreement: false,
         },
     });
     
@@ -60,7 +66,7 @@ export function ApplicationForm() {
         try {
             const techniciansCol = collection(firestore, "technician_applications");
             
-            const { licenseUpload, resumeUpload, ...applicationData } = values;
+            const { licenseUpload, resumeUpload, agreement, ...applicationData } = values;
 
             addDocumentNonBlocking(techniciansCol, {
                 ...applicationData,
@@ -244,6 +250,30 @@ export function ApplicationForm() {
                 )}
                 />
             </div>
+
+            <FormField
+                control={form.control}
+                name="agreement"
+                render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                        <FormControl>
+                            <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                            />
+                        </FormControl>
+                        <div className="space-y-1 leading-none">
+                            <FormLabel>
+                                I have read and agree to the VÉLOURA Partner Handbook & Onboarding Policy Agreement.
+                            </FormLabel>
+                            <FormDescription>
+                                You can view the full agreement <Link href="/partner-agreement" target="_blank" className="text-primary hover:underline">here</Link>.
+                            </FormDescription>
+                             <FormMessage />
+                        </div>
+                    </FormItem>
+                )}
+            />
             
             <Button type="submit" className="w-full text-lg" size="lg">Submit Application</Button>
             </form>
