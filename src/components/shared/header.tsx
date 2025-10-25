@@ -22,6 +22,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/apply", label: "For Technicians" },
   { href: "/about", label: "Our Story" },
+  { href: "/events", label: "Events" },
 ];
 
 function UserNavButtons() {
