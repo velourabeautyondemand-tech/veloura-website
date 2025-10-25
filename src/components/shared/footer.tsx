@@ -17,7 +17,7 @@ export default function Footer() {
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link>
             <Link href="https://www.indeed.com/viewjob?jk=c35c02dd395e9fb9&from=shareddesktop_copy" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Press</Link>
+            <Link href="/partner-press" className="text-muted-foreground hover:text-primary transition-colors">Partner / Press</Link>
             
              <Link href="https://www.instagram.com/veloura_beauty_x?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Instagram className="h-5 w-5" />
