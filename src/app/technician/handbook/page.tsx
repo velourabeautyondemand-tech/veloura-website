@@ -1,13 +1,36 @@
 
+'use client';
+
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import { NailIcon } from '@/components/shared/logo';
 import { Mail, Phone, Globe } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function PartnerAgreementPage() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const pin = searchParams.get('pin');
+
+    useEffect(() => {
+        // This is a simple check. In a real app, you'd want more robust security.
+        if (pin !== '1439') {
+            router.push('/technician/policy-login');
+        }
+    }, [pin, router]);
+
+    if (pin !== '1439') {
+        return (
+             <div className="flex items-center justify-center h-full">
+                <p>Redirecting to login...</p>
+            </div>
+        );
+    }
+    
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="font-headline text-3xl">Partner Handbook</CardTitle>
+                <CardTitle className="font-headline text-3xl">Policy Statement Agreement or Onboarding</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="prose lg:prose-lg max-w-none">

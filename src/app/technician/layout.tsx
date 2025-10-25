@@ -27,7 +27,7 @@ const techNavItems = [
     { href: "/technician/dashboard", label: "Jobs", icon: Briefcase },
     { href: "/technician/schedule", label: "Availability", icon: Calendar },
     { href: "/technician/earnings", label: "Earnings", icon: DollarSign },
-    { href: "/technician/handbook", label: "Handbook", icon: BookMarked },
+    { href: "/technician/policy-login", label: "Handbook", icon: BookMarked },
     { href: "/technician/profile", label: "Profile", icon: User },
 ];
 
