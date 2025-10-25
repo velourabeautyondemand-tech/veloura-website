@@ -40,7 +40,8 @@ export function PressInquiryForm() {
     function onSubmit(values: z.infer<typeof formSchema>) {
         const subject = `Press Inquiry from ${values.name} at ${values.publication}`;
         const body = `Name: ${values.name}\nPublication: ${values.publication}\nEmail: ${values.email}\n\nMessage:\n${values.message}`;
-        window.location.href = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
     }
     
     return (

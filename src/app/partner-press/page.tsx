@@ -12,7 +12,8 @@ export default function PartnerPressPage() {
 
     const handlePartnershipClick = () => {
         const subject = "Partnership Inquiry";
-        window.location.href = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}`;
+        const mailtoLink = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}`;
+        window.location.href = mailtoLink;
     }
 
     return (
