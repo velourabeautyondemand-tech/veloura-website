@@ -22,7 +22,7 @@ const values = [
     {
         icon: Users,
         title: "Empowering Professionals",
-        description: "We're committed to creating a supportive platform for nail technicians to build their own businesses, control their schedules, and maximize their earnings."
+        description: "We're committed to creating a supportive platform for beauty professionals to build their own businesses, control their schedules, and maximize their earnings."
     },
     {
         icon: Sparkles,
