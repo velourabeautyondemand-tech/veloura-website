@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { NailIcon } from "./logo";
@@ -115,6 +116,7 @@ export default function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
+            <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
             <div className="flex flex-col h-full">
               <div className="flex items-center border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
