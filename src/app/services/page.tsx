@@ -20,20 +20,8 @@ export default function ServicesPage() {
     ];
 
     const ServiceCard = ({ service }: { service: typeof services[0] }) => {
-        const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
         return (
             <Card key={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300">
-                {serviceImage && (
-                    <div className="relative w-full h-48">
-                        <Image
-                            src={serviceImage.imageUrl}
-                            alt={service.name}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={serviceImage.imageHint}
-                        />
-                    </div>
-                )}
                 <CardHeader>
                     <CardTitle className="font-headline">{service.name}</CardTitle>
                 </CardHeader>
