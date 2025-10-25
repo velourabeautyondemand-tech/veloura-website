@@ -1,11 +1,14 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { User, Mail, Building, Send } from "lucide-react";
+import { User, Mail, Building, Send, PartyPopper } from "lucide-react";
+import { useFirestore } from "@/firebase";
+import { collection } from "firebase/firestore";
+import { addDocumentNonBlocking } from "@/firebase/non-blocking-updates";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -19,6 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required."),
@@ -29,6 +33,9 @@ const formSchema = z.object({
 
 export function PressInquiryForm() {
     const { toast } = useToast();
+    const firestore = useFirestore();
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -40,26 +47,45 @@ export function PressInquiryForm() {
     });
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        try {
-            const subject = `Press Inquiry from ${values.name} at ${values.publication}`;
-            const body = `Name: ${values.name}\nPublication: ${values.publication}\nEmail: ${values.email}\n\nMessage:\n${values.message}`;
-            const mailtoLink = `mailto:joinus@iamdreammaker.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            window.location.href = mailtoLink;
-            
-            toast({
-                title: "Redirecting to Email Client",
-                description: "Your email application should be opening shortly.",
+        if (!firestore) {
+             toast({
+                variant: "destructive",
+                title: "Error",
+                description: "Could not connect to the database. Please try again later.",
             });
+            return;
+        }
+
+        try {
+            const inquiriesCollection = collection(firestore, "press_inquiries");
+            addDocumentNonBlocking(inquiriesCollection, {
+                ...values,
+                submittedAt: new Date().toISOString(),
+            });
+            
+            setIsSubmitted(true);
             form.reset();
+
         } catch (error) {
-            console.error("Failed to create mailto link:", error);
+            console.error("Failed to submit inquiry:", error);
             toast({
                 variant: "destructive",
                 title: "Oh no! Something went wrong.",
-                description: "Could not open your email client. Please try again or contact us directly.",
+                description: "Could not submit your inquiry. Please try again or contact us directly.",
             });
         }
+    }
+    
+    if (isSubmitted) {
+        return (
+            <Alert variant="default" className="border-primary text-primary-foreground bg-primary/10">
+                <PartyPopper className="h-5 w-5 text-primary" />
+                <AlertTitle className="font-bold text-primary">Thank You!</AlertTitle>
+                <AlertDescription>
+                    Your inquiry has been submitted successfully. We will get back to you shortly.
+                </AlertDescription>
+            </Alert>
+        )
     }
     
     return (
@@ -129,7 +155,7 @@ export function PressInquiryForm() {
                 )}
                 />
             
-            <Button type="submit" size="lg">
+            <Button type="submit" size="lg" disabled={form.formState.isSubmitting}>
                 <Send className="mr-2 h-5 w-5" />
                 Send Inquiry
             </Button>

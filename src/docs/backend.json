@@ -1,0 +1,166 @@
+
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "type": "object",
+      "description": "Represents a user's profile information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The user's unique ID."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["customer", "technician", "admin"],
+          "description": "The user's role in the system."
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "profileImageUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": ["id", "email", "role"]
+    },
+    "TechnicianApplication": {
+      "title": "Technician Application",
+      "type": "object",
+      "description": "Represents a technician's application.",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "serviceArea": {
+          "type": "string"
+        },
+        "licenseNumber": {
+          "type": "string"
+        },
+        "applicationStatus": {
+          "type": "string",
+          "enum": ["pending", "approved", "rejected"]
+        }
+      },
+      "required": ["firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
+    },
+    "Technician": {
+      "title": "Technician",
+      "type": "object",
+      "description": "Represents an approved technician.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "serviceArea": {
+          "type": "string"
+        },
+        "licenseNumber": {
+          "type": "string"
+        },
+        "applicationStatus": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "string"
+        },
+        "serviceRadius": {
+          "type": "number"
+        }
+      },
+      "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
+    },
+    "PressInquiry": {
+      "title": "Press Inquiry",
+      "type": "object",
+      "description": "Represents a press inquiry submission.",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "publication": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "message": {
+          "type": "string"
+        },
+        "submittedAt": {
+            "type": "string",
+            "format": "date-time"
+        }
+      },
+      "required": ["name", "publication", "email", "message", "submittedAt"]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "collections": {
+      "/users/{userId}": {
+        "schema": {
+          "$ref": "#/entities/UserProfile"
+        },
+        "description": "Stores public user profiles."
+      },
+      "/technician_applications/{applicationId}": {
+        "schema": {
+          "$ref": "#/entities/TechnicianApplication"
+        },
+        "description": "Stores submitted applications from potential technicians."
+      },
+      "/technicians/{technicianId}": {
+        "schema": {
+          "$ref": "#/entities/Technician"
+        },
+        "description": "Stores profiles of approved and active technicians."
+      },
+       "/press_inquiries/{inquiryId}": {
+        "schema": {
+          "$ref": "#/entities/PressInquiry"
+        },
+        "description": "Stores submitted press inquiries."
+      }
+    }
+  }
+}
