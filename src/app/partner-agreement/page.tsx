@@ -29,7 +29,7 @@ export default function PartnerAgreementPage() {
                           </ul>
                         </div>
 
-                        <h2>1. Core Partner Policies</h2>
+                        <h2><span className="text-primary font-bold text-3xl">1.</span> Core Partner Policies</h2>
                         <h3>1.1 Payment Policy</h3>
                         <ul>
                             <li>All payments for services must be processed exclusively through the VÉLOURA platform.</li>
@@ -62,7 +62,7 @@ export default function PartnerAgreementPage() {
                             <li>VÉLOURA is not liable for incidents arising from uninsured services.</li>
                         </ul>
 
-                        <h2>2. Booking &amp; Payment Policies</h2>
+                        <h2><span className="text-primary font-bold text-3xl">2.</span> Booking &amp; Payment Policies</h2>
                         <h3>2.1 Customer Cancellations & Rescheduling</h3>
                         <ul>
                             <li>Clients may reschedule or cancel appointments up to 24 hours before the scheduled time without penalty.</li>
@@ -85,7 +85,7 @@ export default function PartnerAgreementPage() {
                             <li>VÉLOURA reserves the right to make the final decision in all dispute cases.</li>
                         </ul>
 
-                        <h2>3. Operational Policies</h2>
+                        <h2><span className="text-primary font-bold text-3xl">3.</span> Operational Policies</h2>
                         <h3>3.1 Dress Code &amp; Hygiene Standards</h3>
                         <p>All VÉLOURA professionals must maintain a clean, polished, and professional appearance while serving clients.</p>
                         <h4>Footwear:</h4>
@@ -133,7 +133,7 @@ export default function PartnerAgreementPage() {
                         </ol>
                         <p>Failure to report incidents promptly may result in suspension.</p>
 
-                        <h2>4. Legal &amp; Liability Terms</h2>
+                        <h2><span className="text-primary font-bold text-3xl">4.</span> Legal &amp; Liability Terms</h2>
                         <h3>4.1 Insurance &amp; Liability Disclaimer</h3>
                         <ul>
                             <li>All technicians are encouraged to maintain active professional liability insurance.</li>
