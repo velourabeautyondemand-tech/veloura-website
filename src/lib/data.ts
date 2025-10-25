@@ -6,7 +6,7 @@ export type Service = {
   price?: number;
   duration?: string;
   imageId: string;
-  category: 'Manicures' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair';
+  category: 'Manicures' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages';
 };
 
 export type Technician = {
@@ -64,6 +64,12 @@ export const services: Service[] = [
   { id: 'hair-formal', name: 'Event & Formal Styling', description: 'Elegant updos or intricate styles for weddings and special events.', price: 150, duration: '60–90 mins', imageId: 'hair_2', category: 'Hair' },
   { id: 'hair-bridal', name: 'Bridal Hair', description: 'Customized bridal styling, including prep and wedding-day touch-ups.', price: 290, duration: '90–120 mins', imageId: 'hair_3', category: 'Hair' },
   { id: 'hair-trial', name: 'Hair Trial', description: 'Test any look for your event. Includes consultation and full styling to refine your desired look.', price: 110, duration: '75–90 mins', imageId: 'hair_4', category: 'Hair' },
+  { id: 'hair-bridesmaids', name: 'Bridesmaids Hairstyling', description: 'Elegant, photo-ready hairstyles tailored to complement the bridal look. Choose from soft curls, romantic waves, sleek straight styles, or chic updos.', price: 150, duration: 'Per person', imageId: 'hair_5', category: 'Hair' },
+
+  // VIP Packages
+  { id: 'vip-glam-essentials', name: 'Glam Essentials Package (Makeup & Hair)', description: 'A complete package for your beauty needs, combining makeup and hair styling for a polished look.', price: 350, duration: '120-180 mins', imageId: 'vip_1', category: 'VIP Packages' },
+  { id: 'vip-events', name: 'Wedding/Fashion Shows/Events (Makeup & Hair)', description: 'A comprehensive makeup and hair package for major events, ensuring you look your best.', price: 550, duration: '180-200 mins', imageId: 'vip_2', category: 'VIP Packages' },
+  { id: 'vip-full-day', name: 'Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)', description: 'The ultimate all-inclusive package with makeup, hair, and nails. We recommend booking with 2-3 technicians for the best experience. Team work: 180 min. Solo: 120 min per service.', price: 700, duration: 'Varies', imageId: 'vip_3', category: 'VIP Packages' },
 ];
 
 export const technicians: Technician[] = [

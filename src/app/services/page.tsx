@@ -6,7 +6,7 @@ import { services } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Clock } from 'lucide-react';
+import { Clock, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
@@ -16,6 +16,7 @@ export default function ServicesPage() {
         { title: 'Nail Enhancements', services: services.filter(s => s.category === 'Nail Enhancements') },
         { title: 'Makeup', services: services.filter(s => s.category === 'Makeup') },
         { title: 'Hair', services: services.filter(s => s.category === 'Hair') },
+        { title: 'VIP Packages', services: services.filter(s => s.category === 'VIP Packages') },
         { title: 'Extras', services: services.filter(s => s.category === 'Extras') },
     ];
 
@@ -28,9 +29,9 @@ export default function ServicesPage() {
                 <CardContent className="flex-grow">
                     <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
-                {service.duration && (
+                {(service.duration) && (
                     <CardFooter className="flex justify-between items-center bg-muted/50 p-4">
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <Clock className="w-4 h-4" />
                             <span>{service.duration}</span>
                         </div>
@@ -56,7 +57,7 @@ export default function ServicesPage() {
                     </div>
                     
                     {serviceCategories.map(category => category.services.length > 0 && (
-                         <section key={category.title} id={category.title.toLowerCase()} className="mb-16">
+                         <section key={category.title} id={category.title.toLowerCase().replace(/ /g, '-')} className="mb-16">
                             <h2 className="text-3xl font-bold tracking-tight text-center mb-8 font-headline">{category.title}</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                                 {category.services.map((service) => (
@@ -66,8 +67,21 @@ export default function ServicesPage() {
                         </section>
                     ))}
 
+                    <section className="text-center mt-16 border-t pt-12">
+                        <h2 className="text-2xl font-bold font-headline">Don’t see the service you’re looking for?</h2>
+                        <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
+                            Request a custom service by contacting us — we’ll get back to you as soon as possible!
+                        </p>
+                         <Button asChild size="lg" variant="accent" className="mt-6">
+                            <a href="mailto:admin@example.com?subject=Urgent%20Service%20Request">
+                                <Phone className="mr-2 h-5 w-5" />
+                                Urgent Request
+                            </a>
+                        </Button>
+                    </section>
+
                      <div className="text-center mt-16">
-                        <Button size="lg" variant="accent" asChild>
+                        <Button size="lg" variant="default" asChild>
                             <Link href="/apply">Ready to Book? (Coming Soon)</Link>
                         </Button>
                     </div>
