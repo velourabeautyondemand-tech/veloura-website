@@ -35,13 +35,15 @@ export default function PartnerPressPage() {
                                     <Handshake className="h-20 w-20 text-primary" />
                                 </div>
                                 <div className="flex-1">
-                                    <h2 className="text-3xl font-bold font-headline mb-4">Partner With Us</h2>
+                                    <h2 className="text-3xl font-bold font-headline mb-4">Showcase Your Products to a Premium Audience</h2>
                                     <p className="text-muted-foreground mb-4">
-                                        VÉLOURA is building a curated community of elite beauty professionals and discerning clients who value premium products and exceptional service. We are actively seeking to partner with innovative beauty brands that align with our commitment to quality, luxury, and convenience.
+                                        Partner with VÉLOURA and place your brand directly into the hands of elite, vetted beauty professionals and their discerning clientele. We are actively seeking innovative beauty suppliers who align with our commitment to quality, luxury, and performance.
                                     </p>
-                                    <p className="text-muted-foreground mb-6">
-                                        If your company offers high-quality beauty products and you're interested in placing them in the hands of our skilled technicians and loyal customers, we would love to hear from you. Please fill out the form below to start the conversation.
-                                    </p>
+                                    <ul className="list-disc list-inside text-muted-foreground mb-6 space-y-2">
+                                        <li><span className="font-semibold">Gain Direct Access:</span> Connect with top-tier technicians who influence purchasing decisions.</li>
+                                        <li><span className="font-semibold">Reach Target Clients:</span> Introduce your products to a loyal customer base that values and invests in premium beauty.</li>
+                                        <li><span className="font-semibold">Amplify Your Brand:</span> Benefit from co-marketing opportunities and organic exposure in a luxury setting.</li>
+                                    </ul>
                                 </div>
                             </div>
                             <div className="mt-8">
