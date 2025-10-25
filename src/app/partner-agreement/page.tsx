@@ -18,7 +18,7 @@ export default function PartnerAgreementPage() {
                             <p className="lead text-muted-foreground">VÉLOURA – Beauty on Demand</p>
                         </div>
                         
-                        <h2>Welcome to VÉLOURA</h2>
+                        <h2 className="font-bold">Welcome to VÉLOURA</h2>
                         <p>We’re thrilled to have you as part of the VÉLOURA community. This handbook outlines the policies, standards, and expectations that define our partnership.</p>
                         <p>Our mission is to deliver safe, convenient, and high-quality beauty services directly to clients through our Beauty on Demand model. As a valued partner, you play a vital role in maintaining our brand’s trust, excellence, and professionalism.</p>
                         <div className="bg-primary/10 border-l-4 border-primary p-4 my-6 not-prose">
