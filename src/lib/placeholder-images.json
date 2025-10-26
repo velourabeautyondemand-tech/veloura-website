@@ -43,6 +43,18 @@
       "imageHint": "foot spa"
     },
     {
+      "id": "service_spa_mani",
+      "description": "Spa Manicure with hot towels",
+      "imageUrl": "https://images.unsplash.com/photo-1700760933910-d3c03aa18b65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcGElMjBtYW5pY3VyZXxlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spa manicure"
+    },
+    {
+      "id": "service_spa_pedi",
+      "description": "Spa Pedicure with hot towels",
+      "imageUrl": "https://images.unsplash.com/photo-1537725052-6cbbab31db1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzcGElMjBwZWRpY3VyZXxlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spa pedicure"
+    },
+    {
       "id": "makeup_1",
       "description": "Natural Makeup",
       "imageUrl": "https://images.unsplash.com/photo-1596496057842-5363e75f5b59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxuYXR1cmFsJTIwbWFrZXVwfGVufDB8fHx8MTY3MjAwMzA1NXww&ixlib=rb-4.0.3&q=80&w=1080",
