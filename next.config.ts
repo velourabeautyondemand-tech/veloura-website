@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
@@ -29,6 +30,17 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  async redirects() {
+    return [];
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/s/:shortId',
+        destination: '/api/short-link/:shortId',
+      },
+    ];
   },
 };
 

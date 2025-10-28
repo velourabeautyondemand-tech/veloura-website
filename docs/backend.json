@@ -102,6 +102,72 @@
         }
       },
       "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
+    },
+    "PressInquiry": {
+      "title": "Press Inquiry",
+      "type": "object",
+      "description": "Represents a press inquiry submission.",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "publication": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "message": {
+          "type": "string"
+        },
+        "submittedAt": {
+            "type": "string",
+            "format": "date-time"
+        }
+      },
+      "required": ["name", "publication", "email", "message", "submittedAt"]
+    },
+    "PartnershipInquiry": {
+      "title": "Partnership Inquiry",
+      "type": "object",
+      "description": "Represents a partnership inquiry submission.",
+      "properties": {
+        "companyName": {
+          "type": "string"
+        },
+        "contactName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "message": {
+          "type": "string"
+        },
+        "submittedAt": {
+            "type": "string",
+            "format": "date-time"
+        }
+      },
+      "required": ["companyName", "contactName", "email", "message", "submittedAt"]
+    },
+    "ShortLink": {
+      "title": "Short Link",
+      "type": "object",
+      "description": "Represents a shortened URL.",
+      "properties": {
+        "originalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["originalUrl", "createdAt"]
     }
   },
   "auth": {
@@ -129,6 +195,24 @@
           "$ref": "#/entities/Technician"
         },
         "description": "Stores profiles of approved and active technicians."
+      },
+       "/press_inquiries/{inquiryId}": {
+        "schema": {
+          "$ref": "#/entities/PressInquiry"
+        },
+        "description": "Stores submitted press inquiries."
+      },
+      "/partnership_inquiries/{inquiryId}": {
+        "schema": {
+            "$ref": "#/entities/PartnershipInquiry"
+        },
+        "description": "Stores submitted partnership inquiries."
+      },
+      "/shortlinks/{linkId}": {
+        "schema": {
+          "$ref": "#/entities/ShortLink"
+        },
+        "description": "Stores shortened URL mappings."
       }
     }
   }
