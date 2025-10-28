@@ -83,14 +83,6 @@ export default function HomePage() {
         <section className="py-12 bg-primary/10">
             <div className="container mx-auto px-4 md:px-6 text-center">
                 <div className="max-w-2xl mx-auto">
-                     <Image 
-                        src="https://picsum.photos/seed/mobile-app/800/600" 
-                        alt="VÉLOURA App on a mobile phone"
-                        width={800}
-                        height={600}
-                        className="rounded-lg shadow-2xl mb-8"
-                        data-ai-hint="mobile phone"
-                    />
                     <h2 className="text-2xl font-bold font-headline text-primary">Our Mobile App is Coming Soon!</h2>
                     <p className="mt-2 text-muted-foreground">Sign up for updates and be the first to know when we launch.</p>
                     <div className="mt-6 flex justify-center gap-4">
