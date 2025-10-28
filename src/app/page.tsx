@@ -1,14 +1,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Search, Star, Heart, Briefcase, Home } from 'lucide-react';
+import { Apple, Play } from 'lucide-react';
 
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 
@@ -82,6 +77,24 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Download App Section */}
+        <section className="py-12 bg-primary/10">
+            <div className="container mx-auto px-4 md:px-6 text-center">
+                <h2 className="text-2xl font-bold font-headline text-primary">Our Mobile App is Coming Soon!</h2>
+                <p className="mt-2 text-muted-foreground">Sign up for updates and be the first to know when we launch.</p>
+                <div className="mt-6 flex justify-center gap-4">
+                    <Button variant="outline" size="lg" className="bg-background" disabled>
+                        <Apple className="w-6 h-6 mr-2" />
+                        <span>App Store</span>
+                    </Button>
+                    <Button variant="outline" size="lg" className="bg-background" disabled>
+                        <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor"><path d="M21.2,10.1c-0.3-0.2-0.7-0.1-0.9,0.2l-1.9,3.5l-1.9-3.5c-0.2-0.3-0.6-0.4-0.9-0.2c-0.3,0.2-0.4,0.6-0.2,0.9l2.4,4.3 c0.2,0.3,0.5,0.4,0.8,0.4s0.6-0.2,0.8-0.4l2.4-4.3C21.6,10.7,21.5,10.3,21.2,10.1z M3.6,5.2C3.2,5.5,3,6,3,6.5v11 C3,17.8,3.2,18.2,3.6,18.5l7.9-7.9L3.6,5.2z M12,12.9l-8.2,8.2C4,21.5,4.4,21.8,4.9,21.8h0c0.3,0,0.6-0.1,0.8-0.2l9.9-5.7L12,12.9z M15.6,11.3L5.7,5.6C5.4,5.4,5.2,5.3,4.9,5.3h0c-0.5,0-0.9,0.3-1.1,0.7l8.2,8.2L15.6,11.3z"/></svg>
+                        <span>Google Play</span>
+                    </Button>
+                </div>
+            </div>
         </section>
 
         {/* For Real Life Section */}
