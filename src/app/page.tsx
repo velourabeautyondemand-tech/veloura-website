@@ -82,27 +82,7 @@ export default function HomePage() {
         {/* Download App Section */}
         <section className="py-16 sm:py-24 bg-primary/10">
           <div className="container mx-auto px-4 md:px-6 text-center max-w-5xl">
-            <div className="relative overflow-hidden rounded-2xl">
-              <Image 
-                src="https://picsum.photos/seed/appbg/1200/600" 
-                alt="Abstract background"
-                fill
-                className="object-cover brightness-[.6]"
-                data-ai-hint="abstract background"
-              />
-              <div className="relative z-10 py-12 md:py-20">
-                <Image 
-                  src="https://picsum.photos/seed/appmock/420/840" 
-                  alt="App preview on a phone"
-                  width={280}
-                  height={560}
-                  className="mx-auto w-[40%] max-w-[280px] sm:w-[35%] md:w-[30%] lg:w-[25%] rounded-3xl shadow-2xl -rotate-12 transform-gpu"
-                  data-ai-hint="app interface"
-                />
-              </div>
-            </div>
-
-            <h2 className="text-3xl font-bold font-headline mt-14 mb-5">Download the App</h2>
+             <h2 className="text-3xl font-bold font-headline mb-5">Download the App</h2>
             <p className="text-muted-foreground mb-8">Coming Soon!</p>
 
             <div className="flex gap-4 justify-center flex-wrap">
