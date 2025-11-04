@@ -35,12 +35,7 @@ const nextConfig: NextConfig = {
     return [];
   },
   async rewrites() {
-    return [
-      {
-        source: '/s/:shortId',
-        destination: '/api/short-link/:shortId',
-      },
-    ];
+    return [];
   },
 };
 
