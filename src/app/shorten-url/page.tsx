@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { createShortLink } from '@/ai/flows/create-short-link';
+import { useFirestore, setDocumentNonBlocking } from '@/firebase';
+import { doc } from 'firebase/firestore';
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -40,6 +42,7 @@ export default function ShortenUrlPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
+  const firestore = useFirestore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,17 +52,33 @@ export default function ShortenUrlPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>>) {
+    if (!firestore) {
+      setError('Firestore is not available. Please try again later.');
+      return;
+    }
     setIsLoading(true);
     setError(null);
     setShortUrl(null);
 
     try {
-      const result = await createShortLink({ originalUrl: values.url });
-      if (result.shortUrl) {
-        setShortUrl(result.shortUrl);
-      } else {
-        setError('Could not create a short link. Please try again.');
+      // 1. Call the AI flow to just get the unique ID
+      const { shortId } = await createShortLink({ originalUrl: values.url });
+
+      if (!shortId) {
+        throw new Error('Could not generate a short ID.');
       }
+
+      // 2. Use the client-side SDK to write to Firestore
+      const shortLinkRef = doc(firestore, 'shortlinks', shortId);
+      setDocumentNonBlocking(shortLinkRef, {
+        originalUrl: values.url,
+        createdAt: new Date().toISOString(),
+      }, {});
+
+      // 3. Construct the final URL for the user
+      const fullShortUrl = `${process.env.NEXT_PUBLIC_BASE_URL || (window.location.origin)}/s/${shortId}`;
+      setShortUrl(fullShortUrl);
+
     } catch (e: any) {
       setError(e.message || 'An unexpected error occurred.');
     } finally {

@@ -70,14 +70,14 @@ service cloud.firestore {
      * @description Public read access for short links.
      * @path /databases/{database}/documents/shortlinks/{linkId}
      * @allow (get, list) Anyone can read short links to allow redirection.
-     * @deny (create, update, delete) Only backend processes can create, update, or delete short links.
+     * @allow (create) Anyone can create a new short link.
+     * @deny (update, delete) No one can update or delete short links.
      * @principle Allows public read for URL redirection, write access restricted to server.
      */
     match /shortlinks/{linkId} {
         allow get: if true;
         allow list: if true;
-
-        allow create: if false;
+        allow create: if true; // Allow client-side creation
         allow update: if false;
         allow delete: if false;
     }
