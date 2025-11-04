@@ -62,7 +62,10 @@ export default function HomePage() {
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
-              <div className="mb-8 flex gap-4 justify-center flex-wrap">
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
+                 VÉLOURA Beauty on Demand
+              </h1>
+              <div className="my-8 flex gap-4 justify-center flex-wrap">
                 <Button size="lg" variant="outline" className="bg-background hover:bg-muted" disabled>
                   <Apple className="w-6 h-6 mr-3" />
                   App Store
@@ -74,9 +77,7 @@ export default function HomePage() {
                   Google Play
                 </Button>
               </div>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                 VÉLOURA Beauty on Demand
-              </h1>
+              
               <p className="mt-4 text-lg text-muted-foreground">
                 Where technology meets beauty. One App. One Click.
               </p>
@@ -84,13 +85,8 @@ export default function HomePage() {
                 no traffic, no parking, no rushing, no waiting
               </p>
                <p className="mt-4 text-lg font-bold text-primary">
-                Just Enjoy ❤️
+                Just Enjoy &hearts;
               </p>
-              <div className="mt-10 flex gap-4 justify-center flex-wrap">
-                <Button size="lg" variant="outline" disabled>
-                  App Launching Soon
-                </Button>
-              </div>
             </div>
           </div>
         </section>
