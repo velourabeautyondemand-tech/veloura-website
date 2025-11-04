@@ -86,7 +86,8 @@ export default function HomePage() {
         {/* Download App Section */}
         <section className="py-16 sm:py-24 bg-primary/10">
           <div className="container mx-auto px-4 md:px-6 text-center max-w-5xl">
-            <h2 className="text-3xl font-bold font-headline mb-4">The future of beauty starts here — the first app that brings professionals to you at your fingertips</h2>
+            <h2 className="text-4xl font-bold font-headline mb-2 text-foreground">The first smart beauty platform</h2>
+            <p className="text-lg text-muted-foreground mb-8">brings professionals to you at your fingertips</p>
             <p className="text-muted-foreground mb-8 text-lg">Coming Soon!</p>
 
             <div className="flex gap-4 justify-center flex-wrap">
