@@ -37,7 +37,7 @@ export default function PartnerPressPage() {
                                 <div className="flex-1">
                                     <h2 className="text-3xl font-bold font-headline mb-4">Showcase Your Products to a Premium Audience</h2>
                                     <p className="text-muted-foreground mb-4">
-                                        Partner with VÉLOURA and place your brand directly into the hands of elite, vetted beauty professionals and their discerning clientele. We are actively seeking innovative beauty suppliers who align with our commitment to quality, luxury, and performance.
+                                        Partner with VELOURA and place your brand directly into the hands of elite, vetted beauty professionals and their discerning clientele. We are actively seeking innovative beauty suppliers who align with our commitment to quality, luxury, and performance.
                                     </p>
                                     <ul className="list-disc list-inside text-muted-foreground mb-6 space-y-2">
                                         <li><span className="font-semibold">Gain Direct Access:</span> Connect with top-tier technicians who influence purchasing decisions.</li>
@@ -62,7 +62,7 @@ export default function PartnerPressPage() {
                                 <div className="flex-1 md:order-1">
                                     <h2 className="text-3xl font-bold font-headline mb-4">Press Inquiries</h2>
                                     <p className="text-muted-foreground mb-2">
-                                        VÉLOURA is more than a mobile beauty service; it's a movement. We're revolutionizing the industry by empowering independent beauty professionals and delivering unparalleled luxury and convenience directly to our clients' doors.
+                                        VELOURA is more than a mobile beauty service; it's a movement. We're revolutionizing the industry by empowering independent beauty professionals and delivering unparalleled luxury and convenience directly to our clients' doors.
                                     </p>
                                      <p className="text-muted-foreground font-semibold mb-4">Possible story angles include:</p>
                                     <ul className="list-disc list-inside text-muted-foreground mb-6 space-y-2">

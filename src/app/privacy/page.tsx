@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
                         <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
                         <h2>Introduction</h2>
-                        <p>VÉLOURA ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile beauty service platform. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the service.</p>
+                        <p>VELOURA ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile beauty service platform. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the service.</p>
 
                         <h2>1. Collection of Your Information</h2>
                         <p>We may collect information about you in a variety of ways. The information we may collect via the Service includes:</p>
