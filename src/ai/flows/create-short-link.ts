@@ -10,8 +10,9 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { nanoid } from 'nanoid';
+import { initializeFirebase } from '@/firebase';
 
 const CreateShortLinkInputSchema = z.object({
   originalUrl: z.string().url(),
@@ -36,7 +37,7 @@ const createShortLinkFlow = ai.defineFlow(
     outputSchema: CreateShortLinkOutputSchema,
   },
   async ({ originalUrl }) => {
-    const firestore = getFirestore();
+    const { firestore } = initializeFirebase();
     const shortId = nanoid(7); // Generate a 7-character ID
     const shortLinkRef = doc(firestore, 'shortlinks', shortId);
 
