@@ -63,7 +63,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                VÉLOURA — Beauty That Fits Your Life
+                VÉLOURA the first app that brings professionals to you at your fingertips
               </h1>
               <p className="mt-4 text-lg font-semibold text-muted-foreground">No traffic. No waiting. No rush. No parking.</p>
               <p className="mt-2 text-xl text-foreground">
