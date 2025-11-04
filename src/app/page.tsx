@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Apple, Smartphone, Heart } from 'lucide-react';
+import { Apple, Smartphone, Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -8,27 +8,27 @@ import Footer from '@/components/shared/footer';
 
 const useCases = [
   {
-    icon: '👠',
+    icon: Award,
     title: 'Fashion/Runway & VIP Events',
     description: 'Last-minute glam for red carpets, shoots, or parties.',
   },
   {
-    icon: '👩‍🍼',
+    icon: HandHeart,
     title: 'New Moms',
     description: 'Gentle, relaxing care at home—yes, even during nap time.',
   },
   {
-    icon: '🌿',
+    icon: Sparkles,
     title: 'Recovery & Wellness',
     description: 'Compassionate, hygienic service for clients healing or with limited mobility.',
   },
   {
-    icon: '💼',
+    icon: Briefcase,
     title: 'Busy Professionals',
     description: 'Only have a one-hour break? We’ll meet you at your office or hotel.',
   },
   {
-    icon: '🏡',
+    icon: Users,
     title: 'Home Comfort Seekers',
     description: 'Prefer privacy and convenience? Enjoy salon quality on your couch.',
   },
@@ -77,7 +77,6 @@ export default function HomePage() {
                   Google Play
                 </Button>
               </div>
-              <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
               <p className="mt-4 text-lg text-muted-foreground">
                 Where technology meets beauty. One App. One Click.
               </p>
@@ -96,11 +95,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center max-w-5xl">
             <h2 className="text-4xl font-bold font-headline mb-2 text-foreground">The first smart beauty platform</h2>
             <p className="text-lg text-muted-foreground mb-8">brings professionals to you at your fingertips</p>
-            
-            <div className="flex gap-4 justify-center flex-wrap">
-              
-            </div>
-            
+            <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
           </div>
         </section>
 
@@ -115,7 +110,7 @@ export default function HomePage() {
                 <ul className="space-y-6">
                     {useCases.map((item, index) => (
                         <li key={index} className="flex items-start gap-4">
-                            <span className="text-2xl mt-1">{item.icon}</span>
+                            <item.icon className="w-8 h-8 text-primary mt-1" />
                             <div>
                                 <h3 className="font-bold text-lg">{item.title}</h3>
                                 <p className="text-muted-foreground">{item.description}</p>
