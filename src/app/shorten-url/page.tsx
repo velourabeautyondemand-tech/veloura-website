@@ -76,7 +76,7 @@ export default function ShortenUrlPage() {
       }, {});
 
       // 3. Construct the final URL for the user
-      const fullShortUrl = `${process.env.NEXT_PUBLIC_BASE_URL || (window.location.origin)}/s/${shortId}`;
+      const fullShortUrl = `${window.location.origin}/s/${shortId}`;
       setShortUrl(fullShortUrl);
 
     } catch (e: any) {

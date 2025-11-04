@@ -10,9 +10,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { nanoid } from 'nanoid';
-import { initializeFirebase } from '@/firebase';
 
 const CreateShortLinkInputSchema = z.object({
   originalUrl: z.string().url(),
@@ -20,7 +18,7 @@ const CreateShortLinkInputSchema = z.object({
 export type CreateShortLinkInput = z.infer<typeof CreateShortLinkInputSchema>;
 
 const CreateShortLinkOutputSchema = z.object({
-  shortUrl: z.string().url(),
+  shortId: z.string(),
 });
 export type CreateShortLinkOutput = z.infer<typeof CreateShortLinkOutputSchema>;
 
@@ -37,19 +35,9 @@ const createShortLinkFlow = ai.defineFlow(
     outputSchema: CreateShortLinkOutputSchema,
   },
   async ({ originalUrl }) => {
-    const { firestore } = initializeFirebase();
     const shortId = nanoid(7); // Generate a 7-character ID
-    const shortLinkRef = doc(firestore, 'shortlinks', shortId);
-
-    await setDoc(shortLinkRef, {
-      originalUrl: originalUrl,
-      createdAt: new Date().toISOString(),
-    });
-
-    const shortUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:9002'}/s/${shortId}`;
-
     return {
-      shortUrl: shortUrl,
+      shortId: shortId,
     };
   }
 );
