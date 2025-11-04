@@ -84,7 +84,7 @@ export default function HomePage() {
                 no traffic, no parking, no rushing, no waiting
               </p>
                <p className="mt-4 text-lg font-bold text-primary">
-                just enjoy
+                Just Enjoy ❤️
               </p>
               <div className="mt-10 flex gap-4 justify-center flex-wrap">
                 <Button size="lg" variant="outline" disabled>
