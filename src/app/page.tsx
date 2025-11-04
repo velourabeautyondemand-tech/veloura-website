@@ -79,6 +79,36 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* New App Download Section */}
+        <section className="py-16 sm:py-24 bg-background">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
+              The first smart beauty platform
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Brings professionals to you at your fingertips
+            </p>
+            <div className="mt-10">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
+              <div className="flex justify-center gap-4">
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="#">
+                    <Apple className="mr-2 h-6 w-6" />
+                    App Store
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="#">
+                    <Smartphone className="mr-2 h-6 w-6" />
+                    Google Play
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
         {/* For Real Life Section */}
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4 md:px-6 max-w-4xl">
