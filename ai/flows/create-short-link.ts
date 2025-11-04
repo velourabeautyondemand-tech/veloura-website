@@ -35,9 +35,11 @@ const createShortLinkFlow = ai.defineFlow(
     outputSchema: CreateShortLinkOutputSchema,
   },
   async ({ originalUrl }) => {
-    const shortId = nanoid(7); // Generate a 7-character ID
+    // This flow is now only responsible for generating a unique ID.
+    // The client will handle writing to Firestore.
+    const shortId = nanoid(7); 
     return {
-      shortId: shortId,
+      shortId,
     };
   }
 );
