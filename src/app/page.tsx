@@ -68,6 +68,9 @@ export default function HomePage() {
               <p className="mt-4 text-lg text-muted-foreground">
                 Where technology meets beauty. One App. One Click.
               </p>
+              <p className="mt-2 text-md text-muted-foreground italic">
+                no traffic, no parking, no rushing, no waiting
+              </p>
               <div className="mt-10 max-w-xl mx-auto">
                 <Button size="lg" asChild>
                   <Link href="/bookings">Book Now</Link>
