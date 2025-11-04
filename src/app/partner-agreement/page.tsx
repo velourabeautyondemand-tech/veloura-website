@@ -15,11 +15,11 @@ export default function PartnerAgreementPage() {
                         <div className="text-center mb-12">
                             <NailIcon className="h-16 w-16 mx-auto text-primary" />
                             <h1 className="font-headline text-4xl mt-4">Partner Handbook & Onboarding Policy Agreement</h1>
-                            <p className="lead text-muted-foreground">VELOURA - Beauty on Demand</p>
+                            <p className="lead text-muted-foreground">VÉLOURA - Beauty on Demand</p>
                         </div>
                         
-                        <h2 className="font-bold">Welcome to VELOURA</h2>
-                        <p>We're thrilled to have you as part of the VELOURA community. This handbook outlines the policies, standards, and expectations that define our partnership.</p>
+                        <h2 className="font-bold">Welcome to VÉLOURA</h2>
+                        <p>We're thrilled to have you as part of the VÉLOURA community. This handbook outlines the policies, standards, and expectations that define our partnership.</p>
                         <p>Our mission is to deliver safe, convenient, and high-quality beauty services directly to clients through our Beauty on Demand model. As a valued partner, you play a vital role in maintaining our brand's trust, excellence, and professionalism.</p>
                         <div className="bg-primary/10 border-l-4 border-primary p-4 my-6 not-prose">
                           <p className="font-bold">Important:</p>
@@ -32,7 +32,7 @@ export default function PartnerAgreementPage() {
                         <h2><span className="font-bold">1. Core Partner Policies</span></h2>
                         <h3>1.1 Payment Policy</h3>
                         <ul>
-                            <li>All payments for services must be processed exclusively through the VELOURA platform.</li>
+                            <li>All payments for services must be processed exclusively through the VÉLOURA platform.</li>
                             <li>Accepting, requesting, or arranging payments outside the app (including cash, personal transfers, or third-party apps) is strictly prohibited.</li>
                             <li>Violation of this policy may result in immediate account suspension or termination.</li>
                         </ul>
@@ -51,15 +51,15 @@ export default function PartnerAgreementPage() {
 
                         <h3>1.4 Brand Representation</h3>
                         <ul>
-                            <li>As a VELOURA partner, you represent our brand in every client interaction.</li>
+                            <li>As a VÉLOURA partner, you represent our brand in every client interaction.</li>
                             <li>Use only approved communication channels, respect client confidentiality, and uphold the highest standards of beauty and care excellence.</li>
                         </ul>
 
                         <h3>1.5 Insurance Requirement</h3>
                         <ul>
-                            <li>Professional Cosmetology and Esthetician Liability Insurance is strongly recommended for all VELOURA service providers.</li>
+                            <li>Professional Cosmetology and Esthetician Liability Insurance is strongly recommended for all VÉLOURA service providers.</li>
                             <li>If a partner declines to carry active liability insurance or performs services without coverage, they are personally responsible for any claims, damages, or errors that occur as a result of their work.</li>
-                            <li>VELOURA is not liable for incidents arising from uninsured services.</li>
+                            <li>VÉLOURA is not liable for incidents arising from uninsured services.</li>
                         </ul>
 
                         <h2><span className="font-bold">2. Booking & Payment Policies</span></h2>
@@ -67,12 +67,12 @@ export default function PartnerAgreementPage() {
                         <ul>
                             <li>Clients may reschedule or cancel appointments up to 24 hours before the scheduled time without penalty.</li>
                             <li>Cancellations made within 24 hours are considered a no-show and are non-refundable.</li>
-                            <li>All cancellations and rescheduling must be managed through the VELOURA app for proper tracking and notification.</li>
+                            <li>All cancellations and rescheduling must be managed through the VÉLOURA app for proper tracking and notification.</li>
                         </ul>
 
                         <h3>2.2 Technician Cancellations & No-Shows</h3>
                         <ul>
-                            <li>Technicians must notify both the client and VELOURA at least 24 hours in advance if unable to complete a scheduled appointment.</li>
+                            <li>Technicians must notify both the client and VÉLOURA at least 24 hours in advance if unable to complete a scheduled appointment.</li>
                             <li>Cancellations with less than 24 hours' notice may result in temporary suspension or performance review.</li>
                             <li>Failure to appear for a confirmed appointment without notice will be treated as a no-show, and the client will receive a full refund.</li>
                         </ul>
@@ -80,14 +80,14 @@ export default function PartnerAgreementPage() {
                         <h3>2.3 Refund & Dispute Procedure</h3>
                         <ul>
                             <li>All disputes or refund requests must be submitted within 48 hours of service completion.</li>
-                            <li>VELOURA will review each case individually.</li>
+                            <li>VÉLOURA will review each case individually.</li>
                             <li>Refunds are issued only if there is verified evidence of service failure, misconduct, or scheduling error.</li>
-                            <li>VELOURA reserves the right to make the final decision in all dispute cases.</li>
+                            <li>VÉLOURA reserves the right to make the final decision in all dispute cases.</li>
                         </ul>
 
                         <h2><span className="font-bold">3. Operational Policies</span></h2>
                         <h3>3.1 Dress Code & Hygiene Standards</h3>
-                        <p>All VELOURA professionals must maintain a clean, polished, and professional appearance while serving clients.</p>
+                        <p>All VÉLOURA professionals must maintain a clean, polished, and professional appearance while serving clients.</p>
                         <h4>Footwear:</h4>
                         <ul>
                             <li>No slippers or open-toe shoes are permitted during service.</li>
@@ -113,7 +113,7 @@ export default function PartnerAgreementPage() {
                             <li>Never discriminate based on race, gender, age, or background.</li>
                             <li>Be honest about skills, pricing, and services.</li>
                             <li>Never accept or request off-platform payments.</li>
-                            <li>Avoid harassment, inappropriate conduct, or solicitation of clients outside VELOURA.</li>
+                            <li>Avoid harassment, inappropriate conduct, or solicitation of clients outside VÉLOURA.</li>
                         </ul>
 
                         <h3>3.3 Confidentiality & Client Privacy</h3>
@@ -129,7 +129,7 @@ export default function PartnerAgreementPage() {
                         <ol>
                           <li>Stop the service immediately.</li>
                           <li>Provide first aid if necessary.</li>
-                          <li>Report the incident to VELOURA within 24 hours using the app or support channel.</li>
+                          <li>Report the incident to VÉLOURA within 24 hours using the app or support channel.</li>
                         </ol>
                         <p>Failure to report incidents promptly may result in suspension.</p>
 
@@ -138,24 +138,24 @@ export default function PartnerAgreementPage() {
                         <ul>
                             <li>All technicians are encouraged to maintain active professional liability insurance.</li>
                             <li>If a technician provides services without coverage, they accept full personal responsibility for any damages, claims, or injuries.</li>
-                            <li>VELOURA assumes no liability for incidents resulting from uninsured services.</li>
+                            <li>VÉLOURA assumes no liability for incidents resulting from uninsured services.</li>
                         </ul>
 
                         <h3>4.2 Non-Solicitation Clause</h3>
                         <ul>
-                            <li>Technicians may not solicit or accept direct bookings or payments from VELOURA clients outside the app.</li>
+                            <li>Technicians may not solicit or accept direct bookings or payments from VÉLOURA clients outside the app.</li>
                             <li>Violations will result in immediate and permanent removal and may lead to legal action.</li>
                         </ul>
 
                         <h3>4.3 Media & Marketing Consent</h3>
                         <ul>
-                            <li>VELOURA may request permission to use professional photos, testimonials, or event images for promotional or training purposes.</li>
+                            <li>VÉLOURA may request permission to use professional photos, testimonials, or event images for promotional or training purposes.</li>
                             <li>No content will be shared without written consent from the technician or client.</li>
                         </ul>
                         
                         <div className="bg-muted/50 rounded-lg p-6 my-8 text-center not-prose">
                           <h3 className="font-bold text-lg mb-2">Acknowledgment</h3>
-                          <p className="text-sm">By joining the VELOURA platform, you acknowledge that you have read, understood, and agreed to comply with all the policies and procedures outlined in this handbook.</p>
+                          <p className="text-sm">By joining the VÉLOURA platform, you acknowledge that you have read, understood, and agreed to comply with all the policies and procedures outlined in this handbook.</p>
                         </div>
                     </div>
                 </div>

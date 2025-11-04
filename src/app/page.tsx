@@ -63,9 +63,9 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                 VELOURA
+                 VÉLOURA
               </h1>
-              <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VELOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
+              <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
               <p className="mt-4 text-lg text-muted-foreground">
                 Where technology meets beauty. One App. One Click.
               </p>
@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">For Real Life - Not Perfect Schedules</h2>
-                    <p className="mt-4 text-lg text-muted-foreground">Life moves fast. From high-fashion moments to real-life chaos, <strong className="text-primary">VELOURA brings beauty wherever you are.</strong></p>
+                    <p className="mt-4 text-lg text-muted-foreground">Life moves fast. From high-fashion moments to real-life chaos, <strong className="text-primary">VÉLOURA brings beauty wherever you are.</strong></p>
                 </div>
                 <ul className="space-y-6">
                     {useCases.map((item, index) => (
@@ -136,7 +136,7 @@ export default function HomePage() {
                         </li>
                     ))}
                 </ul>
-                <p className="text-center font-bold text-xl mt-12 text-foreground">VELOURA turns your beauty routine into a moment of calm, confidence, and care.</p>
+                <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA turns your beauty routine into a moment of calm, confidence, and care.</p>
                 <div className="mt-10 flex justify-center gap-4">
                     <Button size="lg" variant="outline" disabled>
                         App Launching Soon

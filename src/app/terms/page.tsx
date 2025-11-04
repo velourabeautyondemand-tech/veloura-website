@@ -17,7 +17,7 @@ export default function TermsOfUsePage() {
                         <p>By accessing or using our services, you agree to be bound by these Terms of Use ("Terms"). If you disagree with any part of the terms, then you may not access the service.</p>
                         
                         <h2>2. Services</h2>
-                        <p>VELOURA provides a platform to connect users seeking mobile beauty services with professional beauty technicians. We facilitate booking, payment, and communication between users and technicians.</p>
+                        <p>VÉLOURA provides a platform to connect users seeking mobile beauty services with professional beauty technicians. We facilitate booking, payment, and communication between users and technicians.</p>
 
                         <h2>3. User Accounts</h2>
                         <p>To access certain features of the service, you must create an account. You are responsible for safeguarding your password and for any activities or actions under your password. You agree to notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
@@ -29,13 +29,13 @@ export default function TermsOfUsePage() {
                         <p>All users, including customers and technicians, are expected to act professionally and respectfully. We reserve the right to terminate accounts for any conduct that we deem inappropriate, unsafe, or in violation of these terms.</p>
 
                         <h2>6. Intellectual Property</h2>
-                        <p>The Service and its original content, features, and functionality are and will remain the exclusive property of VELOURA and its licensors. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of VELOURA.</p>
+                        <p>The Service and its original content, features, and functionality are and will remain the exclusive property of VÉLOURA and its licensors. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of VÉLOURA.</p>
 
                         <h2>7. Links To Other Web Sites</h2>
-                        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by VELOURA. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party web sites or services.</p>
+                        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by VÉLOURA. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party web sites or services.</p>
 
                         <h2>8. Limitation of Liability</h2>
-                        <p>In no event shall VELOURA, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
+                        <p>In no event shall VÉLOURA, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
 
                         <h2>9. Disclaimer</h2>
                         <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
