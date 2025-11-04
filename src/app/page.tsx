@@ -96,12 +96,7 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold font-headline mb-2 text-foreground">The first smart beauty platform</h2>
             <p className="text-lg text-muted-foreground mb-8">brings professionals to you at your fingertips</p>
             
-
             <div className="flex gap-4 justify-center flex-wrap">
-              <Button size="lg" variant="outline" className="bg-background hover:bg-muted" disabled>
-                <Apple className="w-6 h-6 mr-3" />
-                App Store
-              </Button>
               
             </div>
             
