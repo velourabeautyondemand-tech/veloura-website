@@ -15,7 +15,7 @@ export default function PartnerAgreementPage() {
                         <div className="text-center mb-12">
                             <NailIcon className="h-16 w-16 mx-auto text-primary" />
                             <h1 className="font-headline text-4xl mt-4">Partner Handbook & Onboarding Policy Agreement</h1>
-                            <p className="lead text-muted-foreground">VÉLOURA – Beauty on Demand</p>
+                            <p className="lead text-muted-foreground">VÉLOURA - Beauty on Demand</p>
                         </div>
                         
                         <h2 className="font-bold">Welcome to VÉLOURA</h2>
