@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
-import { Apple } from 'lucide-react';
-
+import { Apple, Smartphone } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -70,6 +70,9 @@ export default function HomePage() {
               </p>
               <p className="mt-2 text-md text-muted-foreground italic">
                 no traffic, no parking, no rushing, no waiting
+              </p>
+               <p className="mt-4 text-lg font-bold text-primary">
+                just enjoy
               </p>
               <div className="mt-10 max-w-xl mx-auto">
                 <Button size="lg" asChild>
