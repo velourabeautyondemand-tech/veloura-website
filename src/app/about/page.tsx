@@ -44,7 +44,7 @@ export default function AboutPage() {
                                 Where beauty meets your schedule
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                From nails to hair to makeup, our professionals come to you so you can feel your best — no traffic, no waiting, no rushing.
+                                From nails to hair to makeup, our professionals come to you so you can feel your best - no traffic, no waiting, no rushing.
                             </p>
                         </div>
                     </div>

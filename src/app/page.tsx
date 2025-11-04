@@ -25,7 +25,7 @@ const useCases = [
   {
     icon: Briefcase,
     title: 'Busy Professionals',
-    description: 'Only have a one-hour break? We’ll meet you at your office or hotel.',
+    description: 'Only have a one-hour break? We\'ll meet you at your office or hotel.',
   },
   {
     icon: Users,
@@ -36,20 +36,20 @@ const useCases = [
 
 const problemsSolved = [
     {
-        problem: "“I have a last-minute event.”",
-        solution: "On-demand glam for runway, photoshoots, VIP parties-pros arrive equipped and ready."
+        problem: '"I have a last-minute event."',
+        solution: 'On-demand glam for runway, photoshoots, VIP parties-pros arrive equipped and ready.'
     },
     {
-        problem: "“My schedule is too tight.”",
-        solution: "Express services that fit a lunch break or between meetings-professional, efficient, elegant."
+        problem: '"My schedule is too tight."',
+        solution: 'Express services that fit a lunch break or between meetings-professional, efficient, elegant.'
     },
     {
-        problem: "“I can’t travel easily.”",
-        solution: "In-home, gentle care designed for comfort and well-being."
+        problem: '"I can\'t travel easily."',
+        solution: 'In-home, gentle care designed for comfort and well-being.'
     },
     {
-        problem: "“I want luxury without the stress.”",
-        solution: "Five-star products and pros-without traffic, waiting, or parking."
+        problem: '"I want luxury without the stress."',
+        solution: 'Five-star products and pros-without traffic, waiting, or parking.'
     }
 ];
 

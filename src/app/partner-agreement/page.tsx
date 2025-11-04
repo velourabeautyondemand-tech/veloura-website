@@ -19,12 +19,12 @@ export default function PartnerAgreementPage() {
                         </div>
                         
                         <h2 className="font-bold">Welcome to VELOURA</h2>
-                        <p>We’re thrilled to have you as part of the VELOURA community. This handbook outlines the policies, standards, and expectations that define our partnership.</p>
-                        <p>Our mission is to deliver safe, convenient, and high-quality beauty services directly to clients through our Beauty on Demand model. As a valued partner, you play a vital role in maintaining our brand’s trust, excellence, and professionalism.</p>
+                        <p>We're thrilled to have you as part of the VELOURA community. This handbook outlines the policies, standards, and expectations that define our partnership.</p>
+                        <p>Our mission is to deliver safe, convenient, and high-quality beauty services directly to clients through our Beauty on Demand model. As a valued partner, you play a vital role in maintaining our brand's trust, excellence, and professionalism.</p>
                         <div className="bg-primary/10 border-l-4 border-primary p-4 my-6 not-prose">
                           <p className="font-bold">Important:</p>
                           <ul className="list-disc list-inside">
-                            <li>All Beauty on Demand appointments must be performed at the client’s chosen location.</li>
+                            <li>All Beauty on Demand appointments must be performed at the client's chosen location.</li>
                             <li>Referring or redirecting clients to personal salons or external businesses is not permitted under our platform agreement.</li>
                           </ul>
                         </div>
@@ -73,7 +73,7 @@ export default function PartnerAgreementPage() {
                         <h3>2.2 Technician Cancellations & No-Shows</h3>
                         <ul>
                             <li>Technicians must notify both the client and VELOURA at least 24 hours in advance if unable to complete a scheduled appointment.</li>
-                            <li>Cancellations with less than 24 hours’ notice may result in temporary suspension or performance review.</li>
+                            <li>Cancellations with less than 24 hours' notice may result in temporary suspension or performance review.</li>
                             <li>Failure to appear for a confirmed appointment without notice will be treated as a no-show, and the client will receive a full refund.</li>
                         </ul>
 
@@ -120,7 +120,7 @@ export default function PartnerAgreementPage() {
                         <ul>
                             <li>All client information (contact, address, booking details, preferences) is strictly confidential.</li>
                             <li>Client data may not be copied, stored, or shared outside the app.</li>
-                            <li>Photos or videos may only be taken or posted with the client’s written consent.</li>
+                            <li>Photos or videos may only be taken or posted with the client's written consent.</li>
                             <li>Breaches of privacy will result in review and possible termination.</li>
                         </ul>
 

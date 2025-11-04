@@ -55,17 +55,17 @@ export const services: Service[] = [
 
   // Makeup
   { id: 'makeup-everyday', name: 'Everyday Glam Essentials', description: 'Soft, natural makeup for daytime wear or casual events.', price: 150, duration: '60 mins', imageId: 'makeup_1', category: 'Makeup' },
-  { id: 'makeup-event', name: 'Event Glam / Prom Makeup', description: 'Elegant, long-wear look for parties, proms, or special school events — bold, glowy, and camera-ready.', price: 150, duration: '75-90 mins', imageId: 'makeup_2', category: 'Makeup' },
-  { id: 'makeup-bridal', name: 'Bridal Makeup – Wedding Day', description: 'A flawless, radiant look designed to last. Includes full-face custom makeup tailored to your unique style for a timeless, photo-ready glow.', price: 290, duration: '90-120 mins', imageId: 'makeup_3', category: 'Makeup' },
-  { id: 'makeup-trial', name: 'Makeup Trial', description: 'Discover your perfect look before the big day. This session includes a personalized consultation, skin prep, and a full makeup application.', price: 110, duration: '75–90 mins', imageId: 'makeup_4', category: 'Makeup' },
-  { id: 'makeup-bridesmaids', name: 'Bridesmaids Makeup', description: 'Elegant, camera-ready makeup designed to complement the bride’s look. Includes full-face application and false lashes.', price: 150, duration: '60 mins per person', imageId: 'makeup_5', category: 'Makeup' },
+  { id: 'makeup-event', name: 'Event Glam / Prom Makeup', description: 'Elegant, long-wear look for parties, proms, or special school events - bold, glowy, and camera-ready.', price: 150, duration: '75-90 mins', imageId: 'makeup_2', category: 'Makeup' },
+  { id: 'makeup-bridal', name: 'Bridal Makeup - Wedding Day', description: 'A flawless, radiant look designed to last. Includes full-face custom makeup tailored to your unique style for a timeless, photo-ready glow.', price: 290, duration: '90-120 mins', imageId: 'makeup_3', category: 'Makeup' },
+  { id: 'makeup-trial', name: 'Makeup Trial', description: 'Discover your perfect look before the big day. This session includes a personalized consultation, skin prep, and a full makeup application.', price: 110, duration: '75-90 mins', imageId: 'makeup_4', category: 'Makeup' },
+  { id: 'makeup-bridesmaids', name: 'Bridesmaids Makeup', description: 'Elegant, camera-ready makeup designed to complement the bride\'s look. Includes full-face application and false lashes.', price: 150, duration: '60 mins per person', imageId: 'makeup_5', category: 'Makeup' },
   { id: 'makeup-full-day-bridal', name: 'Full-Day Bridal Makeup Experience', description: 'Luxury beauty support with your own personal bridal beauty assistant on-site for 5 hours. Includes initial application and touch-ups.', price: 600, duration: '5 hours', imageId: 'makeup_6', category: 'Makeup' },
 
   // Hair
-  { id: 'hair-glam', name: 'Simple Glam', description: 'Choose from a blowout, curls, waves, or a sleek straight finish for a modern glam vibe.', price: 110, duration: '45–60 mins', imageId: 'hair_1', category: 'Hair' },
-  { id: 'hair-formal', name: 'Event & Formal Styling', description: 'Elegant updos or intricate styles for weddings and special events.', price: 150, duration: '60–90 mins', imageId: 'hair_2', category: 'Hair' },
-  { id: 'hair-bridal', name: 'Bridal Hair', description: 'Customized bridal styling, including prep and wedding-day touch-ups.', price: 290, duration: '90–120 mins', imageId: 'hair_3', category: 'Hair' },
-  { id: 'hair-trial', name: 'Hair Trial', description: 'Test any look for your event. Includes consultation and full styling to refine your desired look.', price: 110, duration: '75–90 mins', imageId: 'hair_4', category: 'Hair' },
+  { id: 'hair-glam', name: 'Simple Glam', description: 'Choose from a blowout, curls, waves, or a sleek straight finish for a modern glam vibe.', price: 110, duration: '45-60 mins', imageId: 'hair_1', category: 'Hair' },
+  { id: 'hair-formal', name: 'Event & Formal Styling', description: 'Elegant updos or intricate styles for weddings and special events.', price: 150, duration: '60-90 mins', imageId: 'hair_2', category: 'Hair' },
+  { id: 'hair-bridal', name: 'Bridal Hair', description: 'Customized bridal styling, including prep and wedding-day touch-ups.', price: 290, duration: '90-120 mins', imageId: 'hair_3', category: 'Hair' },
+  { id: 'hair-trial', name: 'Hair Trial', description: 'Test any look for your event. Includes consultation and full styling to refine your desired look.', price: 110, duration: '75-90 mins', imageId: 'hair_4', category: 'Hair' },
   { id: 'hair-bridesmaids', name: 'Bridesmaids Hairstyling', description: 'Elegant, photo-ready hairstyles tailored to complement the bridal look. Choose from soft curls, romantic waves, sleek straight styles, or chic updos.', price: 150, duration: 'Per person', imageId: 'hair_5', category: 'Hair' },
 
   // VIP Packages

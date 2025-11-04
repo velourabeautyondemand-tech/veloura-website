@@ -61,7 +61,7 @@ export default function PartnerAgreementPage() {
                     </div>
 
                     <h2>Introduction & Mission</h2>
-                    <p>Welcome to VELOURA. This handbook outlines the policies and standards that define our partnership. Our mission is to provide safe, convenient, and high-quality beauty services, and as a partner, you are a crucial part of that mission. All Beauty on Demand appointments must be performed at the client’s chosen location. Referring or redirecting clients to personal salons or external businesses is not permitted under our platform agreement.</p>
+                    <p>Welcome to VELOURA. This handbook outlines the policies and standards that define our partnership. Our mission is to provide safe, convenient, and high-quality beauty services, and as a partner, you are a crucial part of that mission. All Beauty on Demand appointments must be performed at the client's chosen location. Referring or redirecting clients to personal salons or external businesses is not permitted under our platform agreement.</p>
 
                     <h2>Core Partner Policies</h2>
                     <ol>
@@ -82,7 +82,7 @@ export default function PartnerAgreementPage() {
                     <h4>Technician Cancellations & No-Show</h4>
                     <ul>
                         <li>Technicians must notify both the client and VELOURA at least 24 hours in advance if they are unable to complete a scheduled appointment.</li>
-                        <li>Cancellations with less than 24 hours’ notice may result in a temporary suspension or performance review.</li>
+                        <li>Cancellations with less than 24 hours' notice may result in a temporary suspension or performance review.</li>
                         <li>If a technician fails to appear for a confirmed appointment without valid notice, it will be treated as a no-show, and the client will receive a full refund.</li>
                     </ul>
                     
