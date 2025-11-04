@@ -91,17 +91,13 @@ export default function HomePage() {
             <div className="mt-10">
               <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
               <div className="flex justify-center gap-4">
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="#">
-                    <Apple className="mr-2 h-6 w-6" />
-                    App Store
-                  </Link>
+                <Button size="lg" variant="outline" disabled>
+                  <Apple className="mr-2 h-6 w-6" />
+                  Coming Soon
                 </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="#">
-                    <Smartphone className="mr-2 h-6 w-6" />
-                    Google Play
-                  </Link>
+                <Button size="lg" variant="outline" disabled>
+                  <Smartphone className="mr-2 h-6 w-6" />
+                  Coming Soon
                 </Button>
               </div>
             </div>
