@@ -87,9 +87,6 @@ export default function HomePage() {
                 just enjoy
               </p>
               <div className="mt-10 flex gap-4 justify-center flex-wrap">
-                <Button size="lg" asChild>
-                  <Link href="/bookings">Book Now</Link>
-                </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="mailto:info@iamdreammaker.com">Chat with Support</a>
                 </Button>
@@ -151,9 +148,6 @@ export default function HomePage() {
                 </ul>
                 <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA turns your beauty routine into a moment of calm, confidence, and care.</p>
                 <div className="mt-10 flex justify-center gap-4">
-                     <Button size="lg" asChild>
-                        <Link href="/bookings">Book Now</Link>
-                    </Button>
                     <Button size="lg" variant="outline" asChild>
                         <a href="mailto:info@iamdreammaker.com">Chat with Support</a>
                     </Button>
