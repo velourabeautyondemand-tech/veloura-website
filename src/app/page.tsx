@@ -88,7 +88,7 @@ export default function HomePage() {
               </p>
               <div className="mt-10 flex gap-4 justify-center flex-wrap">
                 <Button size="lg" variant="outline" disabled>
-                  app is launching soon
+                  App Launching Soon
                 </Button>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
                 <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA turns your beauty routine into a moment of calm, confidence, and care.</p>
                 <div className="mt-10 flex justify-center gap-4">
                     <Button size="lg" variant="outline" disabled>
-                        app is launching soon
+                        App Launching Soon
                     </Button>
                 </div>
             </div>
