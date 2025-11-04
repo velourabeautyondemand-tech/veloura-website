@@ -1,3 +1,4 @@
+
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -63,6 +64,22 @@ service cloud.firestore {
       allow create: if false;
       allow update: if false;
       allow delete: if false;
+    }
+
+    /**
+     * @description Public read access for short links.
+     * @path /databases/{database}/documents/shortlinks/{linkId}
+     * @allow (get, list) Anyone can read short links to allow redirection.
+     * @deny (create, update, delete) Only backend processes can create, update, or delete short links.
+     * @principle Allows public read for URL redirection, write access restricted to server.
+     */
+    match /shortlinks/{linkId} {
+        allow get: if true;
+        allow list: if true;
+
+        allow create: if false;
+        allow update: if false;
+        allow delete: if false;
     }
   }
 }
