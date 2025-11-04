@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Apple, Smartphone } from 'lucide-react';
+import { Apple, Smartphone, Heart } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -77,15 +77,15 @@ export default function HomePage() {
                   Google Play
                 </Button>
               </div>
-              
+              <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
               <p className="mt-4 text-lg text-muted-foreground">
                 Where technology meets beauty. One App. One Click.
               </p>
               <p className="mt-2 text-md text-muted-foreground italic">
                 no traffic, no parking, no rushing, no waiting
               </p>
-               <p className="mt-4 text-lg font-bold text-primary">
-                Just Enjoy &hearts;
+               <p className="mt-4 text-lg font-bold text-primary flex items-center justify-center gap-2">
+                Just Enjoy <Heart className="w-5 h-5 fill-primary" />
               </p>
             </div>
           </div>
@@ -101,7 +101,6 @@ export default function HomePage() {
               
             </div>
             
-            <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
           </div>
         </section>
 
