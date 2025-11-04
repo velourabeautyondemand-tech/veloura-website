@@ -79,27 +79,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Download App Section */}
-        <section className="py-16 sm:py-24 bg-primary/10">
-          <div className="container mx-auto px-4 md:px-6 text-center max-w-5xl">
-            <h2 className="text-4xl font-bold font-headline mb-2 text-foreground">The first smart beauty platform</h2>
-            <p className="text-lg text-muted-foreground mb-8">brings professionals to you at your fingertips</p>
-             <div className="my-8 flex gap-4 justify-center flex-wrap">
-                <Button size="lg" variant="outline" className="bg-background hover:bg-muted" disabled>
-                  <Apple className="w-6 h-6 mr-3" />
-                  App Store
-                </Button>
-                <Button size="lg" variant="outline" className="bg-background hover:bg-muted" disabled>
-                  <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21.2,10.1c-0.3-0.2-0.7-0.1-0.9,0.2l-1.9,3.5l-1.9-3.5c-0.2-0.3-0.6-0.4-0.9-0.2c-0.3,0.2-0.4,0.6-0.2,0.9l2.4,4.3 c0.2,0.3,0.5,0.4,0.8,0.4s0.6-0.2,0.8-0.4l2.4-4.3C21.6,10.7,21.5,10.3,21.2,10.1z M3.6,5.2C3.2,5.5,3,6,3,6.5v11 C3,17.8,3.2,18.2,3.6,18.5l7.9-7.9L3.6,5.2z M12,12.9l-8.2,8.2C4,21.5,4.4,21.8,4.9,21.8h0c0.3,0,0.6-0.1,0.8-0.2l9.9-5.7L12,12.9z M15.6,11.3L5.7,5.6C5.4,5.4,5.2,5.3,4.9,5.3h0c-0.5,0-0.9,0.3-1.1,0.7l8.2,8.2L15.6,11.3z" />
-                  </svg>
-                  Google Play
-                </Button>
-              </div>
-          </div>
-        </section>
-
-
         {/* For Real Life Section */}
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4 md:px-6 max-w-4xl">
