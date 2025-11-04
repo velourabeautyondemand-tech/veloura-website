@@ -15,7 +15,7 @@ const useCases = [
   {
     icon: HandHeart,
     title: 'New Moms',
-    description: 'Gentle, relaxing care at home—yes, even during nap time.',
+    description: 'Gentle, relaxing care at home-yes, even during nap time.',
   },
   {
     icon: Sparkles,
@@ -37,11 +37,11 @@ const useCases = [
 const problemsSolved = [
     {
         problem: "“I have a last-minute event.”",
-        solution: "On-demand glam for runway, photoshoots, VIP parties—pros arrive equipped and ready."
+        solution: "On-demand glam for runway, photoshoots, VIP parties-pros arrive equipped and ready."
     },
     {
         problem: "“My schedule is too tight.”",
-        solution: "Express services that fit a lunch break or between meetings—professional, efficient, elegant."
+        solution: "Express services that fit a lunch break or between meetings-professional, efficient, elegant."
     },
     {
         problem: "“I can’t travel easily.”",
@@ -49,7 +49,7 @@ const problemsSolved = [
     },
     {
         problem: "“I want luxury without the stress.”",
-        solution: "Five-star products and pros—without traffic, waiting, or parking."
+        solution: "Five-star products and pros-without traffic, waiting, or parking."
     }
 ];
 
@@ -63,7 +63,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                 VÉLOURA Beauty on Demand
+                 VÉLOURA
               </h1>
               <div className="my-8 flex gap-4 justify-center flex-wrap">
                 <Button size="lg" variant="outline" className="bg-background hover:bg-muted" disabled>
@@ -77,6 +77,7 @@ export default function HomePage() {
                   Google Play
                 </Button>
               </div>
+               <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
               <p className="mt-4 text-lg text-muted-foreground">
                 Where technology meets beauty. One App. One Click.
               </p>
@@ -84,7 +85,7 @@ export default function HomePage() {
                 no traffic, no parking, no rushing, no waiting
               </p>
                <p className="mt-4 text-lg font-bold text-primary flex items-center justify-center gap-2">
-                Just Enjoy <Heart className="w-5 h-5 fill-primary" />
+                Just Enjoy
               </p>
             </div>
           </div>
@@ -95,7 +96,6 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center max-w-5xl">
             <h2 className="text-4xl font-bold font-headline mb-2 text-foreground">The first smart beauty platform</h2>
             <p className="text-lg text-muted-foreground mb-8">brings professionals to you at your fingertips</p>
-            <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
           </div>
         </section>
 
@@ -104,7 +104,7 @@ export default function HomePage() {
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">For Real Life — Not Perfect Schedules</h2>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">For Real Life - Not Perfect Schedules</h2>
                     <p className="mt-4 text-lg text-muted-foreground">Life moves fast. From high-fashion moments to real-life chaos, <strong className="text-primary">VÉLOURA brings beauty wherever you are.</strong></p>
                 </div>
                 <ul className="space-y-6">
@@ -126,7 +126,7 @@ export default function HomePage() {
         <section className="py-16 sm:py-24 bg-secondary/50">
             <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                  <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">We Solve Everyday Beauty Problems — with Luxury Convenience</h2>
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">We Solve Everyday Beauty Problems - with Luxury Convenience</h2>
                 </div>
                  <ul className="space-y-8">
                     {problemsSolved.map((item, index) => (
