@@ -1,10 +1,11 @@
 
 import Link from 'next/link';
-import { Apple, Smartphone, Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar } from 'lucide-react';
+import { Apple, Smartphone, Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
+import { SubscribeForm } from '@/components/features/subscribe-form';
 
 const useCases = [
   {
@@ -104,6 +105,21 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Subscribe Section */}
+        <section className="py-16 sm:py-24 bg-secondary/50">
+            <div className="container mx-auto px-4 md:px-6 max-w-xl text-center">
+                 <div className="flex items-center justify-center gap-2 mb-4">
+                    <Newspaper className="h-5 w-5 text-primary"/>
+                    <h3 className="font-semibold text-foreground text-xl">Stay in the loop!</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                    Subscribe to be the first to know when we launch.
+                </p>
+                <div className="max-w-md mx-auto">
+                    <SubscribeForm />
+                </div>
+            </div>
+        </section>
 
         {/* For Real Life Section */}
         <section className="py-16 sm:py-24">
