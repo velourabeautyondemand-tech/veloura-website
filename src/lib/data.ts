@@ -6,7 +6,7 @@ export type Service = {
   price?: number;
   duration?: string;
   imageId: string;
-  category: 'Manicures' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages';
+  category: 'NAILs' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages';
 };
 
 export type Technician = {
@@ -37,9 +37,9 @@ export type Booking = {
 
 export const services: Service[] = [
   // Manicures
-  { id: 'mani-classic', name: 'Classic Manicure', description: 'Nail shaping, cuticle care & polish of your choice hand massage.', price: 80, duration: '45-60 mins', imageId: 'service_1', category: 'Manicures' },
-  { id: 'mani-gel', name: 'Gel Manicure', description: 'Glossy, chip-free color that lasts up to 2 weeks. Includes hand massage.', price: 100, duration: '60-75 mins', imageId: 'service_2', category: 'Manicures' },
-  { id: 'mani-spa', name: 'Spa Manicure', description: 'An elevated manicure experience. Includes exfoliation, a hydrating mask, hot towel wrap, and an extended relaxing massage.', price: 120, duration: '75-90 mins', imageId: 'service_spa_mani', category: 'Manicures' },
+  { id: 'mani-classic', name: 'Classic Manicure', description: 'Nail shaping, cuticle care & polish of your choice hand massage.', price: 80, duration: '45-60 mins', imageId: 'service_1', category: 'NAILs' },
+  { id: 'mani-gel', name: 'Gel Manicure', description: 'Glossy, chip-free color that lasts up to 2 weeks. Includes hand massage.', price: 100, duration: '60-75 mins', imageId: 'service_2', category: 'NAILs' },
+  { id: 'mani-spa', name: 'Spa Manicure', description: 'An elevated manicure experience. Includes exfoliation, a hydrating mask, hot towel wrap, and an extended relaxing massage.', price: 120, duration: '75-90 mins', imageId: 'service_spa_mani', category: 'NAILs' },
   
   // Pedicures
   { id: 'pedi-classic', name: 'Classic Pedicure', description: 'Soak, exfoliate & polish for clean, refreshed feet. Includes massage.', price: 80, duration: '60 mins', imageId: 'service_3', category: 'Pedicures' },
@@ -162,5 +162,7 @@ export const bookings: Booking[] = [
     { id: '6', customerId: 'c5', customerName: 'Eve Adams', technicianId: '5', technicianName: 'Sarah Kim', serviceId: 'nails-dip', serviceName: 'Dip Powder Nails', date: '2024-08-01', time: '01:00 PM', status: 'completed', price: 60 },
     { id: '7', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: 'extra-art', serviceName: 'Nail Repair', date: '2024-06-30', time: '04:00 PM', status: 'cancelled', price: 13 },
 ];
+
+    
 
     

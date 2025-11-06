@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export default function ServicesPage() {
     const serviceCategories = [
-        { title: 'Manicures', services: services.filter(s => s.category === 'Manicures') },
+        { title: 'NAILs', services: services.filter(s => s.category === 'NAILs') },
         { title: 'Pedicures', services: services.filter(s => s.category === 'Pedicures') },
         { title: 'Nail Enhancements', services: services.filter(s => s.category === 'Nail Enhancements') },
         { title: 'Makeup', services: services.filter(s => s.category === 'Makeup') },
@@ -91,3 +91,5 @@ export default function ServicesPage() {
         </div>
     );
 }
+
+    
