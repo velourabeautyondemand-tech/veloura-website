@@ -153,21 +153,21 @@
       },
       "required": ["companyName", "contactName", "email", "message", "submittedAt"]
     },
-    "ShortLink": {
-      "title": "Short Link",
+    "Subscriber": {
+      "title": "Subscriber",
       "type": "object",
-      "description": "Represents a shortened URL.",
+      "description": "Represents a user who subscribed for news.",
       "properties": {
-        "originalUrl": {
+        "email": {
           "type": "string",
-          "format": "uri"
+          "format": "email"
         },
-        "createdAt": {
+        "subscribedAt": {
           "type": "string",
           "format": "date-time"
         }
       },
-      "required": ["originalUrl", "createdAt"]
+      "required": ["email", "subscribedAt"]
     }
   },
   "auth": {
@@ -208,11 +208,11 @@
         },
         "description": "Stores submitted partnership inquiries."
       },
-      "/shortlinks/{linkId}": {
+      "/subscribers/{subscriberId}": {
         "schema": {
-          "$ref": "#/entities/ShortLink"
+          "$ref": "#/entities/Subscriber"
         },
-        "description": "Stores shortened URL mappings."
+        "description": "Stores email addresses of users who subscribed for news."
       }
     }
   }

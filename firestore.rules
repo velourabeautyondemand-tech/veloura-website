@@ -65,5 +65,20 @@ service cloud.firestore {
       allow update: if false;
       allow delete: if false;
     }
+    
+    /**
+     * @description Controls access to subscriber documents.
+     * @path /databases/{database}/documents/subscribers/{subscriberId}
+     * @allow (create) Any user can create (subscribe).
+     * @deny (get, list, update, delete) No user can read, update, or delete subscriber information.
+     * @principle Public write for subscriptions, but no read/update/delete access.
+     */
+    match /subscribers/{subscriberId} {
+        allow get: if false;
+        allow list: if false;
+        allow create: if true;
+        allow update: if false;
+        allow delete: if false;
+    }
   }
 }

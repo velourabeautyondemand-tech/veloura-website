@@ -93,7 +93,7 @@ export default function AboutPage() {
                              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Ready to Experience the Difference?</h2>
                              <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Indulge in a moment of luxury. Your journey to relaxation and beauty starts here.</p>
                              <div className="mt-8 flex justify-center gap-4">
-                                 <Button asChild size="lg" variant="accent" disabled>
+                                 <Button asChild size="lg" variant="accent">
                                      <Link href="/book">Book Your Service</Link>
                                  </Button>
                              </div>
