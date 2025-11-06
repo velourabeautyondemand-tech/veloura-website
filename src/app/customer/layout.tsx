@@ -84,6 +84,14 @@ function CustomerLayoutContent({
           <SidebarFooter>
              <SidebarMenu>
                 <SidebarMenuItem>
+                    <Link href="/customer/profile">
+                        <SidebarMenuButton tooltip="Profile" isActive={pathname.startsWith('/customer/profile')}>
+                            <User className="w-5 h-5" />
+                            <span>Profile</span>
+                        </SidebarMenuButton>
+                    </Link>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
                     <SidebarMenuButton tooltip="Logout" onClick={handleLogout}>
                         <LogOut className="w-5 h-5" />
                         <span>Logout</span>
