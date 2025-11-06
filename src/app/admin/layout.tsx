@@ -28,6 +28,7 @@ const adminNavItems = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
     { href: "/admin/applications", label: "Applications", icon: Users, notificationKey: "pendingApplications" },
     { href: "/admin/bookings", label: "Bookings", icon: BookOpen },
+    { href: "/admin/subscribers", label: "Subscribers", icon: Bell },
     { href: "/admin/payments", label: "Payments", icon: CreditCard },
     { href: "/admin/reports", label: "Reports", icon: BarChart3 },
     { href: "/admin/services", label: "Services", icon: Settings },

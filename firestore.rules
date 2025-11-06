@@ -3,6 +3,10 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    function isAdmin() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
     /**
      * @description Controls access to user profile documents.
      * @path /databases/{database}/documents/users/{userId}
@@ -74,8 +78,8 @@ service cloud.firestore {
      * @principle Public write for subscriptions, but no read/update/delete access.
      */
     match /subscribers/{subscriberId} {
-        allow get: if false;
-        allow list: if false;
+        allow get: if isAdmin();
+        allow list: if isAdmin();
         allow create: if true;
         allow update: if false;
         allow delete: if false;
