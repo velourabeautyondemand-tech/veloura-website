@@ -70,7 +70,7 @@ function UserNavButtons() {
       )}
       {userProfile?.role === 'customer' && (
          <Button asChild>
-            <Link href="/bookings">My Bookings</Link>
+            <Link href="/customer">My Dashboard</Link>
         </Button>
       )}
       <Button onClick={handleSignOut} variant="outline">Sign Out</Button>

@@ -62,7 +62,7 @@ export default function LoginPage() {
       } else if (userProfile.role === 'technician') {
         router.push('/technician/dashboard');
       } else {
-        router.push('/');
+        router.push('/customer');
       }
     }
   }, [user, userProfile, isProfileLoading, router]);
