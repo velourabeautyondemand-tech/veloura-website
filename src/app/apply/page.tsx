@@ -33,7 +33,7 @@ const benefits = [
     {
         icon: ShieldCheck,
         title: "Your Safety is Our Priority",
-        description: "We provide a safe working environment by running background checks for house calls. We also work with insurance partners to provide access to coverage options."
+        description: "We provide a safe working environment by partnering with emergency device and app companies to ensure our technicians have a secure and reliable work experience. We also collaborate with insurance partners to offer coverage options that technicians can choose and purchase independently."
     },
 ];
 
