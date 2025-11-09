@@ -23,7 +23,7 @@ const benefits = [
     {
         icon: Sparkles,
         title: "Focus on Your Craft",
-        description: "We handle the marketing, booking, and payment processing, so you can concentrate on what you do best: creating beautiful nails."
+        description: "We handle the marketing, booking, and payment processing, so you can concentrate on what you do best: creating beauty services, from nails and hair to makeup and more."
     },
     {
         icon: Users,
