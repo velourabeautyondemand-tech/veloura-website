@@ -71,7 +71,7 @@ export default function HomePage() {
                 Where technology meets beauty. One App. One Click.
               </p>
               <p className="mt-2 text-md text-muted-foreground italic">
-                no traffic, no parking, no rushing, no waiting
+                6 miles within your location at no traffic, no parking, no rushing, no waiting line
               </p>
                <p className="mt-4 text-lg font-bold text-primary flex items-center justify-center gap-2">
                 Just Enjoy
