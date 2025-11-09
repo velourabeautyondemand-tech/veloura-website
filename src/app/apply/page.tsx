@@ -28,7 +28,7 @@ const benefits = [
     {
         icon: Users,
         title: "Access a Wide Client Base",
-        description: "We connect you with a steady stream of clients who have busy schedules and are looking for premium, at-home nail services."
+        description: "We connect you with a steady flow of clients who value convenience and quality, seeking premium beauty services delivered right to their door."
     },
     {
         icon: ShieldCheck,
