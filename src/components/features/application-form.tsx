@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Separator } from "../ui/separator";
 
 const formSchema = z.object({
   firstName: z.string().min(1, "First name is required."),
@@ -274,7 +275,26 @@ export function ApplicationForm() {
                 )}
             />
             
-            <Button type="submit" className="w-full text-lg" size="lg">Submit Application</Button>
+            <div className="space-y-4">
+                <Button type="submit" className="w-full text-lg" size="lg">Submit Application</Button>
+                
+                <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                        <span className="w-full border-t" />
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                        <span className="bg-card px-2 text-muted-foreground">
+                        Or
+                        </span>
+                    </div>
+                </div>
+
+                <Button asChild variant="secondary" className="w-full text-lg" size="lg">
+                    <Link href="https://www.indeed.com/viewjob?jk=a602a128ce7f00de&from=shareddesktop_copy" target="_blank">
+                        Apply on Indeed
+                    </Link>
+                </Button>
+            </div>
             </form>
         </Form>
     )
