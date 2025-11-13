@@ -26,12 +26,12 @@ export default function EventsPage() {
                                 <div className="flex justify-center items-center mb-4">
                                      <PartyPopper className="h-12 w-12 text-primary" />
                                 </div>
-                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting Seminar - Florida</CardTitle>
+                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Training Seminar - Miami, Florida</CardTitle>
                                 <CardDescription className="pt-2">An Exclusive, Invitation-Only Event</CardDescription>
                             </CardHeader>
                             <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
                                 <p className="text-lg">
-                                    We're thrilled to announce the upcoming VÉLOURA Recruiting Seminar in our home base of Bal Harbour, Florida - an exclusive, invitation-only event for selected Makeup Artists, Hairstylists, and Nail Technicians.
+                                    We're thrilled to announce the upcoming VÉLOURA Training Seminar in our home base of Miami, Florida - an exclusive, invitation-only event for selected Makeup Artists, Hairstylists, and Nail Technicians.
                                 </p>
                                 <p>
                                     This seminar will offer hands-on training and professional education designed to empower beauty professionals to understand how to elevate their craft and embrace the future with VÉLOURA beauty on demand.
@@ -60,3 +60,4 @@ export default function EventsPage() {
         </div>
     );
 }
+
