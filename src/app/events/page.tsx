@@ -41,7 +41,7 @@ export default function EventsPage() {
                                 <p className="font-bold text-primary pt-4">- The VÉLOURA Team</p>
                                  <div className="pt-6">
                                     <Button asChild variant="accent">
-                                        <Link href="https://www.indeed.com/viewjob?jk=a602a128ce7f00de&from=shareddesktop_copy" target="_blank" rel="noopener noreferrer">Apply for Future Opportunities</Link>
+                                        <Link href="https://www.indeed.com/viewjob?jk=c35c02dd395e9fb9&from=shareddesktop_copy" target="_blank" rel="noopener noreferrer">Apply for Future Opportunities</Link>
                                     </Button>
                                 </div>
                             </CardContent>
