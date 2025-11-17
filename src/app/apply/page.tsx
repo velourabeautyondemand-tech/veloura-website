@@ -18,7 +18,7 @@ const benefits = [
     {
         icon: DollarSign,
         title: "Maximize Your Earnings",
-        description: "Keep a majority of your earnings from every appointment. We offer a competitive commission structure that rewards your hard work."
+        description: "You choose your service area, set your own schedule, and keep 80% of every booking."
     },
     {
         icon: Sparkles,
