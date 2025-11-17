@@ -26,7 +26,7 @@ export default function EventsPage() {
                                 <div className="flex justify-center items-center mb-4">
                                      <PartyPopper className="h-12 w-12 text-primary" />
                                 </div>
-                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Training Seminar <br/>- Miami, Florida</CardTitle>
+                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting / Training <br/>- Miami, Florida</CardTitle>
                                 <p className="text-lg font-semibold text-muted-foreground pt-2">Date: 12/11/2025</p>
                                 <CardDescription className="pt-2">An Exclusive, Invitation-Only Event</CardDescription>
                             </CardHeader>
