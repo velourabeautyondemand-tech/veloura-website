@@ -35,7 +35,7 @@ export default function EventsPage() {
                                     All applications have been processed!
                                 </p>
                                 <p>
-                                    Please check your Indeed messages or email for the official invitation, which includes detailed seminar information and the event schedule. Invitations are being sent out tomorrow.
+                                    Please check your Indeed messages or email for the official invitation, which includes detailed seminar information and the event schedule. Invitations have been sent out.
                                 </p>
                                 
                                 <p className="font-bold text-primary pt-4">- The VÉLOURA Team</p>
