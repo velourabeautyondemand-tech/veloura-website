@@ -71,7 +71,7 @@ export default function AboutPage() {
                                 Think about the people who can’t easily walk into a salon: New mothers recovering and adjusting, Seniors who no longer drive, Young adults with disabilities, People with chronic illness or anxiety, Busy parents and professionals who are drowning in schedules, and clients who value privacy, safety, and trust in their own space.
                             </p>
                             <p className="font-semibold text-primary text-xl text-center my-8">
-                                This is where beauty becomes a service, not a performance. This is where caring professionals like you make a real difference. And this is where the beauty industry actually needs people with integrity.
+                                This is where beauty becomes a service, not a performance. This is where caring professionals like our technicians make a real difference. And this is what our founder wants to transform the beauty industry into.
                             </p>
                         </div>
                     </div>
