@@ -53,13 +53,25 @@ export default function AboutPage() {
                 {/* Our Story Section */}
                 <section id="story" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="prose lg:prose-lg max-w-2xl mx-auto text-muted-foreground">
+                        <div className="prose lg:prose-lg max-w-3xl mx-auto text-muted-foreground">
                             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6 text-center">Our Story</h2>
                             <p>
                                 VÉLOURA was born from a simple realization: in our fast-paced world, finding time for self-care is a challenge. Our founder, a busy professional with a passion for staying fashionable and feeling her best, often struggled to fit beauty appointments into her packed schedule. She dreamt of a service that didn't force a choice between a demanding career and personal pampering.
                             </p>
                             <p>
                                 It all started with a simple question: "Why couldn't the luxury and expertise of a high-end salon come to you?" This spark grew into a vision for a comprehensive beauty platform. From this vision, VÉLOURA was created: a seamless, safe, and sophisticated solution for modern beauty, empowering artists and delivering five-star treatment to your door.
+                            </p>
+                             <p className="font-semibold text-foreground text-xl text-center my-8">
+                                VÉLOURA isn’t just about beauty on demand — it’s about connection, trust, and community.
+                            </p>
+                             <p>
+                                Beauty isn’t just high fashion, perfect hair, and salon trends. There are so many people who genuinely need beauty services in a way that makes them happy, not for aesthetics, but for confidence, and human connection.
+                            </p>
+                             <p>
+                                Think about the people who can’t easily walk into a salon: New mothers recovering and adjusting, Seniors who no longer drive, Young adults with disabilities, People with chronic illness or anxiety, Busy parents and professionals who are drowning in schedules, and clients who value privacy, safety, and trust in their own space.
+                            </p>
+                            <p className="font-semibold text-primary text-xl text-center my-8">
+                                This is where beauty becomes a service, not a performance. This is where caring professionals like you make a real difference. And this is where the beauty industry actually needs people with integrity.
                             </p>
                         </div>
                     </div>
