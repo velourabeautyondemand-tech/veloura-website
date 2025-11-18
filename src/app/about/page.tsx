@@ -27,7 +27,7 @@ const values = [
     {
         icon: Sparkles,
         title: "Safety & Trust",
-        description: "Your safety is our top priority. We vet all technicians and run background checks for house calls to ensure a secure and comfortable experience for everyone."
+        description: "Your safety is our top priority. We vet all technicians and equip them with emergency panic buttons for every job. We also offer background checks to customers for a small fee to ensure a secure and comfortable experience for everyone."
     },
 ]
 
