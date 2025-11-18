@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { PartyPopper, Briefcase, DollarSign, Sparkles, ShieldCheck, Users } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, PartyPopper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -11,30 +11,40 @@ import { ApplicationForm } from "@/components/features/application-form";
 
 const benefits = [
     {
-        icon: Briefcase,
-        title: "Be Your Own Boss",
-        description: "Enjoy the freedom to set your own schedule and work when you want. With a $0 sign-up fee and a free app to manage your business, you have full control."
-    },
-    {
         icon: DollarSign,
-        title: "Maximize Your Earnings",
-        description: "You choose your service area, set your own schedule, and keep 80% of every booking."
+        title: "Earn 80% per service",
+        description: "Plus, you keep 100% of your tips. No hidden fees."
     },
     {
-        icon: Sparkles,
-        title: "Focus on Your Craft",
-        description: "We handle the marketing, booking, and payment processing, so you can concentrate on what you do best: creating beauty services, from nails and hair to makeup and more."
+        icon: MapPin,
+        title: "Hyper-Local Bookings",
+        description: "Get bookings from clients within a 6-mile radius of your location."
     },
     {
-        icon: Users,
-        title: "Access a Wide Client Base",
-        description: "We connect you with a steady flow of clients who value convenience and quality, seeking premium beauty services delivered right to their door."
+        icon: Clock,
+        title: "Set Your Own Schedule",
+        description: "Work when and where you want. You have full control over your calendar."
+    },
+    {
+        icon: Briefcase,
+        title: "Build Your Personal Brand",
+        description: "We give you the platform, you build your reputation with full control."
     },
     {
         icon: ShieldCheck,
-        title: "Your Safety is Our Priority",
-        description: "We provide a safe working environment by partnering with emergency device and app companies to ensure our technicians have a secure and reliable work experience. We also collaborate with insurance partners to offer affordable coverage options that technicians can choose and purchase independently."
+        title: "Safety & Support",
+        description: "Access background checks, safety support, and insurance partners."
     },
+    {
+        icon: Users,
+        title: "Nationwide Community",
+        description: "Join a supportive network of beauty professionals across the country."
+    },
+    {
+        icon: BarChart3,
+        title: "Grow Your Income",
+        description: "Get access to a steady, reliable stream of on-demand clients."
+    }
 ];
 
 export default function ApplyPage() {
@@ -43,14 +53,30 @@ export default function ApplyPage() {
       <Header />
       <main className="flex-1 bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-            <section id="why-join-us" className="mb-16">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Why Join the VÉLOURA Team?</h2>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">We empower talented technicians to build their own business with the support of a strong brand behind them.</p>
+            
+            {/* New Hero Section */}
+            <section className="text-center mb-16 md:mb-24">
+                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Your talent. Your schedule. Your earnings — elevated.</h1>
+                <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
+                    VÉLOURA is a next-generation mobile beauty app built to empower independent beauty professionals and solve the biggest challenges in the industry.
+                </p>
+            </section>
+
+            {/* Introduction */}
+            <section className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
+                 <p className="text-lg text-muted-foreground">
+                    We help you escape salon politics, unpredictable walk-ins, and expensive booth rent — by giving you a powerful platform where clients come to you.
+                </p>
+            </section>
+
+            {/* Benefits Section */}
+            <section id="benefits" className="mb-16 md:mb-24">
+                 <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold sm:text-4xl font-headline">With VÉLOURA, you’ll be able to:</h2>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center items-stretch">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                     {benefits.map((benefit, index) => (
-                        <div key={index} className="bg-card p-8 rounded-xl shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 flex flex-col">
+                        <div key={index} className="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 flex flex-col text-center">
                             <div className="mb-4">
                                 <benefit.icon className="h-12 w-12 text-primary mx-auto" />
                             </div>
@@ -60,6 +86,26 @@ export default function ApplyPage() {
                     ))}
                 </div>
             </section>
+
+             {/* Mission Section */}
+            <section className="bg-primary/10 rounded-xl p-8 md:p-12 text-center my-16 md:my-24">
+                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Our mission is simple:</h2>
+                 <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">To help beauty professionals make more money, gain independence, and create careers they’re proud of — without the limits of a traditional salon.</p>
+            </section>
+            
+            {/* How it works */}
+            <section className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
+                <p className="text-lg text-muted-foreground">
+                   VÉLOURA connects you with clients who need beauty services delivered to their home, hotel, office, or event. You focus on your craft — we handle the platform, visibility, and tools you need to grow.
+                </p>
+                <p className="mt-6 text-xl font-semibold">
+                    Your skills deserve freedom, respect, and real opportunity.
+                    <br/>
+                    <span className="text-primary">That’s why we built VÉLOURA.</span>
+                </p>
+            </section>
+            
+
           <Card className="max-w-3xl mx-auto shadow-2xl bg-card/80 backdrop-blur-sm">
             <CardHeader className="text-center">
               <CardTitle className="text-3xl font-bold font-headline">Become a VÉLOURA Pro</CardTitle>
