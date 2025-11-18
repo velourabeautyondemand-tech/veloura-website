@@ -65,7 +65,7 @@ export default function ApplyPage() {
             {/* Introduction */}
             <section className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
                  <p className="text-lg text-muted-foreground">
-                    We help you escape salon politics, unpredictable walk-ins, and expensive booth rent — by giving you a powerful platform where clients come to you.
+                    We help you escape salon politics, unpredictable walk-ins, and expensive booth rent — by giving you a powerful platform where clients find you.
                 </p>
             </section>
 
