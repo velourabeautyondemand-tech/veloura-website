@@ -33,7 +33,6 @@ const formSchema = z.object({
   phone: z.string().min(10, "Please enter a valid phone number."),
   serviceArea: z.string().min(3, "Please enter a valid service area."),
   socialMediaLink: z.string().url("Please enter a valid URL.").optional().or(z.literal('')),
-  licenseUpload: z.any().optional(),
   resumeUpload: z.any().optional(),
   agreeToTerms: z.boolean().refine(val => val === true, {
     message: "You must agree to the terms and conditions.",
@@ -59,7 +58,6 @@ export function ApplicationForm() {
         },
     });
     
-    const licenseFileRef = form.register("licenseUpload");
     const resumeFileRef = form.register("resumeUpload");
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -67,7 +65,7 @@ export function ApplicationForm() {
         try {
             const techniciansCol = collection(firestore, "technician_applications");
             
-            const { licenseUpload, resumeUpload, agreeToTerms, ...applicationData } = values;
+            const { resumeUpload, agreeToTerms, ...applicationData } = values;
 
             addDocumentNonBlocking(techniciansCol, {
                 ...applicationData,
@@ -76,9 +74,6 @@ export function ApplicationForm() {
                 serviceRadius: 6,
             });
 
-            if(values.licenseUpload && values.licenseUpload[0]) {
-                console.log("License file (not uploaded):", values.licenseUpload[0]?.name);
-            }
             if(values.resumeUpload && values.resumeUpload[0]) {
                 console.log("Resume file (not uploaded):", values.resumeUpload[0]?.name);
             }
@@ -218,23 +213,6 @@ export function ApplicationForm() {
                 />
                 <FormField
                 control={form.control}
-                name="licenseUpload"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>Upload License Copy</FormLabel>
-                    <FormControl>
-                        <div className="relative">
-                        <Upload className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input type="file" {...licenseFileRef} className="pl-10 file:text-primary file:font-medium" />
-                        </div>
-                    </FormControl>
-                    <FormDescription>Optional. Please upload a PDF or image of your license.</FormDescription>
-                    <FormMessage />
-                    </FormItem>
-                )}
-                />
-                <FormField
-                control={form.control}
                 name="resumeUpload"
                 render={({ field }) => (
                     <FormItem>
@@ -300,5 +278,3 @@ export function ApplicationForm() {
         </Form>
     )
 }
-
-    
