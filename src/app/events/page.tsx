@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { PartyPopper } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function EventsPage() {
     return (
@@ -21,7 +22,16 @@ export default function EventsPage() {
                                 Join us for exclusive events, trainings, and seminars.
                             </p>
                         </div>
-                        <Card className="shadow-lg">
+                        <Card className="shadow-lg overflow-hidden">
+                             <div className="relative h-60 w-full">
+                                <Image
+                                    src="https://vqftsjfwhonwbpyogmzi.supabase.co/storage/v1/object/public/landing-pages/33/components/d449314a-696b-47ed-8e8e-9b114a694ea0/1762890428095-miamibeach.jpg"
+                                    alt="Miami Beach event"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    data-ai-hint="miami beach"
+                                />
+                            </div>
                             <CardHeader className="text-center bg-primary/10">
                                 <div className="flex justify-center items-center mb-4">
                                      <PartyPopper className="h-12 w-12 text-primary" />
