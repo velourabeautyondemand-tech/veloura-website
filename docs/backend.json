@@ -54,15 +54,16 @@
         "serviceArea": {
           "type": "string"
         },
-        "licenseNumber": {
-          "type": "string"
+        "socialMediaLink": {
+          "type": "string",
+          "format": "uri"
         },
         "applicationStatus": {
           "type": "string",
           "enum": ["pending", "approved", "rejected"]
         }
       },
-      "required": ["firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
+      "required": ["firstName", "lastName", "email", "phone", "serviceArea", "applicationStatus"]
     },
     "Technician": {
       "title": "Technician",
@@ -88,8 +89,9 @@
         "serviceArea": {
           "type": "string"
         },
-        "licenseNumber": {
-          "type": "string"
+        "socialMediaLink": {
+          "type": "string",
+          "format": "uri"
         },
         "applicationStatus": {
           "type": "string"
@@ -101,7 +103,7 @@
           "type": "number"
         }
       },
-      "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
+      "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "applicationStatus"]
     },
     "PressInquiry": {
       "title": "Press Inquiry",
@@ -217,3 +219,5 @@
     }
   }
 }
+
+    

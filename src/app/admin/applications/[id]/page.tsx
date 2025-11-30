@@ -15,8 +15,9 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Loader2, Check, X, User, Mail, Phone, MapPin, Award } from 'lucide-react';
+import { Loader2, Check, X, User, Mail, Phone, MapPin, Share2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
 
 export default function ApplicationDetailPage({ params }: { params: { id: string } }) {
   const firestore = useFirestore();
@@ -115,13 +116,17 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
                     <p className="text-muted-foreground">{application.serviceArea}</p>
                 </div>
             </div>
-            <div className="flex items-start gap-3">
-                <Award className="w-5 h-5 mt-1 text-primary"/>
-                <div>
-                    <h3 className="font-semibold">License Number</h3>
-                    <p className="text-muted-foreground font-mono text-sm">{application.licenseNumber}</p>
-                </div>
-            </div>
+            {application.socialMediaLink && (
+              <div className="flex items-start gap-3">
+                  <Share2 className="w-5 h-5 mt-1 text-primary"/>
+                  <div>
+                      <h3 className="font-semibold">Social Media</h3>
+                      <Link href={application.socialMediaLink} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-all">
+                        {application.socialMediaLink}
+                      </Link>
+                  </div>
+              </div>
+            )}
         </div>
         <Separator/>
         <div>
@@ -146,3 +151,5 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
     </Card>
   );
 }
+
+    
