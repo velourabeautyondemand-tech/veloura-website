@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 import { ApplicationForm } from "@/components/features/application-form";
+import Link from 'next/link';
 
 const benefits = [
     {
@@ -105,6 +106,11 @@ export default function ApplyPage() {
                 </p>
             </section>
             
+            <div className="text-center mb-12">
+                <Button asChild size="lg" variant="accent">
+                    <Link href="https://forms.gle/LT6hWDMj1nKQXW9v5" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
+                </Button>
+            </div>
 
           <Card className="max-w-3xl mx-auto shadow-2xl bg-card/80 backdrop-blur-sm">
             <CardHeader className="text-center">
