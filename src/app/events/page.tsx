@@ -19,7 +19,7 @@ export default function EventsPage() {
                                 VÉLOURA Events
                             </h1>
                             <p className="mt-4 text-lg text-muted-foreground">
-                                Join us for exclusive events, trainings, and seminars.
+                                Join us for exclusive events, and seminars.
                             </p>
                         </div>
                         <Card className="shadow-lg overflow-hidden">
@@ -36,7 +36,7 @@ export default function EventsPage() {
                                 <div className="flex justify-center items-center mb-4">
                                      <PartyPopper className="h-12 w-12 text-primary" />
                                 </div>
-                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting / Training <br/>- Miami, Florida</CardTitle>
+                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting / Seminar <br/>- Miami, Florida</CardTitle>
                                 <p className="text-lg font-semibold text-muted-foreground pt-2">Date: 12/11/2025</p>
                                 <CardDescription className="pt-2">An Exclusive, Invitation-Only Event</CardDescription>
                             </CardHeader>
