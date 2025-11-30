@@ -38,7 +38,12 @@ export default function EventsPage() {
                                 </div>
                                 <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting / Seminar <br/>- Miami, Florida</CardTitle>
                                 <p className="text-lg font-semibold text-muted-foreground pt-2">Date: 12/11/2025</p>
-                                <CardDescription className="pt-2">An Exclusive, Invitation-Only Event</CardDescription>
+                                <CardDescription className="pt-2">An Exclusive, Invitation-Only Event / No walk-ins</CardDescription>
+                                 <div className="mt-4">
+                                    <Button asChild>
+                                        <Link href="https://www.nowadays.ai/veloura-seminar-2025" target="_blank" rel="noopener noreferrer">Agenda</Link>
+                                    </Button>
+                                </div>
                             </CardHeader>
                             <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
                                 <p className="text-lg font-semibold text-foreground">
