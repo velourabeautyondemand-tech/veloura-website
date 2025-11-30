@@ -15,6 +15,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'VÉLOURA',
   description: 'Book professional beauty technicians to your door.',
+  verification: {
+    other: {
+      'impact-site-verification': 'bccc4b36-52b9-4b9a-b1e4-b51a9eb13213',
+    },
+  },
 };
 
 export default function RootLayout({
