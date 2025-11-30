@@ -46,9 +46,6 @@ export default function EventsPage() {
                                     <Button asChild variant="accent">
                                         <Link href="https://forms.gle/LT6hWDMj1nKQXW9v5" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
                                     </Button>
-                                    <Button asChild variant="outline">
-                                        <Link href="https://www.indeed.com/viewjob?jk=c35c02dd395e9fb9&from=shareddesktop_copy" target="_blank" rel="noopener noreferrer">Apply for Future Opportunities</Link>
-                                    </Button>
                                 </div>
                             </CardContent>
                         </Card>
