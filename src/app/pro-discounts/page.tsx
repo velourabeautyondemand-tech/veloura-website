@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const partners = [
     {
@@ -49,17 +49,8 @@ export default function ProDiscountsPage() {
                             {partners.map((partner) => (
                                <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300">
                                     <Link href={partner.link} target="_blank" rel="noopener noreferrer" className="block">
-                                        <div className="relative h-60 w-full">
-                                            <Image 
-                                                src={partner.imageUrl}
-                                                alt={partner.name}
-                                                layout="fill"
-                                                objectFit="cover"
-                                                data-ai-hint={partner.imageHint}
-                                            />
-                                        </div>
-                                        <CardHeader className="items-center text-center">
-                                             <div className="h-20 flex items-center justify-center pt-4">
+                                        <CardHeader className="items-center text-center p-6">
+                                             <div className="h-24 flex items-center justify-center">
                                                 <Image 
                                                     src={partner.logoUrl} 
                                                     alt={`${partner.name} logo`}
@@ -70,9 +61,9 @@ export default function ProDiscountsPage() {
                                                 />
                                             </div>
                                         </CardHeader>
-                                        <CardContent className="text-center">
-                                            <p className="text-muted-foreground flex-grow">{partner.description}</p>
-                                             <Button variant="link" className="mt-4">
+                                        <CardContent className="text-center p-6 pt-0">
+                                            <p className="text-muted-foreground flex-grow mb-4">{partner.description}</p>
+                                             <Button variant="link">
                                                 Shop Now <ArrowRight className="ml-2 h-4 w-4" />
                                             </Button>
                                         </CardContent>
