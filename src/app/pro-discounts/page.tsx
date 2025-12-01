@@ -5,13 +5,16 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const partners = [
     {
         name: "Byootique",
         logoUrl: "https://uploads.dovetale.com/brand-profile-logo/brandprofile/33535/logo/thumb-db1f1b4174fd99b5ba2678562bf41a14.png",
+        imageUrl: "https://uploads.dovetale.com/brand-profile-media/afdf8b44019317ebc443493cd6701726.jpg",
         hint: "Byootique logo",
-        description: "Exclusive discounts on professional beauty cases and supplies.",
+        imageHint: "beauty case",
+        description: "Exclusive discounts on professional beauty cases, makeup bags, and supplies to keep your kit organized and ready for any client.",
         link: "https://byootique-global.com/VELOURA_BEAUTY_X"
     },
 ]
@@ -44,19 +47,38 @@ export default function ProDiscountsPage() {
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                             {partners.map((partner) => (
-                                <Link key={partner.name} href={partner.link} target="_blank" rel="noopener noreferrer" className="bg-card p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-all hover:shadow-primary/20 hover:scale-105">
-                                    <div className="h-20 flex items-center justify-center mb-4">
-                                        <Image 
-                                            src={partner.logoUrl} 
-                                            alt={`${partner.name} logo`}
-                                            width={150}
-                                            height={75}
-                                            data-ai-hint={partner.hint}
-                                            className="object-contain"
-                                        />
-                                    </div>
-                                    <p className="text-muted-foreground flex-grow">{partner.description}</p>
-                                </Link>
+                               <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300">
+                                    <Link href={partner.link} target="_blank" rel="noopener noreferrer" className="block">
+                                        <div className="relative h-60 w-full">
+                                            <Image 
+                                                src={partner.imageUrl}
+                                                alt={partner.name}
+                                                layout="fill"
+                                                objectFit="cover"
+                                                data-ai-hint={partner.imageHint}
+                                            />
+                                        </div>
+                                        <CardHeader className="items-center text-center">
+                                             <div className="h-20 flex items-center justify-center mb-4">
+                                                <Image 
+                                                    src={partner.logoUrl} 
+                                                    alt={`${partner.name} logo`}
+                                                    width={150}
+                                                    height={75}
+                                                    data-ai-hint={partner.hint}
+                                                    className="object-contain"
+                                                />
+                                            </div>
+                                            <CardTitle>{partner.name}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="text-center">
+                                            <p className="text-muted-foreground flex-grow">{partner.description}</p>
+                                             <Button variant="link" className="mt-4">
+                                                Shop Now <ArrowRight className="ml-2 h-4 w-4" />
+                                            </Button>
+                                        </CardContent>
+                                    </Link>
+                               </Card>
                             ))}
                         </div>
                     </div>
