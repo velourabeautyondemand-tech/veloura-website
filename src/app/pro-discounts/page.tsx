@@ -59,7 +59,7 @@ export default function ProDiscountsPage() {
                                             />
                                         </div>
                                         <CardHeader className="items-center text-center">
-                                             <div className="h-20 flex items-center justify-center mb-4">
+                                             <div className="h-20 flex items-center justify-center pt-4">
                                                 <Image 
                                                     src={partner.logoUrl} 
                                                     alt={`${partner.name} logo`}
@@ -69,7 +69,6 @@ export default function ProDiscountsPage() {
                                                     className="object-contain"
                                                 />
                                             </div>
-                                            <CardTitle>{partner.name}</CardTitle>
                                         </CardHeader>
                                         <CardContent className="text-center">
                                             <p className="text-muted-foreground flex-grow">{partner.description}</p>
