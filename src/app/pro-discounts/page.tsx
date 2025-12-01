@@ -11,9 +11,7 @@ const partners = [
     {
         name: "Byootique",
         logoUrl: "https://uploads.dovetale.com/brand-profile-logo/brandprofile/33535/logo/thumb-db1f1b4174fd99b5ba2678562bf41a14.png",
-        imageUrl: "https://uploads.dovetale.com/brand-profile-media/afdf8b44019317ebc443493cd6701726.jpg",
         hint: "Byootique logo",
-        imageHint: "beauty case",
         description: "Exclusive discounts on professional beauty cases, makeup bags, and supplies to keep your kit organized and ready for any client.",
         link: "https://byootique-global.com/VELOURA_BEAUTY_X"
     },
@@ -49,7 +47,7 @@ export default function ProDiscountsPage() {
                             {partners.map((partner) => (
                                <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300">
                                     <Link href={partner.link} target="_blank" rel="noopener noreferrer" className="block">
-                                        <CardHeader className="items-center text-center p-6">
+                                        <CardHeader className="items-center text-center p-6 pt-12">
                                              <div className="h-24 flex items-center justify-center">
                                                 <Image 
                                                     src={partner.logoUrl} 
@@ -61,7 +59,7 @@ export default function ProDiscountsPage() {
                                                 />
                                             </div>
                                         </CardHeader>
-                                        <CardContent className="text-center p-6 pt-0">
+                                        <CardContent className="text-center p-6 pt-6">
                                             <p className="text-muted-foreground flex-grow mb-4">{partner.description}</p>
                                              <Button variant="link">
                                                 Shop Now <ArrowRight className="ml-2 h-4 w-4" />
