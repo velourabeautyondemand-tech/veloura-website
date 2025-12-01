@@ -11,25 +11,36 @@ const partners = [
         name: "OPI",
         logoUrl: "https://picsum.photos/seed/opi-logo/200/100",
         hint: "OPI logo",
-        description: "30% off all professional-grade nail lacquers and gels."
+        description: "30% off all professional-grade nail lacquers and gels.",
+        link: "https://www.opi.com/pro"
     },
     {
         name: "Dermalogica",
         logoUrl: "https://picsum.photos/seed/dermalogica-logo/200/100",
         hint: "Dermalogica logo",
-        description: "25% off all skincare products for licensed professionals."
+        description: "25% off all skincare products for licensed professionals.",
+        link: "https://www.dermalogica.com/pages/pro-account-application"
     },
     {
         name: "Fromm",
         logoUrl: "https://picsum.photos/seed/fromm-logo/200/100",
         hint: "Fromm logo",
-        description: "Exclusive discounts on professional beauty tools and apparel."
+        description: "Exclusive discounts on professional beauty tools and apparel.",
+        link: "https://frommpro.com/pro-program"
     },
     {
         name: "Salonory",
         logoUrl: "https://picsum.photos/seed/salonory-logo/200/100",
         hint: "Salonory logo",
-        description: "Get access to wholesale pricing on top salon brands."
+        description: "Get access to wholesale pricing on top salon brands.",
+        link: "https://www.salonory.com/"
+    },
+    {
+        name: "Byootique",
+        logoUrl: "https://picsum.photos/seed/byootique-logo/200/100",
+        hint: "Byootique logo",
+        description: "Exclusive discounts on professional beauty cases and supplies.",
+        link: "https://byootique-global.com/VELOURA_BEAUTY_X"
     },
 ]
 
@@ -59,9 +70,9 @@ export default function ProDiscountsPage() {
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Companies We Collab With</h2>
                             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Our network of brand partners offer special perks for VÉLOURA Pros.</p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {partners.map((partner) => (
-                                <div key={partner.name} className="bg-card p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                                <Link key={partner.name} href={partner.link} target="_blank" rel="noopener noreferrer" className="bg-card p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-all hover:shadow-primary/20 hover:scale-105">
                                     <div className="h-20 flex items-center justify-center mb-4">
                                         <Image 
                                             src={partner.logoUrl} 
@@ -73,7 +84,7 @@ export default function ProDiscountsPage() {
                                         />
                                     </div>
                                     <p className="text-muted-foreground flex-grow">{partner.description}</p>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
