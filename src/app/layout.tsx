@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import { Poppins } from 'next/font/google';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
+import Script from 'next/script';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -29,6 +30,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-11010843992"></Script>
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-11010843992');
+          `}
+        </Script>
+      </head>
       <body className={cn('font-body antialiased', poppins.variable)}>
         <FirebaseClientProvider>
           {children}
