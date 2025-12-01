@@ -43,6 +43,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'uploads.dovetale.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   async redirects() {

@@ -9,7 +9,7 @@ import Link from 'next/link';
 const partners = [
     {
         name: "Byootique",
-        logoUrl: "https://picsum.photos/seed/byootique-logo/200/100",
+        logoUrl: "https://uploads.dovetale.com/brand-profile-logo/brandprofile/33535/logo/thumb-db1f1b4174fd99b5ba2678562bf41a14.png",
         hint: "Byootique logo",
         description: "Exclusive discounts on professional beauty cases and supplies.",
         link: "https://byootique-global.com/VELOURA_BEAUTY_X"
