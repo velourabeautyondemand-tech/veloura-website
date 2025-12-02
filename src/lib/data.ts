@@ -6,7 +6,7 @@ export type Service = {
   price?: number;
   duration?: string;
   imageId: string;
-  category: 'NAILs' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages';
+  category: 'NAILs' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages' | 'Glow & Skin Wellness';
 };
 
 export type Technician = {
@@ -49,6 +49,15 @@ export const services: Service[] = [
   // Nail Enhancements
   { id: 'nails-acrylic', name: 'Acrylic Full Set', description: 'Add instant length & strength with a flawless finish.', price: 80, duration: '1.5-2 hours', imageId: 'service_5', category: 'Nail Enhancements' },
   { id: 'nails-dip', name: 'Dip Powder Nails', description: 'Lightweight & long-lasting, no UV light needed. Service includes extensions, bespoke nail art, or luxury add-ons.', price: 60, duration: '1-1.5 hours', imageId: 'service_6', category: 'Nail Enhancements' },
+
+  // Glow & Skin Wellness
+  { id: 'facial-hydrating', name: 'Hydrating Facial', description: 'Intensely moisturizes and revitalizes dry, dull skin for a radiant glow.', price: 130, duration: '60 mins', imageId: 'facial_hydrating', category: 'Glow & Skin Wellness' },
+  { id: 'facial-cleansing', name: 'Deep Cleansing Facial', description: 'Purifies congested pores, removes impurities, and clarifies skin for a fresh, clean feel.', price: 140, duration: '60 mins', imageId: 'facial_cleansing', category: 'Glow & Skin Wellness' },
+  { id: 'facial-anti-aging', name: 'Anti-Aging Facial', description: 'Firms, lifts, and reduces the appearance of fine lines and wrinkles for a youthful complexion.', price: 160, duration: '75 mins', imageId: 'facial_anti_aging', category: 'Glow & Skin Wellness' },
+  { id: 'waxing-face-body', name: 'Waxing (Face & Body)', description: 'Professional and hygienic hair removal for smooth, silky skin. Price varies by area.', price: 50, duration: 'Varies', imageId: 'waxing', category: 'Glow & Skin Wellness' },
+  { id: 'brows-microblading', name: 'Brows & Microblading', description: 'Create perfectly shaped, natural-looking brows with semi-permanent microblading.', price: 450, duration: '2-3 hours', imageId: 'brows_microblading', category: 'Glow & Skin Wellness' },
+  { id: 'lashes-classic', name: 'Classic Lash Extensions', description: 'Enhance your natural lashes with a full set of classic extensions for added length and volume.', price: 200, duration: '2 hours', imageId: 'lashes_classic', category: 'Glow & Skin Wellness' },
+  { id: 'lashes-refill', name: 'Lash Refill / Touch-up', description: 'Maintain your lash extensions with a professional refill to keep them looking full and fresh.', price: 80, duration: '60-75 mins', imageId: 'lashes_refill', category: 'Glow & Skin Wellness' },
 
   // Extras
   { id: 'extra-art', name: 'Nail Art / Design', description: 'From minimalist chic to bold creative designs. Price is per nail.', price: 13, duration: 'Varies', imageId: 'service_4', category: 'Extras' },
@@ -162,6 +171,8 @@ export const bookings: Booking[] = [
     { id: '6', customerId: 'c5', customerName: 'Eve Adams', technicianId: '5', technicianName: 'Sarah Kim', serviceId: 'nails-dip', serviceName: 'Dip Powder Nails', date: '2024-08-01', time: '01:00 PM', status: 'completed', price: 60 },
     { id: '7', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: 'extra-art', serviceName: 'Nail Repair', date: '2024-06-30', time: '04:00 PM', status: 'cancelled', price: 13 },
 ];
+
+    
 
     
 

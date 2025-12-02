@@ -14,6 +14,7 @@ export default function ServicesPage() {
         { title: 'NAILs', services: services.filter(s => s.category === 'NAILs') },
         { title: 'Pedicures', services: services.filter(s => s.category === 'Pedicures') },
         { title: 'Nail Enhancements', services: services.filter(s => s.category === 'Nail Enhancements') },
+        { title: 'Glow & Skin Wellness', services: services.filter(s => s.category === 'Glow & Skin Wellness') },
         { title: 'Makeup', services: services.filter(s => s.category === 'Makeup') },
         { title: 'Hair', services: services.filter(s => s.category === 'Hair') },
         { title: 'VIP Packages', services: services.filter(s => s.category === 'VIP Packages') },
@@ -91,5 +92,7 @@ export default function ServicesPage() {
         </div>
     );
 }
+
+    
 
     
