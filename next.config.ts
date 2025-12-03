@@ -55,6 +55,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.canva.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   async redirects() {
