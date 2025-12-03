@@ -77,8 +77,40 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                {/* Founder Section */}
+                <section id="founder" className="py-16 sm:py-24 bg-secondary/50">
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
+                            <div className="md:col-span-1">
+                                <Image
+                                    src="https://picsum.photos/seed/founder/400/600"
+                                    alt="VÉLOURA Founder"
+                                    width={400}
+                                    height={600}
+                                    className="rounded-lg shadow-lg object-cover w-full h-auto"
+                                    data-ai-hint="woman portrait"
+                                />
+                            </div>
+                            <div className="md:col-span-2">
+                                <h3 className="text-2xl font-bold font-headline mb-4">A Note from Our Founder</h3>
+                                <div className="prose lg:prose-lg text-muted-foreground space-y-4">
+                                    <p>
+                                        "As a busy professional, I constantly felt torn between my demanding schedule and the desire to feel polished and confident. I dreamed of a world where self-care wasn't another item on a stressful to-do list, but a moment of accessible luxury. That dream became VÉLOURA."
+                                    </p>
+                                    <p>
+                                        "I built this platform not just for convenience, but for connection. It’s for the new mothers, the dedicated professionals, the wellness seekers, and everyone who deserves to feel their best without sacrificing their time or peace of mind. VÉLOURA is my commitment to empowering both our clients and our incredible beauty professionals, creating a community built on trust, talent, and care."
+                                    </p>
+                                     <p className="font-semibold">
+                                        "Thank you for being part of this journey."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                  {/* Our Values Section */}
-                <section id="values" className="py-16 sm:py-24 bg-secondary/50">
+                <section id="values" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                          <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
@@ -99,7 +131,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 sm:py-24">
+                <section className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="bg-primary/10 rounded-xl p-12 text-center">
                              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Ready to Experience the Difference?</h2>
