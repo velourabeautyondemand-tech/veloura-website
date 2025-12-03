@@ -85,9 +85,9 @@ export default function AboutPage() {
                                 <Image
                                     src="https://media.canva.com/v2/image-resize/format:PNG/height:799/quality:100/uri:ifs%3A%2F%2FM%2F251dfe0b-36c1-4af1-a21b-ed83a5627f1b/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAHD3LxsPIHpYSoppX1TKYHUe1GbNeKGH1p3nrUrbDC6a&exp=1764743536&osig=AAAAAAAAAAAAAAAAAAAAAMx_hl43A6RaEpWeYYfjXeL4Qf3tQh1RHEdbNoPmKfXd&signer=media-rpc&x-canva-quality=screen"
                                     alt="VÉLOURA Founder"
-                                    width={250}
-                                    height={250}
-                                    className="rounded-lg shadow-lg object-cover w-[250px] h-[250px] aspect-square"
+                                    width={300}
+                                    height={300}
+                                    className="rounded-lg shadow-lg object-cover w-[300px] h-[300px] aspect-square"
                                     data-ai-hint="woman portrait"
                                 />
                             </div>
