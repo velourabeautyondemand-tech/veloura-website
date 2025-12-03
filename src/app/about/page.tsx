@@ -83,11 +83,11 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
                             <div className="md:col-span-1">
                                 <Image
-                                    src="https://picsum.photos/seed/founder/400/600"
+                                    src="https://picsum.photos/seed/founder/400/400"
                                     alt="VÉLOURA Founder"
                                     width={400}
-                                    height={600}
-                                    className="rounded-lg shadow-lg object-cover w-full h-auto"
+                                    height={400}
+                                    className="rounded-lg shadow-lg object-cover w-full h-auto aspect-square"
                                     data-ai-hint="woman portrait"
                                 />
                             </div>
