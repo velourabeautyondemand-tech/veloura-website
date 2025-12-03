@@ -83,11 +83,11 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
                             <div className="md:col-span-1 flex justify-center">
                                 <Image
-                                    src="https://picsum.photos/seed/founder/300/300"
+                                    src="https://storage.googleapis.com/project-sparkle-images/user-uploaded/7063a8e9-0158-4a55-8947-2e11802dc3a5.png"
                                     alt="VÉLOURA Founder"
-                                    width={300}
-                                    height={300}
-                                    className="rounded-lg shadow-lg object-cover w-[300px] h-[300px] aspect-square"
+                                    width={250}
+                                    height={250}
+                                    className="rounded-lg shadow-lg object-cover w-[250px] h-[250px] aspect-square"
                                     data-ai-hint="woman portrait"
                                 />
                             </div>
