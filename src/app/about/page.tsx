@@ -81,13 +81,13 @@ export default function AboutPage() {
                 <section id="founder" className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
-                            <div className="md:col-span-1">
+                            <div className="md:col-span-1 flex justify-center">
                                 <Image
-                                    src="https://picsum.photos/seed/founder/400/400"
+                                    src="https://picsum.photos/seed/founder/300/300"
                                     alt="VÉLOURA Founder"
-                                    width={400}
-                                    height={400}
-                                    className="rounded-lg shadow-lg object-cover w-full h-auto aspect-square"
+                                    width={300}
+                                    height={300}
+                                    className="rounded-lg shadow-lg object-cover w-[300px] h-[300px] aspect-square"
                                     data-ai-hint="woman portrait"
                                 />
                             </div>
