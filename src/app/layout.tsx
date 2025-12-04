@@ -32,14 +32,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-11010843992"></Script>
-        <Script id="google-analytics">
+        <Script id="google-ad-tag">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'AW-11010843992');
-            gtag('config', 'G-8W122V4BDM');
           `}
         </Script>
       </head>
