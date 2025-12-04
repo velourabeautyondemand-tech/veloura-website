@@ -87,7 +87,7 @@ export default function AboutPage() {
                                     alt="VÉLOURA Founder"
                                     width={300}
                                     height={300}
-                                    className="rounded-lg shadow-lg object-contain w-[300px] h-[300px] aspect-square"
+                                    className="rounded-full shadow-lg object-contain w-[300px] h-[300px] aspect-square"
                                     data-ai-hint="woman portrait"
                                 />
                             </div>
