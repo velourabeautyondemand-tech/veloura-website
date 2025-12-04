@@ -31,25 +31,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* The Google Tag scripts will be handled by Next.js Script components in the body */}
-      </head>
-      <body className={cn('font-body antialiased', poppins.variable)}>
-        <FirebaseClientProvider>
-          {children}
-        </FirebaseClientProvider>
-        <Toaster />
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11010843992"
-        />
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11010843992"></script>
+        <script>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-11010843992');
           `}
-        </Script>
+        </script>
+      </head>
+      <body className={cn('font-body antialiased', poppins.variable)}>
+        <FirebaseClientProvider>
+          {children}
+        </FirebaseClientProvider>
+        <Toaster />
       </body>
     </html>
   );
