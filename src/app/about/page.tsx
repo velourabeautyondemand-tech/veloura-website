@@ -83,11 +83,11 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
                             <div className="md:col-span-1 flex justify-center">
                                 <Image
-                                    src="https://media.canva.com/v2/image-resize/format:PNG/height:799/quality:100/uri:ifs%3A%2F%2FM%2F251dfe0b-36c1-4af1-a21b-ed83a5627f1b/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAHD3LxsPIHpYSoppX1TKYHUe1GbNeKGH1p3nrUrbDC6a&exp=1764743536&osig=AAAAAAAAAAAAAAAAAAAAAMx_hl43A6RaEpWeYYfjXeL4Qf3tQh1RHEdbNoPmKfXd&signer=media-rpc&x-canva-quality=screen"
+                                    src="https://picsum.photos/seed/founder/300/300"
                                     alt="VÉLOURA Founder"
                                     width={200}
                                     height={200}
-                                    className="rounded-full shadow-lg object-contain w-[200px] h-[200px] aspect-square"
+                                    className="rounded-full shadow-lg object-cover w-[200px] h-[200px] aspect-square"
                                     data-ai-hint="woman portrait"
                                 />
                             </div>
