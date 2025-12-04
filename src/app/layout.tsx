@@ -31,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11010843992"></script>
         <script>
           {`
