@@ -83,7 +83,7 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
                             <div className="md:col-span-1 flex justify-center">
                                 <Image
-                                    src="https://picsum.photos/seed/founder/200/200"
+                                    src="https://storage.googleapis.com/production-website-assets/founder-2024.jpeg"
                                     alt="VÉLOURA Founder"
                                     width={200}
                                     height={200}
