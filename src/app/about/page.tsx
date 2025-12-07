@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Award, HandHeart, Sparkles, Users } from 'lucide-react';
 import Link from 'next/link';
 import { NailIcon } from '@/components/shared/logo';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const values = [
     {
@@ -32,6 +33,7 @@ const values = [
 ]
 
 export default function AboutPage() {
+    const founderImage = PlaceHolderImages.find(p => p.id === 'founder_photo');
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -82,14 +84,16 @@ export default function AboutPage() {
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
                             <div className="md:col-span-1 flex justify-center">
-                                <Image
-                                    src="https://storage.googleapis.com/production-website-assets/founder-2024.jpeg"
-                                    alt="VÉLOURA Founder"
-                                    width={200}
-                                    height={200}
-                                    className="rounded-full shadow-lg object-cover w-[200px] h-[200px] aspect-square"
-                                    data-ai-hint="woman portrait"
-                                />
+                                {founderImage && (
+                                    <Image
+                                        src={founderImage.imageUrl}
+                                        alt={founderImage.description}
+                                        width={200}
+                                        height={200}
+                                        className="rounded-full shadow-lg object-cover w-[200px] h-[200px] aspect-square"
+                                        data-ai-hint={founderImage.imageHint}
+                                    />
+                                )}
                             </div>
                             <div className="md:col-span-2">
                                 <h3 className="text-2xl font-bold font-headline mb-4">A Note from Our Founder</h3>
@@ -150,3 +154,4 @@ export default function AboutPage() {
         </div>
     );
 }
+    
