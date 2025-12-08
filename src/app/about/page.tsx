@@ -4,7 +4,7 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Award, HandHeart, Sparkles, Users } from 'lucide-react';
+import { Award, HandHeart, Sparkles, Users, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { NailIcon } from '@/components/shared/logo';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -96,7 +96,13 @@ export default function AboutPage() {
                                 )}
                             </div>
                             <div className="md:col-span-2">
-                                <h3 className="text-2xl font-bold font-headline mb-4">A Note from Our Founder</h3>
+                                <div className="flex items-center gap-4 mb-4">
+                                    <h3 className="text-2xl font-bold font-headline">A Note from Our Founder</h3>
+                                    <Link href="https://www.linkedin.com/in/huiyu-cheng" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                                        <Linkedin className="h-6 w-6" />
+                                        <span className="sr-only">LinkedIn</span>
+                                    </Link>
+                                </div>
                                 <div className="prose lg:prose-lg text-muted-foreground space-y-4">
                                     <p>
                                         "As a busy professional, I constantly felt torn between my demanding schedule and the desire to feel polished and confident. I dreamed of a world where self-care wasn't another item on a stressful to-do list, but a moment of accessible luxury. That dream became VÉLOURA."
