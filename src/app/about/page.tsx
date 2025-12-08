@@ -90,7 +90,7 @@ export default function AboutPage() {
                                         alt={founderImage.description}
                                         width={200}
                                         height={200}
-                                        className="rounded-full shadow-lg object-cover w-[200px] h-[200px] aspect-square"
+                                        className="rounded-full shadow-lg object-contain w-[200px] h-[200px] aspect-square bg-white"
                                         data-ai-hint={founderImage.imageHint}
                                     />
                                 )}
