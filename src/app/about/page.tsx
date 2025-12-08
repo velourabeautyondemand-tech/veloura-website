@@ -33,7 +33,11 @@ const values = [
 ]
 
 export default function AboutPage() {
-    const founderImage = PlaceHolderImages.find(p => p.id === 'founder_photo');
+    const founderImage = {
+        imageUrl: "https://media.canva.com/v2/image-proxy/c3VwYWJhc2UtcHJvZC1zbS1rZXktdi0yLXNlY3JldC1hcGkta2V5/public/landing-pages/33/components/d449314a-696b-47ed-8e8e-9b114a694ea0/1763773721016-founder_photo.png",
+        description: "VÉLOURA Founder",
+        imageHint: "woman portrait"
+    }
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
