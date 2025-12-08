@@ -61,6 +61,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'thenailest.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
   async redirects() {

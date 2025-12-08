@@ -15,6 +15,13 @@ const partners = [
         description: "Exclusive discounts on professional beauty cases, makeup bags, and supplies to keep your kit organized and ready for any client.",
         link: "https://byootique-global.com/VELOURA_BEAUTY_X"
     },
+    {
+        name: "The Nailest",
+        logoUrl: "https://thenailest.com/cdn/shop/files/Asset_14x_1.png?v=1680231535&width=500",
+        hint: "The Nailest logo",
+        description: "Get access to high-quality, trendy, and durable nail products. Perfect for the modern nail professional.",
+        link: "https://thenailest.com/a/buzzbassador/bassador-signup/245381uhcgUpj4"
+    }
 ]
 
 export default function ProDiscountsPage() {
