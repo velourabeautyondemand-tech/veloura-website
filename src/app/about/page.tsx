@@ -33,7 +33,11 @@ const values = [
 ]
 
 export default function AboutPage() {
-    const founderImage = PlaceHolderImages.find(p => p.id === 'founder_photo');
+    const founderImage = {
+        imageUrl: "https://picsum.photos/seed/founder/200/200",
+        description: "VÉLOURA Founder",
+        imageHint: "woman portrait"
+    };
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -154,5 +158,3 @@ export default function AboutPage() {
         </div>
     );
 }
-
-    
