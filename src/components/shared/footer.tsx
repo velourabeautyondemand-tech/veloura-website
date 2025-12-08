@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Twitter, Instagram, Facebook } from "lucide-react";
+import { Twitter, Instagram, Facebook, Linkedin } from "lucide-react";
 import { NailIcon } from "./logo";
 
 export default function Footer() {
@@ -23,6 +23,10 @@ export default function Footer() {
              <Link href="https://www.instagram.com/veloura_beauty_x?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Instagram className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
+            </Link>
+            <Link href="https://www.linkedin.com/in/huiyu-cheng" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Linkedin className="h-5 w-5" />
+              <span className="sr-only">LinkedIn</span>
             </Link>
           </nav>
           
