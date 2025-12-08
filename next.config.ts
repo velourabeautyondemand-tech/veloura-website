@@ -66,6 +66,12 @@ const nextConfig: NextConfig = {
         hostname: 'thenailest.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '6000-firebase-studio-1759589200287.cluster-fhtfcgwkwjgxoujc3bw2r2g7wa.cloudworkstations.dev',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
