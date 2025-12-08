@@ -34,7 +34,7 @@ const values = [
 
 export default function AboutPage() {
     const founderImage = {
-        imageUrl: "https://media.canva.com/v2/image-proxy/c3VwYWJhc2UtcHJvZC1zbS1rZXktdi0yLXNlY3JldC1hcGkta2V5/public/landing-pages/33/components/d449314a-696b-47ed-8e8e-9b114a694ea0/1763773721016-founder_photo.png",
+        imageUrl: "https://picsum.photos/seed/founder/200/200",
         description: "VÉLOURA Founder",
         imageHint: "woman portrait"
     }
