@@ -17,7 +17,7 @@ const partners = [
     },
     {
         name: "The Nailest",
-        logoUrl: "https://thenailest.com/cdn/shop/files/Asset_14x_1.png?v=1680231535&width=500",
+        logoUrl: "https://thenailest.com/cdn/shop/files/STICKER_1.5_w_R-01-01_150x@2x.png?v=1614284508",
         hint: "The Nailest logo",
         description: "Get access to high-quality, trendy, and durable nail products. Perfect for the modern nail professional.",
         link: "https://thenailest.com/a/buzzbassador/bassador-signup/245381uhcgUpj4"
@@ -50,7 +50,7 @@ export default function ProDiscountsPage() {
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Companies We Collab With</h2>
                             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Our network of brand partners offer special perks for VÉLOURA Pros.</p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                        <div className="grid md:grid-cols-2 gap-8 justify-center">
                             {partners.map((partner) => (
                                <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300">
                                     <Link href={partner.link} target="_blank" rel="noopener noreferrer" className="block">
