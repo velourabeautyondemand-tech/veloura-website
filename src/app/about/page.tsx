@@ -33,11 +33,7 @@ const values = [
 ]
 
 export default function AboutPage() {
-    const founderImage = {
-        imageUrl: "https://6000-firebase-studio-1759589200287.cluster-fhtfcgwkwjgxoujc3bw2r2g7wa.cloudworkstations.dev/capra/attachedImages/f75efc18-a970-4604-afab-4e4064e21f90/image_8d225b75-2723-4ffb-817b-161e51d3ff22.png",
-        description: "VÉLOURA Founder",
-        imageHint: "woman portrait"
-    }
+    const founderImage = PlaceHolderImages.find(p => p.id === 'founder_photo');
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -158,3 +154,5 @@ export default function AboutPage() {
         </div>
     );
 }
+
+    
