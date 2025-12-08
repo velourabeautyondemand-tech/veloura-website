@@ -88,9 +88,9 @@ export default function AboutPage() {
                                     <Image
                                         src={founderImage.imageUrl}
                                         alt={founderImage.description}
-                                        width={200}
-                                        height={200}
-                                        className="rounded-full shadow-lg object-contain w-[200px] h-[200px] aspect-square bg-white"
+                                        width={240}
+                                        height={240}
+                                        className="rounded-full shadow-lg object-contain w-[240px] h-[240px] aspect-square bg-white"
                                         data-ai-hint={founderImage.imageHint}
                                     />
                                 )}
