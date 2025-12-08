@@ -74,7 +74,7 @@ export default function HomePage() {
                 6 miles within your location at no traffic, no parking, no rushing, no waiting line
               </p>
                <p className="mt-4 text-lg font-bold text-primary flex items-center justify-center gap-2">
-                Just Enjoy
+                Relax, we’re coming to you
               </p>
             </div>
           </div>
