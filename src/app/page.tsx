@@ -73,8 +73,8 @@ export default function HomePage() {
               <p className="mt-2 text-md text-muted-foreground italic">
                 6 miles within your location at no traffic, no parking, no rushing, no waiting line
               </p>
-               <p className="mt-4 text-lg font-bold text-primary flex items-center justify-center gap-2">
-                Relax, we’re coming to you
+              <p className="mt-4 text-lg font-bold text-primary">
+                Relax, we’re coming to you.
               </p>
             </div>
           </div>
