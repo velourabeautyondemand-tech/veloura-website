@@ -85,12 +85,12 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
                             <div className="md:col-span-1 flex justify-center">
                                 {founderImage && (
-                                    <div className="w-60 h-60 relative">
+                                     <div className="relative w-60 h-60">
                                         <Image
                                             src={founderImage.imageUrl}
                                             alt={founderImage.description}
                                             fill
-                                            className="rounded-full shadow-lg object-cover bg-white"
+                                            className="rounded-full object-cover shadow-lg"
                                             data-ai-hint={founderImage.imageHint}
                                         />
                                     </div>
