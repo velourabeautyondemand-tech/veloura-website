@@ -33,6 +33,7 @@ export default function Footer() {
             <p className="text-xs">powered by iAmDreamMaker Production Group</p>
           </div>
           <div className="flex space-x-4 mt-4 sm:mt-0">
+            <Link href="/support" className="hover:text-primary transition-colors">Support</Link>
             <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
             <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link href="/partner-agreement" className="hover:text-primary transition-colors">Partner Agreement</Link>
