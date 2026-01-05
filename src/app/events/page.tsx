@@ -53,7 +53,7 @@ export default function EventsPage() {
                                      <div className="pt-6 flex justify-center">
                                         <Button asChild variant="accent" size="lg">
                                             <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
-                                                Sign Up Now
+                                                Event sign-up only
                                             </Link>
                                         </Button>
                                     </div>
