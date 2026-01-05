@@ -86,10 +86,14 @@ export default function EventsPage() {
                                 </CardHeader>
                                 <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
                                     <p>
-                                        More details about our upcoming event in Palm Beach will be available soon. Stay tuned for information on how to register!
+                                        More details about our upcoming event in Palm Beach will be available soon. Register now to save your spot!
                                     </p>
                                      <div className="pt-6 flex justify-center">
-                                        <Button disabled variant="secondary">Registration Coming Soon</Button>
+                                        <Button asChild variant="accent" size="lg">
+                                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
+                                                Sign Up Now
+                                            </Link>
+                                        </Button>
                                     </div>
                                 </CardContent>
                             </Card>
