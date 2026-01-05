@@ -150,11 +150,6 @@ export default function HomePage() {
                     ))}
                 </ul>
                 <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA turns your beauty routine into a moment of calm, confidence, and care.</p>
-                <div className="mt-10 flex justify-center gap-4">
-                    <Button size="lg" variant="outline" disabled>
-                        App Launching Soon
-                    </Button>
-                </div>
             </div>
         </section>
 
