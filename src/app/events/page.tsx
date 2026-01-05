@@ -24,6 +24,43 @@ export default function EventsPage() {
                         </div>
                         <div className="space-y-12">
                             <Card className="shadow-lg overflow-hidden">
+                                 <div className="relative h-60 w-full">
+                                    <Image
+                                        src="https://ih1.redbubble.net/image.782434255.8581/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8.u1.jpg"
+                                        alt="Palm Beach event"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        data-ai-hint="Palm Beach city"
+                                    />
+                                </div>
+                                <CardHeader className="text-center bg-primary/10">
+                                    <div className="flex justify-center items-center mb-4">
+                                        <PartyPopper className="h-12 w-12 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-3xl font-headline text-primary">Upcoming VÉLOURA Event<br/>- Palm Beach, Florida</CardTitle>
+                                    <p className="text-lg font-semibold text-muted-foreground pt-2">Date: January 21st at 5:30 PM</p>
+                                    <CardDescription className="pt-2">📍 Location to be announced</CardDescription>
+                                </CardHeader>
+                                <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
+                                    <div className="font-semibold text-foreground space-y-1">
+                                        <p>Complimentary Beauty Industry Event</p>
+                                        <p>Open to Licensed Beauty Professionals</p>
+                                        <p>Registration Required / Limited Availability</p>
+                                    </div>
+                                    <p>
+                                        More details about our upcoming event in Palm Beach will be available soon. Register now to save your spot!
+                                    </p>
+                                     <div className="pt-6 flex justify-center">
+                                        <Button asChild variant="accent" size="lg">
+                                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
+                                                Sign Up Now
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            <Card className="shadow-lg overflow-hidden">
                                 <div className="relative h-60 w-full">
                                     <Image
                                         src="https://vqftsjfwhonwbpyogmzi.supabase.co/storage/v1/object/public/landing-pages/33/components/d449314a-696b-47ed-8e8e-9b114a694ea0/1762890428095-miamibeach.jpg"
@@ -61,43 +98,6 @@ export default function EventsPage() {
                                         </Button>
                                         <Button asChild variant="accent">
                                             <Link href="https://forms.gle/LT6hWDMj1nKQXW9v5" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
-                                        </Button>
-                                    </div>
-                                </CardContent>
-                            </Card>
-
-                            <Card className="shadow-lg overflow-hidden">
-                                 <div className="relative h-60 w-full">
-                                    <Image
-                                        src="https://ih1.redbubble.net/image.782434255.8581/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8.u1.jpg"
-                                        alt="Palm Beach event"
-                                        layout="fill"
-                                        objectFit="cover"
-                                        data-ai-hint="Palm Beach city"
-                                    />
-                                </div>
-                                <CardHeader className="text-center bg-primary/10">
-                                    <div className="flex justify-center items-center mb-4">
-                                        <PartyPopper className="h-12 w-12 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-3xl font-headline text-primary">Upcoming VÉLOURA Event<br/>- Palm Beach, Florida</CardTitle>
-                                    <p className="text-lg font-semibold text-muted-foreground pt-2">Date: January 21st at 5:30 PM</p>
-                                    <CardDescription className="pt-2">📍 Location to be announced</CardDescription>
-                                </CardHeader>
-                                <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
-                                    <div className="font-semibold text-foreground space-y-1">
-                                        <p>Complimentary Beauty Industry Event</p>
-                                        <p>Open to Licensed Beauty Professionals</p>
-                                        <p>Registration Required / Limited Availability</p>
-                                    </div>
-                                    <p>
-                                        More details about our upcoming event in Palm Beach will be available soon. Register now to save your spot!
-                                    </p>
-                                     <div className="pt-6 flex justify-center">
-                                        <Button asChild variant="accent" size="lg">
-                                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
-                                                Sign Up Now
-                                            </Link>
                                         </Button>
                                     </div>
                                 </CardContent>
