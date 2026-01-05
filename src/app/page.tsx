@@ -92,9 +92,11 @@ export default function HomePage() {
             <div className="mt-10">
               <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
               <div className="flex justify-center gap-4">
-                <Button size="lg" variant="outline" disabled>
-                  <Apple className="mr-2 h-6 w-6" />
-                  Coming Soon
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                    <Apple className="mr-2 h-6 w-6" />
+                    App Store
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" disabled>
                   <Smartphone className="mr-2 h-6 w-6" />
