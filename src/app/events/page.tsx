@@ -69,11 +69,11 @@ export default function EventsPage() {
                             <Card className="shadow-lg overflow-hidden">
                                  <div className="relative h-60 w-full">
                                     <Image
-                                        src="https://picsum.photos/seed/palm-beach-style/1080/600"
+                                        src="https://images.unsplash.com/photo-1594236893974-9984b25c4e38?q=80&w=1080"
                                         alt="Palm Beach event"
                                         layout="fill"
                                         objectFit="cover"
-                                        data-ai-hint="palm beach"
+                                        data-ai-hint="Palm Beach city"
                                     />
                                 </div>
                                 <CardHeader className="text-center bg-primary/10">
