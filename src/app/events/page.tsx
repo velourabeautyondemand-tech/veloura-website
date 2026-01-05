@@ -88,6 +88,9 @@ export default function EventsPage() {
                                     <p>
                                         More details about our upcoming event in Palm Beach will be available soon. Register now to save your spot!
                                     </p>
+                                    <p className="font-semibold text-foreground">
+                                        All beauty Technicians are welcomed / must sign up
+                                    </p>
                                      <div className="pt-6 flex justify-center">
                                         <Button asChild variant="accent" size="lg">
                                             <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
