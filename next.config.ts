@@ -79,6 +79,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'ih1.redbubble.net',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   async redirects() {

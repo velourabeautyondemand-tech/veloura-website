@@ -69,7 +69,7 @@ export default function EventsPage() {
                             <Card className="shadow-lg overflow-hidden">
                                  <div className="relative h-60 w-full">
                                     <Image
-                                        src="https://images.unsplash.com/photo-1594236893974-9984b25c4e38?q=80&w=1080"
+                                        src="https://ih1.redbubble.net/image.782434255.8581/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8.u1.jpg"
                                         alt="Palm Beach event"
                                         layout="fill"
                                         objectFit="cover"
