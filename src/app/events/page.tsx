@@ -69,7 +69,7 @@ export default function EventsPage() {
                             <Card className="shadow-lg overflow-hidden">
                                  <div className="relative h-60 w-full">
                                     <Image
-                                        src="https://picsum.photos/seed/palm-beach/1080/600"
+                                        src="https://picsum.photos/seed/palm-beach-style/1080/600"
                                         alt="Palm Beach event"
                                         layout="fill"
                                         objectFit="cover"
@@ -82,7 +82,7 @@ export default function EventsPage() {
                                     </div>
                                     <CardTitle className="text-3xl font-headline text-primary">Upcoming VÉLOURA Event<br/>- Palm Beach, Florida</CardTitle>
                                     <p className="text-lg font-semibold text-muted-foreground pt-2">Date: January 21st at 5:30 PM</p>
-                                    <CardDescription className="pt-2">Location to be announced</CardDescription>
+                                    <CardDescription className="pt-2">📍 Location to be announced</CardDescription>
                                 </CardHeader>
                                 <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
                                     <p>
