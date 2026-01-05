@@ -22,48 +22,78 @@ export default function EventsPage() {
                                 Join us for exclusive events, and seminars.
                             </p>
                         </div>
-                        <Card className="shadow-lg overflow-hidden">
-                             <div className="relative h-60 w-full">
-                                <Image
-                                    src="https://vqftsjfwhonwbpyogmzi.supabase.co/storage/v1/object/public/landing-pages/33/components/d449314a-696b-47ed-8e8e-9b114a694ea0/1762890428095-miamibeach.jpg"
-                                    alt="Miami Beach event"
-                                    layout="fill"
-                                    objectFit="cover"
-                                    data-ai-hint="miami beach"
-                                />
-                            </div>
-                            <CardHeader className="text-center bg-primary/10">
-                                <div className="flex justify-center items-center mb-4">
-                                     <PartyPopper className="h-12 w-12 text-primary" />
+                        <div className="space-y-12">
+                            <Card className="shadow-lg overflow-hidden">
+                                <div className="relative h-60 w-full">
+                                    <Image
+                                        src="https://vqftsjfwhonwbpyogmzi.supabase.co/storage/v1/object/public/landing-pages/33/components/d449314a-696b-47ed-8e8e-9b114a694ea0/1762890428095-miamibeach.jpg"
+                                        alt="Miami Beach event"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        data-ai-hint="miami beach"
+                                    />
                                 </div>
-                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting Seminar <br/>- Miami, Florida</CardTitle>
-                                <p className="text-lg font-semibold text-muted-foreground pt-2">Date: 12/11/2025</p>
-                                <CardDescription className="pt-2">An Exclusive, Invitation-Only Event / No walk-ins</CardDescription>
-                                 <div className="mt-4">
-                                    <Button asChild>
-                                        <Link href="https://www.nowadays.ai/veloura-seminar-2025" target="_blank" rel="noopener noreferrer">Agenda</Link>
-                                    </Button>
+                                <CardHeader className="text-center bg-primary/10">
+                                    <div className="flex justify-center items-center mb-4">
+                                        <PartyPopper className="h-12 w-12 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting Seminar <br/>- Miami, Florida</CardTitle>
+                                    <p className="text-lg font-semibold text-muted-foreground pt-2">Date: 12/11/2025</p>
+                                    <CardDescription className="pt-2">An Exclusive, Invitation-Only Event / No walk-ins</CardDescription>
+                                    <div className="mt-4">
+                                        <Button asChild>
+                                            <Link href="https://www.nowadays.ai/veloura-seminar-2025" target="_blank" rel="noopener noreferrer">Agenda</Link>
+                                        </Button>
+                                    </div>
+                                </CardHeader>
+                                <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
+                                    <p className="text-lg font-semibold text-foreground">
+                                        All applications have been processed!
+                                    </p>
+                                    <p>
+                                        Please check your Indeed messages or email for the official invitation, which includes detailed seminar information and the event schedule. Invitations have been sent out.
+                                    </p>
+                                    
+                                    <p className="font-bold text-primary pt-4">- The VÉLOURA Team</p>
+                                    <div className="pt-6 flex flex-col sm:flex-row justify-center gap-4">
+                                        <Button asChild>
+                                            <Link href="https://VELOURABeautyonDemand.eventbrite.com" target="_blank" rel="noopener noreferrer">Recruitment seminar sign up now</Link>
+                                        </Button>
+                                        <Button asChild variant="accent">
+                                            <Link href="https://forms.gle/LT6hWDMj1nKQXW9v5" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            <Card className="shadow-lg overflow-hidden">
+                                 <div className="relative h-60 w-full">
+                                    <Image
+                                        src="https://picsum.photos/seed/palm-beach/1080/600"
+                                        alt="Palm Beach event"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        data-ai-hint="palm beach"
+                                    />
                                 </div>
-                            </CardHeader>
-                            <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
-                                <p className="text-lg font-semibold text-foreground">
-                                    All applications have been processed!
-                                </p>
-                                <p>
-                                    Please check your Indeed messages or email for the official invitation, which includes detailed seminar information and the event schedule. Invitations have been sent out.
-                                </p>
-                                
-                                <p className="font-bold text-primary pt-4">- The VÉLOURA Team</p>
-                                 <div className="pt-6 flex flex-col sm:flex-row justify-center gap-4">
-                                    <Button asChild>
-                                        <Link href="https://VELOURABeautyonDemand.eventbrite.com" target="_blank" rel="noopener noreferrer">Recruitment seminar sign up now</Link>
-                                    </Button>
-                                    <Button asChild variant="accent">
-                                        <Link href="https://forms.gle/LT6hWDMj1nKQXW9v5" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
-                                    </Button>
-                                </div>
-                            </CardContent>
-                        </Card>
+                                <CardHeader className="text-center bg-primary/10">
+                                    <div className="flex justify-center items-center mb-4">
+                                        <PartyPopper className="h-12 w-12 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-3xl font-headline text-primary">Upcoming VÉLOURA Event<br/>- Palm Beach, Florida</CardTitle>
+                                    <p className="text-lg font-semibold text-muted-foreground pt-2">Date: January 21st at 5:30 PM</p>
+                                    <CardDescription className="pt-2">Location to be announced</CardDescription>
+                                </CardHeader>
+                                <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
+                                    <p>
+                                        More details about our upcoming event in Palm Beach will be available soon. Stay tuned for information on how to register!
+                                    </p>
+                                     <div className="pt-6 flex justify-center">
+                                        <Button disabled variant="secondary">Registration Coming Soon</Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
                     </div>
                 </div>
             </main>
