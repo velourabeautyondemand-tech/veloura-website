@@ -85,6 +85,11 @@ export default function EventsPage() {
                                     <CardDescription className="pt-2">📍 Location to be announced</CardDescription>
                                 </CardHeader>
                                 <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
+                                    <div className="font-semibold text-foreground space-y-1">
+                                        <p>Complimentary Beauty Industry Event</p>
+                                        <p>Open to Licensed Beauty Professionals</p>
+                                        <p>Registration Required / Limited Availability</p>
+                                    </div>
                                     <p>
                                         More details about our upcoming event in Palm Beach will be available soon. Register now to save your spot!
                                     </p>
