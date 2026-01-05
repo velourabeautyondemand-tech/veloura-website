@@ -98,9 +98,11 @@ export default function HomePage() {
                     App Store
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" disabled>
-                  <Smartphone className="mr-2 h-6 w-6" />
-                  Coming Soon
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="https://play.google.com/store/apps/details?id=com.veloura.app" target="_blank" rel="noopener noreferrer">
+                    <Smartphone className="mr-2 h-6 w-6" />
+                    Google Play
+                  </Link>
                 </Button>
               </div>
             </div>
