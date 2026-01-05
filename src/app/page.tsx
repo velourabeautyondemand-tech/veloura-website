@@ -66,45 +66,33 @@ export default function HomePage() {
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
                  VÉLOURA
               </h1>
-              <div className="mt-10 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
               <p className="mt-4 text-lg text-muted-foreground">
                 Where technology meets beauty. One App. One Click.
               </p>
+               <div className="mt-10">
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
+                  <div className="flex justify-center gap-4">
+                    <Button size="lg" variant="outline" asChild>
+                      <Link href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                        <Apple className="mr-2 h-6 w-6" />
+                        App Store
+                      </Link>
+                    </Button>
+                    <Button size="lg" variant="outline" asChild>
+                      <Link href="https://play.google.com/store/apps/details?id=com.veloura.app" target="_blank" rel="noopener noreferrer">
+                        <Smartphone className="mr-2 h-6 w-6" />
+                        Google Play
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              <p className="mt-10 text-lg font-bold text-primary">
+                Relax, we’re coming to you.
+              </p>
+              <div className="mt-2 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
               <p className="mt-2 text-md text-muted-foreground italic">
                 6 miles within your location at no traffic, no parking, no rushing, no waiting line
               </p>
-              <p className="mt-4 text-lg font-bold text-primary">
-                Relax, we’re coming to you.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* New App Download Section */}
-        <section className="py-16 sm:py-24 bg-background">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-              The first smart beauty platform
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Brings professionals to you at your fingertips
-            </p>
-            <div className="mt-10">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
-              <div className="flex justify-center gap-4">
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
-                    <Apple className="mr-2 h-6 w-6" />
-                    App Store
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="https://play.google.com/store/apps/details?id=com.veloura.app" target="_blank" rel="noopener noreferrer">
-                    <Smartphone className="mr-2 h-6 w-6" />
-                    Google Play
-                  </Link>
-                </Button>
-              </div>
             </div>
           </div>
         </section>
