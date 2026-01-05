@@ -92,14 +92,6 @@ export default function EventsPage() {
                                     </p>
                                     
                                     <p className="font-bold text-primary pt-4">- The VÉLOURA Team</p>
-                                    <div className="pt-6 flex flex-col sm:flex-row justify-center gap-4">
-                                        <Button asChild>
-                                            <Link href="https://VELOURABeautyonDemand.eventbrite.com" target="_blank" rel="noopener noreferrer">Recruitment seminar sign up now</Link>
-                                        </Button>
-                                        <Button asChild variant="accent">
-                                            <Link href="https://forms.gle/LT6hWDMj1nKQXW9v5" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
-                                        </Button>
-                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
