@@ -108,7 +108,7 @@ export default function ApplyPage() {
             
             <div className="text-center mb-12">
                 <Button asChild size="lg" variant="accent">
-                    <Link href="https://forms.gle/LT6hWDMj1nKQXW9v5" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
+                    <Link href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
                 </Button>
             </div>
 
