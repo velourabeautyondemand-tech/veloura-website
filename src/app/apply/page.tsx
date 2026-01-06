@@ -127,23 +127,23 @@ export default function ApplyPage() {
                 
                 <div>
                     <h3 className="text-foreground">What’s Next: Onboarding Steps</h3>
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <div>
-                            <h4>Step 1: Complete the Online Application</h4>
+                            <h4 className="font-semibold text-foreground">Step 1: Complete the Online Application</h4>
                             <p>Visit our website and submit the technician onboarding form: 👉 <a href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://velourabeautyondemand.com/</a></p>
                         </div>
                         <div>
-                            <h4>Step 2: Background Check Verification</h4>
+                            <h4 className="font-semibold text-foreground">Step 2: Background Check Verification</h4>
                             <p>After submitting your application, you will receive an email from Checkr with instructions to complete your background check. Please complete this step promptly to avoid delays.</p>
                         </div>
                         <div>
-                            <h4>Step 3: Review & Accept Platform Policies</h4>
+                            <h4 className="font-semibold text-foreground">Step 3: Review & Accept Platform Policies</h4>
                             <p>Once your background check is submitted, review and accept VÉLOURA’s platform policies to continue the onboarding process.</p>
                         </div>
                         <div>
-                            <h4>Step 4: Final Approval & Device Shipment</h4>
+                            <h4 className="font-semibold text-foreground">Step 4: Final Approval & Device Shipment</h4>
                             <p>After approval, you will receive a link to submit the refundable deposit for the Silent Beacon safety device. Once the deposit is completed:</p>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 pl-4">
                                 <li>The device will be mailed to you</li>
                                 <li>You will receive a follow-up email with step-by-step setup instructions</li>
                             </ul>
@@ -151,15 +151,17 @@ export default function ApplyPage() {
                     </div>
                 </div>
 
-                <div>
+                <div className="!mt-8">
                     <h3 className="text-foreground">Technician Sign-Up &amp; Safety Information</h3>
-                    <p>All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety.</p>
-                    <ul className="space-y-2">
-                        <li>The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</li>
-                        <li>A refundable $19.99 deposit is required for the device</li>
-                        <li>The deposit is fully refundable upon return of the device</li>
-                        <li>In the event of damage, the device can be replaced at no additional charge</li>
-                    </ul>
+                    <div className="space-y-4">
+                      <p>All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety.</p>
+                      <ul className="space-y-2 pl-4">
+                          <li>The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</li>
+                          <li>A refundable $19.99 deposit is required for the device</li>
+                          <li>The deposit is fully refundable upon return of the device</li>
+                          <li>In the event of damage, the device can be replaced at no additional charge</li>
+                      </ul>
+                    </div>
                 </div>
               </CardContent>
             </Card>
