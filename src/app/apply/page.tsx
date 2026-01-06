@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
-import { ApplicationForm } from "@/components/features/application-form";
 import Link from 'next/link';
 
 const benefits = [
@@ -166,17 +165,11 @@ export default function ApplyPage() {
               </CardContent>
             </Card>
 
-
-          <Card className="max-w-3xl mx-auto shadow-2xl bg-card/80 backdrop-blur-sm">
-            <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold font-headline">Become a VÉLOURA Pro</CardTitle>
-              <CardDescription className="text-lg text-muted-foreground pt-2">Ready to take control of your career? Apply below!</CardDescription>
-              <p className="text-sm text-muted-foreground pt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
-            </CardHeader>
-            <CardContent>
-                <ApplicationForm />
-            </CardContent>
-          </Card>
+            <div className="text-center">
+              <Button asChild size="lg">
+                <Link href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">APPLY NOW</Link>
+              </Button>
+            </div>
         </div>
       </main>
       <Footer />
