@@ -116,38 +116,51 @@ export default function ApplyPage() {
               <CardHeader>
                 <CardTitle className="font-headline text-2xl">Onboarding Information</CardTitle>
               </CardHeader>
-              <CardContent className="prose prose-sm max-w-none text-muted-foreground">
-                <h3 className="text-foreground">Important</h3>
-                <ul>
-                  <li>App access for technicians is granted only after approval.</li>
-                  <li>A single phone number can only be used for one role — either technician or customer (not both).</li>
-                </ul>
-
-                <h3 className="text-foreground">What’s Next: Onboarding Steps</h3>
-                <h4>Step 1: Complete the Online Application</h4>
-                <p>Visit our website and submit the technician onboarding form: 👉 <a href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://velourabeautyondemand.com/</a></p>
+              <CardContent className="prose prose-sm max-w-none text-muted-foreground space-y-6">
+                <div>
+                    <h3 className="text-foreground">Important</h3>
+                    <ul className="space-y-2">
+                      <li>App access for technicians is granted only after approval.</li>
+                      <li>A single phone number can only be used for one role — either technician or customer (not both).</li>
+                    </ul>
+                </div>
                 
-                <h4>Step 2: Background Check Verification</h4>
-                <p>After submitting your application, you will receive an email from Checkr with instructions to complete your background check. Please complete this step promptly to avoid delays.</p>
+                <div>
+                    <h3 className="text-foreground">What’s Next: Onboarding Steps</h3>
+                    <div className="space-y-4">
+                        <div>
+                            <h4>Step 1: Complete the Online Application</h4>
+                            <p>Visit our website and submit the technician onboarding form: 👉 <a href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://velourabeautyondemand.com/</a></p>
+                        </div>
+                        <div>
+                            <h4>Step 2: Background Check Verification</h4>
+                            <p>After submitting your application, you will receive an email from Checkr with instructions to complete your background check. Please complete this step promptly to avoid delays.</p>
+                        </div>
+                        <div>
+                            <h4>Step 3: Review & Accept Platform Policies</h4>
+                            <p>Once your background check is submitted, review and accept VÉLOURA’s platform policies to continue the onboarding process.</p>
+                        </div>
+                        <div>
+                            <h4>Step 4: Final Approval & Device Shipment</h4>
+                            <p>After approval, you will receive a link to submit the refundable deposit for the Silent Beacon safety device. Once the deposit is completed:</p>
+                            <ul className="space-y-2">
+                                <li>The device will be mailed to you</li>
+                                <li>You will receive a follow-up email with step-by-step setup instructions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                <h4>Step 3: Review & Accept Platform Policies</h4>
-                <p>Once your background check is submitted, review and accept VÉLOURA’s platform policies to continue the onboarding process.</p>
-
-                <h4>Step 4: Final Approval & Device Shipment</h4>
-                <p>After approval, you will receive a link to submit the refundable deposit for the Silent Beacon safety device. Once the deposit is completed:</p>
-                <ul>
-                    <li>The device will be mailed to you</li>
-                    <li>You will receive a follow-up email with step-by-step setup instructions</li>
-                </ul>
-
-                <h3 className="text-foreground">Technician Sign-Up & Safety Information</h3>
-                <p>All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety.</p>
-                <ul>
-                    <li>The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</li>
-                    <li>A refundable $19.99 deposit is required for the device</li>
-                    <li>The deposit is fully refundable upon return of the device</li>
-                    <li>In the event of damage, the device can be replaced at no additional charge</li>
-                </ul>
+                <div>
+                    <h3 className="text-foreground">Technician Sign-Up & Safety Information</h3>
+                    <p>All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety.</p>
+                    <ul className="space-y-2">
+                        <li>The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</li>
+                        <li>A refundable $19.99 deposit is required for the device</li>
+                        <li>The deposit is fully refundable upon return of the device</li>
+                        <li>In the event of damage, the device can be replaced at no additional charge</li>
+                    </ul>
+                </div>
               </CardContent>
             </Card>
 
