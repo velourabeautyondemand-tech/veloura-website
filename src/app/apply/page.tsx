@@ -125,16 +125,16 @@ export default function ApplyPage() {
                             <h4 className="font-semibold text-foreground">Step 1: Complete the Online Application</h4>
                             <p>Visit our website and submit the technician onboarding form: 👉 <a href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://velourabeautyondemand.com/</a></p>
                         </div>
-                        <div>
+                        <div className="space-y-2">
                             <h4 className="font-semibold text-foreground">Step 2: Background Check Verification</h4>
                             <p>After submitting your application, you will receive an email from Checkr with instructions to complete your background check. Please complete this step promptly to avoid delays.</p>
                         </div>
-                        <div>
-                            <h4 className="font-semibold text-foreground">Step 3: Review &amp; Accept Platform Policies</h4>
+                        <div className="space-y-2">
+                            <h4 className="font-semibold text-foreground">Step 3: Review & Accept Platform Policies</h4>
                             <p>Once your background check is submitted, review and accept VÉLOURA’s platform policies to continue the onboarding process.</p>
                         </div>
-                        <div>
-                            <h4 className="font-semibold text-foreground">Step 4: Final Approval &amp; Device Shipment</h4>
+                        <div className="space-y-2">
+                            <h4 className="font-semibold text-foreground">Step 4: Final Approval & Device Shipment</h4>
                             <p>After approval, you will receive a link to submit the refundable deposit for the Silent Beacon safety device. Once the deposit is completed:</p>
                             <ul className="space-y-2 pl-4">
                                 <li>The device will be mailed to you</li>
@@ -144,9 +144,9 @@ export default function ApplyPage() {
                     </div>
                 </div>
 
-                <div className="!mt-12">
+                <div className="!mt-12 space-y-4">
                     <h3 className="text-foreground font-bold text-lg">Technician Sign-Up &amp; Safety Information</h3>
-                    <div className="space-y-4 mt-4">
+                    <div className="space-y-2 mt-4">
                       <p>All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety.</p>
                       <ul className="space-y-2 pl-4">
                           <li>The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</li>
