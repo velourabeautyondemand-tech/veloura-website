@@ -160,9 +160,9 @@ export default function ApplyPage() {
             </Card>
 
             <div className="text-center">
-              <Button asChild size="lg">
-                <a href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">APPLY NOW</a>
-              </Button>
+                <a href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold text-lg">
+                    https://velourabeautyondemand.com/
+                </a>
             </div>
         </div>
       </main>
