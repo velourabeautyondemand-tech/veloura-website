@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Upload, User, Mail, Phone, MapPin, Share2, PartyPopper } from "lucide-react";
+import { Upload, User, Mail, Phone, MapPin, Share2, PartyPopper, Award } from "lucide-react";
 import { useFirestore } from "@/firebase";
 import { collection } from "firebase/firestore";
 import { addDocumentNonBlocking } from "@/firebase/non-blocking-updates";
@@ -33,6 +33,7 @@ const formSchema = z.object({
   phone: z.string().min(10, "Please enter a valid phone number."),
   serviceArea: z.string().min(3, "Please enter a valid service area."),
   socialMediaLink: z.string().url("Please enter a valid URL.").optional().or(z.literal('')),
+  licenseNumber: z.string().min(1, "License number is required."),
   resumeUpload: z.any().optional(),
   agreeToTerms: z.boolean().refine(val => val === true, {
     message: "You must agree to the terms and conditions.",
@@ -54,6 +55,7 @@ export function ApplicationForm() {
             phone: "",
             serviceArea: "",
             socialMediaLink: "",
+            licenseNumber: "",
             agreeToTerms: false,
         },
     });
@@ -213,6 +215,23 @@ export function ApplicationForm() {
                 />
                 <FormField
                 control={form.control}
+                name="licenseNumber"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Professional License Number</FormLabel>
+                    <FormControl>
+                        <div className="relative">
+                        <Award className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Input placeholder="Your license number" {...field} className="pl-10" />
+                        </div>
+                    </FormControl>
+                    <FormDescription>Your state-issued cosmetology or esthetician license number.</FormDescription>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
                 name="resumeUpload"
                 render={({ field }) => (
                     <FormItem>
@@ -278,3 +297,5 @@ export function ApplicationForm() {
         </Form>
     )
 }
+
+    
