@@ -5,17 +5,17 @@
 @layer base {
   :root {
     --background: 348 83% 98%; /* Light Pinkish White */
-    --foreground: 348 60% 25%; /* Dark Pinkish Brown */
+    --foreground: 30 50% 30%; /* Brown */
     --card: 348 83% 97%;
-    --card-foreground: 348 60% 25%;
+    --card-foreground: 30 50% 30%;
     --popover: 348 83% 97%;
-    --popover-foreground: 348 60% 25%;
+    --popover-foreground: 30 50% 30%;
     --primary: 348 83% 60%; /* Cute Pink */
     --primary-foreground: 348 83% 98%;
     --secondary: 348 83% 94%;
     --secondary-foreground: 348 83% 40%;
     --muted: 348 83% 94%;
-    --muted-foreground: 348 60% 45%;
+    --muted-foreground: 30 30% 45%;
     --accent: 348 83% 65%; /* Bolder Pink */
     --accent-foreground: 348 83% 98%;
     --destructive: 0 84.2% 60.2%;
