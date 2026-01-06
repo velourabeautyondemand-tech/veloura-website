@@ -152,7 +152,7 @@ export default function ApplyPage() {
                 </div>
 
                 <div>
-                    <h3 className="text-foreground">Technician Sign-Up & Safety Information</h3>
+                    <h3 className="text-foreground">Technician Sign-Up &amp; Safety Information</h3>
                     <p>All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety.</p>
                     <ul className="space-y-2">
                         <li>The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</li>
