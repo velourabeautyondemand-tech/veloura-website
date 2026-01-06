@@ -114,9 +114,9 @@ export default function ApplyPage() {
                     <p className="text-muted-foreground mt-2">Everything you need to know to get started.</p>
                 </div>
                 
-                <div className="bg-destructive/10 border-l-4 border-destructive p-4 rounded-md">
-                    <h3 className="font-bold text-destructive">Important</h3>
-                    <ul className="list-disc pl-5 mt-2 text-sm text-destructive-foreground/80">
+                <div className="bg-muted border-l-4 border-primary p-4 rounded-md">
+                    <h3 className="font-bold text-foreground">Important</h3>
+                    <ul className="list-disc pl-5 mt-2 text-sm text-foreground/80">
                         <li>App access for technicians is granted only after approval.</li>
                         <li>A single phone number can only be used for one role — either technician or customer (not both).</li>
                     </ul>
