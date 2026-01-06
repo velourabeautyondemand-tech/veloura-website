@@ -105,12 +105,6 @@ export default function ApplyPage() {
                 </p>
             </section>
             
-            <div className="text-center mb-12">
-                <Button asChild size="lg" variant="accent">
-                    <Link href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Submit Now to Get Qualified</Link>
-                </Button>
-            </div>
-
             <Card className="max-w-3xl mx-auto mb-16 md:mb-24 bg-card/80 backdrop-blur-sm shadow-xl">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl">Onboarding Information</CardTitle>
