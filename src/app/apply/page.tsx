@@ -118,15 +118,15 @@ export default function ApplyPage() {
               </CardHeader>
               <CardContent className="prose prose-sm max-w-none text-muted-foreground space-y-6">
                 <div>
-                    <h3 className="text-foreground">Important</h3>
+                    <h3 className="text-foreground font-bold">Important</h3>
                     <ul className="space-y-2">
                       <li>App access for technicians is granted only after approval.</li>
                       <li>A single phone number can only be used for one role — either technician or customer (not both).</li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h3 className="text-foreground">What’s Next: Onboarding Steps</h3>
+                <div className="space-y-6">
+                    <h3 className="text-foreground font-bold">What’s Next: Onboarding Steps</h3>
                     <div className="space-y-6">
                         <div>
                             <h4 className="font-semibold text-foreground">Step 1: Complete the Online Application</h4>
@@ -137,11 +137,11 @@ export default function ApplyPage() {
                             <p>After submitting your application, you will receive an email from Checkr with instructions to complete your background check. Please complete this step promptly to avoid delays.</p>
                         </div>
                         <div>
-                            <h4 className="font-semibold text-foreground">Step 3: Review & Accept Platform Policies</h4>
+                            <h4 className="font-semibold text-foreground">Step 3: Review &amp; Accept Platform Policies</h4>
                             <p>Once your background check is submitted, review and accept VÉLOURA’s platform policies to continue the onboarding process.</p>
                         </div>
                         <div>
-                            <h4 className="font-semibold text-foreground">Step 4: Final Approval & Device Shipment</h4>
+                            <h4 className="font-semibold text-foreground">Step 4: Final Approval &amp; Device Shipment</h4>
                             <p>After approval, you will receive a link to submit the refundable deposit for the Silent Beacon safety device. Once the deposit is completed:</p>
                             <ul className="space-y-2 pl-4">
                                 <li>The device will be mailed to you</li>
@@ -151,9 +151,9 @@ export default function ApplyPage() {
                     </div>
                 </div>
 
-                <div className="!mt-8">
-                    <h3 className="text-foreground">Technician Sign-Up &amp; Safety Information</h3>
-                    <div className="space-y-4">
+                <div className="!mt-12">
+                    <h3 className="text-foreground font-bold text-lg">Technician Sign-Up &amp; Safety Information</h3>
+                    <div className="space-y-4 mt-4">
                       <p>All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety.</p>
                       <ul className="space-y-2 pl-4">
                           <li>The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</li>
