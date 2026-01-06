@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, PartyPopper } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, PartyPopper, CheckSquare, Fingerprint, FileText, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -104,6 +104,68 @@ export default function ApplyPage() {
                     <br/>
                     <span className="text-primary">That’s why we built VÉLOURA.</span>
                 </p>
+            </section>
+
+            {/* Onboarding Steps Section */}
+            <section id="onboarding" className="mb-16 md:mb-24">
+              <div className="max-w-3xl mx-auto space-y-8 bg-card p-8 rounded-xl shadow-xl">
+                <div className="text-center">
+                    <h2 className="text-3xl font-bold font-headline">Onboarding & Safety</h2>
+                    <p className="text-muted-foreground mt-2">Everything you need to know to get started.</p>
+                </div>
+                
+                <div className="bg-destructive/10 border-l-4 border-destructive p-4 rounded-md">
+                    <h3 className="font-bold text-destructive">Important</h3>
+                    <ul className="list-disc pl-5 mt-2 text-sm text-destructive-foreground/80">
+                        <li>App access for technicians is granted only after approval.</li>
+                        <li>A single phone number can only be used for one role — either technician or customer (not both).</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="text-2xl font-semibold font-headline mb-4">What’s Next: Onboarding Steps</h3>
+                    <ol className="space-y-6">
+                        <li className="flex items-start gap-4">
+                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 className="font-semibold">Complete the Online Application</h4>
+                                <p className="text-muted-foreground">Visit our website and submit the technician onboarding form: <Link href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">velourabeautyondemand.com</Link></p>
+                            </div>
+                        </li>
+                         <li className="flex items-start gap-4">
+                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 className="font-semibold">Background Check Verification</h4>
+                                <p className="text-muted-foreground">After submitting your application, you will receive an email from Checkr with instructions to complete your background check. Please complete this step promptly to avoid delays.</p>
+                            </div>
+                        </li>
+                         <li className="flex items-start gap-4">
+                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 className="font-semibold">Review & Accept Platform Policies</h4>
+                                <p className="text-muted-foreground">Once your background check is submitted, review and accept VÉLOURA’s platform policies to continue the onboarding process.</p>
+                            </div>
+                        </li>
+                         <li className="flex items-start gap-4">
+                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                            <div>
+                                <h4 className="font-semibold">Final Approval & Device Shipment</h4>
+                                <p className="text-muted-foreground">After approval, you will receive a link to submit the refundable deposit for the Silent Beacon safety device. Once the deposit is completed, the device will be mailed to you, and you'll receive a follow-up email with setup instructions.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div>
+                  <h3 className="text-2xl font-semibold font-headline text-primary mb-4">Technician Sign-Up & Safety Information</h3>
+                  <p className="text-muted-foreground">All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety. The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</p>
+                  <ul className="list-disc pl-5 mt-4 space-y-2 text-muted-foreground">
+                    <li>A refundable <span className="font-semibold text-foreground">$19.99 deposit</span> is required for the device.</li>
+                    <li>The deposit is fully refundable upon return of the device.</li>
+                    <li>In the event of damage, the device can be replaced at no additional charge.</li>
+                  </ul>
+                </div>
+              </div>
             </section>
 
             {/* Application Section */}
