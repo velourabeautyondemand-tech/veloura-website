@@ -164,6 +164,13 @@ export default function ApplyPage() {
                     <li>The deposit is fully refundable upon return of the device.</li>
                     <li>In the event of damage, the device can be replaced at no additional charge.</li>
                   </ul>
+                   <div className="mt-4">
+                        <Button asChild variant="link" className="p-0 h-auto">
+                            <a href="https://silentbeacon.com/" target="_blank" rel="noopener noreferrer">
+                                Learn more about Silent Beacon
+                            </a>
+                        </Button>
+                    </div>
                 </div>
               </div>
             </section>
