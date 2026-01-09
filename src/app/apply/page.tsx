@@ -2,13 +2,14 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, PartyPopper, CheckSquare, Fingerprint, FileText, Package } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, PartyPopper, CheckSquare, Fingerprint, FileText, Package, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 import Link from 'next/link';
 import { ApplicationForm } from "@/components/features/application-form";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const benefits = [
     {
@@ -185,7 +186,18 @@ export default function ApplyPage() {
                              <p className="text-sm mt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
                         </CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="space-y-6">
+                        <Alert variant="destructive" className="bg-yellow-50 border-yellow-300 text-yellow-800">
+                          <AlertTriangle className="h-4 w-4 text-yellow-600" />
+                          <AlertTitle className="font-bold text-yellow-900">⚠️ Important</AlertTitle>
+                          <AlertDescription>
+                            <ul className="list-disc pl-5 mt-2">
+                                <li>Do not download the app before applying.</li>
+                                <li>Technician app access is granted only after approval.</li>
+                                <li>A single phone number can be used for one role only — either technician or customer, not both.</li>
+                            </ul>
+                          </AlertDescription>
+                        </Alert>
                         <div className="flex justify-center">
                             <Button asChild size="lg">
                                 <a href="https://admin.velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Apply Now</a>
