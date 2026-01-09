@@ -40,7 +40,7 @@ export default function EventsPage() {
                                     <CardTitle className="text-3xl font-headline text-primary">Upcoming VÉLOURA Event<br/>- Palm Beach, Florida</CardTitle>
                                     <p className="text-lg font-semibold text-muted-foreground pt-2">Date: January 21st at 5:30 PM</p>
                                     <CardDescription className="pt-2">
-                                        Pink Steak West Palm Beach FL<br/>
+                                        Pink Steak<br/>
                                         2777 S Dixie Hwy, West Palm Beach, FL 33405
                                     </CardDescription>
                                 </CardHeader>
