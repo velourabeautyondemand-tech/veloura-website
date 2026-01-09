@@ -47,6 +47,10 @@ export default function RootLayout({
           {children}
         </FirebaseClientProvider>
         <Toaster />
+        <Script
+            src="https://dunsregistered.dnb.com/drsus.js?duns=99d2u3n5s98s7a7m6p1l2e&ProfileURL=https://www.dnb.com/business-directory/sample-inc.html"
+            strategy="lazyOnload"
+        />
       </body>
     </html>
   );
