@@ -179,7 +179,11 @@ export default function ApplyPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <ApplicationForm />
+                        <div className="flex justify-center">
+                            <Button asChild size="lg">
+                                <a href="https://admin.velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Apply Now</a>
+                            </Button>
+                        </div>
                     </CardContent>
                 </Card>
             </section>
