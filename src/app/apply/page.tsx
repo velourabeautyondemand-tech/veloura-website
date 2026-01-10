@@ -130,7 +130,7 @@ export default function ApplyPage() {
                             <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
                             <div>
                                 <h4 className="font-semibold">Complete the Online Application</h4>
-                                <p className="text-muted-foreground">Visit our website and submit the technician onboarding form: <Link href="https://velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">velourabeautyondemand.com</Link></p>
+                                <p className="text-muted-foreground">Click "Apply Now" below to submit the technician onboarding form.</p>
                             </div>
                         </li>
                          <li className="flex items-start gap-4">
