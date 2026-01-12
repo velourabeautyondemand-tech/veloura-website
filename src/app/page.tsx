@@ -86,6 +86,11 @@ export default function HomePage() {
                     </Button>
                   </div>
                 </div>
+                <div className="mt-6">
+                    <Button size="lg" variant="default" asChild>
+                      <Link href="https://velourabeautyondemand.com/apply">For Technician only</Link>
+                    </Button>
+                </div>
               <p className="mt-10 text-lg font-bold text-primary">
                 Relax, we’re coming to you.
               </p>
