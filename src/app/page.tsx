@@ -86,13 +86,11 @@ export default function HomePage() {
                     </Button>
                   </div>
                 </div>
-                <div className="mt-6 flex justify-center gap-4">
-                    <Button size="lg" variant="default" asChild>
-                      <Link href="https://velourabeautyondemand.com/apply">Technician</Link>
-                    </Button>
-                     <Button size="lg" variant="accent" asChild>
-                      <Link href="https://velourabeautyondemand.com/apply">Apply Here</Link>
-                    </Button>
+                <div className="mt-8">
+                  <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-muted-foreground">For Technicians</p>
+                  <Button size="lg" variant="accent" asChild>
+                    <Link href="https://velourabeautyondemand.com/apply">Apply Here</Link>
+                  </Button>
                 </div>
               <p className="mt-10 text-lg font-bold text-primary">
                 Relax, we’re coming to you.
