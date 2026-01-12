@@ -2,14 +2,19 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, PartyPopper, CheckSquare, Fingerprint, FileText, Package, AlertTriangle } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 import Link from 'next/link';
-import { ApplicationForm } from "@/components/features/application-form";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const benefits = [
     {
@@ -46,6 +51,49 @@ const benefits = [
         icon: BarChart3,
         title: "Grow Your Income",
         description: "Get access to a steady, reliable stream of on-demand clients."
+    }
+];
+
+const faqs = [
+    {
+        question: "Should I download the app before signing up?",
+        answer: "Please do not download the app before applying. Technician app access is granted only after your application is approved. At this time, one phone number may be used for one role only—either technician or customer. To complete your onboarding, please follow these steps: Complete the technician application, submit your application, pass background screening. You’ll be notified once your onboarding is complete. Receive approval confirmation from VÉLOURA and log in to the app using the phone number you signed up with."
+    },
+    {
+        question: "I’m trying to submit my application, but it keeps failing. What should I do?",
+        answer: "We’re currently updating the app. At this time, one phone number can only be used for one role—either technician or customer. If you created both account types using the same phone number, the application may fail. Please delete one account and reapply using this link: https://velourabeautyondemand.com/apply"
+    },
+    {
+        question: "Can I be both a customer and a technician using the same phone number?",
+        answer: "At the moment, no. Due to system updates, each phone number can only be associated with one role. We recommend using a separate phone number if you wish to have both accounts in the future."
+    },
+    {
+        question: "I haven’t received anything about the background check. Is something wrong?",
+        answer: "Background checks are initiated after your application is successfully submitted and reviewed. If your application did not complete or failed, the background check will not start. Once approved, you’ll receive a separate notification with next steps."
+    },
+    {
+        question: "How do I know if my technician application is approved?",
+        answer: "You’ll receive an email confirmation once your status is updated to Approved. Approved technicians will then be guided to: Sign the required agreement or waiver, receive the Silent Beacon safety device (if accepted), and begin accepting bookings."
+    },
+    {
+        question: "What is the Silent Beacon safety device?",
+        answer: "The Silent Beacon is a personal safety device offered to technicians for use during VÉLOURA-booked services only. Technicians may choose to accept or decline the device during onboarding. A refundable security deposit is required if you accept the device. If declined, a safety waiver must be signed."
+    },
+    {
+        question: "I already applied once. Do I need to apply again?",
+        answer: "If your application failed, was incomplete, or tied to a conflicting account, you may need to reapply. Please use the official application link: https://velourabeautyondemand.com/apply. If you’re unsure, contact our support team."
+    },
+    {
+        question: "Who can I contact if I need help with sign-up or onboarding?",
+        answer: "We’re happy to help! Email us at support@velourabeautyondemand.com. Please include: Your full name, email used to sign up, phone number, and a screenshot or description of the issue (if possible)."
+    },
+    {
+        question: "When can I start accepting jobs?",
+        answer: "You can start accepting jobs once: Your technician status shows Approved, all required agreements or waivers are signed, and your account is enabled in the app."
+    },
+    {
+        question: "Is VÉLOURA currently updating the app?",
+        answer: "Yes. We’re actively improving the platform to provide a better experience. During this time, some features (such as dual-role accounts) may be temporarily limited."
     }
 ];
 
@@ -130,7 +178,7 @@ export default function ApplyPage() {
                             <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
                             <div>
                                 <h4 className="font-semibold">Complete the Online Application</h4>
-                                <p className="text-muted-foreground">Click "Apply Now" below to submit the technician onboarding form.</p>
+                                <p className="text-muted-foreground">"Apply Now" below to submit the technician onboarding form.</p>
                             </div>
                         </li>
                          <li className="flex items-start gap-4">
@@ -167,9 +215,9 @@ export default function ApplyPage() {
                   </ul>
                    <div className="mt-4">
                         <Button asChild variant="link" className="p-0 h-auto">
-                            <a href="https://silentbeacon.com/" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://silentbeacon.com/" target="_blank" rel="noopener noreferrer">
                                 Learn more about Silent Beacon
-                            </a>
+                            </Link>
                         </Button>
                     </div>
                 </div>
@@ -206,9 +254,30 @@ export default function ApplyPage() {
                     </CardContent>
                 </Card>
             </section>
+
+            {/* FAQ Section */}
+            <section id="faq" className="mb-16 md:mb-24">
+              <div className="max-w-3xl mx-auto">
+                 <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold sm:text-4xl font-headline">Frequently Asked Questions (Q&A)</h2>
+                </div>
+                <Accordion type="single" collapsible className="w-full bg-card p-4 sm:p-8 rounded-xl shadow-xl">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                      <AccordionTrigger className="text-left font-semibold">{faq.question}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </section>
         </div>
       </main>
       <Footer />
     </div>
   );
 }
+
+    
