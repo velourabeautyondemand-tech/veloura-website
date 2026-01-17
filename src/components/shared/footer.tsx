@@ -17,7 +17,7 @@ export default function Footer() {
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link>
             <Link href="/pro-discounts" className="text-muted-foreground hover:text-primary transition-colors">Pro Discounts</Link>
-            <Link href="/apply" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
+            <a href="https://velourabeautyondemand.com/apply" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Careers</a>
             <Link href="/partner-press" className="text-muted-foreground hover:text-primary transition-colors">Partner / Press</Link>
             
              <Link href="https://www.instagram.com/veloura_beauty_x?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
