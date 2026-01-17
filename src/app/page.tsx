@@ -73,23 +73,23 @@ export default function HomePage() {
                   <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
                   <div className="flex justify-center gap-4">
                     <Button size="lg" variant="outline" asChild>
-                      <Link href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                      <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
                         <Apple className="mr-2 h-6 w-6" />
                         App Store
-                      </Link>
+                      </a>
                     </Button>
                     <Button size="lg" variant="outline" asChild>
-                      <Link href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                      <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                         <Smartphone className="mr-2 h-6 w-6" />
                         Google Play
-                      </Link>
+                      </a>
                     </Button>
                   </div>
                 </div>
                 <div className="mt-8">
                   <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-muted-foreground">For Technicians</p>
                   <Button size="lg" variant="outline" asChild>
-                    <Link href="https://velourabeautyondemand.com/apply" target="_blank" rel="noopener noreferrer">Apply Here</Link>
+                    <a href="https://velourabeautyondemand.com/apply" target="_blank" rel="noopener noreferrer">Apply Here</a>
                   </Button>
                 </div>
               <p className="mt-10 text-lg font-bold text-primary">
