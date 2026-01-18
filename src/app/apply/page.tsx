@@ -80,6 +80,10 @@ const faqs = [
         answer: "The Silent Beacon is a personal safety device offered to technicians for use during VÉLOURA-booked services only. Technicians may choose to accept or decline the device during onboarding. A refundable security deposit is required if you accept the device. If declined, a safety waiver must be signed."
     },
     {
+        question: "Is the Silent Beacon Safety Device deposit mandatory?",
+        answer: "All technicians are required to sign the Safety Device Waiver, which includes the option to accept or decline the Silent Beacon safety device. While the waiver is mandatory, the device itself may be accepted or declined according to the technician’s choice and the terms outlined in the agreement."
+    },
+    {
         question: "I already applied once. Do I need to apply again?",
         answer: "If your application failed, was incomplete, or tied to a conflicting account, you may need to reapply. Please use the official application link: https://velourabeautyondemand.com/apply. If you’re unsure, contact our support team."
     },
