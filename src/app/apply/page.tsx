@@ -229,14 +229,14 @@ export default function ApplyPage() {
                 <div className="pt-6 border-t border-border">
                     <h4 className="font-semibold text-lg text-center mb-4">Silent Beacon Safety Device Deposit – How It Works</h4>
                     <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                        <li>The Silent Beacon safety device is mandatory for all active technicians.</li>
+                        <li>The Silent Beacon safety device is encouraged for all active technicians to support personal safety during services.</li>
                         <li>A $19.99 refundable deposit is required to receive the device.</li>
-                        <li>The deposit payment link is sent after background check approval and Safety Device Waiver completion.</li>
+                        <li>The deposit payment link is sent after background check approval and completion of the Safety Device Waiver.</li>
                         <li>The deposit is fully refundable upon return of the device, in accordance with the agreement.</li>
                     </ul>
                     <p className="mt-4 text-sm text-center text-muted-foreground">
                         Learn more about the Silent Beacon safety device:
-                        <a href="https://silentbeacon.com/office-panic-button-solutions-for-businesses/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
+                        <a href="https://silentbeacon.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
                             https://silentbeacon.com
                         </a>
                     </p>
