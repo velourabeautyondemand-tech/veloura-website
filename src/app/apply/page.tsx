@@ -189,7 +189,8 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
                             <h4 className="font-semibold">Payment & Payout Setup</h4>
-                            <p className="text-muted-foreground">Once approved, you’ll securely set up your payment and payout information to receive earnings from completed bookings. Payments are processed electronically, and technicians keep 100% of their tips.</p>
+                            <p className="text-muted-foreground">After your background check is approved, you’ll be prompted to set up your payment and payout information to receive earnings from completed bookings.</p>
+                            <p className="text-muted-foreground mt-2">Payments are processed electronically through Homebase (our payroll system). Please be sure to set up and activate your Homebase account to ensure timely payouts.<br/>Technicians keep 100% of their tips.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
@@ -229,7 +230,7 @@ export default function ApplyPage() {
                     <CardHeader className="text-center">
                         <CardTitle className="font-headline text-3xl">Become a VÉLOURA Pro</CardTitle>
                         <CardDescription className="text-md">
-                            Ready to take control of your career? Apply below!
+                            Apply Now below to submit the technician onboarding form
                              <p className="text-sm mt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
                         </CardDescription>
                     </CardHeader>
@@ -278,3 +279,5 @@ export default function ApplyPage() {
     </div>
   );
 }
+
+    
