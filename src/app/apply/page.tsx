@@ -73,7 +73,7 @@ const faqs = [
     },
     {
         question: "How do I know if my technician application is approved?",
-        answer: "You’ll receive an email confirmation once your status is updated to Approved. Approved technicians will then be guided to: Sign the required agreement or waiver, receive the Silent Beacon safety device (if accepted), and begin accepting bookings."
+        answer: "You’ll receive an email confirmation once your status is updated to Approved. Approved technicians will then be guided to: Sign the required agreement or waiver, Receive the Silent Beacon safety device (if accepted), and Begin accepting bookings."
     },
     {
         question: "What is the Silent Beacon safety device?",
@@ -159,68 +159,67 @@ export default function ApplyPage() {
             <section id="onboarding" className="mb-16 md:mb-24">
               <div className="max-w-3xl mx-auto space-y-8 bg-card p-8 rounded-xl shadow-xl">
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold font-headline">Onboarding & Safety</h2>
-                    <p className="text-muted-foreground mt-2">Everything you need to know to get started.</p>
+                    <h2 className="text-3xl font-bold font-headline">VÉLOURA Beauty on Demand – Technician Sign-Up, Payment & Safety Process</h2>
+                    <p className="text-muted-foreground mt-2">Becoming a VÉLOURA Beauty on Demand professional is simple and designed to keep both technicians and clients safe while helping you get booked and paid seamlessly.</p>
                 </div>
                 
-                <div className="bg-muted border-l-4 border-primary p-4 rounded-md">
-                    <h3 className="font-bold text-foreground">Important</h3>
-                    <ul className="list-disc pl-5 mt-2 text-sm text-foreground/80">
-                        <li>App access for technicians is granted only after approval.</li>
-                        <li>A single phone number can only be used for one role — either technician or customer (not both).</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 className="text-2xl font-semibold font-headline mb-4">What’s Next: Onboarding Steps</h3>
-                    <ol className="space-y-6">
-                        <li className="flex items-start gap-4">
-                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
-                            <div>
-                                <h4 className="font-semibold">Complete the Online Application</h4>
-                                <p className="text-muted-foreground">"Apply Now" below to submit the technician onboarding form.</p>
-                            </div>
-                        </li>
-                         <li className="flex items-start gap-4">
-                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">2</div>
-                            <div>
-                                <h4 className="font-semibold">Background Check Verification</h4>
-                                <p className="text-muted-foreground">After submitting your application, you will receive an email from Checkr with instructions to complete your background check. Please complete this step promptly to avoid delays.</p>
-                            </div>
-                        </li>
-                         <li className="flex items-start gap-4">
-                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
-                            <div>
-                                <h4 className="font-semibold">Review & Accept Platform Policies</h4>
-                                <p className="text-muted-foreground">Once your background check is submitted, review and accept VÉLOURA’s platform policies to continue the onboarding process.</p>
-                            </div>
-                        </li>
-                         <li className="flex items-start gap-4">
-                            <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
-                            <div>
-                                <h4 className="font-semibold">Final Approval & Device Shipment</h4>
-                                <p className="text-muted-foreground">After approval, you will receive a link to submit the refundable deposit for the Silent Beacon safety device. Once the deposit is completed, the device will be mailed to you, and you'll receive a follow-up email with setup instructions.</p>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-                
-                <div>
-                  <h3 className="text-2xl font-semibold font-headline text-primary mb-4">Technician Sign-Up & Safety Information</h3>
-                  <p className="text-muted-foreground">All approved technicians will receive a Silent Beacon safety device as part of our commitment to your safety. The Silent Beacon device allows you to discreetly alert emergency services and your designated emergency contacts if you ever feel unsafe during a service.</p>
-                  <ul className="list-disc pl-5 mt-4 space-y-2 text-muted-foreground">
-                    <li>A refundable <span className="font-semibold text-foreground">$19.99 deposit</span> is required for the device.</li>
-                    <li>The deposit is fully refundable upon return of the device.</li>
-                    <li>In the event of damage, the device can be replaced at no additional charge.</li>
-                  </ul>
-                   <div className="mt-4">
-                        <Button asChild variant="link" className="p-0 h-auto">
-                            <Link href="https://silentbeacon.com/" target="_blank" rel="noopener noreferrer">
-                                Learn more about Silent Beacon
-                            </Link>
-                        </Button>
-                    </div>
-                </div>
+                <ol className="space-y-6">
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
+                        <div>
+                            <h4 className="font-semibold">Apply Online</h4>
+                            <p className="text-muted-foreground">Visit velourabeautyondemand.com and complete the technician onboarding application. Provide your basic information, professional license (if applicable), and the services you offer.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">2</div>
+                        <div>
+                            <h4 className="font-semibold">Background Check & Verification</h4>
+                            <p className="text-muted-foreground">To maintain trust and safety across the platform, all technicians must complete a background check and credential verification.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
+                        <div>
+                            <h4 className="font-semibold">Safety Device Waiver (Mandatory)</h4>
+                            <p className="text-muted-foreground">All technicians are required to review and electronically sign the VÉLOURA Safety Device Waiver & Agreement, which will be sent via Jotform. Completion of this step is mandatory before activation on the platform and includes instructions for the required safety device.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <h4 className="font-semibold">Payment & Payout Setup</h4>
+                            <p className="text-muted-foreground">Once approved, you’ll securely set up your payment and payout information to receive earnings from completed bookings. Payments are processed electronically, and technicians keep 100% of their tips.</p>
+                        </div>
+                    </li>
+                     <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
+                        <div>
+                            <h4 className="font-semibold">Download the VÉLOURA App</h4>
+                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to manage your profile, bookings, and availability.</p>
+                        </div>
+                    </li>
+                     <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
+                        <div>
+                            <h4 className="font-semibold">Set Up Your Profile</h4>
+                            <p className="text-muted-foreground">In the app, you’ll:</p>
+                            <ul className="list-disc pl-5 mt-2 text-muted-foreground">
+                                <li>Add your services and pricing</li>
+                                <li>Set your availability</li>
+                                <li>Select your service areas</li>
+                            </ul>
+                            <p className="mt-2"><strong className="text-primary">This information is what customers see when searching and booking</strong></p>
+                        </div>
+                    </li>
+                     <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
+                        <div>
+                            <h4 className="font-semibold">Start Receiving Bookings</h4>
+                            <p className="text-muted-foreground">Once your profile is live and availability is set, customers can book you directly through the app. You control when you work, what services you offer, and your schedule.</p>
+                        </div>
+                    </li>
+                </ol>
               </div>
             </section>
 
@@ -279,5 +278,3 @@ export default function ApplyPage() {
     </div>
   );
 }
-
-    
