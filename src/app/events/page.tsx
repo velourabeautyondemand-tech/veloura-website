@@ -1,7 +1,7 @@
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { PartyPopper } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -24,47 +24,24 @@ export default function EventsPage() {
                         </div>
                         <div className="space-y-12">
                             <Card className="shadow-lg overflow-hidden">
-                                 <div className="relative h-60 w-full">
+                                <CardContent className="p-0">
                                     <Image
-                                        src="https://ih1.redbubble.net/image.782434255.8581/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8.u1.jpg"
-                                        alt="Palm Beach event"
-                                        layout="fill"
-                                        objectFit="cover"
-                                        data-ai-hint="Palm Beach city"
+                                        src="https://i.imgur.com/vH4p2gT.jpeg"
+                                        alt="VÉLOURA Palm Beach Kickoff Event Flyer"
+                                        width={750}
+                                        height={1125}
+                                        layout="responsive"
+                                        className="w-full h-auto"
+                                        data-ai-hint="event flyer"
                                     />
-                                </div>
-                                <CardHeader className="text-center bg-primary/10">
-                                    <div className="flex justify-center items-center mb-4">
-                                        <PartyPopper className="h-12 w-12 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-3xl font-headline text-primary">Upcoming VÉLOURA Event<br/>- Palm Beach, Florida</CardTitle>
-                                    <p className="text-lg font-semibold text-muted-foreground pt-2">Date: January 21st at 5:30 PM</p>
-                                    <CardDescription className="pt-2">
-                                        Pink Steak<br/>
-                                        2777 S Dixie Hwy, West Palm Beach, FL 33405
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
-                                    <div className="font-semibold text-foreground space-y-1">
-                                        <p>Dress Code: Formal</p>
-                                        <p>Elegant evening attire</p>
-                                    </div>
-                                    <div className="font-semibold text-foreground space-y-1">
-                                        <p>Complimentary Beauty Industry Event</p>
-                                        <p>Open to Licensed Beauty Professionals</p>
-                                        <p>Registration Required / Limited Availability</p>
-                                    </div>
-                                    <p>
-                                        More details about our upcoming event in Palm Beach will be available soon. Register now to save your spot!
-                                    </p>
-                                     <div className="pt-6 flex justify-center">
-                                        <Button asChild variant="accent" size="lg">
-                                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
-                                                Event sign-up only
-                                            </Link>
-                                        </Button>
-                                    </div>
                                 </CardContent>
+                                <CardFooter className="pt-6 flex justify-center bg-card">
+                                    <Button asChild variant="accent" size="lg">
+                                        <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
+                                            RSVP Now
+                                        </Link>
+                                    </Button>
+                                </CardFooter>
                             </Card>
 
                             <Card className="shadow-lg overflow-hidden">
