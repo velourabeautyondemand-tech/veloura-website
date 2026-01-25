@@ -1,12 +1,11 @@
-
 'use client';
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { Handshake, Megaphone } from 'lucide-react';
+import { Handshake, Megaphone, Mail } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import { PressInquiryForm } from '@/components/features/press-inquiry-form';
-import { PartnershipInquiryForm } from '@/components/features/partnership-inquiry-form';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function PartnerPressPage() {
 
@@ -46,8 +45,13 @@ export default function PartnerPressPage() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="mt-8">
-                                <PartnershipInquiryForm />
+                            <div className="mt-8 text-center">
+                                <Button asChild size="lg" variant="accent">
+                                    <Link href="mailto:support@velourabeautyondemand.com?subject=Partnership%20Inquiry">
+                                        <Mail className="mr-2 h-5 w-5" />
+                                        Inquire About Partnership
+                                    </Link>
+                                </Button>
                             </div>
                         </section>
 
@@ -73,8 +77,13 @@ export default function PartnerPressPage() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="mt-8">
-                                <PressInquiryForm />
+                            <div className="mt-8 text-center">
+                                <Button asChild size="lg" variant="accent">
+                                    <Link href="mailto:support@velourabeautyondemand.com?subject=Press%20Inquiry">
+                                        <Mail className="mr-2 h-5 w-5" />
+                                        Contact Press Team
+                                    </Link>
+                                </Button>
                             </div>
                         </section>
 
