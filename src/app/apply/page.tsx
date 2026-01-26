@@ -44,8 +44,8 @@ const benefits = [
     },
     {
         icon: ShieldCheck,
-        title: "Safety & Support",
-        description: "Access background checks, safety support, and insurance partners."
+        title: "Safety & Security",
+        description: "VÉLOURA provides access to Silent Beacon personal safety devices to help support technician safety during mobile appointments."
     },
     {
         icon: Users,
