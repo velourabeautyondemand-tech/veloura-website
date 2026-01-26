@@ -2,7 +2,7 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { PartyPopper } from 'lucide-react';
+import { PartyPopper, Calendar, MapPin, Users, Shirt } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,19 +23,32 @@ export default function EventsPage() {
                             </p>
                         </div>
                         <div className="space-y-12">
-                            <Card className="shadow-lg overflow-hidden">
-                                <CardContent className="p-0">
-                                    <Image
+                             <Card className="shadow-lg overflow-hidden">
+                                <CardHeader>
+                                    <CardTitle className="font-headline text-3xl text-center">Palm Beach Kickoff</CardTitle>
+                                    <CardDescription className="text-center text-primary font-semibold">
+                                        Complimentary Beauty Industry Networking Event
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                     <Image
                                         src="https://i.imgur.com/vH4p2gT.jpeg"
                                         alt="VÉLOURA Palm Beach Kickoff Event Flyer"
                                         width={750}
                                         height={1125}
                                         layout="responsive"
-                                        className="w-full h-auto"
+                                        className="w-full h-auto rounded-lg shadow-md"
                                         data-ai-hint="event flyer"
                                     />
+                                    <div className="text-sm space-y-3 pt-4">
+                                        <div className="flex items-center gap-3"><Calendar className="w-5 h-5 text-primary" /> <div><strong>Date:</strong> January 21 | 5:30 PM</div></div>
+                                        <div className="flex items-start gap-3"><MapPin className="w-5 h-5 text-primary mt-1" /> <div><strong>Venue:</strong> PINK STEAK - 2777 S Dixie Hwy, West Palm Beach, FL 33405</div></div>
+                                        <div className="flex items-center gap-3"><Users className="w-5 h-5 text-primary" /> <div>Open to Licensed Beauty Professionals</div></div>
+                                        <div className="flex items-center gap-3"><Shirt className="w-5 h-5 text-primary" /> <div><strong>Dress Code:</strong> Formal (Elegant evening attire)</div></div>
+                                    </div>
                                 </CardContent>
-                                <CardFooter className="pt-6 flex justify-center bg-card">
+                                <CardFooter className="pt-2 flex flex-col items-center justify-center bg-card gap-4">
+                                    <p className="text-sm text-muted-foreground">Scan the QR code in the flyer or click below to sign up.</p>
                                     <Button asChild variant="accent" size="lg">
                                         <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9OAlSpH8cscsLcEayheJbZ0jexxQWppBftCvCw4R97rpNWQ/viewform" target="_blank" rel="noopener noreferrer">
                                             RSVP Now
