@@ -72,7 +72,7 @@ export default function HomePage() {
                <div className="mt-10">
                   <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
                   <div className="flex justify-center gap-4">
-                    <Button size="lg" variant="outline" asChild>
+                    <Button size="lg" asChild>
                       <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
                         <Apple className="mr-2 h-6 w-6" />
                         App Store
@@ -96,8 +96,8 @@ export default function HomePage() {
                 Relax, we’re coming to you.
               </p>
               <div className="mt-2 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
-              <p className="mt-2 text-md text-muted-foreground italic">
-                6 miles within your location at no traffic, no parking, no rushing, no waiting line
+              <p className="mt-4 text-lg text-foreground">
+                Find professionals within a 6-mile radius. No traffic, no parking, no waiting.
               </p>
             </div>
           </div>
