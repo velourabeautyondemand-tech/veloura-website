@@ -40,7 +40,7 @@ export default function PartnerAgreementPage() {
                         <ul>
                             <li>All payments for services must be processed exclusively through the VÉLOURA platform.</li>
                             <li>Accepting, requesting, or arranging payments outside the app (including cash, personal transfers, or third-party apps) is strictly prohibited.</li>
-                            <li>Violation of this policy may result in immediate account suspension or termination.</li>
+                            <li>Violations of this policy will not lead to immediate account suspension without prior warning. A warning will be issued at least 7 days prior to any suspension of your account.</li>
                         </ul>
                         
                         <h3>2. Professional Conduct</h3>
