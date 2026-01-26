@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -20,7 +20,12 @@ const benefits = [
     {
         icon: DollarSign,
         title: "Earn 80% per service",
-        description: "Plus, you keep 100% of your tips. No hidden fees."
+        description: "Plus, you keep 100% of your tips."
+    },
+    {
+        icon: BadgePercent,
+        title: "Transparent Earnings",
+        description: "No sign-up fees, no monthly fees, and no hidden fees."
     },
     {
         icon: MapPin,
@@ -128,7 +133,7 @@ export default function ApplyPage() {
                  <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold sm:text-4xl font-headline">With VÉLOURA, you’ll be able to:</h2>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
                     {benefits.map((benefit, index) => (
                         <div key={index} className="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 flex flex-col text-center">
                             <div className="mb-4">
