@@ -36,7 +36,6 @@ export default function EventsPage() {
                                         alt="VÉLOURA Palm Beach Kickoff Event Flyer"
                                         width={750}
                                         height={1125}
-                                        layout="responsive"
                                         className="w-full h-auto rounded-lg shadow-md"
                                         data-ai-hint="event flyer"
                                     />
