@@ -90,7 +90,7 @@ export default function AboutPage() {
                                             src={founderImage.imageUrl}
                                             alt={founderImage.description}
                                             fill
-                                            className="rounded-full object-cover object-top shadow-lg"
+                                            className="rounded-full object-contain shadow-lg"
                                             data-ai-hint={founderImage.imageHint}
                                         />
                                     </div>
@@ -161,5 +161,3 @@ export default function AboutPage() {
         </div>
     );
 }
-
-    
