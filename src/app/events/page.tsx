@@ -24,13 +24,11 @@ export default function EventsPage() {
                         </div>
                         <div className="space-y-12">
                             <Card className="shadow-lg overflow-hidden">
-                                <div className="relative h-60 w-full">
-                                    <Image
-                                        src="https://vqftsjfwhonwbpyogmzi.supabase.co/storage/v1/object/public/landing-pages/33/components/d449314a-696b-47ed-8e8e-9b114a694ea0/1762890428095-miamibeach.jpg"
+                                <div className="relative h-auto w-full">
+                                    <img
+                                        src="https://i.imgur.com/b2aD6hC.png"
                                         alt="Miami Beach event"
-                                        layout="fill"
-                                        objectFit="cover"
-                                        data-ai-hint="miami beach"
+                                        className="w-full h-auto object-contain"
                                     />
                                 </div>
                                 <CardHeader className="text-center bg-primary/10">
