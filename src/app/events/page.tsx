@@ -1,3 +1,4 @@
+'use client';
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -5,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { PartyPopper, Calendar, MapPin, Users, Shirt } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function EventsPage() {
     return (
@@ -22,6 +24,18 @@ export default function EventsPage() {
                             </p>
                         </div>
                         <div className="space-y-12">
+                             <Card className="shadow-lg overflow-hidden">
+                                <CardContent className="p-0">
+                                    <Image
+                                        src="https://i.imgur.com/xfBfu1n.png"
+                                        alt="Veloura Palm Beach Kickoff Event"
+                                        width={800}
+                                        height={1000}
+                                        className="w-full h-auto object-cover"
+                                        data-ai-hint="event flyer"
+                                    />
+                                </CardContent>
+                            </Card>
                             <Card className="shadow-lg overflow-hidden">
                                 <CardHeader className="text-center bg-primary/10">
                                     <div className="flex justify-center items-center mb-4">
