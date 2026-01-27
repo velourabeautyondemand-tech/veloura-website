@@ -79,12 +79,6 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'i.imgur.com',
-        port: '',
-        pathname: '/**',
-      },
     ],
   },
   async redirects() {
@@ -96,5 +90,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-    
