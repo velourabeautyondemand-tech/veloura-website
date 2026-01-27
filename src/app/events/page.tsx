@@ -61,6 +61,25 @@ export default function EventsPage() {
                                     <p className="font-bold text-primary pt-4">- The VÉLOURA Team</p>
                                 </CardContent>
                             </Card>
+                            <Card className="shadow-lg overflow-hidden">
+                                <CardHeader className="text-center bg-primary/10">
+                                    <div className="flex justify-center items-center mb-4">
+                                        <PartyPopper className="h-12 w-12 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Comes to New York!</CardTitle>
+                                    <CardDescription className="pt-2">Stay tuned for more details about our New York launch event.</CardDescription>
+                                </CardHeader>
+                                <CardContent className="p-0">
+                                    <Image
+                                        src="https://i.imgur.com/xfBfu1n.png"
+                                        alt="Veloura New York Event placeholder"
+                                        width={800}
+                                        height={1000}
+                                        className="w-full h-auto object-cover"
+                                        data-ai-hint="event flyer"
+                                    />
+                                </CardContent>
+                            </Card>
                         </div>
                     </div>
                 </div>
