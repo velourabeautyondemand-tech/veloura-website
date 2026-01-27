@@ -25,14 +25,15 @@ export default function EventsPage() {
                         <div className="space-y-12">
                              <Card className="shadow-lg overflow-hidden">
                                 <CardContent className="p-0">
-                                     <Image
-                                        src="https://i.imgur.com/vH4p2gT.jpeg"
-                                        alt="VÉLOURA Palm Beach Kickoff Event Flyer for January 21st at PINK STEAK"
-                                        width={750}
-                                        height={1125}
-                                        className="w-full h-auto"
-                                        data-ai-hint="event flyer"
-                                    />
+                                     <div className="relative w-full" style={{ aspectRatio: '750 / 1125' }}>
+                                        <Image
+                                            src="https://i.imgur.com/vH4p2gT.jpeg"
+                                            alt="VÉLOURA Palm Beach Kickoff Event Flyer for January 21st at PINK STEAK"
+                                            fill
+                                            className="object-contain"
+                                            data-ai-hint="event flyer"
+                                        />
+                                    </div>
                                 </CardContent>
                                 <CardFooter className="pt-6 flex flex-col items-center justify-center bg-card gap-4">
                                     <p className="text-sm text-muted-foreground">Scan the QR code in the flyer or click below to sign up.</p>
