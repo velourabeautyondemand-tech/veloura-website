@@ -24,10 +24,12 @@ export default function EventsPage() {
                         </div>
                         <div className="space-y-12">
                             <Card className="shadow-lg overflow-hidden">
-                                <div className="relative h-auto w-full">
-                                    <img
+                                <div className="relative w-full">
+                                    <Image
                                         src="https://i.imgur.com/b2aD6hC.png"
                                         alt="Miami Beach event"
+                                        width={810}
+                                        height={1080}
                                         className="w-full h-auto object-contain"
                                     />
                                 </div>
