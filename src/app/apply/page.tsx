@@ -256,7 +256,6 @@ export default function ApplyPage() {
                         <CardTitle className="font-headline text-3xl">Become a VÉLOURA Pro</CardTitle>
                         <CardDescription className="text-md">
                             Apply Now below to submit the technician onboarding form
-                             <p className="text-sm mt-2">Please note: An in-person interview is required. Date and location to be determined upon application selection.</p>
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
