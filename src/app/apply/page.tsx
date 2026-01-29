@@ -103,6 +103,27 @@ const faqs = [
     {
         question: "Is VÉLOURA currently updating the app?",
         answer: "Yes. We’re actively improving the platform to provide a better experience. During this time, some features (such as dual-role accounts) may be temporarily limited."
+    },
+    {
+        question: "Are there any new features coming soon?",
+        answer: `Yes! We’re actively rolling out new features to improve the experience for both customers and beauty professionals. Upcoming enhancements include:
+
+Flexible Pricing Updates
+Beauty professionals will be able to pay a one-time fee to update their service pricing directly within the app.
+
+Secure Payouts via Stripe Connect
+Technician payouts will be handled through Stripe Connect, providing faster, secure, and reliable payments.
+
+Parking Fee Add-On
+Customers will have the option to add parking costs to their booking when applicable.
+
+5-Star Ratings, Reviews & Photo Support
+Customers will be able to leave 5-star ratings and reviews, with the ability to upload photos to support feedback.
+
+Experience Levels Displayed on Profiles
+The admin team will assign experience levels, which will be displayed on technician profiles in both the customer and technician apps.
+
+We’re committed to continuously improving the platform and appreciate your feedback as we grow.`
     }
 ];
 
@@ -289,7 +310,7 @@ export default function ApplyPage() {
                   {faqs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
                       <AccordionTrigger className="text-left font-semibold">{faq.question}</AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">
+                      <AccordionContent className="text-muted-foreground whitespace-pre-line">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
