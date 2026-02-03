@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Apple, Play, Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper } from 'lucide-react';
+import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -71,19 +71,25 @@ export default function HomePage() {
               </p>
                <div className="mt-10">
                   <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
-                  <div className="flex justify-center gap-4">
-                    <Button size="lg" asChild>
-                      <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
-                        <Apple className="mr-2 h-6 w-6" />
-                        App Store
-                      </a>
-                    </Button>
-                    <Button size="lg" variant="outline" asChild>
-                      <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
-                        <Play className="mr-2 h-6 w-6" />
-                        Google Play
-                      </a>
-                    </Button>
+                  <div className="flex justify-center items-center gap-4 flex-wrap">
+                    <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                      <Image
+                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                        alt="Download on the App Store"
+                        width={150}
+                        height={50}
+                        className="h-12 w-auto"
+                      />
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
+                       <Image
+                        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                        alt="Get it on Google Play"
+                        width={170}
+                        height={50}
+                        className="h-12 w-auto"
+                      />
+                    </a>
                   </div>
                 </div>
                 <div className="mt-8">
