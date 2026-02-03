@@ -79,7 +79,7 @@ export default function HomePage() {
                       </a>
                     </Button>
                     <Button size="lg" variant="outline" asChild>
-                      <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                      <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
                         <Smartphone className="mr-2 h-6 w-6" />
                         Google Play
                       </a>
