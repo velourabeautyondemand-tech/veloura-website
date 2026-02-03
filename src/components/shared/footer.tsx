@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Twitter, Instagram, Facebook, Linkedin, Youtube, Briefcase } from "lucide-react";
+import { Twitter, Instagram, Facebook, Linkedin, Youtube, Briefcase, ShieldCheck } from "lucide-react";
 import { NailIcon } from "./logo";
 
 export default function Footer() {
@@ -45,7 +45,10 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
             <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link href="/partner-agreement" className="hover:text-primary transition-colors">Partner Agreement</Link>
-            <a href="https://www.dnb.com/business-directory/company-profiles.iamdreammaker_production_group_llc.f54604e6691278f60393f51e1c9ef37e.html?referrer=DRS" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Dun & Bradstreet</a>
+            <a href="https://www.dnb.com/business-directory/company-profiles.iamdreammaker_production_group_llc.f54604e6691278f60393f51e1c9ef37e.html?referrer=DRS" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+              <ShieldCheck className="h-4 w-4" />
+              <span>Dun & Bradstreet</span>
+            </a>
           </div>
         </div>
       </div>
