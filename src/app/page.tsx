@@ -87,7 +87,7 @@ export default function HomePage() {
                         alt="Get it on Google Play"
                         width={170}
                         height={50}
-                        className="h-12 w-auto"
+                        className="h-14 w-auto"
                       />
                     </a>
                   </div>
