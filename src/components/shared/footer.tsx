@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Twitter, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Twitter, Instagram, Facebook, Linkedin, Youtube, Briefcase } from "lucide-react";
 import { NailIcon } from "./logo";
 
 export default function Footer() {
@@ -27,6 +27,10 @@ export default function Footer() {
             <Link href="https://www.youtube.com/@V%C3%89LOURABeautyonDemand" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Youtube className="h-5 w-5" />
                 <span className="sr-only">YouTube</span>
+            </Link>
+            <Link href="https://www.indeed.com/cmp/Veloura-Beauty-On-Demand" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Briefcase className="h-5 w-5" />
+                <span className="sr-only">Indeed</span>
             </Link>
           </nav>
           
