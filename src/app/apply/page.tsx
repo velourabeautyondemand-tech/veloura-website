@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -102,6 +103,16 @@ const faqs = [
     {
         question: "Is VÉLOURA currently updating the app?",
         answer: "Yes. We’re actively improving the platform to provide a better experience. During this time, some features (such as dual-role accounts) may be temporarily limited."
+    },
+    {
+        question: "How do scheduling, payments, and location changes work?",
+        answer: `• Schedule & availability: Yes, you can set your own availability in the app, so it works around your studio schedule.
+• Bookings: Clients can only book services during the availability you’ve set in the app.
+• Payments: At this time, payouts are processed immediately after each completed booking, based on the services you provide. We will be transitioning to Stripe in the near future.
+• Client payment: Yes, clients pay through the app at the time of booking/service (whichever applies in your flow).
+• Changing locations: Yes, you can update your service location if you travel — just adjust it in the app so clients in that area can find you.
+
+That’s no problem at all — feel free to reach out anytime if more questions come up. Thank you, and we look forward to working with you!`
     },
     {
         question: "Are there any new features coming soon?",
