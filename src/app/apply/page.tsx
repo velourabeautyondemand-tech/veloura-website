@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -304,7 +303,7 @@ export default function ApplyPage() {
             <section id="faq" className="mb-16 md:mb-24">
               <div className="max-w-3xl mx-auto">
                  <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold sm:text-4xl font-headline">Frequently Asked Questions (Q&A)</h2>
+                    <h2 className="text-3xl font-bold sm:text-4xl font-headline">Frequently Asked Questions</h2>
                 </div>
                 <Accordion type="single" collapsible className="w-full bg-card p-4 sm:p-8 rounded-xl shadow-xl">
                   {faqs.map((faq, index) => (
