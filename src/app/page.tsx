@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Apple, Smartphone, Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper } from 'lucide-react';
+import { Apple, Play, Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -80,7 +80,7 @@ export default function HomePage() {
                     </Button>
                     <Button size="lg" variant="outline" asChild>
                       <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
-                        <Smartphone className="mr-2 h-6 w-6" />
+                        <Play className="mr-2 h-6 w-6" />
                         Google Play
                       </a>
                     </Button>
