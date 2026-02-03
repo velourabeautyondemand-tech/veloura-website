@@ -98,7 +98,12 @@ const faqs = [
     },
     {
         question: "When can I start accepting jobs?",
-        answer: "You can start accepting jobs once: Your technician status shows Approved, all required agreements or waivers are signed, and your account is enabled in the app."
+        answer: `You can start accepting jobs as soon as your technician status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app.
+
+Once you’re live, we’d love your help sharing VÉLOURA with your community 💗
+Feel free to post on your social media, tell your clients, and help us spread the word — the more visibility you have, the more booking opportunities come your way.
+
+Welcome to VÉLOURA. Let’s grow together and bring beauty on demand to the world ✨`
     },
     {
         question: "Is VÉLOURA currently updating the app?",
