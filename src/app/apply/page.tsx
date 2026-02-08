@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -304,10 +304,16 @@ export default function ApplyPage() {
                             </ul>
                           </AlertDescription>
                         </Alert>
-                        <div className="flex justify-center">
+                        <div className="text-center space-y-4">
                             <Button asChild size="lg">
                                 <a href="https://admin.velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Apply Now</a>
                             </Button>
+                             <div className="pt-2">
+                                <Link href="https://youtu.be/3VqLnfcATpk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">
+                                    <Youtube className="mr-2 h-5 w-5" />
+                                    Watch: How to Sign Up as a Technician
+                                </Link>
+                            </div>
                         </div>
                     </CardContent>
                 </Card>
