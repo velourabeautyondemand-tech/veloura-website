@@ -2,7 +2,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star, MapPin, Sparkles, Calendar as CalendarIcon, Clock, Twitter, Instagram, Facebook } from 'lucide-react';
+import { Star, MapPin, Sparkles, Calendar as CalendarIcon, Clock, Twitter, Instagram, Facebook, Video } from 'lucide-react';
 
 import { technicians, services as allServices } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -55,6 +55,23 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                       </div>
                     </div>
                     <p className="mt-4">{technician.bio}</p>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              {/* Video Section */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="font-headline flex items-center gap-2">
+                    <Video className="text-primary w-6 h-6" /> Portfolio Showcase
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="aspect-video w-full rounded-md bg-muted flex items-center justify-center text-muted-foreground">
+                    <div className="text-center">
+                      <Video className="w-12 h-12 mx-auto mb-2" />
+                      <p>Video coming soon.</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
