@@ -27,8 +27,20 @@ export default function EventsPage() {
                              <Card className="shadow-lg overflow-hidden">
                                 <CardContent className="p-0">
                                     <Image
+                                        src="https://storage.googleapis.com/project-spark-b24962c4-226c-4573-a417-3860d5b6a41f/user/481977759868_20240729_001925_295.jpg"
+                                        alt="Veloura New York City Kickoff Event"
+                                        width={800}
+                                        height={1131}
+                                        className="w-full h-auto object-cover"
+                                        data-ai-hint="event flyer"
+                                    />
+                                </CardContent>
+                            </Card>
+                             <Card className="shadow-lg overflow-hidden">
+                                <CardContent className="p-0">
+                                    <Image
                                         src="https://i.imgur.com/Rp8nDkd.jpeg"
-                                        alt="Veloura New York Event"
+                                        alt="Veloura New York Recruiting Event"
                                         width={800}
                                         height={1000}
                                         className="w-full h-auto object-cover"
@@ -41,18 +53,6 @@ export default function EventsPage() {
                                     <Image
                                         src="https://i.imgur.com/cL0neWg.jpeg"
                                         alt="Veloura Event"
-                                        width={800}
-                                        height={1000}
-                                        className="w-full h-auto object-cover"
-                                        data-ai-hint="event flyer"
-                                    />
-                                </CardContent>
-                            </Card>
-                             <Card className="shadow-lg overflow-hidden">
-                                <CardContent className="p-0">
-                                    <Image
-                                        src="https://i.imgur.com/Rp8nDkd.jpeg"
-                                        alt="Veloura New York Event"
                                         width={800}
                                         height={1000}
                                         className="w-full h-auto object-cover"
