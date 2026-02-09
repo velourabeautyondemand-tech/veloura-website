@@ -36,30 +36,6 @@ export default function EventsPage() {
                                     />
                                 </CardContent>
                             </Card>
-                             <Card className="shadow-lg overflow-hidden">
-                                <CardContent className="p-0">
-                                    <Image
-                                        src="https://i.imgur.com/Rp8nDkd.jpeg"
-                                        alt="Veloura New York Recruiting Event"
-                                        width={800}
-                                        height={1000}
-                                        className="w-full h-auto object-cover"
-                                        data-ai-hint="event flyer"
-                                    />
-                                </CardContent>
-                            </Card>
-                             <Card className="shadow-lg overflow-hidden">
-                                <CardContent className="p-0">
-                                    <Image
-                                        src="https://i.imgur.com/cL0neWg.jpeg"
-                                        alt="Veloura Event"
-                                        width={800}
-                                        height={1000}
-                                        className="w-full h-auto object-cover"
-                                        data-ai-hint="event flyer"
-                                    />
-                                </CardContent>
-                            </Card>
                             <Card className="shadow-lg overflow-hidden">
                                 <CardHeader className="text-center bg-primary/10">
                                     <div className="flex justify-center items-center mb-4">
