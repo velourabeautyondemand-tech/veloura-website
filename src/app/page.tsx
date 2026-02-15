@@ -153,15 +153,27 @@ export default function HomePage() {
                  <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">We Solve Everyday Beauty Problems - with Luxury Convenience</h2>
                 </div>
-                <div className="aspect-video w-full rounded-md overflow-hidden bg-muted flex items-center justify-center text-muted-foreground mb-12">
-                    <iframe
-                        className="w-full h-full"
-                        src="https://www.youtube.com/embed/Ox4SEDyYh8Q"
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                    ></iframe>
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    <div className="aspect-video w-full rounded-md overflow-hidden bg-muted flex items-center justify-center text-muted-foreground">
+                        <iframe
+                            className="w-full h-full"
+                            src="https://www.youtube.com/embed/Ox4SEDyYh8Q"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                    <div className="aspect-video w-full rounded-md overflow-hidden bg-muted flex items-center justify-center text-muted-foreground">
+                        <iframe
+                            className="w-full h-full"
+                            src="https://www.youtube.com/embed/Oq-3R0VMSAw"
+                            title="YouTube video player 2"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
                 </div>
                  <ul className="space-y-8">
                     {problemsSolved.map((item, index) => (
