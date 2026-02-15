@@ -98,12 +98,7 @@ const faqs = [
     },
     {
         question: "When can I start accepting jobs?",
-        answer: `You can start accepting jobs as soon as your technician status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app.
-
-Once you’re live, we’d love your help sharing VÉLOURA with your community 💗
-Feel free to post on your social media, tell your clients, and help us spread the word — the more visibility you have, the more booking opportunities come your way.
-
-Welcome to VÉLOURA. Let’s grow together and bring beauty on demand to the world ✨`
+        answer: "You can start accepting jobs as soon as your technician status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app.\n\nOnce you’re live, we’d love your help sharing VÉLOURA with your community 💗\nFeel free to post on your social media, tell your clients, and help us spread the word — the more visibility you have, the more booking opportunities come your way.\n\nWelcome to VÉLOURA. Let’s grow together and bring beauty on demand to the world ✨"
     },
     {
         question: "Is VÉLOURA currently updating the app?",
@@ -225,7 +220,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
                         <div>
                             <h4 className="font-semibold">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All technicians are required to review and electronically sign the VÉLOURA Safety Device Waiver & Agreement, which will be sent via Jotform. Completion of this step is mandatory before activation on the platform and includes instructions for the required safety device.</p>
+                            <p className="text-muted-foreground">All technicians are required to review and electronically sign the VÉLOURA Safety Device Waiver & Agreement, which will be sent via docusign. Completion of this step is mandatory before activation on the platform and includes instructions for the required safety device.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
