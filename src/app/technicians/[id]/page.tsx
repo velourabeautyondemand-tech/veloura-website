@@ -68,14 +68,7 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video w-full rounded-md overflow-hidden bg-muted flex items-center justify-center text-muted-foreground">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/3VqLnfcATpk"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
+                    <span>Video Coming Soon</span>
                   </div>
                 </CardContent>
               </Card>

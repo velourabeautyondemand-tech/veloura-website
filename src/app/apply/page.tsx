@@ -303,12 +303,33 @@ export default function ApplyPage() {
                             <Button asChild size="lg">
                                 <a href="https://admin.velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Apply Now</a>
                             </Button>
-                             <div className="pt-2">
-                                <Link href="https://youtu.be/3VqLnfcATpk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">
-                                    <Youtube className="mr-2 h-5 w-5" />
-                                    Watch: How to Sign Up as a Technician
-                                </Link>
-                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </section>
+
+            {/* How to sign up video */}
+            <section id="how-to-video" className="mb-16 md:mb-24">
+                <Card className="max-w-4xl mx-auto shadow-2xl">
+                    <CardHeader className="text-center">
+                        <CardTitle className="font-headline text-3xl flex items-center justify-center gap-2">
+                            <Youtube className="h-8 w-8 text-primary" />
+                            How to Sign Up
+                        </CardTitle>
+                        <CardDescription className="text-md">
+                            Watch this quick tutorial on how to complete your technician application.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="aspect-video w-full rounded-md overflow-hidden bg-muted flex items-center justify-center text-muted-foreground">
+                            <iframe
+                              className="w-full h-full"
+                              src="https://www.youtube.com/embed/3VqLnfcATpk"
+                              title="How to Sign Up as a Technician"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                            ></iframe>
                         </div>
                     </CardContent>
                 </Card>
