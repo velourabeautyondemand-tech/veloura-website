@@ -224,7 +224,8 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
                             <h4 className="font-semibold">Payment & Payout Setup</h4>
-                            <p className="text-muted-foreground">After your background check is approved, you’ll be prompted to set up your payment and payout information through Stripe. From your profile, you will be able to link an existing Stripe account or set up a new one to receive earnings from completed bookings.</p>
+                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings.</p>
+                            <p className="text-muted-foreground mt-2">All payouts for completed services will be deposited directly into your connected Stripe account.</p>
                             <p className="text-muted-foreground mt-2">Technicians keep 100% of their tips.</p>
                         </div>
                     </li>
