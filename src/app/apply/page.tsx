@@ -62,15 +62,15 @@ const benefits = [
 const faqs = [
     {
         question: "Should I download the app before signing up?",
-        answer: "Please do not download the app before applying. Technician app access is granted only after your application is approved. At this time, one phone number may be used for one role only—either technician or customer. To complete your onboarding, please follow these steps: Complete the technician application, submit your application, pass background screening. You’ll be notified once your onboarding is complete. Receive approval confirmation from VÉLOURA and log in to the app using the phone number you signed up with."
+        answer: "Please do not download the app before applying. Technician app access is granted only after your application is approved. To complete your onboarding, please follow these steps: Complete the technician application, submit your application, pass background screening. You’ll be notified once your onboarding is complete. Receive approval confirmation from VÉLOURA and log in to the app using the phone number you signed up with."
     },
     {
         question: "I’m trying to submit my application, but it keeps failing. What should I do?",
-        answer: "We’re currently updating the app. At this time, one phone number can only be used for one role—either technician or customer. If you created both account types using the same phone number, the application may fail. Please delete one account and reapply using this link: https://velourabeautyondemand.com/apply"
+        answer: "We’re currently updating the app to provide a better experience. If you are having trouble submitting your application, please ensure you are using the official application link: https://velourabeautyondemand.com/apply. If the issue persists, please contact our support team at support@velourabeautyondemand.com."
     },
     {
         question: "Can I be both a customer and a technician using the same phone number?",
-        answer: "At the moment, no. Due to system updates, each phone number can only be associated with one role. We recommend using a separate phone number if you wish to have both accounts in the future."
+        answer: "Yes, each phone number can now be associated with both roles."
     },
     {
         question: "I haven’t received anything about the background check. Is something wrong?",
@@ -102,7 +102,7 @@ const faqs = [
     },
     {
         question: "Is VÉLOURA currently updating the app?",
-        answer: "Yes. We’re actively improving the platform to provide a better experience. During this time, some features (such as dual-role accounts) may be temporarily limited."
+        answer: "Yes. We’re actively improving the platform to provide a better experience."
     },
     {
         question: "How do scheduling, payments, and location changes work?",
@@ -300,7 +300,7 @@ export default function ApplyPage() {
                             <ul className="list-disc pl-5 mt-2">
                                 <li>Do not download the app before applying.</li>
                                 <li>Technician app access is granted only after approval.</li>
-                                <li>A single phone number can be used for one role only — either technician or customer, not both.</li>
+                                <li>Each phone number can now be associated with both roles.</li>
                             </ul>
                           </AlertDescription>
                         </Alert>
