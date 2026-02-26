@@ -224,7 +224,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
                             <h4 className="font-semibold">Download the VÉLOURA App</h4>
-                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to manage your profile, bookings, and availability.</p>
+                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to log in as a Technician to manage your profile, bookings, and availability weekly.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
