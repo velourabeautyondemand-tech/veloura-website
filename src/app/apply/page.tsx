@@ -228,7 +228,7 @@ export default function ApplyPage() {
                         <div>
                             <h4 className="font-semibold">Payment & Payout Setup</h4>
                             <p className="text-muted-foreground">After your background check is approved, you’ll be prompted to set up your payment and payout information to receive earnings from completed bookings.</p>
-                            <p className="text-muted-foreground mt-2">Payments are processed electronically through Homebase (our payroll system). Please be sure to set up and activate your Homebase account to ensure timely payouts.<br/>Technicians keep 100% of their tips.</p>
+                            <p className="text-muted-foreground mt-2">Technicians keep 100% of their tips.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
