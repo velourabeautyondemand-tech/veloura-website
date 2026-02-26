@@ -216,24 +216,24 @@ export default function ApplyPage() {
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
                         <div>
-                            <h4 className="font-semibold">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All technicians are required to review and electronically sign the VÉLOURA Safety Device Waiver & Agreement, which will be sent via docusign. Completion of this step is mandatory before activation on the platform and includes instructions for the required safety device.</p>
+                            <h4 className="font-semibold">Download the VÉLOURA App</h4>
+                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to manage your profile, bookings, and availability.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
+                            <h4 className="font-semibold">Safety Device Waiver (Mandatory)</h4>
+                            <p className="text-muted-foreground">All technicians are required to review and electronically sign the VÉLOURA Safety Device Waiver & Agreement, which will be sent via docusign. Completion of this step is mandatory before activation on the platform and includes instructions for the required safety device.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
+                        <div>
                             <h4 className="font-semibold">Payment & Payout Setup</h4>
                             <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings.</p>
                             <p className="text-muted-foreground mt-2">All payouts for completed services will be deposited directly into your connected Stripe account.</p>
                             <p className="text-muted-foreground mt-2">Technicians keep 100% of their tips.</p>
-                        </div>
-                    </li>
-                     <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
-                        <div>
-                            <h4 className="font-semibold">Download the VÉLOURA App</h4>
-                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to manage your profile, bookings, and availability.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
