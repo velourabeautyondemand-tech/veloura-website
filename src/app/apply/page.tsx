@@ -108,8 +108,8 @@ const faqs = [
         question: "How do scheduling, payments, and location changes work?",
         answer: `• Schedule & availability: Yes, you can set your own availability in the app, so it works around your schedule.
 • Bookings: Clients can only book services during the availability you’ve set in the app.
-• Payments: At this time, payouts are processed immediately after each completed booking, based on the services you provide. We will be transitioning to Stripe in the near future.
-• Client payment: Yes, clients pay through the app at the time of booking/service (whichever applies in your flow).
+• Payments: Payouts are handled via Stripe Connect. You can link your Stripe account directly in your profile settings to receive funds after each completed booking.
+• Client payment: Yes, clients pay through the app at the time of booking/service.
 • Changing locations: Yes, you can update your service location if you travel — just adjust it in the app so clients in that area can find you.`
     },
     {
@@ -118,9 +118,6 @@ const faqs = [
 
 Flexible Pricing Updates
 Beauty professionals will be able to pay a one-time fee to update their service pricing directly within the app.
-
-Secure Payouts via Stripe Connect
-Technician payouts will be handled through Stripe Connect, providing faster, secure, and reliable payments.
 
 Parking Fee Add-On
 Customers will have the option to add parking costs to their booking when applicable.
@@ -227,7 +224,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
                             <h4 className="font-semibold">Payment & Payout Setup</h4>
-                            <p className="text-muted-foreground">After your background check is approved, you’ll be prompted to set up your payment and payout information to receive earnings from completed bookings.</p>
+                            <p className="text-muted-foreground">After your background check is approved, you’ll be prompted to set up your payment and payout information through Stripe. From your profile, you will be able to link an existing Stripe account or set up a new one to receive earnings from completed bookings.</p>
                             <p className="text-muted-foreground mt-2">Technicians keep 100% of their tips.</p>
                         </div>
                     </li>
