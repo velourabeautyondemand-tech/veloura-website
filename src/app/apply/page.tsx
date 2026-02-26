@@ -108,7 +108,7 @@ const faqs = [
         question: "How do scheduling, payments, and location changes work?",
         answer: `• Schedule & availability: Yes, you can set your own availability in the app, so it works around your schedule.
 • Bookings: Clients can only book services during the availability you’ve set in the app.
-• Payments: Payouts are handled via Stripe Connect. You can link your Stripe account directly in your profile settings to receive funds after each completed booking.
+• Payments: Payouts are handled via Stripe. You can link your Stripe account directly in your profile settings to receive funds after each completed booking.
 • Client payment: Yes, clients pay through the app at the time of booking/service.
 • Changing locations: Yes, you can update your service location if you travel — just adjust it in the app so clients in that area can find you.`
     },
@@ -216,19 +216,26 @@ export default function ApplyPage() {
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
                         <div>
+                            <h4 className="font-semibold">Check Your Email</h4>
+                            <p className="text-muted-foreground">Please make sure to check all your email folders — including your spam/junk folder — for messages from Checkr.com and from us regarding your account status.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div>
                             <h4 className="font-semibold">Download the VÉLOURA App</h4>
                             <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to manage your profile, bookings, and availability.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
                         <div>
                             <h4 className="font-semibold">Safety Device Waiver (Mandatory)</h4>
                             <p className="text-muted-foreground">All technicians are required to review and electronically sign the VÉLOURA Safety Device Waiver & Agreement, which will be sent via docusign. Completion of this step is mandatory before activation on the platform and includes instructions for the required safety device.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
                         <div>
                             <h4 className="font-semibold">Payment & Payout Setup</h4>
                             <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings.</p>
@@ -237,7 +244,7 @@ export default function ApplyPage() {
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
                         <div>
                             <h4 className="font-semibold">Set Up Your Profile</h4>
                             <p className="text-muted-foreground">In the app, you’ll:</p>
@@ -250,7 +257,7 @@ export default function ApplyPage() {
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">8</div>
                         <div>
                             <h4 className="font-semibold">Start Receiving Bookings</h4>
                             <p className="text-muted-foreground">Once your profile is live and availability is set, customers can book you directly through the app. You control when you work, what services you offer, and your schedule.</p>
