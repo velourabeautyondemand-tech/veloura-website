@@ -1,19 +1,17 @@
-
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { NailIcon } from '@/components/shared/logo';
-import { Mail, Phone, Globe } from 'lucide-react';
+import { Mail, Phone, Globe, Loader2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function PartnerAgreementPage() {
+function HandbookContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const pin = searchParams.get('pin');
 
     useEffect(() => {
-        // This is a simple check. In a real app, you'd want more robust security.
         if (pin !== '1439') {
             router.push('/technician/policy-login');
         }
@@ -53,7 +51,7 @@ export default function PartnerAgreementPage() {
                                 <Phone className="w-5 h-5" />
                                 <span>(323) 989-7788</span>
                             </a>
-                            <a href="https://studio.firebase.google.com/project/studio-8096841563-8bcb9/overview" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary">
+                            <a href="https://velourabeautyondemand.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary">
                                 <Globe className="w-5 h-5" />
                                 <span>VÉLOURA Platform</span>
                             </a>
@@ -137,5 +135,13 @@ export default function PartnerAgreementPage() {
                 </div>
             </CardContent>
         </Card>
+    );
+}
+
+export default function PartnerAgreementPage() {
+    return (
+        <Suspense fallback={<div className="flex items-center justify-center h-full"><Loader2 className="animate-spin h-8 w-8 text-primary" /></div>}>
+            <HandbookContent />
+        </Suspense>
     );
 }

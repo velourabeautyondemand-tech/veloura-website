@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -8,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useAuth, useFirestore, useUser, useDoc, useMemoFirebase } from '@/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { doc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -66,11 +65,10 @@ export default function AdminLoginPage() {
     setError(null);
     try {
       const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
-      const idTokenResult = await userCredential.user.getIdTokenResult();
       
-      const userDoc = await doc(firestore, 'users', userCredential.user.uid).get();
+      const userDoc = await getDoc(doc(firestore, 'users', userCredential.user.uid));
 
-      if (userDoc.exists() && userDoc.data().role === 'admin') {
+      if (userDoc.exists() && userDoc.data()?.role === 'admin') {
          // The useEffect will handle the redirect
       } else {
         await auth.signOut();
