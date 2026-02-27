@@ -3,10 +3,8 @@ import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Award, HandHeart, Sparkles, Users, Linkedin } from 'lucide-react';
 import Link from 'next/link';
-import { NailIcon } from '@/components/shared/logo';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const values = [

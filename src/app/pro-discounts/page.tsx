@@ -2,9 +2,8 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, Mail } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const partners = [

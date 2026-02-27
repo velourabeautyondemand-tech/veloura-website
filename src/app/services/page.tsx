@@ -1,13 +1,10 @@
 
-import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { services } from '@/lib/data';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Clock, Phone } from 'lucide-react';
-import Link from 'next/link';
 
 export default function ServicesPage() {
     const serviceCategories = [
