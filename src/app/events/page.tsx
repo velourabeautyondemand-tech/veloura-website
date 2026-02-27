@@ -73,7 +73,7 @@ export default function EventsPage() {
                                     <CardDescription className="pt-2">An Exclusive, Invitation-Only Event / No walk-ins</CardDescription>
                                     <div className="mt-4">
                                         <Button asChild variant="outline">
-                                            <Link href="https://www.nowadays.ai/veloura-seminar-2025" target="_blank" rel="noopener noreferrer">View Agenda</Link>
+                                            <a href="https://www.nowadays.ai/veloura-seminar-2025" target="_blank" rel="noopener noreferrer">View Agenda</a>
                                         </Button>
                                     </div>
                                 </CardHeader>

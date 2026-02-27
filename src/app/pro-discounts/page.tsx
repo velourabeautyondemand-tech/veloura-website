@@ -53,7 +53,7 @@ export default function ProDiscountsPage() {
                         <div className="grid md:grid-cols-2 gap-8 justify-center">
                             {partners.map((partner) => (
                                <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300">
-                                    <Link href={partner.link} target="_blank" rel="noopener noreferrer" className="block">
+                                    <a href={partner.link} target="_blank" rel="noopener noreferrer" className="block">
                                         <CardHeader className="items-center text-center p-6 pt-12">
                                              <div className="h-24 flex items-center justify-center">
                                                 <Image 
@@ -64,15 +64,15 @@ export default function ProDiscountsPage() {
                                                     data-ai-hint={partner.hint}
                                                     className="object-contain"
                                                 />
-                                            </div>
+                                             </div>
                                         </CardHeader>
                                         <CardContent className="text-center p-6 pt-6">
                                             <p className="text-muted-foreground flex-grow mb-4">{partner.description}</p>
-                                             <Button variant="link">
-                                                Shop Now <ArrowRight className="ml-2 h-4 w-4" />
+                                             <Button variant="link" asChild>
+                                                <span>Shop Now <ArrowRight className="ml-2 h-4 w-4" /></span>
                                             </Button>
                                         </CardContent>
-                                    </Link>
+                                    </a>
                                </Card>
                             ))}
                         </div>
