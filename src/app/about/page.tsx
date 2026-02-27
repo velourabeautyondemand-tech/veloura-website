@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';

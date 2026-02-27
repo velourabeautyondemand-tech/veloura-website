@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -139,7 +138,7 @@ export default function ApplyPage() {
       <main className="flex-1 bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
             
-            {/* New Hero Section */}
+            {/* Hero Section */}
             <section className="text-center mb-16 md:mb-24">
                 <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Your talent. Your schedule. Your earnings — elevated.</h1>
                 <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
@@ -147,143 +146,76 @@ export default function ApplyPage() {
                 </p>
             </section>
 
-            {/* Introduction */}
-            <section className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
-                 <p className="text-lg text-muted-foreground">
-                    We help you escape salon politics, unpredictable walk-ins, and expensive booth rent — by giving you a powerful platform where clients find you.
-                </p>
-            </section>
-
-            {/* Benefits Section */}
-            <section id="benefits" className="mb-16 md:mb-24">
-                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold sm:text-4xl font-headline">With VÉLOURA, you’ll be able to:</h2>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-                    {benefits.map((benefit, index) => (
-                        <div key={index} className="bg-card p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 flex flex-col text-center">
-                            <div className="mb-4">
-                                <benefit.icon className="h-12 w-12 text-primary mx-auto" />
-                            </div>
-                            <h3 className="text-xl font-bold font-headline mb-2">{benefit.title}</h3>
-                            <p className="text-muted-foreground flex-grow">{benefit.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-             {/* Mission Section */}
-            <section className="bg-primary/10 rounded-xl p-8 md:p-12 text-center my-16 md:my-24">
-                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Our mission is simple:</h2>
-                 <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">To help beauty professionals make more money, gain independence, and create careers they’re proud of — without the limits of a traditional salon.</p>
-            </section>
-            
-            {/* How it works */}
-            <section className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
-                <p className="text-lg text-muted-foreground">
-                   VÉLOURA connects you with clients who need beauty services delivered to their home, hotel, office, or event. You focus on your craft — we handle the platform, visibility, and tools you need to grow.
-                </p>
-                <p className="mt-6 text-xl font-semibold">
-                    Your skills deserve freedom, respect, and real opportunity.
-                    <br/>
-                    <span className="text-primary">That’s why we built VÉLOURA.</span>
-                </p>
-            </section>
-
             {/* Onboarding Steps Section */}
             <section id="onboarding" className="mb-16 md:mb-24">
               <div className="max-w-3xl mx-auto space-y-8 bg-card p-8 rounded-xl shadow-xl">
-                <div className="text-center">
-                    <h2 className="text-3xl font-bold font-headline">VÉLOURA Beauty on Demand – Technician Sign-Up, Payment & Safety Process</h2>
-                    <p className="text-muted-foreground mt-2">Becoming a VÉLOURA Beauty on Demand professional is simple and designed to keep both technicians and clients safe while helping you get booked and paid seamlessly.</p>
+                <div className="text-center border-b pb-6">
+                    <h2 className="text-3xl font-bold font-headline">Technician Onboarding Process</h2>
+                    <p className="text-muted-foreground mt-2">Follow these steps to join the VÉLOURA professional network.</p>
                 </div>
                 
-                <ol className="space-y-6">
+                <ol className="space-y-8">
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
                         <div>
-                            <h4 className="font-semibold">Apply Online</h4>
-                            <p className="text-muted-foreground">Visit velourabeautyondemand.com and complete the technician onboarding application. Provide your basic information, professional license (if applicable), and the services you offer.</p>
+                            <h4 className="font-semibold text-lg">Apply Online</h4>
+                            <p className="text-muted-foreground">Complete the technician onboarding application below. Provide your basic information, professional license, and the services you offer.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">2</div>
                         <div>
-                            <h4 className="font-semibold">Background Check & Verification</h4>
-                            <p className="text-muted-foreground">To maintain trust and safety across the platform, all technicians must complete a background check and credential verification.</p>
+                            <h4 className="font-semibold text-lg">Background Check & Verification</h4>
+                            <p className="text-muted-foreground">To maintain trust and safety, all technicians must complete a background check and credential verification via Checkr.com.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
                         <div>
-                            <h4 className="font-semibold">Check Your Email</h4>
+                            <h4 className="font-semibold text-lg">Check Your Email</h4>
                             <p className="text-muted-foreground">Please make sure to check all your email folders — including your spam/junk folder — for messages from Checkr.com and from us regarding your account status.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
-                            <h4 className="font-semibold">Download the VÉLOURA App</h4>
+                            <h4 className="font-semibold text-lg">Download the VÉLOURA App</h4>
                             <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to log in as a Technician to manage your profile, bookings, and availability weekly.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
                         <div>
-                            <h4 className="font-semibold">Set Up Your Profile</h4>
-                            <p className="text-muted-foreground">In the app, you’ll:</p>
-                            <ul className="list-disc pl-5 mt-2 text-muted-foreground">
-                                <li>Add your services and pricing</li>
-                                <li>Set your availability</li>
-                                <li>Select your service areas</li>
-                            </ul>
-                            <p className="mt-2"><strong className="text-primary">This information is what customers see when searching and booking</strong></p>
+                            <h4 className="font-semibold text-lg">Set Up Your Profile</h4>
+                            <p className="text-muted-foreground">In the app, you'll add your services, pricing, availability, and service areas. This is what customers see when searching and booking.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
                         <div>
-                            <h4 className="font-semibold">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All technicians are required to review and electronically sign the VÉLOURA Safety Device Waiver & Agreement, which will be sent via docusign. Completion of this step is mandatory before activation on the platform and includes instructions for the required safety device.</p>
+                            <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
+                            <p className="text-muted-foreground">All technicians are required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
                         <div>
-                            <h4 className="font-semibold">Payment & Payout Setup</h4>
-                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings.</p>
-                            <p className="text-muted-foreground mt-2">All payouts for completed services will be deposited directly into your connected Stripe account.</p>
-                            <p className="text-muted-foreground mt-2">Technicians keep 100% of their tips.</p>
+                            <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
+                            <p className="text-muted-foreground">Your payment processing is securely powered by Stripe. From your profile, you can link an existing Stripe account or create a new one to receive earnings. Technicians keep 100% of tips.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">8</div>
                         <div>
-                            <h4 className="font-semibold">Start Receiving Bookings</h4>
-                            <p className="text-muted-foreground">Once your profile is live and availability is set, customers can book you directly through the app. You control when you work, what services you offer, and your schedule.</p>
+                            <h4 className="font-semibold text-lg">Start Receiving Bookings</h4>
+                            <p className="text-muted-foreground">Once your profile is live and availability is set, customers can book you directly through the app. You control your schedule and craft.</p>
                         </div>
                     </li>
                 </ol>
-
-                <div className="pt-6 border-t border-border">
-                    <h4 className="font-semibold text-lg text-center mb-4">Silent Beacon Safety Device Deposit – How It Works</h4>
-                    <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                        <li>The Silent Beacon safety device is encouraged for all active technicians to support personal safety during services.</li>
-                        <li>A $19.99 refundable deposit is required to receive the device.</li>
-                        <li>The deposit payment link is sent after background check approval and completion of the Safety Device Waiver.</li>
-                        <li>The deposit is fully refundable upon return of the device, in accordance with the agreement.</li>
-                    </ul>
-                    <p className="mt-4 text-sm text-center text-muted-foreground">
-                        Learn more about the Silent Beacon safety device:
-                        <a href="https://silentbeacon.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            https://silentbeacon.com
-                        </a>
-                    </p>
-                </div>
               </div>
             </section>
 
-            {/* Application Section */}
+            {/* Application Form Section */}
             <section id="application-form" className="mb-16 md:mb-24">
                 <Card className="max-w-4xl mx-auto shadow-2xl">
                     <CardHeader className="text-center">
@@ -300,7 +232,7 @@ export default function ApplyPage() {
                             <ul className="list-disc pl-5 mt-2">
                                 <li>Do not download the app before applying.</li>
                                 <li>Technician app access is granted only after approval.</li>
-                                <li>Each phone number can now be associated with both roles.</li>
+                                <li>Each phone number can now be associated with both roles (Customer and Technician).</li>
                             </ul>
                           </AlertDescription>
                         </Alert>
