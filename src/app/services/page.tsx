@@ -70,7 +70,7 @@ export default function ServicesPage() {
 
                     <section className="text-center mt-16 border-t pt-12">
                         <h2 className="text-2xl font-bold font-headline">Don't see the service you're looking for?</h2>
-                        <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
+                        <p className="mt-2 text-muted-foreground max-xl mx-auto">
                             Request a custom service by contacting us - we'll get back to you as soon as possible!
                         </p>
                          <Button asChild size="lg" variant="accent" className="mt-6">
@@ -83,7 +83,7 @@ export default function ServicesPage() {
 
                      <div className="text-center mt-16">
                         <Button size="lg" variant="default" asChild>
-                            <Link href="/apply">Ready to Book? (Coming Soon)</Link>
+                            <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">Ready to Book?</a>
                         </Button>
                     </div>
                 </div>

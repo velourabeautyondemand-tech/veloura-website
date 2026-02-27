@@ -149,7 +149,7 @@ export default function AboutPage() {
                              <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Indulge in a moment of luxury. Your journey to relaxation and beauty starts here.</p>
                              <div className="mt-8 flex justify-center gap-4">
                                  <Button asChild size="lg" variant="accent">
-                                     <Link href="/book">Book Your Service</Link>
+                                     <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">Book Your Service</a>
                                  </Button>
                              </div>
                         </div>
