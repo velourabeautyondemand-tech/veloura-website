@@ -180,7 +180,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
                             <h4 className="font-semibold text-lg">Download the VÉLOURA App</h4>
-                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to log in as a Technician to manage your profile, bookings, and availability weekly.</p>
+                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to log in as Technicians manage your profile, bookings, and availability weekly.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
@@ -201,7 +201,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
                         <div>
                             <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
-                            <p className="text-muted-foreground">Your payment processing is securely powered by Stripe. From your profile, you can link an existing Stripe account or create a new one to receive earnings. Technicians keep 100% of tips.</p>
+                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings. All payouts for completed services will be deposited directly into your connected Stripe account. Technicians keep 100% of tips.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
