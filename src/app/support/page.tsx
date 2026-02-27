@@ -21,7 +21,7 @@ export default function SupportPage() {
                                     <h2 className="text-2xl font-semibold font-headline mb-4 text-center">Contact Us</h2>
                                     <p className="text-center text-muted-foreground mb-6">For any questions, issues, or feedback, please don't hesitate to reach out. Our team will get back to you as soon as possible.</p>
                                     <div className="space-y-4">
-                                        <a href="mailto:support@velourabeautyondemand.com" className="flex items-center gap-4 p-4 rounded-lg bg-background hover:bg-muted transition-colors">
+                                        <a href="mailto:support@velourabeautyondemand.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg bg-background hover:bg-muted transition-colors">
                                             <Mail className="w-6 h-6 text-primary" />
                                             <div>
                                                 <h3 className="font-semibold">Email Support</h3>

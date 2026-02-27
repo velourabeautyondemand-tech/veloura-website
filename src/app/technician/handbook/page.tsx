@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -43,9 +44,9 @@ function HandbookContent() {
                     <div className="not-prose bg-muted/50 rounded-lg p-6 mb-8 text-sm">
                         <h3 className="font-bold text-lg mb-4 text-center">Contact Information</h3>
                         <div className="flex flex-col md:flex-row justify-around items-center gap-4 text-muted-foreground">
-                            <a href="mailto:info@iamdreammaker.com" className="flex items-center gap-2 hover:text-primary">
+                            <a href="mailto:support@velourabeautyondemand.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary">
                                 <Mail className="w-5 h-5" />
-                                <span>info@iamdreammaker.com</span>
+                                <span>support@velourabeautyondemand.com</span>
                             </a>
                             <a href="tel:+13239897788" className="flex items-center gap-2 hover:text-primary">
                                 <Phone className="w-5 h-5" />

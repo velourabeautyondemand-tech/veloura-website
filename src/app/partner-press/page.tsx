@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -47,7 +48,7 @@ export default function PartnerPressPage() {
                             </div>
                             <div className="mt-8 text-center">
                                 <Button asChild size="lg" variant="accent">
-                                    <a href="mailto:support@velourabeautyondemand.com?subject=Partnership%20Inquiry">
+                                    <a href="mailto:support@velourabeautyondemand.com?subject=Partnership%20Inquiry" target="_blank" rel="noopener noreferrer">
                                         <Mail className="mr-2 h-5 w-5" />
                                         Inquire About Partnership
                                     </a>
@@ -79,7 +80,7 @@ export default function PartnerPressPage() {
                             </div>
                             <div className="mt-8 text-center">
                                 <Button asChild size="lg" variant="accent">
-                                    <a href="mailto:support@velourabeautyondemand.com?subject=Press%20Inquiry">
+                                    <a href="mailto:support@velourabeautyondemand.com?subject=Press%20Inquiry" target="_blank" rel="noopener noreferrer">
                                         <Mail className="mr-2 h-5 w-5" />
                                         Contact Press Team
                                     </a>

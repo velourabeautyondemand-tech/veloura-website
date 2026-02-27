@@ -74,7 +74,7 @@ export default function ServicesPage() {
                             Request a custom service by contacting us - we'll get back to you as soon as possible!
                         </p>
                          <Button asChild size="lg" variant="accent" className="mt-6">
-                            <a href="mailto:support@velourabeautyondemand.com?subject=Urgent%20Service%20Request">
+                            <a href="mailto:support@velourabeautyondemand.com?subject=Urgent%20Service%20Request" target="_blank" rel="noopener noreferrer">
                                 <Phone className="mr-2 h-5 w-5" />
                                 Urgent Request
                             </a>

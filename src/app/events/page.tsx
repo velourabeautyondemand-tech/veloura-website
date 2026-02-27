@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -72,7 +73,7 @@ export default function EventsPage() {
                                 </CardHeader>
                                 <CardContent className="text-center">
                                     <Button asChild size="lg" variant="accent">
-                                        <a href="mailto:support@velourabeautyondemand.com?subject=Event%20Service%20Request">
+                                        <a href="mailto:support@velourabeautyondemand.com?subject=Event%20Service%20Request" target="_blank" rel="noopener noreferrer">
                                             <Mail className="mr-2 h-5 w-5" />
                                             Event Request
                                         </a>
