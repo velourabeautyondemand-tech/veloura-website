@@ -47,10 +47,10 @@ export default function PartnerPressPage() {
                             </div>
                             <div className="mt-8 text-center">
                                 <Button asChild size="lg" variant="accent">
-                                    <Link href="mailto:support@velourabeautyondemand.com?subject=Partnership%20Inquiry">
+                                    <a href="mailto:support@velourabeautyondemand.com?subject=Partnership%20Inquiry">
                                         <Mail className="mr-2 h-5 w-5" />
                                         Inquire About Partnership
-                                    </Link>
+                                    </a>
                                 </Button>
                             </div>
                         </section>
@@ -79,10 +79,10 @@ export default function PartnerPressPage() {
                             </div>
                             <div className="mt-8 text-center">
                                 <Button asChild size="lg" variant="accent">
-                                    <Link href="mailto:support@velourabeautyondemand.com?subject=Press%20Inquiry">
+                                    <a href="mailto:support@velourabeautyondemand.com?subject=Press%20Inquiry">
                                         <Mail className="mr-2 h-5 w-5" />
                                         Contact Press Team
-                                    </Link>
+                                    </a>
                                 </Button>
                             </div>
                         </section>

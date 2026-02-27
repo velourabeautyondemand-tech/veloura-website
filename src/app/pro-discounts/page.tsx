@@ -1,4 +1,3 @@
-
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
@@ -86,10 +85,10 @@ export default function ProDiscountsPage() {
                          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Want to connect your products with a community of elite, on-the-go beauty professionals? Let's talk.</p>
                          <div className="mt-8 flex justify-center">
                              <Button asChild size="lg">
-                                 <Link href="mailto:support@velourabeautyondemand.com?subject=Collaboration%20Inquiry">
+                                 <a href="mailto:support@velourabeautyondemand.com?subject=Collaboration%20Inquiry">
                                     <Mail className="mr-2 h-5 w-5" />
                                     Collaboration Inquiry
-                                 </Link>
+                                 </a>
                              </Button>
                          </div>
                     </div>
