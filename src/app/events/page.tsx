@@ -1,9 +1,10 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { PartyPopper, Calendar, MapPin, Users, Shirt } from 'lucide-react';
+import { PartyPopper, Calendar, MapPin, Users, Shirt, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -59,6 +60,24 @@ export default function EventsPage() {
                                     </p>
                                     
                                     <p className="font-bold text-primary pt-4">- The VÉLOURA Team</p>
+                                </CardContent>
+                            </Card>
+
+                            {/* Event Request Section */}
+                            <Card className="shadow-lg overflow-hidden border-primary/20">
+                                <CardHeader className="text-center">
+                                    <CardTitle className="font-headline text-2xl">Plan Your Next Event with VÉLOURA</CardTitle>
+                                    <CardDescription>
+                                        From corporate wellness days to bridal showers, we bring the luxury salon experience to you.
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent className="text-center">
+                                    <Button asChild size="lg" variant="accent">
+                                        <Link href="mailto:support@velourabeautyondemand.com?subject=Event%20Service%20Request">
+                                            <Mail className="mr-2 h-5 w-5" />
+                                            Event Request
+                                        </Link>
+                                    </Button>
                                 </CardContent>
                             </Card>
                         </div>

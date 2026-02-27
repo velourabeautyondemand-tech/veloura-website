@@ -2,7 +2,7 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -37,7 +37,7 @@ export default function ProDiscountsPage() {
                                 Pro Discounts & Partnerships
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                We partner with leading beauty brands to give our VÉLOURA Pros exclusive access to discounts, helping you save money and elevate your kit.
+                                we partner with leading beauty brands to give our VÉLOURA Pros exclusive access to discounts, helping you save money and elevate your kit.
                             </p>
                         </div>
                     </div>
@@ -86,8 +86,9 @@ export default function ProDiscountsPage() {
                          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Want to connect your products with a community of elite, on-the-go beauty professionals? Let's talk.</p>
                          <div className="mt-8 flex justify-center">
                              <Button asChild size="lg">
-                                 <Link href="/partner-press#partner">
-                                    Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                                 <Link href="mailto:support@velourabeautyondemand.com?subject=Collaboration%20Inquiry">
+                                    <Mail className="mr-2 h-5 w-5" />
+                                    Collaboration Inquiry
                                  </Link>
                              </Button>
                          </div>
