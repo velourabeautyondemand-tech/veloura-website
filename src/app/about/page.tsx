@@ -1,8 +1,9 @@
+
 import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { Award, HandHeart, Sparkles, Users, Linkedin } from 'lucide-react';
+import { Award, HandHeart, Sparkles, Users, Linkedin, Heart, ShieldCheck, Stars } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -27,6 +28,23 @@ const values = [
         title: "Safety & Trust",
         description: "Your safety is our top priority. We vet all technicians and equip them with emergency panic buttons for every job. We also offer background checks to customers for a small fee to ensure a secure and comfortable experience for everyone."
     },
+]
+
+const teamMembers = [
+    {
+        name: "Huiyu Cheng",
+        role: "Founder & Visionary",
+        description: "Driven by a passion for beauty and efficiency, Huiyu founded VÉLOURA to bridge the gap between high-end salon services and the busy modern lifestyle.",
+        imageUrl: "https://i.imgur.com/wjTMG9D.png",
+        hint: "woman portrait"
+    },
+    {
+        name: "Our Pro Network",
+        role: "The Heart of VÉLOURA",
+        description: "A nationwide community of elite, licensed beauty professionals dedicated to delivering five-star luxury directly to your door.",
+        imageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3xlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=400",
+        hint: "team work"
+    }
 ]
 
 export default function AboutPage() {
@@ -117,8 +135,49 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                {/* Our Team Section */}
+                <section id="team" className="py-16 sm:py-24">
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Team</h2>
+                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">The passionate individuals dedicated to redefining the beauty experience.</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                            {teamMembers.map((member, index) => (
+                                <div key={index} className="flex flex-col items-center text-center space-y-4">
+                                    <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary/20">
+                                        <Image
+                                            src={member.imageUrl}
+                                            alt={member.name}
+                                            fill
+                                            className="object-cover"
+                                            data-ai-hint={member.hint}
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h3 className="text-2xl font-bold font-headline">{member.name}</h3>
+                                        <p className="text-primary font-semibold uppercase tracking-wider text-sm">{member.role}</p>
+                                        <p className="text-muted-foreground max-w-md">{member.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="mt-16 bg-primary/5 rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto border border-primary/10">
+                            <h3 className="text-2xl font-bold font-headline mb-4 flex items-center justify-center gap-2">
+                                <Heart className="text-primary fill-primary w-6 h-6" /> Join Our Team
+                            </h3>
+                            <p className="text-lg text-muted-foreground mb-8">
+                                Are you a licensed beauty professional looking for freedom, higher earnings, and a supportive community? We are always looking for talented artists to join the VÉLOURA family.
+                            </p>
+                            <Button asChild size="lg">
+                                <Link href="/apply">Apply to Join</Link>
+                            </Button>
+                        </div>
+                    </div>
+                </section>
+
                  {/* Our Values Section */}
-                <section id="values" className="py-16 sm:py-24">
+                <section id="values" className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                          <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
@@ -139,7 +198,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 sm:py-24 bg-secondary/50">
+                <section className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="bg-primary/10 rounded-xl p-12 text-center">
                              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Ready to Experience the Difference?</h2>

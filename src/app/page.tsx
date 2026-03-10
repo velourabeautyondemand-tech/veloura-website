@@ -93,9 +93,9 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="mt-8">
-                  <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-muted-foreground">For Technicians</p>
+                  <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Join Our Team</p>
                   <Button size="lg" variant="outline" asChild>
-                    <a href="https://velourabeautyondemand.com/apply" target="_blank" rel="noopener noreferrer">Apply Here</a>
+                    <Link href="/apply">Apply Here</Link>
                   </Button>
                 </div>
               <p className="mt-10 text-lg font-bold text-primary">
