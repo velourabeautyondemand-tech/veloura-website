@@ -1,3 +1,4 @@
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
@@ -32,10 +33,10 @@ export default function ProDiscountsPage() {
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="max-w-3xl mx-auto">
                             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                                Pro Discounts & Partnerships
+                                Our Partners
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                we partner with leading beauty brands to give our VÉLOURA Pros exclusive access to discounts, helping you save money and elevate your kit.
+                                We partner with leading beauty brands to give our VÉLOURA Pros exclusive access to discounts, helping you save money and elevate your kit.
                             </p>
                         </div>
                     </div>
