@@ -157,7 +157,7 @@ export default function AboutPage() {
                                     <div className="space-y-2">
                                         <h3 className="text-2xl font-bold font-headline">{member.name}</h3>
                                         <p className="text-primary font-semibold uppercase tracking-wider text-sm">{member.role}</p>
-                                        <p className="text-muted-foreground max-w-md">{member.description}</p>
+                                        <p className="text-muted-foreground max-md">{member.description}</p>
                                     </div>
                                 </div>
                             ))}
@@ -201,13 +201,28 @@ export default function AboutPage() {
                 <section className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="bg-primary/10 rounded-xl p-12 text-center">
-                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Ready to Experience the Difference?</h2>
-                             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Indulge in a moment of luxury. Your journey to relaxation and beauty starts here.</p>
-                             <div className="mt-8 flex justify-center gap-4">
-                                 <Button asChild size="lg" variant="accent">
-                                     <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">Book Your Service</a>
-                                 </Button>
-                             </div>
+                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary mb-4">Ready to Experience the Difference?</h2>
+                             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto mb-8">Download our app to explore more services and book your next appointment instantly.</p>
+                             <div className="flex justify-center items-center gap-6 flex-wrap">
+                                <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                        alt="Download on the App Store"
+                                        width={150}
+                                        height={50}
+                                        className="h-12 w-auto transition-transform hover:scale-105"
+                                    />
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                                        alt="Get it on Google Play"
+                                        width={170}
+                                        height={50}
+                                        className="h-14 w-auto transition-transform hover:scale-105"
+                                    />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>

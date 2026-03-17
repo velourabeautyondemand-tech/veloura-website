@@ -5,6 +5,7 @@ import { services } from '@/lib/data';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Clock, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ServicesPage() {
     const serviceCategories = [
@@ -79,11 +80,30 @@ export default function ServicesPage() {
                         </Button>
                     </section>
 
-                     <div className="text-center mt-16">
-                        <Button size="lg" variant="default" asChild>
-                            <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">Ready to Book?</a>
-                        </Button>
-                    </div>
+                     <section className="text-center mt-24 bg-primary/5 rounded-2xl p-12 max-w-4xl mx-auto border border-primary/10">
+                        <h2 className="text-3xl font-bold font-headline mb-4">Download Our App</h2>
+                        <p className="text-lg text-muted-foreground mb-8">Ready to book? Download our app to explore more services and schedule your next luxury experience instantly.</p>
+                        <div className="flex justify-center items-center gap-6 flex-wrap">
+                            <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                    alt="Download on the App Store"
+                                    width={150}
+                                    height={50}
+                                    className="h-12 w-auto transition-transform hover:scale-105"
+                                />
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                                    alt="Get it on Google Play"
+                                    width={170}
+                                    height={50}
+                                    className="h-14 w-auto transition-transform hover:scale-105"
+                                />
+                            </a>
+                        </div>
+                    </section>
                 </div>
             </main>
             <Footer />
