@@ -2,10 +2,9 @@
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { PartyPopper, Calendar, MapPin, Mail, Sparkles } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { PartyPopper, Sparkles, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 
 export default function EventsPage() {
     return (
@@ -24,44 +23,6 @@ export default function EventsPage() {
                         </div>
                         
                         <div className="space-y-12">
-                            {/* West Palm Beach Event */}
-                            <Card className="shadow-2xl overflow-hidden border-primary/20 bg-background">
-                                <CardContent className="p-0 flex justify-center bg-muted/10">
-                                    <div className="relative w-full max-w-[600px] aspect-[1/1.41]">
-                                        <Image
-                                            src="https://storage.googleapis.com/project-spark-b24962c4-226c-4573-a417-3860d5b6a41f/user/481977759868_20240729_001925_295.jpg"
-                                            alt="Veloura West Palm Beach Event Flyer"
-                                            fill
-                                            className="object-contain"
-                                            priority
-                                            data-ai-hint="event flyer"
-                                        />
-                                    </div>
-                                </CardContent>
-                                <CardFooter className="bg-background p-8 flex flex-col items-center text-center border-t">
-                                    <h2 className="text-2xl font-bold font-headline text-primary mb-2">Beauty Industry Networking</h2>
-                                    <p className="text-muted-foreground mb-6">
-                                        Join us in West Palm Beach for an evening of connection and community. Open to all licensed beauty professionals.
-                                    </p>
-                                    <div className="flex flex-wrap justify-center gap-4 mb-8">
-                                        <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full text-sm font-semibold">
-                                            <Calendar className="w-4 h-4 text-primary" />
-                                            <span>Jan 21st, 5:30 PM</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full text-sm font-semibold">
-                                            <MapPin className="w-4 h-4 text-primary" />
-                                            <span>West Palm Beach, FL</span>
-                                        </div>
-                                    </div>
-                                    <Button asChild size="lg" className="w-full sm:w-auto">
-                                        <a href="mailto:support@velourabeautyondemand.com?subject=West%20Palm%20Beach%20Event%20Registration" target="_blank" rel="noopener noreferrer">
-                                            Register Now
-                                        </a>
-                                    </Button>
-                                    <p className="text-xs text-muted-foreground mt-4 italic">Limited availability / Registration required</p>
-                                </CardFooter>
-                            </Card>
-
                             {/* Miami Event */}
                             <Card className="shadow-lg overflow-hidden">
                                 <CardHeader className="text-center bg-primary/10">
