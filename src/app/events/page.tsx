@@ -3,7 +3,7 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { PartyPopper, Sparkles, Mail } from 'lucide-react';
+import { PartyPopper, Sparkles, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function EventsPage() {
@@ -23,13 +23,35 @@ export default function EventsPage() {
                         </div>
                         
                         <div className="space-y-12">
-                            {/* Miami Event */}
-                            <Card className="shadow-lg overflow-hidden">
-                                <CardHeader className="text-center bg-primary/10">
+                            {/* New Canva Event Flyer */}
+                            <Card className="shadow-lg overflow-hidden border-2 border-primary/20">
+                                <CardHeader className="text-center bg-primary/5">
                                     <div className="flex justify-center items-center mb-4">
                                         <PartyPopper className="h-12 w-12 text-primary" />
                                     </div>
-                                    <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Recruiting Seminar <br/>- Miami, Florida</CardTitle>
+                                    <CardTitle className="text-3xl font-headline text-primary">Upcoming Events & Information</CardTitle>
+                                    <CardDescription className="text-lg pt-2">
+                                        View our latest event details and community information.
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent className="pt-8 text-center pb-10">
+                                    <Button asChild size="lg" className="text-lg px-8">
+                                        <a 
+                                            href="https://www.canva.com/design/DAHEO5Kyzio/QjAgDxYI0xez_0JKJeKYzQ/view?utm_content=DAHEO5Kyzio&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3bd318064b" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                        >
+                                            <ExternalLink className="mr-2 h-5 w-5" />
+                                            View Event Flyer
+                                        </a>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+
+                            {/* Miami Event */}
+                            <Card className="shadow-lg overflow-hidden">
+                                <CardHeader className="text-center bg-primary/10">
+                                    <CardTitle className="text-2xl font-headline text-primary">VÉLOURA Recruiting Seminar <br/>- Miami, Florida</CardTitle>
                                     <p className="text-lg font-semibold text-muted-foreground pt-2">Date: 12/11/2025</p>
                                     <CardDescription className="pt-2">An Exclusive, Invitation-Only Event / No walk-ins</CardDescription>
                                     <div className="mt-4">
