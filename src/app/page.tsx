@@ -56,8 +56,6 @@ const problemsSolved = [
 ];
 
 export default function HomePage() {
-  const appBackground = PlaceHolderImages.find(p => p.id === 'app_promo_background');
-
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -81,7 +79,7 @@ export default function HomePage() {
                         alt="Download on the App Store"
                         width={150}
                         height={50}
-                        className="h-12 w-auto"
+                        className="h-12 w-auto transition-transform hover:scale-105"
                       />
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
@@ -90,7 +88,7 @@ export default function HomePage() {
                         alt="Get it on Google Play"
                         width={170}
                         height={50}
-                        className="h-14 w-auto"
+                        className="h-14 w-auto transition-transform hover:scale-105"
                       />
                     </a>
                   </div>
@@ -115,52 +113,34 @@ export default function HomePage() {
         {/* Dedicated Download Section */}
         <section className="py-16 sm:py-24 bg-background border-y border-primary/10">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12 bg-secondary/20 p-8 md:p-12 rounded-3xl">
-                    <div className="flex-1 text-center md:text-left">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
-                            <Smartphone className="w-4 h-4" />
-                            <span>EXPERIENCE VÉLOURA</span>
-                        </div>
-                        <h2 className="text-3xl font-bold font-headline mb-4">Download Our App</h2>
-                        <p className="text-lg text-muted-foreground mb-8">
-                            Experience luxury beauty on demand. Explore more services, meet vetted professionals, and book your next moment of calm with just one click.
-                        </p>
-                        <div className="flex justify-center md:justify-start items-center gap-4 flex-wrap">
-                            <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                    alt="Download on the App Store"
-                                    width={150}
-                                    height={50}
-                                    className="h-12 w-auto transition-transform hover:scale-105"
-                                />
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                                    alt="Get it on Google Play"
-                                    width={170}
-                                    height={50}
-                                    className="h-14 w-auto transition-transform hover:scale-105"
-                                />
-                            </a>
-                        </div>
+                <div className="max-w-3xl mx-auto text-center bg-secondary/20 p-8 md:p-12 rounded-3xl">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
+                        <Smartphone className="w-4 h-4" />
+                        <span>EXPERIENCE VÉLOURA</span>
                     </div>
-                    <div className="flex-1 flex justify-center">
-                         <div className="relative w-64 h-[500px] bg-foreground rounded-[3rem] border-8 border-muted shadow-2xl overflow-hidden">
-                            {appBackground && (
-                                <Image 
-                                    src={appBackground.imageUrl} 
-                                    alt={appBackground.description} 
-                                    fill 
-                                    className="object-cover"
-                                    data-ai-hint={appBackground.imageHint}
-                                />
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent flex items-end justify-center pb-12">
-                                <span className="text-white font-headline text-2xl font-bold tracking-widest">VÉLOURA</span>
-                            </div>
-                         </div>
+                    <h2 className="text-3xl font-bold font-headline mb-4">Download Our App</h2>
+                    <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                        Experience luxury beauty on demand. Explore more services, meet vetted professionals, and book your next moment of calm with just one click.
+                    </p>
+                    <div className="flex justify-center items-center gap-6 flex-wrap">
+                        <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on the App Store"
+                                width={150}
+                                height={50}
+                                className="h-12 w-auto transition-transform hover:scale-105"
+                            />
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                                alt="Get it on Google Play"
+                                width={170}
+                                height={50}
+                                className="h-14 w-auto transition-transform hover:scale-105"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>
