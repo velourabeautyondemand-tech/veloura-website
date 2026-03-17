@@ -6,7 +6,7 @@ export type Service = {
   price?: number;
   duration?: string;
   imageId: string;
-  category: 'NAILs' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages' | 'Glow & Skin Wellness';
+  category: 'NAILs' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages' | 'Glow & Skin Wellness' | 'Photography';
 };
 
 export type Technician = {
@@ -81,6 +81,11 @@ export const services: Service[] = [
   { id: 'vip-glam-essentials', name: 'Glam Essentials Package (Makeup & Hair)', description: 'A complete package for your beauty needs, combining makeup and hair styling for a polished look.', price: 350, duration: '120-180 mins', imageId: 'vip_1', category: 'VIP Packages' },
   { id: 'vip-events', name: 'Wedding/Fashion Shows/Events (Makeup & Hair)', description: 'A comprehensive makeup and hair package for major events, ensuring you look your best.', price: 550, duration: '180-200 mins', imageId: 'vip_2', category: 'VIP Packages' },
   { id: 'vip-full-day', name: 'Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)', description: 'The ultimate all-inclusive package with makeup, hair, and nails. We recommend booking with 2-3 technicians for the best experience. Team work: 180 min. Solo: 120 min per service.', price: 700, duration: 'Varies', imageId: 'vip_3', category: 'VIP Packages' },
+
+  // Photography
+  { id: 'photo-event', name: 'Event Photography', description: 'Capture the essence of your VIP events, parties, and celebrations with professional coverage.', price: 250, duration: '2 hours', imageId: 'photo_1', category: 'Photography' },
+  { id: 'photo-portrait', name: 'Portrait Session', description: 'Professional individual or family portraits at your chosen location, including high-res digital files.', price: 150, duration: '60 mins', imageId: 'photo_2', category: 'Photography' },
+  { id: 'photo-glam', name: 'Glamour Shoot', description: 'The ultimate showcase for your VÉLOURA beauty look. A dedicated session focusing on high-fashion style.', price: 200, duration: '90 mins', imageId: 'photo_3', category: 'Photography' },
 ];
 
 export const technicians: Technician[] = [
@@ -171,9 +176,3 @@ export const bookings: Booking[] = [
     { id: '6', customerId: 'c5', customerName: 'Eve Adams', technicianId: '5', technicianName: 'Sarah Kim', serviceId: 'nails-dip', serviceName: 'Dip Powder Nails', date: '2024-08-01', time: '01:00 PM', status: 'completed', price: 60 },
     { id: '7', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: 'extra-art', serviceName: 'Nail Repair', date: '2024-06-30', time: '04:00 PM', status: 'cancelled', price: 13 },
 ];
-
-    
-
-    
-
-    

@@ -1,3 +1,4 @@
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { services } from '@/lib/data';
@@ -13,6 +14,7 @@ export default function ServicesPage() {
         { title: 'Glow & Skin Wellness', services: services.filter(s => s.category === 'Glow & Skin Wellness') },
         { title: 'Makeup', services: services.filter(s => s.category === 'Makeup') },
         { title: 'Hair', services: services.filter(s => s.category === 'Hair') },
+        { title: 'Photography', services: services.filter(s => s.category === 'Photography') },
         { title: 'VIP Packages', services: services.filter(s => s.category === 'VIP Packages') },
         { title: 'Extras', services: services.filter(s => s.category === 'Extras') },
     ];
