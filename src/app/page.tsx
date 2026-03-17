@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { SubscribeForm } from '@/components/features/subscribe-form';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const useCases = [
   {
@@ -55,6 +56,8 @@ const problemsSolved = [
 ];
 
 export default function HomePage() {
+  const appBackground = PlaceHolderImages.find(p => p.id === 'app_promo_background');
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -145,13 +148,15 @@ export default function HomePage() {
                     </div>
                     <div className="flex-1 flex justify-center">
                          <div className="relative w-64 h-[500px] bg-foreground rounded-[3rem] border-8 border-muted shadow-2xl overflow-hidden">
-                            <Image 
-                                src="https://picsum.photos/seed/veloura-app/400/800" 
-                                alt="App Screenshot Placeholder" 
-                                fill 
-                                className="object-cover"
-                                data-ai-hint="app screenshot"
-                            />
+                            {appBackground && (
+                                <Image 
+                                    src={appBackground.imageUrl} 
+                                    alt={appBackground.description} 
+                                    fill 
+                                    className="object-cover"
+                                    data-ai-hint={appBackground.imageHint}
+                                />
+                            )}
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent flex items-end justify-center pb-12">
                                 <span className="text-white font-headline text-2xl font-bold tracking-widest">VÉLOURA</span>
                             </div>

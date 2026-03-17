@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -239,6 +240,12 @@
       "description": "Videographer and Photographer hiring flyer",
       "imageUrl": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoZXJ8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "photographer camera"
+    },
+    {
+      "id": "app_promo_background",
+      "description": "VÉLOURA Mobile App Experience",
+      "imageUrl": "https://images.unsplash.com/photo-1560066984-138dadb4c035?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiZWF1dHklMjBzYWxvbnxlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beauty app"
     }
   ]
 }
