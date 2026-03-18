@@ -1,4 +1,3 @@
-
 {
   "placeholderImages": [
     {
@@ -234,12 +233,6 @@
       "description": "VÉLOURA Founder",
       "imageUrl": "https://i.imgur.com/wjTMG9D.png",
       "imageHint": "woman portrait"
-    },
-    {
-      "id": "creative_hiring",
-      "description": "Videographer and Photographer hiring flyer",
-      "imageUrl": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoZXJ8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "photographer camera"
     },
     {
       "id": "app_promo_background",

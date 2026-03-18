@@ -134,8 +134,6 @@ We’re committed to continuously improving the platform and appreciate your fee
 ];
 
 export default function ApplyPage() {
-  const creativeHiringImage = PlaceHolderImages.find(p => p.id === 'creative_hiring');
-
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -148,39 +146,6 @@ export default function ApplyPage() {
                 <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
                     VÉLOURA is a next-generation mobile beauty app built to empower independent beauty professionals and solve the biggest challenges in the industry.
                 </p>
-            </section>
-
-            {/* Creative Hiring Flyer Section */}
-            <section className="mb-16 md:mb-24 flex justify-center">
-                <div className="max-w-4xl w-full bg-white text-black border-8 border-black shadow-2xl overflow-hidden flex flex-col md:flex-row">
-                    <div className="flex-1 p-8 md:p-12 flex flex-col justify-center items-start space-y-6">
-                        <div className="space-y-2">
-                            <h2 className="text-6xl md:text-7xl font-black font-headline leading-none uppercase">Yes, We Are Hiring.</h2>
-                            <p className="text-2xl md:text-3xl font-bold tracking-tight uppercase border-t-4 border-black pt-4">Videographers / Photographers</p>
-                        </div>
-                        <div className="bg-black text-white p-4 text-sm md:text-base font-bold uppercase tracking-widest leading-relaxed">
-                            DM us with your social media link and profile to support@velourabeautyondemand.com
-                        </div>
-                        <Button asChild size="lg" className="bg-black text-white hover:bg-zinc-800 rounded-none h-14 px-8 text-lg font-bold">
-                            <a href="mailto:support@velourabeautyondemand.com?subject=Videographer/Photographer%20Hiring%20Inquiry" target="_blank" rel="noopener noreferrer">
-                                <Mail className="mr-2 h-6 w-6" />
-                                APPLY NOW
-                            </a>
-                        </Button>
-                    </div>
-                    <div className="flex-1 relative min-h-[400px]">
-                        {creativeHiringImage && (
-                            <Image 
-                                src={creativeHiringImage.imageUrl}
-                                alt="We are hiring photographers and videographers"
-                                fill
-                                className="object-cover"
-                                data-ai-hint="photographer hiring"
-                            />
-                        )}
-                        <div className="absolute inset-0 bg-black/10"></div>
-                    </div>
-                </div>
             </section>
 
             {/* Onboarding Steps Section */}
