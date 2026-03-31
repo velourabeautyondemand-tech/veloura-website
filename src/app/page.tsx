@@ -98,6 +98,9 @@ export default function HomePage() {
                   <Button size="lg" variant="outline" asChild>
                     <Link href="/apply">Apply Here</Link>
                   </Button>
+                  <p className="text-xs text-muted-foreground mt-2 italic max-w-xs mx-auto">
+                    A $29.99 onboarding fee applies starting 4/10/2026 to ensure serious applicants — fully refunded after your first completed booking.
+                  </p>
                 </div>
               <p className="mt-10 text-lg font-bold text-primary">
                 Relax, we’re coming to you.
