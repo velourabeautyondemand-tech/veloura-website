@@ -244,7 +244,7 @@ export default function ApplyPage() {
                                 <a href="https://admin.velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Apply Now</a>
                             </Button>
                             <p className="text-sm text-muted-foreground mt-4 italic max-w-lg mx-auto">
-                                A $29.99 onboarding fee applies starting 4/10/2026 to ensure serious applicants — fully refunded after your first completed booking.
+                                Starting April 10, 2026, a $29.99 onboarding fee applies to ensure committed applicants — fully refunded after your first completed booking.
                             </p>
                         </div>
                     </CardContent>
