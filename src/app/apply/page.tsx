@@ -242,6 +242,9 @@ export default function ApplyPage() {
                             <Button asChild size="lg">
                                 <a href="https://admin.velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Apply Now</a>
                             </Button>
+                            <p className="text-sm text-muted-foreground mt-4 italic max-w-lg mx-auto">
+                                A $29.99 onboarding fee applies to ensure serious applicants — fully refunded after your first completed booking.
+                            </p>
                         </div>
                     </CardContent>
                 </Card>
