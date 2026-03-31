@@ -169,7 +169,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">2</div>
                         <div>
                             <h4 className="font-semibold text-lg">Background Check & Verification</h4>
-                            <p className="text-muted-foreground">To maintain trust and safety, all technicians must complete a background check and credential verification via Checkr.com.</p>
+                            <p className="text-muted-foreground">After signing up, you’ll complete an online screening through Checkr. This process reviews your identity and criminal history.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
