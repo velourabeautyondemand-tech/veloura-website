@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -6,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Award, HandHeart, Sparkles, Users, Linkedin, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 const values = [
     {
@@ -167,7 +167,13 @@ export default function AboutPage() {
                         </div>
                         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                             {teamMembers.map((member, index) => (
-                                <div key={index} className="flex flex-col items-center text-center space-y-4">
+                                <div 
+                                    key={index} 
+                                    className={cn(
+                                        "flex flex-col items-center text-center space-y-4 transition-all duration-300",
+                                        member.name === "Rini Sugianto" && "md:pt-10"
+                                    )}
+                                >
                                     <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary/20">
                                         <Image
                                             src={member.imageUrl}
