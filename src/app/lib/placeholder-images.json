@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -171,7 +172,7 @@
     {
       "id": "vip_2",
       "description": "Wedding/Fashion Shows/Events (Makeup & Hair)",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDV8fGZhc2hpb24lMjBzaG93JTIwbWFrZXVwfGVufDB8fHx8MTY2NjYxNzcyOHww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "fashion show makeup"
     },
     {
@@ -235,10 +236,10 @@
       "imageHint": "woman portrait"
     },
     {
-      "id": "app_promo_background",
-      "description": "VÉLOURA Mobile App Experience",
-      "imageUrl": "https://images.unsplash.com/photo-1560066984-138dadb4c035?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiZWF1dHklMjBzYWxvbnxlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "beauty app"
+      "id": "join_team_graphic",
+      "description": "Join Our Team Graphic",
+      "imageUrl": "https://picsum.photos/seed/jointeam/800/800",
+      "imageHint": "join team"
     }
   ]
 }

@@ -135,6 +135,8 @@ We’re committed to continuously improving the platform and appreciate your fee
 ];
 
 export default function ApplyPage() {
+  const joinTeamImage = PlaceHolderImages.find(p => p.id === 'join_team_graphic');
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -150,6 +152,29 @@ export default function ApplyPage() {
                 <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
                     VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
                 </p>
+                
+                {joinTeamImage && (
+                    <div className="mt-12 flex justify-center">
+                        <div className="relative w-full max-w-2xl aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                            <Image
+                                src={joinTeamImage.imageUrl}
+                                alt={joinTeamImage.description}
+                                fill
+                                className="object-cover"
+                                data-ai-hint={joinTeamImage.imageHint}
+                            />
+                        </div>
+                    </div>
+                )}
+
+                <div className="mt-12">
+                    <Button asChild size="lg" className="text-lg px-8">
+                        <a href="https://www.canva.com/design/DAHF0SQ_50Q/6gj805msMcs6sNhSh_36Lg/view" target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-2 h-5 w-5" />
+                            View VÉLOURA Information
+                        </a>
+                    </Button>
+                </div>
             </section>
 
             {/* Onboarding Steps Section */}
