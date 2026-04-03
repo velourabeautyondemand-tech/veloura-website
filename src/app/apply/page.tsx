@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -14,7 +13,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/accordion";
+} from "@/components/ui/accordion";
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -216,7 +215,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
                         <div>
                             <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All technicians are required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
+                            <p className="text-muted-foreground">All technicians are required to required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
