@@ -29,15 +29,20 @@ export default function EventsPage() {
 
                         {/* Featured Event Image */}
                         {eventHeroImage && (
-                            <div className="relative w-full aspect-[16/9] mb-12 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                                <Image
-                                    src={eventHeroImage.imageUrl}
-                                    alt={eventHeroImage.description}
-                                    fill
-                                    className="object-cover"
-                                    data-ai-hint={eventHeroImage.imageHint}
-                                    priority
-                                />
+                            <div className="mb-12">
+                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                    <Image
+                                        src={eventHeroImage.imageUrl}
+                                        alt={eventHeroImage.description}
+                                        fill
+                                        className="object-cover"
+                                        data-ai-hint={eventHeroImage.imageHint}
+                                        priority
+                                    />
+                                </div>
+                                <div className="text-right mt-2">
+                                    <p className="text-sm font-medium text-muted-foreground italic pr-1">New York Team</p>
+                                </div>
                             </div>
                         )}
                         
