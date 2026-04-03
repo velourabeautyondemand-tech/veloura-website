@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube, Camera, Video, Mail } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube, Camera, Video, Mail, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -150,6 +150,14 @@ export default function ApplyPage() {
                 <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
                     VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
                 </p>
+                <div className="mt-8">
+                    <Button asChild variant="outline" className="rounded-full shadow-sm hover:shadow-md transition-all">
+                        <a href="https://canva.link/tt0nn2k2gmkzhyi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            <ExternalLink className="w-4 h-4" />
+                            Explore VÉLOURA Details
+                        </a>
+                    </Button>
+                </div>
             </section>
 
             {/* Onboarding Steps Section */}
