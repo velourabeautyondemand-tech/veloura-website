@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -5,8 +6,12 @@ import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { PartyPopper, Sparkles, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function EventsPage() {
+    const featuredPhoto = PlaceHolderImages.find(p => p.id === 'photo1');
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -25,8 +30,19 @@ export default function EventsPage() {
                         <div className="space-y-12">
                             {/* New Canva Event Flyer */}
                             <Card className="shadow-lg overflow-hidden border-2 border-primary/20">
+                                {featuredPhoto && (
+                                    <div className="relative w-full aspect-video">
+                                        <Image 
+                                            src={featuredPhoto.imageUrl}
+                                            alt={featuredPhoto.description}
+                                            fill
+                                            className="object-cover"
+                                            data-ai-hint={featuredPhoto.imageHint}
+                                        />
+                                    </div>
+                                )}
                                 <CardHeader className="text-center bg-primary/5">
-                                    <div className="flex justify-center items-center mb-4">
+                                    <div className="flex justify-center items-center mb-4 mt-4">
                                         <PartyPopper className="h-12 w-12 text-primary" />
                                     </div>
                                     <CardTitle className="text-3xl font-headline text-primary">Upcoming Events & Information</CardTitle>
