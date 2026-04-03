@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -164,7 +163,6 @@ export default function ApplyPage() {
                                 data-ai-hint={joinTeamImage.imageHint}
                             />
                         </div>
-                        <p className="mt-4 text-muted-foreground font-medium text-lg">New York Team</p>
                     </div>
                 )}
             </section>
