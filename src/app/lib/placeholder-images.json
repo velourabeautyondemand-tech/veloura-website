@@ -94,25 +94,25 @@
     {
       "id": "hair_1",
       "description": "Hair Blowout",
-      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair blowout"
     },
     {
       "id": "hair_2",
       "description": "Formal Hair Updo",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair updo"
     },
     {
       "id": "hair_3",
       "description": "Bridal Hair",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal hair"
     },
     {
       "id": "hair_4",
       "description": "Hair Trial",
-      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "woman face"
     },
     {
@@ -142,7 +142,7 @@
     {
       "id": "brows_microblading",
       "description": "Brows & Microblading",
-      "imageUrl": "https://images.unsplash.com/photo-1716833322888-9c6e7549fa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxleWVicm93JTIwbWljcm9ibGFkaW5nfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1716833322888-9c6e7549fa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleWVicm93JTIwbWljcm9ibGFkaW5nfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "eyebrow microblading"
     },
     {
@@ -160,25 +160,25 @@
     {
       "id": "hair_5",
       "description": "Bridesmaids Hairstyling",
-      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzJTIwaGFpcnN0eWxpbmd8ZW58MHx8fHwxNjc3MDIyNTM5fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzJTIwaGFpcnN0eWxpbmd8ZW58MHx8fHwxNjc3MDIyNTM5fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridesmaids hairstyling"
     },
     {
       "id": "vip_1",
       "description": "Glam Essentials Package (Makeup & Hair)",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEyfHxoYWlyJTIwbWFrZXVwJTIwY29tYm98ZW58MHx8fHwxNjY2NjE3NzAxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEyfHxoYWlyJTIwbWFrZXVwJTIwY29tYm98ZW58MHx8fHwxNjY2NjE3NzAxfDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair makeup combo"
     },
     {
       "id": "vip_2",
       "description": "Wedding/Fashion Shows/Events (Makeup & Hair)",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
-      "imageHint": "bridal hair"
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDV8fGZhc2hpb24lMjBzaG93JTIwbWFrZXVwfGVufDB8fHx8MTY2NjYxNzcyOHww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "fashion show makeup"
     },
     {
       "id": "vip_3",
       "description": "Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal beauty"
     },
     {
@@ -214,7 +214,7 @@
     {
       "id": "tech_avatar_3",
       "description": "Avatar for Chloe",
-      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "woman face"
     },
     {
@@ -240,6 +240,12 @@
       "description": "Join Our Team Graphic",
       "imageUrl": "https://6000-firebase-studio-1759589200287.cluster-fhtfcgwkwjgxoujc3bw2r2g7wa.cloudworkstations.dev/capra/attachedImages/f75efc18-a970-4604-afab-4e4064e21f90/image_8b4687df-0152-432c-8651-3c1594c7dc9a.png",
       "imageHint": "join team"
+    },
+    {
+      "id": "community_vibe",
+      "description": "VÉLOURA Community",
+      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHl8ZW58MHx8fHwxNzY0NjI1NDcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team community"
     }
   ]
 }

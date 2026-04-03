@@ -49,6 +49,8 @@ const teamMembers = [
 
 export default function AboutPage() {
     const founderImage = PlaceHolderImages.find(p => p.id === 'founder_photo');
+    const communityImage = PlaceHolderImages.find(p => p.id === 'community_vibe');
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -135,8 +137,29 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                {/* Our Community Photo Section */}
+                <section className="py-16 sm:py-24">
+                    <div className="container mx-auto px-4 md:px-6 text-center">
+                        <h2 className="text-3xl font-bold font-headline mb-8">Our Community</h2>
+                        {communityImage && (
+                            <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                                <Image
+                                    src={communityImage.imageUrl}
+                                    alt={communityImage.description}
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint={communityImage.imageHint}
+                                />
+                            </div>
+                        )}
+                        <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">
+                            We are more than just an app; we are a vibrant community of beauty enthusiasts and elite professionals dedicated to excellence.
+                        </p>
+                    </div>
+                </section>
+
                 {/* Our Team Section */}
-                <section id="team" className="py-16 sm:py-24">
+                <section id="team" className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Team</h2>
@@ -177,7 +200,7 @@ export default function AboutPage() {
                 </section>
 
                  {/* Our Values Section */}
-                <section id="values" className="py-16 sm:py-24 bg-secondary/50">
+                <section id="values" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                          <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
@@ -198,7 +221,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 sm:py-24">
+                <section className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="bg-primary/10 rounded-xl p-12 text-center">
                              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary mb-4">Ready to Experience the Difference?</h2>
