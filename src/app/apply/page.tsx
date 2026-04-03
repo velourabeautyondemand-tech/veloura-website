@@ -143,7 +143,10 @@ export default function ApplyPage() {
             
             {/* Hero Section */}
             <section className="text-center mb-16 md:mb-24">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Your talent. Your schedule. Your earnings — elevated.</h1>
+                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+                    Your talent. Your schedule. <br />
+                    Your earnings — elevated.
+                </h1>
                 <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
                     VÉLOURA is a next-generation mobile beauty app built to empower independent beauty professionals and solve the biggest challenges in the industry.
                 </p>
