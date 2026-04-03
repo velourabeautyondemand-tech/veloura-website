@@ -49,7 +49,6 @@ const teamMembers = [
 
 export default function AboutPage() {
     const founderImage = PlaceHolderImages.find(p => p.id === 'founder_photo');
-    const communityImage = PlaceHolderImages.find(p => p.id === 'community_vibe');
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -169,17 +168,14 @@ export default function AboutPage() {
                             {teamMembers.map((member, index) => (
                                 <div 
                                     key={index} 
-                                    className={cn(
-                                        "flex flex-col items-center text-center space-y-4 transition-all duration-300",
-                                        member.name === "Rini Sugianto" && "md:pt-10"
-                                    )}
+                                    className="flex flex-col items-center text-center space-y-4 transition-all duration-300"
                                 >
-                                    <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary/20">
+                                    <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary/20 bg-background">
                                         <Image
                                             src={member.imageUrl}
                                             alt={member.name}
                                             fill
-                                            className="object-cover"
+                                            className="object-contain"
                                             data-ai-hint={member.hint}
                                         />
                                     </div>
