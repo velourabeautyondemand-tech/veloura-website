@@ -14,7 +14,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/accordion";
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
