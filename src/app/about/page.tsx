@@ -34,7 +34,7 @@ const teamMembers = [
     {
         name: "Huiyu \"Cherry\" Cheng",
         role: "Founder & Visionary",
-        description: "Huiyu built VÉLOURA to empower independent professionals and create a better way for people to access beauty and lifestyle services — on demand, without the limitations of traditional salons.",
+        description: "Cherry built VÉLOURA to empower independent professionals and create a better way for people to access beauty and lifestyle services — on demand delivering services where and when they’re needed.",
         imageUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F6b3be7ac-d92b-48f5-9692-21595f2eb35d/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAALyoADXv0luBMGgljVPJwZ2vCP7UofMsRccOQbh1YJeb&exp=1775273316&osig=AAAAAAAAAAAAAAAAAAAAADs-226RT-ZGFyWlDl33B1P7-e6n1hdaVRi9j0b1nDLX&signer=media-rpc&x-canva-quality=screen",
         hint: "woman portrait"
     },
