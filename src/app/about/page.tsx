@@ -11,7 +11,7 @@ const values = [
     {
         icon: Award,
         title: "Uncompromising Quality",
-        description: "We partner with only the most talented and licensed nail artists who use premium products to ensure a flawless, long-lasting finish every time."
+        description: "We partner with only the most talented and licensed beauty professionals who use premium products to ensure a flawless, long-lasting finish every time."
     },
     {
         icon: HandHeart,
@@ -35,7 +35,7 @@ const teamMembers = [
         name: "Huiyu Cheng",
         role: "Founder & Visionary",
         description: "Driven by a passion for beauty and efficiency, Huiyu founded VÉLOURA to bridge the gap between high-end salon services and the busy modern lifestyle.",
-        imageUrl: "https://i.imgur.com/wjTMG9D.png",
+        imageUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F6b3be7ac-d92b-48f5-9692-21595f2eb35d/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAALyoADXv0luBMGgljVPJwZ2vCP7UofMsRccOQbh1YJeb&exp=1775273316&osig=AAAAAAAAAAAAAAAAAAAAADs-226RT-ZGFyWlDl33B1P7-e6n1hdaVRi9j0b1nDLX&signer=media-rpc&x-canva-quality=screen",
         hint: "woman portrait"
     },
     {
@@ -137,29 +137,8 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Our Community Photo Section */}
-                <section className="py-16 sm:py-24">
-                    <div className="container mx-auto px-4 md:px-6 text-center">
-                        <h2 className="text-3xl font-bold font-headline mb-8">Our Community</h2>
-                        {communityImage && (
-                            <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                                <Image
-                                    src={communityImage.imageUrl}
-                                    alt={communityImage.description}
-                                    fill
-                                    className="object-cover"
-                                    data-ai-hint={communityImage.imageHint}
-                                />
-                            </div>
-                        )}
-                        <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">
-                            We are more than just an app; we are a vibrant community of beauty enthusiasts and elite professionals dedicated to excellence.
-                        </p>
-                    </div>
-                </section>
-
-                 {/* Our Values Section */}
-                <section id="values" className="py-16 sm:py-24 bg-secondary/50">
+                {/* Our Values Section */}
+                <section id="values" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                          <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
@@ -180,7 +159,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Our Team Section */}
-                <section id="team" className="py-16 sm:py-24">
+                <section id="team" className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Team</h2>
@@ -221,7 +200,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-16 sm:py-24 bg-secondary/50">
+                <section className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="bg-primary/10 rounded-xl p-12 text-center">
                              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary mb-4">Ready to Experience the Difference?</h2>
