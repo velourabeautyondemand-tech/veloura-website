@@ -48,8 +48,8 @@ export default function ServicesPage() {
             <main className="flex-1 bg-secondary/30 py-12 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center mb-12">
-                        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl font-headline">
-                            Our Services
+                        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
+                            Beauty is Essential. Lifestyle is Power.
                         </h1>
                         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                             Explore our menu of luxury beauty services, designed to be delivered wherever you are.
