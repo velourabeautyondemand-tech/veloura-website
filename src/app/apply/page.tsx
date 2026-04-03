@@ -148,7 +148,7 @@ export default function ApplyPage() {
                     Your earnings — elevated.
                 </h1>
                 <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
-                    VÉLOURA is a next-generation mobile beauty app built to empower independent beauty professionals and solve the biggest challenges in the industry.
+                    VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
                 </p>
             </section>
 
