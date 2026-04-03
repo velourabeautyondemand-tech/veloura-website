@@ -152,7 +152,7 @@ export default function ApplyPage() {
                 </p>
                 <div className="mt-8">
                     <Button asChild variant="outline" className="rounded-full shadow-sm hover:shadow-md transition-all">
-                        <a href="https://canva.link/tt0nn2k2gmkzhyi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                        <a href="https://www.canva.com/design/DAHF0SQ_50Q/6gj805msMcs6sNhSh_36Lg/view" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                             <ExternalLink className="w-4 h-4" />
                             Explore VÉLOURA Details
                         </a>
