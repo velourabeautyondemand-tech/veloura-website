@@ -2,7 +2,6 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { services } from '@/lib/data';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Clock, Phone } from 'lucide-react';
 import Image from 'next/image';
@@ -28,11 +27,6 @@ export default function ServicesPage() {
                     <p className="text-muted-foreground mt-1 max-w-2xl">{service.description}</p>
                 </div>
                 <div className="mt-4 md:mt-0 md:ml-8 flex flex-col items-start md:items-end shrink-0">
-                    {service.price && (
-                        <p className="text-2xl font-bold text-primary mb-1">
-                            ${service.price.toFixed(2)}
-                        </p>
-                    )}
                     {service.duration && (
                         <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                             <Clock className="w-4 h-4" />

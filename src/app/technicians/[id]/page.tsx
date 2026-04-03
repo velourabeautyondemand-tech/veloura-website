@@ -85,9 +85,7 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                             <h3 className="font-semibold">{service.name}</h3>
                             <p className="text-sm text-muted-foreground">{service.duration} mins</p>
                         </div>
-                        <div className="text-right">
-                            <p className="font-bold text-lg text-primary">${service.price.toFixed(2)}</p>
-                        </div>
+                        {/* Price hidden */}
                      </div>
                   ))}
                 </CardContent>
@@ -162,16 +160,16 @@ export default function TechnicianProfilePage({ params }: { params: { id: string
                   <Separator />
                   <div className="space-y-2">
                     <div className="flex justify-between font-semibold">
-                        <span>Gel Manicure</span>
-                        <span>$50.00</span>
+                        <span>Selected Service</span>
+                        <span className="text-muted-foreground">Price in App</span>
                     </div>
                      <div className="flex justify-between text-muted-foreground">
                         <span>Service Fee</span>
-                        <span>$5.00</span>
+                        <span className="text-muted-foreground">-</span>
                     </div>
                      <div className="flex justify-between font-bold text-lg pt-2">
                         <span>Total</span>
-                        <span>$55.00</span>
+                        <span className="text-primary italic text-sm">Download App for Pricing</span>
                     </div>
                   </div>
                   <Button size="lg" className="w-full text-lg" variant="accent" disabled>Request to Book</Button>

@@ -62,9 +62,7 @@ export default function TechnicianProfilePage() {
                             <h3 className="font-semibold">{service.name}</h3>
                             <p className="text-sm text-muted-foreground">{service.duration} mins</p>
                         </div>
-                        <div className="text-right">
-                            <p className="font-bold text-lg text-primary">${service.price.toFixed(2)}</p>
-                        </div>
+                        {/* Price hidden in public-facing view */}
                      </div>
                   ))}
                 </CardContent>
