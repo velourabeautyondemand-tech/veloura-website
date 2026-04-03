@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube, Camera, Video, Mail, ExternalLink } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube, Camera, Video, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -166,15 +166,6 @@ export default function ApplyPage() {
                         </div>
                     </div>
                 )}
-
-                <div className="mt-12">
-                    <Button asChild size="lg" className="text-lg px-8">
-                        <a href="https://www.canva.com/design/DAHF0SQ_50Q/6gj805msMcs6sNhSh_36Lg/view" target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="mr-2 h-5 w-5" />
-                            View VÉLOURA Information
-                        </a>
-                    </Button>
-                </div>
             </section>
 
             {/* Onboarding Steps Section */}
