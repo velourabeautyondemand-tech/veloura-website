@@ -49,7 +49,8 @@ export default function ServicesPage() {
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                            Beauty is Essential. Lifestyle is Power.
+                            Beauty is Essential. <br />
+                            <span className="block mt-2">Lifestyle is Power.</span>
                         </h1>
                         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                             Explore our menu of luxury beauty services, designed to be delivered wherever you are.
