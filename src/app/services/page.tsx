@@ -20,24 +20,27 @@ export default function ServicesPage() {
         { title: 'VIP Packages', services: services.filter(s => s.category === 'VIP Packages') },
     ];
 
-    const ServiceCard = ({ service }: { service: typeof services[0] }) => {
+    const ServiceListItem = ({ service }: { service: typeof services[0] }) => {
         return (
-            <Card key={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300">
-                <CardHeader>
-                    <CardTitle className="font-headline">{service.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-                {(service.duration) && (
-                    <CardFooter className="flex justify-between items-center bg-muted/50 p-4">
-                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div key={service.id} className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-xl bg-card border shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="flex-1">
+                    <h3 className="text-xl font-bold font-headline">{service.name}</h3>
+                    <p className="text-muted-foreground mt-1 max-w-2xl">{service.description}</p>
+                </div>
+                <div className="mt-4 md:mt-0 md:ml-8 flex flex-col items-start md:items-end shrink-0">
+                    {service.price && (
+                        <p className="text-2xl font-bold text-primary mb-1">
+                            ${service.price.toFixed(2)}
+                        </p>
+                    )}
+                    {service.duration && (
+                        <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                             <Clock className="w-4 h-4" />
                             <span>{service.duration}</span>
                         </div>
-                    </CardFooter>
-                )}
-            </Card>
+                    )}
+                </div>
+            </div>
         );
     }
 
@@ -57,18 +60,20 @@ export default function ServicesPage() {
                         </p>
                     </div>
                     
-                    {serviceCategories.map(category => category.services.length > 0 && (
-                         <section key={category.title} id={category.title.toLowerCase().replace(/ /g, '-')} className="mb-16">
-                            <h2 className="text-3xl font-bold tracking-tight text-center mb-8 font-headline">{category.title}</h2>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                                {category.services.map((service) => (
-                                    <ServiceCard key={service.id} service={service} />
-                                ))}
-                            </div>
-                        </section>
-                    ))}
+                    <div className="max-w-5xl mx-auto space-y-16">
+                        {serviceCategories.map(category => category.services.length > 0 && (
+                            <section key={category.title} id={category.title.toLowerCase().replace(/ /g, '-')} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <h2 className="text-2xl font-bold tracking-tight mb-6 font-headline text-primary border-b border-primary/10 pb-2">{category.title}</h2>
+                                <div className="space-y-4">
+                                    {category.services.map((service) => (
+                                        <ServiceListItem key={service.id} service={service} />
+                                    ))}
+                                </div>
+                            </section>
+                        ))}
+                    </div>
 
-                    <section className="text-center mt-16 border-t pt-12">
+                    <section className="text-center mt-20 border-t pt-12">
                         <h2 className="text-2xl font-bold font-headline">Don't see the service you're looking for?</h2>
                         <p className="mt-2 text-muted-foreground max-xl mx-auto">
                             Request a custom service by contacting us - we'll get back to you as soon as possible!
