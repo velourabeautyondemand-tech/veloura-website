@@ -10,6 +10,8 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function EventsPage() {
+    const eventHeroImage = PlaceHolderImages.find(p => p.id === 'event_hero');
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -24,6 +26,20 @@ export default function EventsPage() {
                                 Join us for exclusive events, networking, and industry seminars.
                             </p>
                         </div>
+
+                        {/* Featured Event Image */}
+                        {eventHeroImage && (
+                            <div className="relative w-full aspect-[16/9] mb-12 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                <Image
+                                    src={eventHeroImage.imageUrl}
+                                    alt={eventHeroImage.description}
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint={eventHeroImage.imageHint}
+                                    priority
+                                />
+                            </div>
+                        )}
                         
                         <div className="space-y-12">
                             {/* New Canva Event Flyer */}
@@ -79,6 +95,9 @@ export default function EventsPage() {
                                 <CardHeader className="text-center">
                                     <CardTitle className="font-headline text-2xl flex items-center justify-center gap-2">
                                         <Sparkles className="text-primary w-6 h-6" />
+                                        Plan Your Next Event
+                                    </CardTitle>
+                                    <CardTitle className="font-headline text-2xl flex items-center justify-center gap-2">
                                         Plan Your Next Event
                                     </CardTitle>
                                     <CardDescription>
