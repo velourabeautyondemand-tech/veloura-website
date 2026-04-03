@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/shared/header';
@@ -11,6 +10,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function EventsPage() {
     const eventHeroImage = PlaceHolderImages.find(p => p.id === 'event_hero');
+    const westPalmImage = PlaceHolderImages.find(p => p.id === 'west_palm_team');
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -27,9 +27,9 @@ export default function EventsPage() {
                             </p>
                         </div>
 
-                        {/* Featured Event Image */}
+                        {/* Featured Event Image - New York Team */}
                         {eventHeroImage && (
-                            <div className="mb-12">
+                            <div className="mb-8">
                                 <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                                     <Image
                                         src={eventHeroImage.imageUrl}
@@ -42,6 +42,24 @@ export default function EventsPage() {
                                 </div>
                                 <div className="text-right mt-2">
                                     <p className="text-sm font-medium text-muted-foreground italic pr-1">New York Team</p>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* West Palm Beach Team Image */}
+                        {westPalmImage && (
+                            <div className="mb-12">
+                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                    <Image
+                                        src={westPalmImage.imageUrl}
+                                        alt={westPalmImage.description}
+                                        fill
+                                        className="object-cover"
+                                        data-ai-hint={westPalmImage.imageHint}
+                                    />
+                                </div>
+                                <div className="text-right mt-2">
+                                    <p className="text-sm font-medium text-muted-foreground italic pr-1">West Palm Beach Team</p>
                                 </div>
                             </div>
                         )}

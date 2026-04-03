@@ -34,9 +34,9 @@
       "required": ["id", "email", "role"]
     },
     "TechnicianApplication": {
-      "title": "Technician Application",
+      "title": "Professional Application",
       "type": "object",
-      "description": "Represents a technician's application.",
+      "description": "Represents a professional's application.",
       "properties": {
         "firstName": {
           "type": "string"
@@ -54,6 +54,10 @@
         "serviceArea": {
           "type": "string"
         },
+        "socialMediaLink": {
+          "type": "string",
+          "format": "uri"
+        },
         "licenseNumber": {
           "type": "string"
         },
@@ -65,9 +69,9 @@
       "required": ["firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
     },
     "Technician": {
-      "title": "Technician",
+      "title": "Professional",
       "type": "object",
-      "description": "Represents an approved technician.",
+      "description": "Represents an approved professional.",
       "properties": {
         "id": {
           "type": "string"
@@ -88,6 +92,10 @@
         "serviceArea": {
           "type": "string"
         },
+        "socialMediaLink": {
+          "type": "string",
+          "format": "uri"
+        },
         "licenseNumber": {
           "type": "string"
         },
@@ -101,7 +109,7 @@
           "type": "number"
         }
       },
-      "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
+      "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "applicationStatus", "licenseNumber"]
     },
     "PressInquiry": {
       "title": "Press Inquiry",
@@ -152,6 +160,22 @@
         }
       },
       "required": ["companyName", "contactName", "email", "message", "submittedAt"]
+    },
+    "Subscriber": {
+      "title": "Subscriber",
+      "type": "object",
+      "description": "Represents a user who subscribed for news.",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "subscribedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["email", "subscribedAt"]
     }
   },
   "auth": {
@@ -172,13 +196,13 @@
         "schema": {
           "$ref": "#/entities/TechnicianApplication"
         },
-        "description": "Stores submitted applications from potential technicians."
+        "description": "Stores submitted applications from potential professionals."
       },
       "/technicians/{technicianId}": {
         "schema": {
           "$ref": "#/entities/Technician"
         },
-        "description": "Stores profiles of approved and active technicians."
+        "description": "Stores profiles of approved and active professionals."
       },
        "/press_inquiries/{inquiryId}": {
         "schema": {
@@ -191,6 +215,12 @@
             "$ref": "#/entities/PartnershipInquiry"
         },
         "description": "Stores submitted partnership inquiries."
+      },
+      "/subscribers/{subscriberId}": {
+        "schema": {
+          "$ref": "#/entities/Subscriber"
+        },
+        "description": "Stores email addresses of users who subscribed for news."
       }
     }
   }
