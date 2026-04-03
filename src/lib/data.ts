@@ -6,7 +6,7 @@ export type Service = {
   price?: number;
   duration?: string;
   imageId: string;
-  category: 'NAILs' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages' | 'Glow & Skin Wellness' | 'Photography';
+  category: 'NAILs' | 'Pedicures' | 'Nail Enhancements' | 'Extras' | 'Makeup' | 'Hair' | 'VIP Packages' | 'Glow & Skin Wellness' | 'Photography' | 'Event Coordination';
 };
 
 export type Technician = {
@@ -59,9 +59,6 @@ export const services: Service[] = [
   { id: 'lashes-classic', name: 'Classic Lash Extensions', description: 'Enhance your natural lashes with a full set of classic extensions for added length and volume.', price: 200, duration: '2 hours', imageId: 'lashes_classic', category: 'Glow & Skin Wellness' },
   { id: 'lashes-refill', name: 'Lash Refill / Touch-up', description: 'Maintain your lash extensions with a professional refill to keep them looking full and fresh.', price: 80, duration: '60-75 mins', imageId: 'lashes_refill', category: 'Glow & Skin Wellness' },
 
-  // Extras
-  { id: 'extra-art', name: 'Nail Art / Design', description: 'From minimalist chic to bold creative designs. Price is per nail.', price: 13, duration: 'Varies', imageId: 'service_4', category: 'Extras' },
-
   // Makeup
   { id: 'makeup-everyday', name: 'Everyday Glam Essentials', description: 'Soft, natural makeup for daytime wear or casual events.', price: 150, duration: '60 mins', imageId: 'makeup_1', category: 'Makeup' },
   { id: 'makeup-event', name: 'Event Glam / Prom Makeup', description: 'Elegant, long-wear look for parties, proms, or special school events - bold, glowy, and camera-ready.', price: 150, duration: '75-90 mins', imageId: 'makeup_2', category: 'Makeup' },
@@ -86,6 +83,11 @@ export const services: Service[] = [
   { id: 'photo-event', name: 'Event Photography', description: 'Capture the essence of your VIP events, parties, and celebrations with professional coverage.', price: 250, duration: '2 hours', imageId: 'photo_1', category: 'Photography' },
   { id: 'photo-portrait', name: 'Portrait Session', description: 'Professional individual or family portraits at your chosen location, including high-res digital files.', price: 150, duration: '60 mins', imageId: 'photo_2', category: 'Photography' },
   { id: 'photo-glam', name: 'Glamour Shoot', description: 'The ultimate showcase for your VÉLOURA beauty look. A dedicated session focusing on high-fashion style.', price: 200, duration: '90 mins', imageId: 'photo_3', category: 'Photography' },
+  { id: 'photo-lead', name: 'Lead Photographer Service', description: 'Elite photography service for large scale fashion shows and high-profile corporate events.', price: 500, duration: 'Varies', imageId: 'photo_1', category: 'Photography' },
+
+  // Event Coordination
+  { id: 'event-coord-standard', name: 'Beauty Event Planning', description: 'Professional coordination for bridal showers, spa days, and private beauty parties.', price: 200, duration: 'Varies', imageId: 'app_promo_background', category: 'Event Coordination' },
+  { id: 'event-coord-corporate', name: 'Corporate Wellness Coordination', description: 'End-to-end planning for office beauty pop-ups and employee appreciation days.', price: 400, duration: 'Varies', imageId: 'founder_photo', category: 'Event Coordination' },
 ];
 
 export const technicians: Technician[] = [
@@ -96,7 +98,7 @@ export const technicians: Technician[] = [
     rating: 4.9,
     reviewsCount: 134,
     baseLocation: 'Downtown',
-    services: ['mani-gel', 'nails-acrylic', 'extra-art'],
+    services: ['mani-gel', 'nails-acrylic'],
     avatarId: 'tech_avatar_1',
     reviews: [
       { reviewer: 'Alice', comment: 'Jessica is absolutely amazing! Her nail art is a masterpiece.', rating: 5 },
@@ -171,8 +173,7 @@ export const bookings: Booking[] = [
     { id: '1', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '1', technicianName: 'Jessica Lee', serviceId: 'mani-gel', serviceName: 'Gel Manicure', date: '2024-08-15', time: '10:00 AM', status: 'upcoming', price: 100 },
     { id: '2', customerId: 'c2', customerName: 'Bob Williams', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: 'nails-acrylic', serviceName: 'Acrylic Full Set', date: '2024-08-16', time: '02:00 PM', status: 'upcoming', price: 80 },
     { id: '3', customerId: 'c3', customerName: 'Charlie Brown', technicianId: '2', technicianName: 'Maria Garcia', serviceId: 'pedi-classic', serviceName: 'Classic Pedicure', date: '2024-07-20', time: '11:00 AM', status: 'completed', price: 80 },
-    { id: '4', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '1', technicianName: 'Jessica Lee', serviceId: 'extra-art', serviceName: 'Nail Art', date: '2024-07-10', time: '03:00 PM', status: 'completed', price: 13 },
+    { id: '4', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '1', technicianName: 'Jessica Lee', serviceId: 'mani-gel', serviceName: 'Gel Manicure', date: '2024-07-10', time: '03:00 PM', status: 'completed', price: 100 },
     { id: '5', customerId: 'c4', customerName: 'Diana Prince', technicianId: '4', technicianName: 'Ben Carter', serviceId: 'mani-classic', serviceName: 'Classic Manicure', date: '2024-08-18', time: '09:00 AM', status: 'upcoming', price: 80 },
     { id: '6', customerId: 'c5', customerName: 'Eve Adams', technicianId: '5', technicianName: 'Sarah Kim', serviceId: 'nails-dip', serviceName: 'Dip Powder Nails', date: '2024-08-01', time: '01:00 PM', status: 'completed', price: 60 },
-    { id: '7', customerId: 'c1', customerName: 'Alice Johnson', technicianId: '3', technicianName: 'Chloe Nguyen', serviceId: 'extra-art', serviceName: 'Nail Repair', date: '2024-06-30', time: '04:00 PM', status: 'cancelled', price: 13 },
 ];

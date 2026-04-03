@@ -16,8 +16,8 @@ export default function ServicesPage() {
         { title: 'Makeup', services: services.filter(s => s.category === 'Makeup') },
         { title: 'Hair', services: services.filter(s => s.category === 'Hair') },
         { title: 'Photography', services: services.filter(s => s.category === 'Photography') },
+        { title: 'Event Coordination', services: services.filter(s => s.category === 'Event Coordination') },
         { title: 'VIP Packages', services: services.filter(s => s.category === 'VIP Packages') },
-        { title: 'Extras', services: services.filter(s => s.category === 'Extras') },
     ];
 
     const ServiceCard = ({ service }: { service: typeof services[0] }) => {
