@@ -66,7 +66,7 @@ function UserNavButtons() {
       )}
       {userProfile?.role === 'technician' && (
         <Button asChild>
-          <Link href="/technician/dashboard">Technician Dashboard</Link>
+          <Link href="/technician/dashboard">Professional Dashboard</Link>
         </Button>
       )}
       {userProfile?.role === 'customer' && (

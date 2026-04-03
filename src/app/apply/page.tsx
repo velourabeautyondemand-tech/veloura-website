@@ -47,7 +47,7 @@ const benefits = [
     {
         icon: ShieldCheck,
         title: "Safety & Security",
-        description: "VÉLOURA provides access to Silent Beacon personal safety devices to help support technician safety during mobile appointments."
+        description: "VÉLOURA provides access to Silent Beacon personal safety devices to help support professional safety during mobile appointments."
     },
     {
         icon: Users,
@@ -64,14 +64,14 @@ const benefits = [
 const faqs = [
     {
         question: "Should I download the app before signing up?",
-        answer: "Please do not download the app before applying. Technician app access is granted only after your application is approved. To complete your onboarding, please follow these steps: Complete the technician application, submit your application, pass background screening. You’ll be notified once your onboarding is complete. Receive approval confirmation from VÉLOURA and log in to the app using the phone number you signed up with."
+        answer: "Please do not download the app before applying. Professional app access is granted only after your application is approved. To complete your onboarding, please follow these steps: Complete the professional application, submit your application, pass background screening. You’ll be notified once your onboarding is complete. Receive approval confirmation from VÉLOURA and log in to the app using the phone number you signed up with."
     },
     {
         question: "I’m trying to submit my application, but it keeps failing. What should I do?",
         answer: "We’re currently updating the app to provide a better experience. If you are having trouble submitting your application, please ensure you are using the official application link: https://velourabeautyondemand.com/apply. If the issue persists, please contact our support team at support@velourabeautyondemand.com."
     },
     {
-        question: "Can I be both a customer and a technician using the same phone number?",
+        question: "Can I be both a customer and a professional using the same phone number?",
         answer: "Yes, each phone number can now be associated with both roles."
     },
     {
@@ -79,16 +79,16 @@ const faqs = [
         answer: "Background checks are initiated after your application is successfully submitted and reviewed. If your application did not complete or failed, the background check will not start. Once approved, you’ll receive a separate notification with next steps."
     },
     {
-        question: "How do I know if my technician application is approved?",
-        answer: "You’ll receive an email confirmation once your status is updated to Approved. Approved technicians will then be guided to: Sign the required agreement or waiver, Receive the Silent Beacon safety device (if accepted), and Begin accepting bookings."
+        question: "How do I know if my professional application is approved?",
+        answer: "You’ll receive an email confirmation once your status is updated to Approved. Approved professionals will then be guided to: Sign the required agreement or waiver, Receive the Silent Beacon safety device (if accepted), and Begin accepting bookings."
     },
     {
         question: "What is the Silent Beacon safety device?",
-        answer: "The Silent Beacon is a personal safety device offered to technicians for use during VÉLOURA-booked services only. Technicians may choose to accept or decline the device during onboarding. A refundable security deposit is required if you accept the device. If declined, a safety waiver must be signed."
+        answer: "The Silent Beacon is a personal safety device offered to professionals for use during VÉLOURA-booked services only. Professionals may choose to accept or decline the device during onboarding. A refundable security deposit is required if you accept the device. If declined, a safety waiver must be signed."
     },
     {
         question: "Is the Silent Beacon Safety Device deposit mandatory?",
-        answer: "All technicians are required to sign the Safety Device Waiver, which includes the option to accept or decline the Silent Beacon safety device. While the waiver is mandatory, the device itself may be accepted or declined according to the technician’s choice and the terms outlined in the agreement."
+        answer: "All professionals are required to sign the Safety Device Waiver, which includes the option to accept or decline the Silent Beacon safety device. While the waiver is mandatory, the device itself may be accepted or declined according to the professional’s choice and the terms outlined in the agreement."
     },
     {
         question: "I already applied once. Do I need to apply again?",
@@ -100,7 +100,7 @@ const faqs = [
     },
     {
         question: "When can I start accepting jobs?",
-        answer: "You can start accepting jobs as soon as your technician status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app.\n\nOnce you’re live, we’d love your help sharing VÉLOURA with your community 💗\nFeel free to post on your social media, tell your clients, and help us spread the word — the more visibility you have, the more booking opportunities come your way.\n\nWelcome to VÉLOURA. Let’s grow together and bring beauty on demand to the world ✨"
+        answer: "You can start accepting jobs as soon as your professional status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app.\n\nOnce you’re live, we’d love your help sharing VÉLOURA with your community 💗\nFeel free to post on your social media, tell your clients, and help us spread the word — the more visibility you have, the more booking opportunities come your way.\n\nWelcome to VÉLOURA. Let’s grow together and bring beauty on demand to the world ✨"
     },
     {
         question: "Is VÉLOURA currently updating the app?",
@@ -128,7 +128,7 @@ Customers will have the option to add parking costs to their booking when applic
 Customers will be able to leave 5-star ratings and reviews, with the ability to upload photos to support feedback.
 
 Experience Levels Displayed on Profiles
-The admin team will assign experience levels, which will be displayed on technician profiles in both the customer and technician apps.
+The admin team will assign experience levels, which will be displayed on professional profiles in both the customer and professional apps.
 
 We’re committed to continuously improving the platform and appreciate your feedback as we grow.`
     }
@@ -172,7 +172,7 @@ export default function ApplyPage() {
             <section id="onboarding" className="mb-16 md:mb-24">
               <div className="max-w-3xl mx-auto space-y-8 bg-card p-8 rounded-xl shadow-xl">
                 <div className="text-center border-b pb-6">
-                    <h2 className="text-3xl font-bold font-headline">Technician Onboarding Process</h2>
+                    <h2 className="text-3xl font-bold font-headline">Professional Onboarding Process</h2>
                     <p className="text-muted-foreground mt-2">Follow these steps to join the VÉLOURA professional network.</p>
                 </div>
                 
@@ -181,7 +181,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
                         <div>
                             <h4 className="font-semibold text-lg">Apply Online</h4>
-                            <p className="text-muted-foreground">Complete the technician onboarding application below. Provide your basic information, professional license, and the services you offer.</p>
+                            <p className="text-muted-foreground">Complete the professional onboarding application below. Provide your basic information, professional license, and the services you offer.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
@@ -202,7 +202,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
                             <h4 className="font-semibold text-lg">Download the VÉLOURA App</h4>
-                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to log in as Technicians manage your profile, bookings, and availability weekly.</p>
+                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand App to log in as Professionals manage your profile, bookings, and availability weekly.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
@@ -216,14 +216,14 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
                         <div>
                             <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All technicians are required to required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
+                            <p className="text-muted-foreground">All professionals are required to required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
                         <div>
                             <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
-                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings. All payouts for completed services will be deposited directly into your connected Stripe account. Technicians keep 100% of tips.</p>
+                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings. All payouts for completed services will be deposited directly into your connected Stripe account. Professionals keep 100% of tips.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
@@ -243,7 +243,7 @@ export default function ApplyPage() {
                     <CardHeader className="text-center">
                         <CardTitle className="font-headline text-3xl">Become a VÉLOURA Pro</CardTitle>
                         <CardDescription className="text-md">
-                            Apply Now below to submit the technician onboarding form
+                            Apply Now below to submit the professional onboarding form
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
@@ -253,8 +253,8 @@ export default function ApplyPage() {
                           <AlertDescription>
                             <ul className="list-disc pl-5 mt-2">
                                 <li>Do not download the app before applying.</li>
-                                <li>Technician app access is granted only after approval.</li>
-                                <li>Each phone number can now be associated with both roles (Customer and Technician).</li>
+                                <li>Professional app access is granted only after approval.</li>
+                                <li>Each phone number can now be associated with both roles (Customer and Professional).</li>
                             </ul>
                           </AlertDescription>
                         </Alert>
@@ -279,7 +279,7 @@ export default function ApplyPage() {
                             How to Sign Up
                         </CardTitle>
                         <CardDescription className="text-md">
-                            Watch this quick tutorial on how to complete your technician application.
+                            Watch this quick tutorial on how to complete your professional application.
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -287,7 +287,7 @@ export default function ApplyPage() {
                             <iframe
                               className="w-full h-full"
                               src="https://www.youtube.com/embed/3VqLnfcATpk"
-                              title="How to Sign Up as a Technician"
+                              title="How to Sign Up as a Professional"
                               frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                               allowFullScreen

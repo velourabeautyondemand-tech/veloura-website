@@ -37,8 +37,8 @@ export default function ApplicationsPage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Technician Applications</CardTitle>
-        <CardDescription>Review and manage technician applications.</CardDescription>
+        <CardTitle>Professional Applications</CardTitle>
+        <CardDescription>Review and manage professional applications.</CardDescription>
       </CardHeader>
       <CardContent>
         {isLoading && (

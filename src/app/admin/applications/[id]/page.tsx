@@ -51,7 +51,7 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
 
     toast({
         title: `Application ${status}`,
-        description: `The technician's application has been ${status}.`
+        description: `The professional's application has been ${status}.`
     });
 
     router.push('/admin/applications');
@@ -77,7 +77,7 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
     <Card>
       <CardHeader>
         <CardTitle className="font-headline text-2xl flex items-center justify-between">
-          <span>Technician Application</span>
+          <span>Professional Application</span>
            <Badge variant={application.applicationStatus === 'approved' ? 'secondary' : application.applicationStatus === 'rejected' ? 'destructive' : 'default'}>
             {application.applicationStatus}
           </Badge>
@@ -151,5 +151,3 @@ export default function ApplicationDetailPage({ params }: { params: { id: string
     </Card>
   );
 }
-
-    

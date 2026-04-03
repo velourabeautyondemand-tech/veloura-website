@@ -102,7 +102,7 @@ export function ApplicationForm() {
               <PartyPopper className="mx-auto h-16 w-16 text-accent" />
               <h2 className="mt-6 text-2xl font-bold font-headline">Application Submitted!</h2>
               <p className="mt-2 text-muted-foreground">
-                Thank you for your interest in joining VÉLOURA! We have received your application and will review it shortly.
+                Thank you for your interest in joining the VÉLOURA Professionals network! We have received your application and will review it shortly.
               </p>
               <Button onClick={handleNewApplication} className="mt-8" variant="outline">
                 Submit Another Application

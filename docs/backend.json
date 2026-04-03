@@ -34,9 +34,9 @@
       "required": ["id", "email", "role"]
     },
     "TechnicianApplication": {
-      "title": "Technician Application",
+      "title": "Professional Application",
       "type": "object",
-      "description": "Represents a technician's application.",
+      "description": "Represents a professional's application.",
       "properties": {
         "firstName": {
           "type": "string"
@@ -69,9 +69,9 @@
       "required": ["firstName", "lastName", "email", "phone", "serviceArea", "licenseNumber", "applicationStatus"]
     },
     "Technician": {
-      "title": "Technician",
+      "title": "Professional",
       "type": "object",
-      "description": "Represents an approved technician.",
+      "description": "Represents an approved professional.",
       "properties": {
         "id": {
           "type": "string"
@@ -196,13 +196,13 @@
         "schema": {
           "$ref": "#/entities/TechnicianApplication"
         },
-        "description": "Stores submitted applications from potential technicians."
+        "description": "Stores submitted applications from potential professionals."
       },
       "/technicians/{technicianId}": {
         "schema": {
           "$ref": "#/entities/Technician"
         },
-        "description": "Stores profiles of approved and active technicians."
+        "description": "Stores profiles of approved and active professionals."
       },
        "/press_inquiries/{inquiryId}": {
         "schema": {
@@ -225,5 +225,3 @@
     }
   }
 }
-
-    

@@ -1,3 +1,6 @@
+
+'use client';
+
 import Link from 'next/link';
 import { bookings } from '@/lib/data';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -6,9 +9,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Eye } from 'lucide-react';
+import { useUser } from '@/firebase';
 
-export default function TechnicianDashboardPage() {
-    const techId = "1"; // Mock logged-in technician
+export default function ProfessionalDashboardPage() {
+    const { user } = useUser();
+    const techId = user?.uid || "1"; 
+    
     const upcomingJobs = bookings.filter(b => b.technicianId === techId && b.status === 'upcoming');
     const pastJobs = bookings.filter(b => b.technicianId === techId && b.status !== 'upcoming');
 

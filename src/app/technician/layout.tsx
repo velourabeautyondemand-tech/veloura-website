@@ -19,9 +19,10 @@ import { Briefcase, Calendar, DollarSign, User, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { technicians } from "@/lib/data";
 import { NailIcon } from "@/components/shared/logo";
-import { useAuth } from "@/firebase";
+import { useAuth, useUser, useDoc, useFirestore, useMemoFirebase } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { AuthRequired } from "@/components/auth-required";
+import { doc } from 'firebase/firestore';
 
 const techNavItems = [
     { href: "/technician/dashboard", label: "Jobs", icon: Briefcase },
@@ -30,21 +31,31 @@ const techNavItems = [
     { href: "/technician/profile", label: "Profile", icon: User },
 ];
 
-function TechnicianLayoutContent({
+function ProfessionalLayoutContent({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const currentTech = technicians[0]; // mock current technician
   const auth = useAuth();
+  const { user } = useUser();
+  const firestore = useFirestore();
   const router = useRouter();
+
+  const userDocRef = useMemoFirebase(() => {
+    if (!firestore || !user) return null;
+    return doc(firestore, 'users', user.uid);
+  }, [firestore, user]);
+
+  const { data: userProfile } = useDoc(userDocRef);
 
   const handleLogout = () => {
     auth.signOut().then(() => {
       router.push('/login');
     });
   };
+  
+  const fallbackInitial = userProfile?.firstName ? userProfile.firstName.charAt(0) : userProfile?.email?.charAt(0) || 'P';
   
   return (
     <SidebarProvider>
@@ -89,10 +100,10 @@ function TechnicianLayoutContent({
                 <div className="md:hidden">
                     <SidebarTrigger />
                 </div>
-                <h1 className="text-xl font-semibold font-headline">Technician Dashboard</h1>
+                <h1 className="text-xl font-semibold font-headline">Professional Dashboard</h1>
                 <Avatar>
-                    <AvatarImage src="https://picsum.photos/seed/tech1/200/200" data-ai-hint="woman portrait" />
-                    <AvatarFallback>{currentTech.name.charAt(0)}</AvatarFallback>
+                    <AvatarImage src={userProfile?.profileImageUrl || `https://picsum.photos/seed/${user?.uid}/200/200`} data-ai-hint="person face" />
+                    <AvatarFallback>{fallbackInitial}</AvatarFallback>
                 </Avatar>
             </header>
             <main className="flex-1 overflow-y-auto p-6 bg-secondary/30">
@@ -111,7 +122,7 @@ export default function TechnicianLayout({
 }) {
   return (
     <AuthRequired>
-      <TechnicianLayoutContent>{children}</TechnicianLayoutContent>
+      <ProfessionalLayoutContent>{children}</ProfessionalLayoutContent>
     </AuthRequired>
   )
 }
