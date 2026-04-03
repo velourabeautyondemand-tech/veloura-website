@@ -136,7 +136,6 @@ We’re committed to continuously improving the platform and appreciate your fee
 
 export default function ApplyPage() {
   const joinTeamImage = PlaceHolderImages.find(p => p.id === 'photo1');
-  const westPalmTeamImage = PlaceHolderImages.find(p => p.id === 'west_palm_team');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -155,7 +154,7 @@ export default function ApplyPage() {
                 </p>
                 
                 {joinTeamImage && (
-                    <div className="mt-12 flex justify-center">
+                    <div className="mt-12 flex flex-col items-center">
                         <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                             <Image
                                 src={joinTeamImage.imageUrl}
@@ -165,21 +164,7 @@ export default function ApplyPage() {
                                 data-ai-hint={joinTeamImage.imageHint}
                             />
                         </div>
-                    </div>
-                )}
-
-                {westPalmTeamImage && (
-                    <div className="mt-8 flex flex-col items-center">
-                        <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                            <Image
-                                src={westPalmTeamImage.imageUrl}
-                                alt={westPalmTeamImage.description}
-                                fill
-                                className="object-cover"
-                                data-ai-hint={westPalmTeamImage.imageHint}
-                            />
-                        </div>
-                        <p className="mt-2 text-muted-foreground font-medium">West palm beach Team</p>
+                        <p className="mt-4 text-muted-foreground font-medium text-lg">New York Team</p>
                     </div>
                 )}
             </section>
@@ -222,7 +207,7 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
                         <div>
                             <h4 className="font-semibold text-lg">Download the VÉLOURA App</h4>
-                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand app and log in as a Technician/Professional using your registered phone number. From there, you can manage your profile, bookings, and weekly availability.</p>
+                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand app and log in as a Professional using your registered phone number. From there, you can manage your profile, bookings, and weekly availability.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
@@ -319,7 +304,7 @@ export default function ApplyPage() {
 
             {/* FAQ Section */}
             <section id="faq" className="mb-16 md:mb-24">
-              <div className="max-w-3xl auto">
+              <div className="max-w-3xl mx-auto">
                  <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold sm:text-4xl font-headline">Frequently Asked Questions</h2>
                 </div>
