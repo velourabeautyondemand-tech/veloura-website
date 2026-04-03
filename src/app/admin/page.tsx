@@ -53,14 +53,13 @@ const chartConfig = {
 export default function AdminDashboardPage() {
   const firestore = useFirestore();
 
-  const techniciansQuery = useMemoFirebase(() => {
+  const professionalsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
     return query(collection(firestore, 'technicians'));
   }, [firestore]);
 
   const bookingsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    // This is a placeholder as bookings collection does not exist yet
     return query(collection(firestore, 'bookings'));
   }, [firestore]);
 
@@ -69,19 +68,16 @@ export default function AdminDashboardPage() {
     return query(collection(firestore, 'technician_applications'), where('applicationStatus', '==', 'pending'));
   }, [firestore]);
 
-  const { data: technicians, isLoading: techniciansLoading } = useCollection(techniciansQuery);
+  const { data: professionals, isLoading: professionalsLoading } = useCollection(professionalsQuery);
   const { data: bookings, isLoading: bookingsLoading } = useCollection(bookingsQuery);
   const { data: pendingApplicationsData, isLoading: pendingApplicationsLoading } = useCollection(pendingApplicationsQuery);
 
-  const isLoading = techniciansLoading || bookingsLoading || pendingApplicationsLoading;
+  const isLoading = professionalsLoading || bookingsLoading || pendingApplicationsLoading;
 
   const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + b.totalAmount, 0) || 0;
   const totalBookings = bookings?.length || 0;
-  const totalTechnicians = technicians?.length || 0;
+  const totalProfessionals = professionals?.length || 0;
   const pendingApplications = pendingApplicationsData?.length || 0;
-
-  // Note: Chart data is still static for this version.
-  // A more complex implementation would be needed to aggregate Firestore data by month.
 
   return (
     <div className="space-y-6">
@@ -120,7 +116,7 @@ export default function AdminDashboardPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+{totalTechnicians}</div>
+            <div className="text-2xl font-bold">+{totalProfessionals}</div>
              <p className="text-xs text-muted-foreground">Total registered professionals</p>
           </CardContent>
         </Card>
@@ -203,7 +199,7 @@ export default function AdminDashboardPage() {
                   <TableCell>
                     <Badge variant={booking.status === 'completed' ? 'secondary' : booking.status === 'cancelled' ? 'destructive' : 'default'}>{booking.status}</Badge>
                   </TableCell>
-                  <TableCell className="text-right">${booking.totalAmount.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">${booking.totalAmount?.toFixed(2) || '0.00'}</TableCell>
                 </TableRow>
               ))}
                {(!bookings || bookings.length === 0) && (

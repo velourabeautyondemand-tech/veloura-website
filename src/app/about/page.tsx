@@ -100,7 +100,7 @@ export default function AboutPage() {
                 <section id="founder" className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
-                            <div className="md:col-span-1 flex justify-center">
+                            <div className="md:col-span-1 flex justify-center md:pt-8">
                                 {founderImage && (
                                      <div className="relative w-48 h-48">
                                         <Image
@@ -158,8 +158,29 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                 {/* Our Values Section */}
+                <section id="values" className="py-16 sm:py-24 bg-secondary/50">
+                    <div className="container mx-auto px-4 md:px-6">
+                         <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
+                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">These principles guide everything we do, from the professionals we partner with to the experience we provide.</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                            {values.map((value, index) => (
+                                <div key={index} className="bg-card p-8 rounded-xl shadow-md flex flex-col">
+                                    <div className="mb-4">
+                                        <value.icon className="h-12 w-12 text-primary mx-auto" />
+                                    </div>
+                                    <h3 className="text-xl font-bold font-headline mb-2">{value.title}</h3>
+                                    <p className="text-muted-foreground flex-grow">{value.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
                 {/* Our Team Section */}
-                <section id="team" className="py-16 sm:py-24 bg-secondary/50">
+                <section id="team" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Team</h2>
@@ -195,27 +216,6 @@ export default function AboutPage() {
                             <Button asChild size="lg">
                                 <Link href="/apply">Apply to Join</Link>
                             </Button>
-                        </div>
-                    </div>
-                </section>
-
-                 {/* Our Values Section */}
-                <section id="values" className="py-16 sm:py-24">
-                    <div className="container mx-auto px-4 md:px-6">
-                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
-                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">These principles guide everything we do, from the professionals we partner with to the experience we provide.</p>
-                        </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                            {values.map((value, index) => (
-                                <div key={index} className="bg-card p-8 rounded-xl shadow-md flex flex-col">
-                                    <div className="mb-4">
-                                        <value.icon className="h-12 w-12 text-primary mx-auto" />
-                                    </div>
-                                    <h3 className="text-xl font-bold font-headline mb-2">{value.title}</h3>
-                                    <p className="text-muted-foreground flex-grow">{value.description}</p>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 </section>
