@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { Award, HandHeart, Sparkles, Users, Linkedin, Heart, ShieldCheck, Stars } from 'lucide-react';
+import { Award, HandHeart, Sparkles, Users, Linkedin, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -26,7 +26,7 @@ const values = [
     {
         icon: Sparkles,
         title: "Safety & Trust",
-        description: "Your safety is our top priority. We vet all technicians and equip them with emergency panic buttons for every job. We also offer background checks to customers for a small fee to ensure a secure and comfortable experience for everyone."
+        description: "Your safety is our top priority. We vet all professionals and equip them with emergency panic buttons for every job. We also offer background checks to customers for a small fee to ensure a secure and comfortable experience for everyone."
     },
 ]
 
@@ -39,11 +39,11 @@ const teamMembers = [
         hint: "woman portrait"
     },
     {
-        name: "Our Pro Network",
-        role: "The Heart of VÉLOURA",
-        description: "A nationwide community of elite, licensed beauty professionals dedicated to delivering five-star luxury directly to your door.",
-        imageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwd29ya3xlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=400",
-        hint: "team work"
+        name: "Media Lead",
+        role: "Media Lead",
+        description: "Dedicated to capturing the beauty and artistry of the VÉLOURA experience through compelling visual storytelling and brand production.",
+        imageUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAIIszOyz8JgjgojMGmnIvDe3yJMk4Qy3K5QssiG4LMxQ&exp=1775275556&osig=AAAAAAAAAAAAAAAAAAAAAEQBmuFqEj8h-YY3wlpILmZk5M5INLqCofjvWfsNFO5N&signer=media-rpc&x-canva-quality=screen",
+        hint: "media professional"
     }
 ]
 
@@ -90,7 +90,7 @@ export default function AboutPage() {
                                 Think about the people who can’t easily walk into a salon: New mothers recovering and adjusting, Seniors who no longer drive, Young adults with disabilities, People with chronic illness or anxiety, Busy parents and professionals who are drowning in schedules, and clients who value privacy, safety, and trust in their own space.
                             </p>
                             <p className="font-semibold text-primary text-xl text-center my-8">
-                                This is where beauty becomes a service, not a performance. This is where caring professionals like our technicians make a real difference. And this is what our founder wants to transform the beauty industry into.
+                                This is where beauty becomes a service, not a performance. This is where caring professionals like our team make a real difference. And this is what our founder wants to transform the beauty industry into.
                             </p>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ export default function AboutPage() {
                     <div className="container mx-auto px-4 md:px-6">
                          <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
-                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">These principles guide everything we do, from the technicians we partner with to the experience we provide.</p>
+                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">These principles guide everything we do, from the professionals we partner with to the experience we provide.</p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                             {values.map((value, index) => (

@@ -160,7 +160,7 @@
     {
       "id": "hair_5",
       "description": "Bridesmaids Hairstyling",
-      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzJTIwaGFpcnN0eWxpbmd8ZW58MHx8fHwxNjc3MDIyNTM5fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridesmaids hairstyling"
     },
     {
@@ -214,7 +214,7 @@
     {
       "id": "tech_avatar_3",
       "description": "Avatar for Chloe",
-      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "woman face"
     },
     {
@@ -242,22 +242,10 @@
       "imageHint": "join team"
     },
     {
-      "id": "photo1",
-      "description": "Event photography",
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "event photography"
-    },
-    {
-      "id": "event_hero",
-      "description": "VÉLOURA Event Banner",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F4775a245-9b16-4fd0-9da0-c43503a44493/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAACyO2lWKvJqWUu-n4aVGI2PCIcpr9EPhWURx5hWSROsJ&exp=1775272960&osig=AAAAAAAAAAAAAAAAAAAAAGoIVbvvsvHsQlOikgEIxh5CnpbYTPsCrxB4IBqD5w6r&signer=media-rpc&x-canva-quality=screen_2x",
-      "imageHint": "event banner"
-    },
-    {
-      "id": "west_palm_team",
-      "description": "West palm beach Team",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2Fde80dc16-f67e-4709-a0e5-9d35a8c66fcc/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAIgqRJHmXNt2fxxLiBPKkGiwj6wuuQ-e1b4fZvaVZGP8&exp=1775272642&osig=AAAAAAAAAAAAAAAAAAAAANIry-Qi7ZB6pEieulEpQ4ubKq_WEsx0TdIWKF4zoI3b&signer=media-rpc&x-canva-quality=screen_2x",
-      "imageHint": "team group"
+      "id": "media_lead_photo",
+      "description": "Media Lead Headshot",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAIIszOyz8JgjgojMGmnIvDe3yJMk4Qy3K5QssiG4LMxQ&exp=1775275556&osig=AAAAAAAAAAAAAAAAAAAAAEQBmuFqEj8h-YY3wlpILmZk5M5INLqCofjvWfsNFO5N&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "media professional"
     }
   ]
 }
