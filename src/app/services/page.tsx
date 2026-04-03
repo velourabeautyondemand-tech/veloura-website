@@ -53,7 +53,7 @@ export default function ServicesPage() {
                             <span className="block mt-2">Lifestyle is Power.</span>
                         </h1>
                         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Explore our menu of luxury beauty services, designed to be delivered wherever you are.
+                            Explore our curated list of beauty, photography, event planning, and more — all delivered to you.
                         </p>
                     </div>
                     
