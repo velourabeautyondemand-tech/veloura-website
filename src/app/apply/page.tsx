@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube, Camera, Video, Mail } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -136,6 +136,7 @@ We’re committed to continuously improving the platform and appreciate your fee
 
 export default function ApplyPage() {
   const joinTeamImage = PlaceHolderImages.find(p => p.id === 'photo1');
+  const westPalmTeamImage = PlaceHolderImages.find(p => p.id === 'west_palm_team');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -164,6 +165,21 @@ export default function ApplyPage() {
                                 data-ai-hint={joinTeamImage.imageHint}
                             />
                         </div>
+                    </div>
+                )}
+
+                {westPalmTeamImage && (
+                    <div className="mt-8 flex flex-col items-center">
+                        <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                            <Image
+                                src={westPalmTeamImage.imageUrl}
+                                alt={westPalmTeamImage.description}
+                                fill
+                                className="object-cover"
+                                data-ai-hint={westPalmTeamImage.imageHint}
+                            />
+                        </div>
+                        <p className="mt-2 text-muted-foreground font-medium">West palm beach Team</p>
                     </div>
                 )}
             </section>

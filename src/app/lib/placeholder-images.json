@@ -94,19 +94,19 @@
     {
       "id": "hair_1",
       "description": "Hair Blowout",
-      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair blowout"
     },
     {
       "id": "hair_2",
       "description": "Formal Hair Updo",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair updo"
     },
     {
       "id": "hair_3",
       "description": "Bridal Hair",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal hair"
     },
     {
@@ -252,6 +252,12 @@
       "description": "VÉLOURA Event Banner",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F4775a245-9b16-4fd0-9da0-c43503a44493/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAACyO2lWKvJqWUu-n4aVGI2PCIcpr9EPhWURx5hWSROsJ&exp=1775272960&osig=AAAAAAAAAAAAAAAAAAAAAGoIVbvvsvHsQlOikgEIxh5CnpbYTPsCrxB4IBqD5w6r&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "event banner"
+    },
+    {
+      "id": "west_palm_team",
+      "description": "West palm beach Team",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2Fde80dc16-f67e-4709-a0e5-9d35a8c66fcc/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAIgqRJHmXNt2fxxLiBPKkGiwj6wuuQ-e1b4fZvaVZGP8&exp=1775272642&osig=AAAAAAAAAAAAAAAAAAAAANIry-Qi7ZB6pEieulEpQ4ubKq_WEsx0TdIWKF4zoI3b&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "team group"
     }
   ]
 }
