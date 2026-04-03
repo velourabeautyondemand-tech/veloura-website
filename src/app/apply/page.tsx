@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -134,7 +135,7 @@ We’re committed to continuously improving the platform and appreciate your fee
 ];
 
 export default function ApplyPage() {
-  const joinTeamImage = PlaceHolderImages.find(p => p.id === 'join_team_graphic');
+  const joinTeamImage = PlaceHolderImages.find(p => p.id === 'photo1');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -154,7 +155,7 @@ export default function ApplyPage() {
                 
                 {joinTeamImage && (
                     <div className="mt-12 flex justify-center">
-                        <div className="relative w-full max-w-2xl aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                             <Image
                                 src={joinTeamImage.imageUrl}
                                 alt={joinTeamImage.description}
