@@ -150,14 +150,6 @@ export default function ApplyPage() {
                 <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
                     VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
                 </p>
-                <div className="mt-8">
-                    <Button asChild variant="outline" className="rounded-full shadow-sm hover:shadow-md transition-all">
-                        <a href="https://www.canva.com/design/DAHF0SQ_50Q/6gj805msMcs6sNhSh_36Lg/view" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                            <ExternalLink className="w-4 h-4" />
-                            Explore VÉLOURA Details
-                        </a>
-                    </Button>
-                </div>
             </section>
 
             {/* Onboarding Steps Section */}
