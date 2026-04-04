@@ -100,7 +100,7 @@
     {
       "id": "hair_2",
       "description": "Formal Hair Updo",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDR8fGdsYW0lMjBtYWtldXB8ZW58MHx8fHwxNjY2NjE3NTE3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair updo"
     },
     {
@@ -112,7 +112,7 @@
     {
       "id": "hair_4",
       "description": "Hair Trial",
-      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "woman face"
     },
     {
@@ -226,7 +226,7 @@
     {
       "id": "tech_avatar_5",
       "description": "Avatar for Sarah",
-      "imageUrl": "https://images.unsplash.com/photo-1614436201459-156d322d38c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbWlsaW5nJTIwd29tYW58ZW58MHx8fHwxNzU5NTExMjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1614436201459-156d322d38c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbWlsaW5nJTIwd29tYW58ZW58MHx8fHwxNzU5NTExMjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "smiling woman"
     },
     {
@@ -246,6 +246,18 @@
       "description": "Team collaboration banner",
       "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "team collaboration"
+    },
+    {
+      "id": "event_hero",
+      "description": "New York Team event photo",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F75a8e094-1443-44ec-bbc9-3e42cdee7de2/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANVh25KszYiZN3KhzhF27eDgh5Sn036jCvhsFoAR-eNd&exp=1775283154&osig=AAAAAAAAAAAAAAAAAAAAADhJZ190pzBRh9uYP9J0d6c7DTIvfr4xK1fLpmutxawO&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "team group"
+    },
+    {
+      "id": "west_palm_team",
+      "description": "West Palm Beach Team photo",
+      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NjQ2MjU0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team meeting"
     }
   ]
 }
