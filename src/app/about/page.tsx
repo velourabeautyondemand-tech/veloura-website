@@ -54,20 +54,6 @@ export default function AboutPage() {
         <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-1">
-                {/* Hero Section */}
-                <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50 text-center">
-                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="max-w-3xl mx-auto">
-                            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-                                Where beauty meets your schedule
-                            </h1>
-                            <p className="mt-6 text-lg text-muted-foreground">
-                                From nails to hair to makeup, our professionals come to you so you can feel your best - no traffic, no waiting, no rushing.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
                 {/* Our Story Section */}
                 <section id="story" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
