@@ -56,8 +56,6 @@ const teamMembers = [
 ]
 
 export default function AboutPage() {
-    const joinTeamBanner = PlaceHolderImages.find(p => p.id === 'join_team_banner');
-
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -196,18 +194,6 @@ export default function AboutPage() {
                                 <Heart className="text-primary fill-primary w-6 h-6" /> Join Our Team
                             </h3>
                             
-                            {joinTeamBanner && (
-                                <div className="relative w-full max-w-2xl h-64 mx-auto mb-8 rounded-xl overflow-hidden shadow-md">
-                                    <Image
-                                        src={joinTeamBanner.imageUrl}
-                                        alt={joinTeamBanner.description}
-                                        fill
-                                        className="object-cover"
-                                        data-ai-hint={joinTeamBanner.imageHint}
-                                    />
-                                </div>
-                            )}
-
                             <p className="text-lg text-muted-foreground mb-8">
                                 Are you a licensed beauty professional looking for freedom, higher earnings, and a supportive community? We are always looking for talented artists to join the VÉLOURA family.
                             </p>

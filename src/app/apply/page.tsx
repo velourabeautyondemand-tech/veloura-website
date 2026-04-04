@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -134,7 +135,7 @@ We’re committed to continuously improving the platform and appreciate your fee
 ];
 
 export default function ApplyPage() {
-  const joinTeamImage = PlaceHolderImages.find(p => p.id === 'photo1');
+  const joinTeamImage = PlaceHolderImages.find(p => p.id === 'join_team_banner');
 
   return (
     <div className="flex flex-col min-h-screen">
