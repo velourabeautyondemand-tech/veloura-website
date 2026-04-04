@@ -31,12 +31,14 @@ const values = [
     },
 ]
 
+const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
+
 const teamMembers = [
     {
         name: "Huiyu \"Cherry\" Cheng",
         role: "Founder & Visionary",
         description: "She didn't just build VÉLOURA — she built it from real-life experience. Seeing how outdated systems limited both clients and independent professionals, she set out to create something better — a platform where services move with your life, not the other way around. Today, VÉLOURA empowers professionals and delivers beauty and lifestyle services on demand — where and when they’re needed.",
-        imageUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F6b3be7ac-d92b-48f5-9692-21595f2eb35d/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAALyoADXv0luBMGgljVPJwZ2vCP7UofMsRccOQbh1YJeb&exp=1775273316&osig=AAAAAAAAAAAAAAAAAAAAADs-226RT-ZGFyWlDl33B1P7-e6n1hdaVRi9j0b1nDLX&signer=media-rpc&x-canva-quality=screen",
+        imageUrl: founderImageUrl,
         hint: "woman portrait"
     },
     {
@@ -100,7 +102,7 @@ export default function AboutPage() {
                             <div className="md:col-span-1 flex justify-center">
                                  <div className="relative w-48 h-48">
                                     <Image
-                                        src="https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F6b3be7ac-d92b-48f5-9692-21595f2eb35d/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAALyoADXv0luBMGgljVPJwZ2vCP7UofMsRccOQbh1YJeb&exp=1775273316&osig=AAAAAAAAAAAAAAAAAAAAADs-226RT-ZGFyWlDl33B1P7-e6n1hdaVRi9j0b1nDLX&signer=media-rpc&x-canva-quality=screen"
+                                        src={founderImageUrl}
                                         alt="Huiyu Cherry Cheng"
                                         fill
                                         className="rounded-full object-contain shadow-lg"
@@ -130,7 +132,10 @@ export default function AboutPage() {
                                         "That’s where VÉLOURA began. A platform designed not only to make services more accessible, but to empower professionals — giving them more freedom, more control, and more opportunity."
                                     </p>
                                     <p>
-                                        "A place where services come to you — simple, flexible, and built for real life. As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. <strong className="text-primary underline">We’re just getting started.</strong>"
+                                        "A place where services come to you — simple, flexible, and built for real life."
+                                    </p>
+                                    <p>
+                                        "As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. <strong className="text-primary underline">We’re just getting started.</strong>"
                                     </p>
                                 </div>
                             </div>
