@@ -94,25 +94,25 @@
     {
       "id": "hair_1",
       "description": "Hair Blowout",
-      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair blowout"
     },
     {
       "id": "hair_2",
       "description": "Formal Hair Updo",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair updo"
     },
     {
       "id": "hair_3",
       "description": "Bridal Hair",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal hair"
     },
     {
       "id": "hair_4",
       "description": "Hair Trial",
-      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "woman face"
     },
     {
@@ -166,19 +166,19 @@
     {
       "id": "vip_1",
       "description": "Glam Essentials Package (Makeup & Hair)",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEyfHxoYWlyJTIwbWFrZXVwJTIwY29tYm98ZW58MHx8fHwxNjY2NjE3NzAxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEyfHxoYWlyJTIwbWFrZXVwJTIwY29tYm98ZW58MHx8fHwxNjY2NjE3NzAxfDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair makeup combo"
     },
     {
       "id": "vip_2",
       "description": "Wedding/Fashion Shows/Events (Makeup & Hair)",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDV8fGZhc2hpb24lMjBzaG93JTIwbWFrZXVwfGVufDB8fHx8MTY2NjYxNzcyOHww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDV8fGZhc2hpb24lMjBzaG93JTIwbWFrZXVwfGVufDB8fHx8MTY2NjYxNzcyOHww&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "fashion show makeup"
     },
     {
       "id": "vip_3",
       "description": "Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal beauty"
     },
     {
@@ -242,22 +242,10 @@
       "imageHint": "join team"
     },
     {
-      "id": "join_team_banner",
-      "description": "Team collaboration banner",
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "team collaboration"
-    },
-    {
-      "id": "event_hero",
-      "description": "New York Team event photo",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F75a8e094-1443-44ec-bbc9-3e42cdee7de2/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANVh25KszYiZN3KhzhF27eDgh5Sn036jCvhsFoAR-eNd&exp=1775283154&osig=AAAAAAAAAAAAAAAAAAAAADhJZ190pzBRh9uYP9J0d6c7DTIvfr4xK1fLpmutxawO&signer=media-rpc&x-canva-quality=screen_2x",
-      "imageHint": "team group"
-    },
-    {
-      "id": "west_palm_team",
-      "description": "West Palm Beach Team photo",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F9a9f59ef-4ade-4fab-b32f-6c48dcd76a08/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAABsCVFB6GsvtgYQ-XjMGsVQjV_t4Zu0KZmoT-0YW_pb1&exp=1775273832&osig=AAAAAAAAAAAAAAAAAAAAAD7m7TMIKhZJEK_wbnKOQt6tNC6OqNJmWKA1HKNmzAxJ&signer=media-rpc&x-canva-quality=screen_2x",
-      "imageHint": "team group"
+      "id": "silent_beacon_logo",
+      "description": "Silent Beacon logo",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:731/quality:100/uri:ifs%3A%2F%2FM%2Fbefb1e4b-1c68-4ea9-87ae-20c7cdd7294a/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAADa_-MWtsj7088V2Ol8r43RxyyYBRZY1ad9WFuWXWBlO&exp=1775287689&osig=AAAAAAAAAAAAAAAAAAAAAO3hY3J31iawE5n0QewLYRjs6OcsYahK3I_NsV1PUsDf&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "silent beacon"
     }
   ]
 }

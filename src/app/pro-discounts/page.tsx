@@ -5,32 +5,35 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Mail } from 'lucide-react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-
-const partners = [
-    {
-        name: "Byootique",
-        logoUrl: "https://uploads.dovetale.com/brand-profile-logo/brandprofile/33535/logo/thumb-db1f1b4174fd99b5ba2678562bf41a14.png",
-        hint: "Byootique logo",
-        description: "Exclusive discounts on professional beauty cases, makeup bags, and supplies to keep your kit organized and ready for any client.",
-        link: "https://byootique-global.com/VELOURA_BEAUTY_X"
-    },
-    {
-        name: "The Nailest",
-        logoUrl: "https://thenailest.com/cdn/shop/files/STICKER_1.5_w_R-01-01_150x@2x.png?v=1614284508",
-        hint: "The Nailest logo",
-        description: "Get access to high-quality, trendy, and durable nail products. Perfect for the modern nail professional.",
-        link: "https://thenailest.com/a/buzzbassador/bassador-signup/245381uhcgUpj4"
-    },
-    {
-        name: "Silent Beacon",
-        logoUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:1066/quality:92/uri:ifs%3A%2F%2FM%2F15752f32-6335-4764-8309-f69756d74f27/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANWWOtri45oqOhLJzeVbnzWHXL1rsY1_b1JX8K4jfO3e&exp=1775274502&osig=AAAAAAAAAAAAAAAAAAAAAFZoO6oYeA9CfOAbKiRhIaeU1n4UN9eyVaeU8W6HJs-d&signer=media-rpc&x-canva-quality=screen_2x",
-        hint: "Silent Beacon logo",
-        description: "Personal safety devices designed to support and protect beauty professionals during on-demand mobile appointments.",
-        link: "https://silentbeacon.com/"
-    }
-]
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function ProDiscountsPage() {
+    const silentBeaconImage = PlaceHolderImages.find(p => p.id === 'silent_beacon_logo');
+
+    const partners = [
+        {
+            name: "Byootique",
+            logoUrl: "https://uploads.dovetale.com/brand-profile-logo/brandprofile/33535/logo/thumb-db1f1b4174fd99b5ba2678562bf41a14.png",
+            hint: "Byootique logo",
+            description: "Exclusive discounts on professional beauty cases, makeup bags, and supplies to keep your kit organized and ready for any client.",
+            link: "https://byootique-global.com/VELOURA_BEAUTY_X"
+        },
+        {
+            name: "The Nailest",
+            logoUrl: "https://thenailest.com/cdn/shop/files/STICKER_1.5_w_R-01-01_150x@2x.png?v=1614284508",
+            hint: "The Nailest logo",
+            description: "Get access to high-quality, trendy, and durable nail products. Perfect for the modern nail professional.",
+            link: "https://thenailest.com/a/buzzbassador/bassador-signup/245381uhcgUpj4"
+        },
+        {
+            name: "Silent Beacon",
+            logoUrl: silentBeaconImage?.imageUrl || "https://picsum.photos/seed/silent/200/100",
+            hint: silentBeaconImage?.imageHint || "Silent Beacon logo",
+            description: "Personal safety devices designed to support and protect beauty professionals during on-demand mobile appointments.",
+            link: "https://silentbeacon.com/"
+        }
+    ]
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -61,12 +64,11 @@ export default function ProDiscountsPage() {
                                <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300 flex flex-col">
                                     <a href={partner.link} target="_blank" rel="noopener noreferrer" className="block flex-1">
                                         <CardHeader className="items-center text-center p-6 pt-12">
-                                             <div className="h-24 flex items-center justify-center">
+                                             <div className="h-24 flex items-center justify-center w-full relative">
                                                 <Image 
                                                     src={partner.logoUrl} 
                                                     alt={`${partner.name} logo`}
-                                                    width={150}
-                                                    height={75}
+                                                    fill
                                                     data-ai-hint={partner.hint}
                                                     className="object-contain"
                                                 />
