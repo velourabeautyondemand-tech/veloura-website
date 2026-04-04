@@ -149,12 +149,9 @@ export default function ApplyPage() {
                     Your talent. Your schedule. <br />
                     Your earnings — elevated.
                 </h1>
-                <p className="mt-6 text-lg max-w-3xl mx-auto text-muted-foreground">
-                    VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
-                </p>
                 
                 {joinTeamImage && (
-                    <div className="mt-12 flex flex-col items-center">
+                    <div className="mt-8 mb-10 flex flex-col items-center">
                         <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                             <Image
                                 src={joinTeamImage.imageUrl}
@@ -162,10 +159,15 @@ export default function ApplyPage() {
                                 fill
                                 className="object-cover"
                                 data-ai-hint={joinTeamImage.imageHint}
+                                priority
                             />
                         </div>
                     </div>
                 )}
+
+                <p className="text-lg max-w-3xl mx-auto text-muted-foreground">
+                    VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
+                </p>
             </section>
 
             {/* Onboarding Steps Section */}

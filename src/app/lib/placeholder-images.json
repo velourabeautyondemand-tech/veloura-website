@@ -178,7 +178,7 @@
     {
       "id": "vip_3",
       "description": "Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal beauty"
     },
     {
@@ -236,16 +236,28 @@
       "imageHint": "woman portrait"
     },
     {
-      "id": "join_team_graphic",
-      "description": "Join Our Team Graphic",
-      "imageUrl": "https://6000-firebase-studio-1759589200287.cluster-fhtfcgwkwjgxoujc3bw2r2g7wa.cloudworkstations.dev/capra/attachedImages/f75efc18-a970-4604-afab-4e4064e21f90/image_8b4687df-0152-432c-8651-3c1594c7dc9a.png",
-      "imageHint": "join team"
+      "id": "join_team_banner",
+      "description": "Join Our Team Banner",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:781/quality:100/uri:ifs%3A%2F%2FM%2F3a5469f0-5de3-4163-99d7-7f4e848ef641/watermark:F/width:1170?csig=AAAAAAAAAAAAAAAAAAAAAF1jV1UUGX36OzaXhRo95kjouBho_SNrIyqPucgHao2O&exp=1775291403&osig=AAAAAAAAAAAAAAAAAAAAAPlzPpcL17RW7xFHBl5h_oXftqkwYXC1CHczULTm4bzt&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "team recruitment"
     },
     {
       "id": "silent_beacon_logo",
       "description": "Silent Beacon logo",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:731/quality:100/uri:ifs%3A%2F%2FM%2Fbefb1e4b-1c68-4ea9-87ae-20c7cdd7294a/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAADa_-MWtsj7088V2Ol8r43RxyyYBRZY1ad9WFuWXWBlO&exp=1775287689&osig=AAAAAAAAAAAAAAAAAAAAAO3hY3J31iawE5n0QewLYRjs6OcsYahK3I_NsV1PUsDf&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "silent beacon"
+    },
+    {
+      "id": "event_hero",
+      "description": "VÉLOURA New York Team",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F75a8e094-1443-44ec-bbc9-3e42cdee7de2/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANVh25KszYiZN3KhzhF27eDgh5Sn036jCvhsFoAR-eNd&exp=1775283154&osig=AAAAAAAAAAAAAAAAAAAAADhJZ190pzBRh9uYP9J0d6c7DTIvfr4xK1fLpmutxawO&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "new york team"
+    },
+    {
+      "id": "west_palm_team",
+      "description": "VÉLOURA West Palm Beach Team",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F9a9f59ef-4ade-4fab-b32f-6c48dcd76a08/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAABsCVFB6GsvtgYQ-XjMGsVQjV_t4Zu0KZmoT-0YW_pb1&exp=1775273832&osig=AAAAAAAAAAAAAAAAAAAAAD7m7TMIKhZJEK_wbnKOQt6tNC6OqNJmWKA1HKNmzAxJ&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "west palm team"
     }
   ]
 }
