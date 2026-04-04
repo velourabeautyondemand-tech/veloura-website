@@ -142,7 +142,7 @@
     {
       "id": "brows_microblading",
       "description": "Brows & Microblading",
-      "imageUrl": "https://images.unsplash.com/photo-1716833322888-9c6e7549fa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxleWVicm93JTIwbWljcm9ibGFkaW5nfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1716833322888-9c6e7549fa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleWVicm93JTIwbWljcm9ibGFkaW5nfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "eyebrow microblading"
     },
     {
@@ -184,13 +184,13 @@
     {
       "id": "photo_1",
       "description": "Event Photography",
-      "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxldmVudCUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxldmVudCUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "event photography"
     },
     {
       "id": "photo_2",
       "description": "Portrait Session",
-      "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3R0cmFpdCUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "portrait photography"
     },
     {
@@ -208,7 +208,7 @@
     {
       "id": "tech_avatar_2",
       "description": "Avatar for Maria",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzU5NTQ4MjA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fDE3NTk1NDgyA9fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman smiling"
     },
     {
