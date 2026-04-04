@@ -7,6 +7,7 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { SubscribeForm } from '@/components/features/subscribe-form';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { DiscountPopup } from '@/components/features/discount-popup';
 
 const useCases = [
   {
@@ -59,6 +60,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
+      <DiscountPopup />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
