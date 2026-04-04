@@ -39,6 +39,13 @@ const teamMembers = [
         hint: "woman portrait"
     },
     {
+        name: "Roxanne Resma",
+        role: "Operations Director",
+        description: "Roxanne oversees operations at VÉLOURA, ensuring everything runs efficiently as we grow. She manages onboarding, systems, and day-to-day execution — keeping both professionals and clients supported every step of the way.",
+        imageUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAPNuHhmMAGVORPhowinzT0lkighncbmtvuR76fplHUtW&exp=1775275441&osig=AAAAAAAAAAAAAAAAAAAAALnqCvAg8do41Rr03YArldL5GqME0SYtLykKfjeXWlwo&signer=media-rpc&x-canva-quality=screen",
+        hint: "operations director"
+    },
+    {
         name: "Rini Sugianto",
         role: "Media Lead",
         description: "Dedicated to capturing the beauty and artistry of the VÉLOURA experience through compelling visual storytelling and brand production.",
@@ -87,22 +94,20 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Founder Section */}
+                {/* Founder Note Section */}
                 <section id="founder" className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
-                            <div className="md:col-span-1 flex justify-center md:pt-8">
-                                {founderImage && (
-                                     <div className="relative w-48 h-48">
-                                        <Image
-                                            src={founderImage.imageUrl}
-                                            alt={founderImage.description}
-                                            fill
-                                            className="rounded-full object-contain shadow-lg"
-                                            data-ai-hint={founderImage.imageHint}
-                                        />
-                                    </div>
-                                )}
+                            <div className="md:col-span-1 flex justify-center">
+                                 <div className="relative w-48 h-48">
+                                    <Image
+                                        src="https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F6b3be7ac-d92b-48f5-9692-21595f2eb35d/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAALyoADXv0luBMGgljVPJwZ2vCP7UofMsRccOQbh1YJeb&exp=1775273316&osig=AAAAAAAAAAAAAAAAAAAAADs-226RT-ZGFyWlDl33B1P7-e6n1hdaVRi9j0b1nDLX&signer=media-rpc&x-canva-quality=screen"
+                                        alt="Huiyu Cherry Cheng"
+                                        fill
+                                        className="rounded-full object-contain shadow-lg"
+                                        data-ai-hint="woman portrait"
+                                    />
+                                </div>
                             </div>
                             <div className="md:col-span-2">
                                 <div className="flex items-center gap-4 mb-4">
@@ -156,7 +161,7 @@ export default function AboutPage() {
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Team</h2>
                             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">The passionate individuals dedicated to redefining the beauty experience.</p>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                        <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
                             {teamMembers.map((member, index) => (
                                 <div 
                                     key={index} 
@@ -174,7 +179,7 @@ export default function AboutPage() {
                                     <div className="space-y-2">
                                         <h3 className="text-2xl font-bold font-headline">{member.name}</h3>
                                         <p className="text-primary font-semibold uppercase tracking-wider text-sm">{member.role}</p>
-                                        <p className="text-muted-foreground max-md">{member.description}</p>
+                                        <p className="text-muted-foreground text-sm">{member.description}</p>
                                     </div>
                                 </div>
                             ))}
