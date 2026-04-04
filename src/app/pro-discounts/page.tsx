@@ -20,6 +20,13 @@ const partners = [
         hint: "The Nailest logo",
         description: "Get access to high-quality, trendy, and durable nail products. Perfect for the modern nail professional.",
         link: "https://thenailest.com/a/buzzbassador/bassador-signup/245381uhcgUpj4"
+    },
+    {
+        name: "Silent Beacon",
+        logoUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:1066/quality:92/uri:ifs%3A%2F%2FM%2F15752f32-6335-4764-8309-f69756d74f27/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANWWOtri45oqOhLJzeVbnzWHXL1rsY1_b1JX8K4jfO3e&exp=1775274502&osig=AAAAAAAAAAAAAAAAAAAAAFZoO6oYeA9CfOAbKiRhIaeU1n4UN9eyVaeU8W6HJs-d&signer=media-rpc&x-canva-quality=screen_2x",
+        hint: "Silent Beacon logo",
+        description: "Personal safety devices designed to support and protect beauty professionals during on-demand mobile appointments.",
+        link: "https://silentbeacon.com/"
     }
 ]
 
@@ -36,7 +43,7 @@ export default function ProDiscountsPage() {
                                 Our Partners
                             </h1>
                             <p className="mt-6 text-lg text-muted-foreground">
-                                We partner with leading beauty brands to give our VÉLOURA Pros exclusive access to discounts, helping you save money and elevate your kit.
+                                We partner with leading beauty and safety brands to give our VÉLOURA Pros exclusive access to discounts and support, helping you save money and elevate your business.
                             </p>
                         </div>
                     </div>
@@ -47,12 +54,12 @@ export default function ProDiscountsPage() {
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Companies We Collab With</h2>
-                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Our network of brand partners offer special perks for VÉLOURA Pros.</p>
+                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Our network of brand partners offer special perks and tools for VÉLOURA Pros.</p>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-8 justify-center">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                             {partners.map((partner) => (
-                               <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300">
-                                    <a href={partner.link} target="_blank" rel="noopener noreferrer" className="block">
+                               <Card key={partner.name} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300 flex flex-col">
+                                    <a href={partner.link} target="_blank" rel="noopener noreferrer" className="block flex-1">
                                         <CardHeader className="items-center text-center p-6 pt-12">
                                              <div className="h-24 flex items-center justify-center">
                                                 <Image 
@@ -65,11 +72,13 @@ export default function ProDiscountsPage() {
                                                 />
                                              </div>
                                         </CardHeader>
-                                        <CardContent className="text-center p-6 pt-6">
+                                        <CardContent className="text-center p-6 pt-6 flex flex-col">
                                             <p className="text-muted-foreground flex-grow mb-4">{partner.description}</p>
-                                             <Button variant="link" asChild>
-                                                <span>Shop Now <ArrowRight className="ml-2 h-4 w-4" /></span>
-                                            </Button>
+                                             <div className="mt-auto">
+                                                <Button variant="link" asChild className="p-0">
+                                                    <span>Learn More <ArrowRight className="ml-2 h-4 w-4" /></span>
+                                                </Button>
+                                             </div>
                                         </CardContent>
                                     </a>
                                </Card>
@@ -82,7 +91,7 @@ export default function ProDiscountsPage() {
                 <section className="py-16 sm:py-24 bg-primary/10">
                     <div className="container mx-auto px-4 md:px-6 text-center">
                          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Become a VÉLOURA Partner Brand</h2>
-                         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Want to connect your products with a community of elite, on-the-go beauty professionals? Let's talk.</p>
+                         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">Want to connect your products or services with a community of elite, on-the-go beauty professionals? Let's talk.</p>
                          <div className="mt-8 flex justify-center">
                              <Button asChild size="lg">
                                  <a href="mailto:support@velourabeautyondemand.com?subject=Collaboration%20Inquiry" target="_blank" rel="noopener noreferrer">
