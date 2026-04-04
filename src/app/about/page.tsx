@@ -55,8 +55,6 @@ const teamMembers = [
 ]
 
 export default function AboutPage() {
-    const founderImage = PlaceHolderImages.find(p => p.id === 'founder_photo');
-
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -119,13 +117,22 @@ export default function AboutPage() {
                                 </div>
                                 <div className="prose lg:prose-lg text-muted-foreground space-y-4">
                                     <p>
-                                        "As a busy professional, I constantly felt torn between my demanding schedule and the desire to feel polished and confident. I dreamed of a world where self-care wasn't another item on a stressful to-do list, but a moment of accessible luxury. That dream became VÉLOURA."
+                                        "As a busy professional, I was constantly choosing between my schedule and feeling put together — and somehow, my schedule always won."
                                     </p>
                                     <p>
-                                        "I built this platform not just for convenience, but for connection. It’s for the new mothers, the dedicated professionals, the wellness seekers, and everyone who deserves to feel their best without sacrificing their time or peace of mind. VÉLOURA is my commitment to empowering both our clients and our incredible beauty professionals, creating a community built on trust, talent, and care."
+                                        "Between meetings, traffic, and everything else life throws at you, self-care started to feel less like a priority… and more like something I kept pushing to ‘next week.’ So I thought — why is this so hard?"
                                     </p>
-                                     <p className="font-semibold">
-                                        "Thank you for being part of this journey."
+                                    <p>
+                                        "But this wasn’t just about me. Coming from a background closely connected to the beauty industry, I saw how talented professionals were often limited — tied to traditional setups, high costs, and a lack of flexibility to truly grow on their own terms."
+                                    </p>
+                                    <p>
+                                        "That’s where VÉLOURA began. A platform designed not only to make services more accessible, but to empower professionals — giving them more freedom, more control, and more opportunity."
+                                    </p>
+                                    <p>
+                                        "A place where services come to you — simple, flexible, and built for real life."
+                                    </p>
+                                    <p>
+                                        "As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. We’re just getting started."
                                     </p>
                                 </div>
                             </div>
