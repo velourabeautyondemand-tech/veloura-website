@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -55,6 +56,8 @@ const teamMembers = [
 ]
 
 export default function AboutPage() {
+    const joinTeamBanner = PlaceHolderImages.find(p => p.id === 'join_team_banner');
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -129,10 +132,7 @@ export default function AboutPage() {
                                         "That’s where VÉLOURA began. A platform designed not only to make services more accessible, but to empower professionals — giving them more freedom, more control, and more opportunity."
                                     </p>
                                     <p>
-                                        "A place where services come to you — simple, flexible, and built for real life."
-                                    </p>
-                                    <p>
-                                        "As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. <strong>We’re just getting started.</strong>"
+                                        "A place where services come to you — simple, flexible, and built for real life. As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. <strong className="text-primary underline">We’re just getting started.</strong>"
                                     </p>
                                 </div>
                             </div>
@@ -195,6 +195,19 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-bold font-headline mb-4 flex items-center justify-center gap-2">
                                 <Heart className="text-primary fill-primary w-6 h-6" /> Join Our Team
                             </h3>
+                            
+                            {joinTeamBanner && (
+                                <div className="relative w-full max-w-2xl h-64 mx-auto mb-8 rounded-xl overflow-hidden shadow-md">
+                                    <Image
+                                        src={joinTeamBanner.imageUrl}
+                                        alt={joinTeamBanner.description}
+                                        fill
+                                        className="object-cover"
+                                        data-ai-hint={joinTeamBanner.imageHint}
+                                    />
+                                </div>
+                            )}
+
                             <p className="text-lg text-muted-foreground mb-8">
                                 Are you a licensed beauty professional looking for freedom, higher earnings, and a supportive community? We are always looking for talented artists to join the VÉLOURA family.
                             </p>

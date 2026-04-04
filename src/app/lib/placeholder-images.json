@@ -100,7 +100,7 @@
     {
       "id": "hair_2",
       "description": "Formal Hair Updo",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDE0fHxoYWlyJTIwdXBkb3xlbnwwfHx8fDE2NzIwMDMyMzN8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDR8fGdsYW0lMjBtYWtldXB8ZW58MHx8fHwxNjY2NjE3NTE3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "hair updo"
     },
     {
@@ -142,7 +142,7 @@
     {
       "id": "brows_microblading",
       "description": "Brows & Microblading",
-      "imageUrl": "https://images.unsplash.com/photo-1716833322888-9c6e7549fa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleWVicm93JTIwbWljcm9ibGFkaW5nfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1716833322888-9c6e7549fa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxleWVicm93JTIwbWljcm9ibGFkaW5nfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "eyebrow microblading"
     },
     {
@@ -220,7 +220,7 @@
     {
       "id": "tech_avatar_4",
       "description": "Avatar for Ben",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3R0cmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3RcmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "man portrait"
     },
     {
@@ -232,7 +232,7 @@
     {
       "id": "founder_photo",
       "description": "VÉLOURA Founder",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F6b3be7ac-d92b-48f5-9692-21595f2eb35d/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAALyoADXv0luBMGgljVPJwZ2vCP7UofMsRccOQbh1YJeb&exp=1775273316&osig=AAAAAAAAAAAAAAAAAAAAADs-226RT-ZGFyWlDl33B1P7-e6n1hdaVRi9j0b1nDLX&signer=media-rpc&x-canva-quality=screen",
+      "imageUrl": "https://i.imgur.com/wjTMG9D.png",
       "imageHint": "woman portrait"
     },
     {
@@ -242,10 +242,10 @@
       "imageHint": "join team"
     },
     {
-      "id": "media_lead_photo",
-      "description": "Media Lead Headshot",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAIIszOyz8JgjgojMGmnIvDe3yJMk4Qy3K5QssiG4LMxQ&exp=1775275556&osig=AAAAAAAAAAAAAAAAAAAAAEQBmuFqEj8h-YY3wlpILmZk5M5INLqCofjvWfsNFO5N&signer=media-rpc&x-canva-quality=screen",
-      "imageHint": "media professional"
+      "id": "join_team_banner",
+      "description": "Team collaboration banner",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "team collaboration"
     }
   ]
 }
