@@ -132,7 +132,7 @@ export default function AboutPage() {
                                         "A place where services come to you — simple, flexible, and built for real life."
                                     </p>
                                     <p>
-                                        "As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. We’re just getting started."
+                                        "As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. <strong>We’re just getting started.</strong>"
                                     </p>
                                 </div>
                             </div>
