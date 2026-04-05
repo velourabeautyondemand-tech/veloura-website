@@ -32,10 +32,7 @@ export default function TalentAgencyPage() {
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <Button size="lg" className="text-lg" asChild>
-                                        <a href="mailto:support@velourabeautyondemand.com?subject=Talent%20Agency%20Inquiry">Inquire for your events</a>
-                                    </Button>
-                                    <Button size="lg" variant="outline" className="text-lg" asChild>
-                                        <a href="mailto:support@velourabeautyondemand.com?subject=Agency%20Roster%20Application">Join the Roster</a>
+                                        <a href="mailto:support@velourabeautyondemand.com?subject=Talent%20Agency%20Inquiry">Planning an Event? Inquire Here (We’ll Get Back to You Quickly)</a>
                                     </Button>
                                 </div>
                             </div>
