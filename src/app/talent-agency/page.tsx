@@ -27,12 +27,12 @@ export default function TalentAgencyPage() {
                                     Where Talent <br />
                                     <span className="text-primary">Meets Opportunity.</span>
                                 </h1>
-                                <p className="text-lg text-muted-foreground max-w-xl">
+                                <p className="text-lg text-muted-foreground max-xl">
                                     VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers — available for fashion, events, production, and private clients
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <Button size="lg" className="text-lg" asChild>
-                                        <a href="mailto:support@velourabeautyondemand.com?subject=Talent%20Agency%20Inquiry">Inquire for Talent</a>
+                                        <a href="mailto:support@velourabeautyondemand.com?subject=Talent%20Agency%20Inquiry">Inquire for your events</a>
                                     </Button>
                                     <Button size="lg" variant="outline" className="text-lg" asChild>
                                         <a href="mailto:support@velourabeautyondemand.com?subject=Agency%20Roster%20Application">Join the Roster</a>
