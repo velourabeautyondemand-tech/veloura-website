@@ -48,7 +48,7 @@ export default function TalentAgencyPage() {
                                     <span className="text-primary">Talent to New Heights.</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-xl">
-                                    VÉLOURA Talent Agency represents a curated roster of elite creative professionals. From high-fashion runways to exclusive VIP events, we connect world-class talent with global brands.
+                                    VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers — available for fashion, events, production, and private clients.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <Button size="lg" className="text-lg" asChild>
