@@ -40,7 +40,7 @@ export default function TalentAgencyPage() {
                                 </div>
                             </div>
                             {agencyHero && (
-                                <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                                <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
                                         src={agencyHero.imageUrl}
                                         alt={agencyHero.description}
