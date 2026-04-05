@@ -27,7 +27,7 @@
     {
       "id": "service_5",
       "description": "Acrylic Full Set",
-      "imageUrl": "https://images.unsplash.com/photo-1719494206679-24a205905578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhY3J5bGljJTIwbmFpbHN8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1719494206679-24a205905578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhY3J5bGljJTIwbmFpbHN8ZW58MHx8fHwxNzU5NTkzNDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "acrylic nails"
     },
     {
@@ -237,7 +237,7 @@
     {
       "id": "join_team_banner",
       "description": "Join Our Team Banner",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:781/quality:100/uri:ifs%3A%2F%2FM%2F3a5469f0-5de3-4163-99d7-7f4e848ef641/watermark:F/width:1170?csig=AAAAAAAAAAAAAAAAAAAAAF1jV1UUGX36OzaXhRo95kjouBho_SNrIyqPucgHao2O&exp=1775291403&osig=AAAAAAAAAAAAAAAAAAAAAPlzPpcL17RW7xFHBl5h_oXftqkwYXC1CHczULTm4bzt&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
       "imageHint": "team recruitment"
     },
     {
@@ -255,7 +255,7 @@
     {
       "id": "west_palm_team",
       "description": "VÉLOURA West Palm Beach Team",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F9a9f59ef-4ade-4fab-b32f-6c48dcd76a08/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAABsCVFB6GsvtgYQ-XjMGsVQjV_t4Zu0KZmoT-0YW_pb1&exp=1775273832&osig=AAAAAAAAAAAAAAAAAAAAAD7m7TMIKhZJEK_wbnKOQt6tNC6OqNJmWKA1HKNmzAxJ&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F9a9f59ef-4ade-4fab-b32f-6c48dcd76a08/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAMx26koET5IehHXZMjJjNsJVlt_HoOCo9XkVS652kfqQ&exp=1775291832&osig=AAAAAAAAAAAAAAAAAAAAAMGe-XzRzTJMZ4tksKXctMjPMo6tPq7suqqcEQJg5C-e&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "west palm team"
     }
   ]
