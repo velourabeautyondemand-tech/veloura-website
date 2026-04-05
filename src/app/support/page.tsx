@@ -1,8 +1,7 @@
-
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail } from 'lucide-react';
+import { Mail, MessageSquare } from 'lucide-react';
 
 export default function SupportPage() {
     return (
@@ -28,6 +27,14 @@ export default function SupportPage() {
                                                 <p className="text-sm text-muted-foreground">support@velourabeautyondemand.com</p>
                                             </div>
                                         </a>
+                                        <div className="flex items-center gap-4 p-4 rounded-lg bg-background border border-dashed">
+                                            <MessageSquare className="w-6 h-6 text-primary" />
+                                            <div>
+                                                <h3 className="font-semibold">Text Us</h3>
+                                                <p className="text-sm font-medium font-mono">(305) 317-2759</p>
+                                                <p className="text-xs text-muted-foreground italic">Text messages only — this number does not receive calls.</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </CardContent>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/shared/header';
@@ -6,7 +5,7 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Send, Mail, ShieldCheck, Sparkles, Award, Camera, Briefcase, MapPin, Layers, Clock, Palette } from 'lucide-react';
+import { Star, Send, Mail, ShieldCheck, Sparkles, Award, Camera, Briefcase, MapPin, Layers, Clock, Palette, MessageSquare } from 'lucide-react';
 
 const whyWorkWithUs = [
     {
@@ -274,13 +273,22 @@ export default function TalentAgencyPage() {
                             <p className="text-lg text-muted-foreground mb-8">
                                 Whether you are a brand looking for the perfect face or a creator looking for professional representation, we want to hear from you.
                             </p>
-                            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                                <Button size="lg" className="w-full sm:w-auto h-auto py-4 px-8" asChild>
-                                    <a href="mailto:support@velourabeautyondemand.com?subject=Agency%20Collaboration%20Inquiry">
-                                        <Mail className="mr-2 h-5 w-5" />
-                                        Contact the Agency
-                                    </a>
-                                </Button>
+                            <div className="flex flex-col gap-6 items-center">
+                                <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                                    <Button size="lg" className="w-full sm:w-auto h-auto py-4 px-8" asChild>
+                                        <a href="mailto:support@velourabeautyondemand.com?subject=Agency%20Collaboration%20Inquiry">
+                                            <Mail className="mr-2 h-5 w-5" />
+                                            Contact the Agency
+                                        </a>
+                                    </Button>
+                                </div>
+                                <div className="flex flex-col items-center gap-2 pt-4 border-t border-primary/10 w-full max-w-xs mx-auto">
+                                    <div className="flex items-center gap-2 text-foreground font-semibold">
+                                        <MessageSquare className="w-5 h-5 text-primary" />
+                                        <span>Text Us: (305) 317-2759</span>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground italic">Text messages only — this number does not receive calls.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,7 @@
-
 import { NailIcon } from '@/components/shared/logo';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { Mail, Phone, Globe } from 'lucide-react';
+import { Mail, Phone, Globe, MessageSquare } from 'lucide-react';
 
 export default function PartnerAgreementPage() {
     return (
@@ -21,11 +20,18 @@ export default function PartnerAgreementPage() {
 
                         <div className="not-prose bg-muted/50 rounded-lg p-6 mb-8 text-sm">
                             <h3 className="font-bold text-lg mb-4 text-center">Contact Information</h3>
-                            <div className="flex flex-col md:flex-row justify-around items-center gap-4 text-muted-foreground">
+                            <div className="flex flex-col md:flex-row justify-around items-center gap-6 text-muted-foreground">
                                 <a href="mailto:support@velourabeautyondemand.com" className="flex items-center gap-2 hover:text-primary">
                                     <Mail className="w-5 h-5" />
                                     <span>support@velourabeautyondemand.com</span>
                                 </a>
+                                <div className="flex flex-col items-center md:items-start gap-1">
+                                    <div className="flex items-center gap-2">
+                                        <MessageSquare className="w-5 h-5 text-primary" />
+                                        <span className="font-semibold">Text Us: (305) 317-2759</span>
+                                    </div>
+                                    <span className="text-[10px] italic">Text messages only — no calls</span>
+                                </div>
                             </div>
                         </div>
 
