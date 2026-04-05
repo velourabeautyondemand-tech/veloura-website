@@ -44,11 +44,11 @@ export default function TalentAgencyPage() {
                                     <span>VÉLOURA TALENT AGENCY</span>
                                 </div>
                                 <h1 className="text-4xl md:text-6xl font-extrabold font-headline leading-tight">
-                                    Elevating Creative <br />
-                                    <span className="text-primary">Talent to New Heights.</span>
+                                    Where Talent <br />
+                                    <span className="text-primary">Meets Opportunity.</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-xl">
-                                    VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers — available for fashion, events, production, and private clients.
+                                    VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers — available for fashion, events, production, and private clients
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <Button size="lg" className="text-lg" asChild>
