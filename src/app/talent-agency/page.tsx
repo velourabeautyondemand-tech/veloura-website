@@ -5,7 +5,7 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Send, Mail } from 'lucide-react';
+import { Star, Send, Mail, ShieldCheck, Sparkles, Award } from 'lucide-react';
 
 export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
@@ -51,6 +51,44 @@ export default function TalentAgencyPage() {
                                     />
                                 </div>
                             )}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Who We Are Section */}
+                <section className="py-16 sm:py-24 bg-background">
+                    <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline mb-8">Who We Are</h2>
+                        <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
+                            <p>
+                                VÉLOURA is a beauty on-demand platform and talent agency connecting brands, productions, and private clients with high-quality beauty and creative professionals.
+                            </p>
+                            <p>
+                                We specialize in sourcing and coordinating talent for fast-paced, high-standard environments — from fashion shows and editorial shoots to events, weddings, and VIP experiences.
+                            </p>
+                            <p className="font-semibold text-foreground text-xl pt-4">
+                                Our agency is built on three pillars:
+                            </p>
+                            <div className="grid sm:grid-cols-3 gap-8 pt-4">
+                                <div className="flex flex-col items-center gap-3">
+                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <Award className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-foreground">Quality</h3>
+                                </div>
+                                <div className="flex flex-col items-center gap-3">
+                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <ShieldCheck className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-foreground">Reliability</h3>
+                                </div>
+                                <div className="flex flex-col items-center gap-3">
+                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <Sparkles className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-foreground">Elevated Service</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
