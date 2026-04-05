@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/shared/header';
@@ -6,29 +5,10 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Users, Camera, Sparkles, Send, Mail } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Star, Send, Mail } from 'lucide-react';
 
 export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
-
-    const talentCategories = [
-        {
-            icon: Users,
-            title: "Models",
-            description: "High-fashion, commercial, and promotional models for runway, digital content, and brand activations."
-        },
-        {
-            icon: Camera,
-            title: "Creative Artists",
-            description: "Elite photographers, videographers, and content creators specializing in luxury lifestyle and beauty."
-        },
-        {
-            icon: Sparkles,
-            title: "VIP Stylists",
-            description: "Celebrity-caliber makeup artists and hair stylists for red carpets, weddings, and executive portraits."
-        }
-    ];
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -71,31 +51,6 @@ export default function TalentAgencyPage() {
                                     />
                                 </div>
                             )}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Categories Section */}
-                <section className="py-16 sm:py-24 bg-background">
-                    <div className="container mx-auto px-4 md:px-6">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold font-headline mb-4">Our Creative Roster</h2>
-                            <p className="text-muted-foreground max-w-2xl mx-auto">We specialize in representing multi-talented individuals who define the intersection of beauty and lifestyle.</p>
-                        </div>
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {talentCategories.map((cat, i) => (
-                                <Card key={i} className="hover:shadow-lg transition-shadow border-primary/10">
-                                    <CardHeader className="text-center">
-                                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                            <cat.icon className="w-8 h-8 text-primary" />
-                                        </div>
-                                        <CardTitle className="font-headline text-2xl">{cat.title}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="text-center text-muted-foreground">
-                                        <p>{cat.description}</p>
-                                    </CardContent>
-                                </Card>
-                            ))}
                         </div>
                     </div>
                 </section>
