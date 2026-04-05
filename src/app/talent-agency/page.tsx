@@ -40,6 +40,7 @@ export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
     const agencyShowcase = PlaceHolderImages.find(p => p.id === 'agency_showcase');
     const agencyShowcase2 = PlaceHolderImages.find(p => p.id === 'agency_showcase_2');
+    const agencyWhoWeAre = PlaceHolderImages.find(p => p.id === 'agency_who_we_are');
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -58,7 +59,7 @@ export default function TalentAgencyPage() {
                                     Where Talent <br />
                                     <span className="text-primary">Meets Opportunity.</span>
                                 </h1>
-                                <p className="text-lg text-muted-foreground max-xl">
+                                <p className="text-lg text-muted-foreground max-w-xl">
                                     VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers — available for fashion, events, production, and private clients
                                 </p>
                                 <div className="flex flex-wrap gap-4">
@@ -81,6 +82,24 @@ export default function TalentAgencyPage() {
                                     />
                                 </div>
                             )}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Editorial Showcase Above About */}
+                <section className="py-12 bg-background">
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
+                            <Image
+                                src={agencyWhoWeAre?.imageUrl || ""}
+                                alt={agencyWhoWeAre?.description || "Who We Are Showcase"}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                data-ai-hint="editorial photography"
+                            />
+                            <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
+                                Photo by Sasha Lebedeva
+                            </div>
                         </div>
                     </div>
                 </section>
