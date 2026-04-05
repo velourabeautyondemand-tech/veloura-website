@@ -5,7 +5,7 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Send, Mail, ShieldCheck, Sparkles, Award } from 'lucide-react';
+import { Star, Send, Mail, ShieldCheck, Sparkles, Award, Camera, Briefcase } from 'lucide-react';
 
 export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
@@ -93,10 +93,65 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
+                {/* What We Offer Section */}
+                <section className="py-16 sm:py-24 bg-secondary/30">
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">What We Offer</h2>
+                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                                Our roster includes elite professionals tailored for the most demanding creative environments.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {/* Beauty Talent */}
+                            <div className="bg-card p-8 rounded-2xl shadow-sm border border-primary/10">
+                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                                    <Sparkles className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-2xl font-bold font-headline mb-4">Beauty Talent</h3>
+                                <ul className="space-y-3 text-muted-foreground">
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Makeup Artists</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Hairstylists</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Nail Technicians</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Grooming Specialists</li>
+                                </ul>
+                            </div>
+
+                            {/* Creative Talent */}
+                            <div className="bg-card p-8 rounded-2xl shadow-sm border border-primary/10">
+                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                                    <Camera className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-2xl font-bold font-headline mb-4">Creative Talent</h3>
+                                <ul className="space-y-3 text-muted-foreground">
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Photographers</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Content Creators</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Styling Assistants</li>
+                                </ul>
+                            </div>
+
+                            {/* Use Cases */}
+                            <div className="bg-card p-8 rounded-2xl shadow-sm border border-primary/10">
+                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                                    <Briefcase className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-2xl font-bold font-headline mb-4">Use Cases</h3>
+                                <ul className="space-y-3 text-muted-foreground">
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Fashion Shows & Backstage</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Editorial & Campaign Shoots</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Events & Brand Activations</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Weddings & Private Clients</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> VIP & Hotel Services</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Mission Section */}
-                <section className="py-16 sm:py-24 bg-secondary/50">
+                <section className="py-16 sm:py-24 bg-background">
                     <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                        <div className="bg-card p-8 md:p-12 rounded-3xl shadow-xl text-center space-y-6">
+                        <div className="bg-card p-8 md:p-12 rounded-3xl shadow-xl text-center space-y-6 border border-primary/5">
                             <h2 className="text-3xl font-bold font-headline">The VÉLOURA Edge</h2>
                             <p className="text-xl italic text-muted-foreground">
                                 "At VÉLOURA, we don't just represent talent; we build careers. Our agency was born from the same commitment to excellence that powers our on-demand platform—bringing luxury, reliability, and artistry to every booking."
