@@ -265,9 +265,9 @@ export default function TalentAgencyPage() {
                 </section>
 
                 {/* Call to Action */}
-                <section className="py-16 sm:py-24">
+                <section className="py-16 sm:py-24 bg-secondary/50">
                     <div className="container mx-auto px-4 md:px-6 text-center">
-                        <div className="max-w-3xl mx-auto bg-primary/10 p-12 rounded-3xl border border-primary/20">
+                        <div className="max-w-3xl mx-auto bg-card p-12 rounded-3xl border border-primary/20 shadow-xl">
                             <Send className="w-12 h-12 text-primary mx-auto mb-6" />
                             <h2 className="text-3xl font-bold font-headline mb-4">Ready to Collaborate?</h2>
                             <p className="text-lg text-muted-foreground mb-8">
