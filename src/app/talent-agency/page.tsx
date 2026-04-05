@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -5,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Send, Mail, ShieldCheck, Sparkles, Award, Camera, Briefcase, MapPin, Layers, Clock, Palette, CheckCircle2 } from 'lucide-react';
+import { Star, Send, Mail, ShieldCheck, Sparkles, Award, Camera, Briefcase, MapPin, Layers, Clock, Palette } from 'lucide-react';
 
 const whyWorkWithUs = [
     {
@@ -37,6 +38,7 @@ const whyWorkWithUs = [
 
 export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
+    const agencyShowcase = PlaceHolderImages.find(p => p.id === 'agency_showcase');
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -59,8 +61,10 @@ export default function TalentAgencyPage() {
                                     VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers — available for fashion, events, production, and private clients
                                 </p>
                                 <div className="flex flex-wrap gap-4">
-                                    <Button size="lg" className="text-lg" asChild>
-                                        <a href="mailto:support@velourabeautyondemand.com?subject=Talent%20Agency%20Inquiry">Planning an Event? Inquire Here (We’ll Get Back to You Quickly)</a>
+                                    <Button size="lg" className="text-lg h-auto py-4 px-8 whitespace-normal" asChild>
+                                        <a href="mailto:support@velourabeautyondemand.com?subject=Talent%20Agency%20Inquiry">
+                                            Planning an Event? Inquire Here (We’ll Get Back to You Quickly)
+                                        </a>
                                     </Button>
                                 </div>
                             </div>
@@ -81,7 +85,7 @@ export default function TalentAgencyPage() {
                 </section>
 
                 {/* Who We Are Section */}
-                <section className="py-16 sm:py-24 bg-background">
+                <section className="py-16 sm:py-24 bg-background border-b">
                     <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline mb-8">Who We Are</h2>
                         <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
@@ -192,7 +196,24 @@ export default function TalentAgencyPage() {
                                     <p className="text-muted-foreground">{item.description}</p>
                                 </div>
                             ))}
-                            {/* Special points that are just text-based lists could also be here */}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Showcase Section */}
+                <section className="py-16 sm:py-24 bg-secondary/10">
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
+                            <Image
+                                src={agencyShowcase?.imageUrl || ""}
+                                alt={agencyShowcase?.description || "Showcase"}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                data-ai-hint="professional photography"
+                            />
+                            <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
+                                Photo by Michael Lee
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -220,7 +241,7 @@ export default function TalentAgencyPage() {
                                 Whether you are a brand looking for the perfect face or a creator looking for professional representation, we want to hear from you.
                             </p>
                             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                                <Button size="lg" className="w-full sm:w-auto" asChild>
+                                <Button size="lg" className="w-full sm:w-auto h-auto py-4 px-8" asChild>
                                     <a href="mailto:support@velourabeautyondemand.com?subject=Agency%20Collaboration%20Inquiry">
                                         <Mail className="mr-2 h-5 w-5" />
                                         Contact the Agency
