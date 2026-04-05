@@ -20,6 +20,7 @@ import { NailIcon } from "./logo";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/talent-agency", label: "Talent Agency" },
   { href: "/apply", label: "Join Our Team" },
   { href: "/pro-discounts", label: "Our Partners" },
   { href: "/about", label: "Our Story" },

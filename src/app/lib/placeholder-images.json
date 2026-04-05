@@ -258,6 +258,12 @@
       "description": "VÉLOURA West Palm Beach Team",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F9a9f59ef-4ade-4fab-b32f-6c48dcd76a08/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAMx26koET5IehHXZMjJjNsJVlt_HoOCo9XkVS652kfqQ&exp=1775291832&osig=AAAAAAAAAAAAAAAAAAAAAMGe-XzRzTJMZ4tksKXctMjPMo6tPq7suqqcEQJg5C-e&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "west palm team"
+    },
+    {
+      "id": "agency_hero",
+      "description": "VÉLOURA Talent Agency Roster",
+      "imageUrl": "https://images.unsplash.com/photo-1523264629844-40dd6bf17c2b?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "creative talent"
     }
   ]
 }
