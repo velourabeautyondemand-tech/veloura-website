@@ -5,7 +5,35 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Send, Mail, ShieldCheck, Sparkles, Award, Camera, Briefcase } from 'lucide-react';
+import { Star, Send, Mail, ShieldCheck, Sparkles, Award, Camera, Briefcase, MapPin, Layers, Clock, Palette, CheckCircle2 } from 'lucide-react';
+
+const whyWorkWithUs = [
+    {
+        icon: MapPin,
+        title: "500+ vetted professionals",
+        description: "A deep roster of elite talent across major cities, ready to deploy."
+    },
+    {
+        icon: Award,
+        title: "Licensed & Experienced",
+        description: "Every professional is licensed, experienced, and has passed rigorous screening."
+    },
+    {
+        icon: Layers,
+        title: "Scalable Support",
+        description: "From small boutique teams to large-scale multi-day productions."
+    },
+    {
+        icon: Clock,
+        title: "Flexible Coordination",
+        description: "Seamless booking and project management tailored to your timeline."
+    },
+    {
+        icon: Palette,
+        title: "Luxury Aesthetic",
+        description: "Our talent's creative direction is aligned with modern, high-end brands."
+    }
+];
 
 export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
@@ -145,8 +173,32 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Mission Section */}
+                {/* Why Work With Us Section */}
                 <section className="py-16 sm:py-24 bg-background">
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Why Work With Us</h2>
+                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                                We provide more than just talent; we provide peace of mind and professional excellence.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {whyWorkWithUs.map((item, index) => (
+                                <div key={index} className="flex flex-col items-center text-center p-6 space-y-4">
+                                    <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-2">
+                                        <item.icon className="w-7 h-7" />
+                                    </div>
+                                    <h3 className="text-xl font-bold font-headline">{item.title}</h3>
+                                    <p className="text-muted-foreground">{item.description}</p>
+                                </div>
+                            ))}
+                            {/* Special points that are just text-based lists could also be here */}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Mission Section */}
+                <section className="py-16 sm:py-24 bg-secondary/30">
                     <div className="container mx-auto px-4 md:px-6 max-w-4xl">
                         <div className="bg-card p-8 md:p-12 rounded-3xl shadow-xl text-center space-y-6 border border-primary/5">
                             <h2 className="text-3xl font-bold font-headline">The VÉLOURA Edge</h2>
