@@ -136,7 +136,7 @@
     {
       "id": "waxing",
       "description": "Waxing service",
-      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leg waxing"
     },
     {
@@ -270,6 +270,12 @@
       "description": "VÉLOURA Team Group Photo",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fadda4ad4-baea-4f81-8e96-6f131d5f3ecc/watermark:F/width:502?csig=AAAAAAAAAAAAAAAAAAAAABwRADSa1buuo2n1enTNNZN4rsUCrVUm0RsN6VJrbh_Z&exp=1776141687&osig=AAAAAAAAAAAAAAAAAAAAAIneEngSbpwRzpXydyrFreRGapZXjsCbNHLlVerYeWap&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "team group"
+    },
+    {
+      "id": "magazine_feature",
+      "description": "Global Woman Magazine Feature",
+      "imageUrl": "https://images.unsplash.com/photo-1544650039-22886fbb4323?q=80&w=600&h=800&auto=format&fit=crop",
+      "imageHint": "magazine cover"
     }
   ]
 }

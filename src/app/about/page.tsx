@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { Award, HandHeart, Sparkles, Users, Linkedin, Heart } from 'lucide-react';
+import { Award, HandHeart, Sparkles, Users, Linkedin, Heart, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
@@ -33,6 +33,7 @@ const values = [
 
 const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
 const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
+const magazineFeatureImage = PlaceHolderImages.find(p => p.id === 'magazine_feature');
 
 const teamMembers = [
     {
@@ -139,6 +140,38 @@ export default function AboutPage() {
                                         "As we continue to grow, we’re excited to expand beyond beauty — onboarding photographers, event coordinators, wedding planners, florists, and more into our network. <strong className="text-primary underline">We’re just getting started.</strong>"
                                     </p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Featured In Section */}
+                <section className="py-16 bg-background border-y border-primary/5">
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 bg-card p-8 rounded-2xl shadow-sm border border-primary/10">
+                            <div className="relative w-full md:w-1/3 aspect-[3/4] rounded-lg overflow-hidden shadow-md">
+                                <Image
+                                    src={magazineFeatureImage?.imageUrl || "https://picsum.photos/seed/magazine/600/800"}
+                                    alt="Global Woman Magazine Feature"
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint="magazine cover"
+                                />
+                            </div>
+                            <div className="flex-1 text-center md:text-left space-y-4">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-2">
+                                    <Newspaper className="w-3.5 h-3.5" />
+                                    <span>IN THE PRESS</span>
+                                </div>
+                                <h3 className="text-3xl font-bold font-headline">Featured in Global Woman Magazine</h3>
+                                <p className="text-lg text-muted-foreground">
+                                    Read about Huiyu "Cherry" Cheng's vision for VÉLOURA and how she is redefining the beauty industry through technology and empowerment.
+                                </p>
+                                <Button asChild variant="accent" size="lg">
+                                    <Link href="https://globalwomanmagazine.com/huiyu-cherry-cheng/" target="_blank" rel="noopener noreferrer">
+                                        Read the Full Story
+                                    </Link>
+                                </Button>
                             </div>
                         </div>
                     </div>
