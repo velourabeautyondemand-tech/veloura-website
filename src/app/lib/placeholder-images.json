@@ -106,7 +106,7 @@
     {
       "id": "hair_3",
       "description": "Bridal Hair",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDV8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal hair"
     },
     {
@@ -202,7 +202,7 @@
     {
       "id": "tech_avatar_1",
       "description": "Avatar for Jessica",
-      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
     },
     {
@@ -280,7 +280,7 @@
     {
       "id": "team_roxanne",
       "description": "Roxanne Resma - Operations Director",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAPNuHhmMAGVORPhowinzT0lkighncbmtvuR76fplHUtW&exp=1775275441&osig=AAAAAAAAAAAAAAAAAAAAALnqCvAg8do41Rr03YArldL5GqME0SYtLykKfjeXWlwo&signer=media-rpc&x-canva-quality=screen",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAANIRt2OVD6v-9gQ3ur7TDCuMDEO_35AD1J6-zSWFJFRN&exp=1776143041&osig=AAAAAAAAAAAAAAAAAAAAAOwJk_kXQUFuvd5t5trvet18MInS03NpEArZWDLW9rXa&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "operations director"
     },
     {
