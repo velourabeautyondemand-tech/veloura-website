@@ -59,9 +59,10 @@ export default function EventsPage() {
                                         className="object-cover"
                                         data-ai-hint={westPalmImage.imageHint}
                                     />
-                                </div>
-                                <div className="text-right mt-2">
-                                    <p className="text-sm font-medium text-muted-foreground italic pr-1">West Palm Beach Team</p>
+                                    {/* Caption Overlay */}
+                                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                                        West Palm Beach Team
+                                    </div>
                                 </div>
                             </div>
                         )}
