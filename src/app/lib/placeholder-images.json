@@ -178,7 +178,7 @@
     {
       "id": "vip_3",
       "description": "Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal beauty"
     },
     {
@@ -202,7 +202,7 @@
     {
       "id": "tech_avatar_1",
       "description": "Avatar for Jessica",
-      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
     },
     {
@@ -286,26 +286,8 @@
     {
       "id": "team_rini",
       "description": "Rini Sugianto - Media Lead",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAIIszOyz8JgjgojMGmnIvDe3yJMk4Qy3K5QssiG4LMxQ&exp=1775275556&osig=AAAAAAAAAAAAAAAAAAAAAEQBmuFqEj8h-YY3wlpILmZk5M5INLqCofjvWfsNFO5N&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAFy30QdK_PWM4v4ZZ6LHNZ6o3Vg5xJyZo2X1ce1Lyg51&exp=1776143156&osig=AAAAAAAAAAAAAAAAAAAAAKzLHxzLNh7spRtG1KFKSJBbLBv3LV-gHSX0zpxm6tHP&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "media professional"
-    },
-    {
-      "id": "agency_showcase",
-      "description": "Agency Talent Showcase 1",
-      "imageUrl": "https://images.unsplash.com/photo-1543728068-b31aa2c89cd3?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "professional photography"
-    },
-    {
-      "id": "agency_showcase_2",
-      "description": "Agency Talent Showcase 2",
-      "imageUrl": "https://images.unsplash.com/photo-1543728069-a3f97c5a2f32?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "fashion photography"
-    },
-    {
-      "id": "agency_who_we_are",
-      "description": "Who We Are - Editorial Showcase",
-      "imageUrl": "https://images.unsplash.com/photo-1484319463707-0bc469eade5a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "editorial photography"
     }
   ]
 }
