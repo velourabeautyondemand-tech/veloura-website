@@ -4,7 +4,7 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sparkles, Mail } from 'lucide-react';
+import { Sparkles, Mail, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -31,7 +31,7 @@ export default function EventsPage() {
                         {/* Featured Event Image - New York Team */}
                         {eventHeroImage && (
                             <div className="mb-12">
-                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
                                         src={eventHeroImage.imageUrl}
                                         alt={eventHeroImage.description}
@@ -51,7 +51,7 @@ export default function EventsPage() {
                         {/* West Palm Beach Team Image */}
                         {westPalmImage && (
                             <div className="mb-12">
-                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
                                         src={westPalmImage.imageUrl}
                                         alt={westPalmImage.description}
@@ -101,13 +101,21 @@ export default function EventsPage() {
                                         From corporate wellness days to bridal showers, we bring the luxury salon experience to you.
                                     </CardDescription>
                                 </CardHeader>
-                                <CardContent className="text-center">
+                                <CardContent className="text-center space-y-6">
                                     <Button asChild size="lg" variant="accent">
                                         <a href="mailto:support@velourabeautyondemand.com?subject=Event%20Service%20Request" target="_blank" rel="noopener noreferrer">
                                             <Mail className="mr-2 h-5 w-5" />
                                             Request Custom Event
                                         </a>
                                     </Button>
+                                    
+                                    <div className="flex flex-col items-center gap-2 pt-4 border-t">
+                                        <div className="flex items-center gap-2 text-foreground font-semibold">
+                                            <MessageSquare className="w-5 h-5 text-primary" />
+                                            <span>Text Us: (305) 317-2759</span>
+                                        </div>
+                                        <p className="text-xs text-muted-foreground italic">Text messages only — this number does not receive calls.</p>
+                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
