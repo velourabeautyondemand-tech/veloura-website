@@ -70,7 +70,7 @@
     {
       "id": "makeup_3",
       "description": "Bridal Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMG1ha2V1cHxlbnwwfHx8fDE2NjY2MTc1Mzh8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMG1ha2V1cHxlbnwwfHx8fDE2NjY2MTc1Mzh8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal makeup"
     },
     {
@@ -82,7 +82,7 @@
     {
       "id": "makeup_5",
       "description": "Bridesmaids Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridesmaids"
     },
     {
@@ -106,7 +106,7 @@
     {
       "id": "hair_3",
       "description": "Bridal Hair",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDV8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal hair"
     },
     {
@@ -276,6 +276,36 @@
       "description": "Global Woman Magazine Feature",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:800/quality:100/uri:ifs%3A%2F%2FM%2F017a498f-4bfd-4a85-be19-42f72b0f98b6/watermark:F/width:560?csig=AAAAAAAAAAAAAAAAAAAAALKe1ZRaIaok8kCy6RBuEvukFmLqDLvw8MuMhKZqlTes&exp=1776142432&osig=AAAAAAAAAAAAAAAAAAAAAPD9I2kMtQMgFgPWtDILC62qhMMB2jykZno5mE16-dJJ&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "magazine cover"
+    },
+    {
+      "id": "team_roxanne",
+      "description": "Roxanne Resma - Operations Director",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAPNuHhmMAGVORPhowinzT0lkighncbmtvuR76fplHUtW&exp=1775275441&osig=AAAAAAAAAAAAAAAAAAAAALnqCvAg8do41Rr03YArldL5GqME0SYtLykKfjeXWlwo&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "operations director"
+    },
+    {
+      "id": "team_rini",
+      "description": "Rini Sugianto - Media Lead",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAIIszOyz8JgjgojMGmnIvDe3yJMk4Qy3K5QssiG4LMxQ&exp=1775275556&osig=AAAAAAAAAAAAAAAAAAAAAEQBmuFqEj8h-YY3wlpILmZk5M5INLqCofjvWfsNFO5N&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "media professional"
+    },
+    {
+      "id": "agency_showcase",
+      "description": "Agency Talent Showcase 1",
+      "imageUrl": "https://images.unsplash.com/photo-1543728068-b31aa2c89cd3?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "professional photography"
+    },
+    {
+      "id": "agency_showcase_2",
+      "description": "Agency Talent Showcase 2",
+      "imageUrl": "https://images.unsplash.com/photo-1543728069-a3f97c5a2f32?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "fashion photography"
+    },
+    {
+      "id": "agency_who_we_are",
+      "description": "Who We Are - Editorial Showcase",
+      "imageUrl": "https://images.unsplash.com/photo-1484319463707-0bc469eade5a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "editorial photography"
     }
   ]
 }

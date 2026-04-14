@@ -34,6 +34,8 @@ const values = [
 const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
 const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
 const magazineFeatureImage = PlaceHolderImages.find(p => p.id === 'magazine_feature');
+const roxanneImageUrl = PlaceHolderImages.find(p => p.id === 'team_roxanne')?.imageUrl || "";
+const riniImageUrl = PlaceHolderImages.find(p => p.id === 'team_rini')?.imageUrl || "";
 
 const teamMembers = [
     {
@@ -47,14 +49,14 @@ const teamMembers = [
         name: "Roxanne Resma",
         role: "Operations Director",
         description: "Roxanne oversees operations at VÉLOURA, ensuring everything runs efficiently as we grow. She manages onboarding, systems, and day-to-day execution — keeping both professionals and clients supported every step of the way.",
-        imageUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAPNuHhmMAGVORPhowinzT0lkighncbmtvuR76fplHUtW&exp=1775275441&osig=AAAAAAAAAAAAAAAAAAAAALnqCvAg8do41Rr03YArldL5GqME0SYtLykKfjeXWlwo&signer=media-rpc&x-canva-quality=screen",
+        imageUrl: roxanneImageUrl,
         hint: "operations director"
     },
     {
         name: "Rini Sugianto",
         role: "Media Lead",
         description: "Dedicated to capturing the beauty and artistry of the VÉLOURA experience through compelling visual storytelling and brand production.",
-        imageUrl: "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAIIszOyz8JgjgojMGmnIvDe3yJMk4Qy3K5QssiG4LMxQ&exp=1775275556&osig=AAAAAAAAAAAAAAAAAAAAAEQBmuFqEj8h-YY3wlpILmZk5M5INLqCofjvWfsNFO5N&signer=media-rpc&x-canva-quality=screen_2x",
+        imageUrl: riniImageUrl,
         hint: "media professional"
     }
 ]
