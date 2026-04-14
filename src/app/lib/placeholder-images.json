@@ -10,7 +10,7 @@
     {
       "id": "service_2",
       "description": "Gel Manicure",
-      "imageUrl": "https://images.unsplash.com/photo-1693776528358-57530ad993ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnZWwlMjBuYWlsc3xlbnwwfHx8fDE3NTk1MDkzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693776528358-57530ad993ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnZWwlMjBuYWlsc3xlbnwwfHx8fDE3NTk1MDkzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "gel nails"
     },
     {
@@ -136,7 +136,7 @@
     {
       "id": "waxing",
       "description": "Waxing service",
-      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leg waxing"
     },
     {
@@ -249,14 +249,14 @@
     },
     {
       "id": "event_hero",
-      "description": "VÉLOURA Team in Action",
-      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1171&auto=format&fit=crop",
+      "description": "VÉLOURA New York Team",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F75a8e094-1443-44ec-bbc9-3e42cdee7de2/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAKhx_cgAn-c0xYY5yOsy4RlK1VaXNdFYPyOgw6KbPyq5&exp=1776143554&osig=AAAAAAAAAAAAAAAAAAAAAN9q_9wY6AS-S-hjdETIJQdynaEZ1bjCUIgaMTBuSeNZ&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "new york team"
     },
     {
       "id": "west_palm_team",
-      "description": "VÉLOURA West Palm Beach Professional Setting",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1032&auto=format&fit=crop",
+      "description": "VÉLOURA West Palm Beach Team",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F9a9f59ef-4ade-4fab-b32f-6c48dcd76a08/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAMx26koET5IehHXZMjJjNsJVlt_HoOCo9XkVS652kfqQ&exp=1775291832&osig=AAAAAAAAAAAAAAAAAAAAAMGe-XzRzTJMZ4tksKXctMjPMo6tPq7suqqcEQJg5C-e&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "west palm team"
     },
     {
@@ -264,24 +264,6 @@
       "description": "VÉLOURA Talent Agency Roster",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fbca6d013-1ef8-4f5a-9397-8cd432ebe83e/watermark:F/width:640?csig=AAAAAAAAAAAAAAAAAAAAAO6532fNYnvPGyPcrtTEiZ0DESgjSJfTRKSnl_yTSiqJ&exp=1775444314&osig=AAAAAAAAAAAAAAAAAAAAAJ7KWj96g1XC3SxP03NP3gd9uEQAGJUDrTYhV8u0qasJ&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "creative talent"
-    },
-    {
-      "id": "agency_showcase",
-      "description": "VÉLOURA Talent Showcase",
-      "imageUrl": "https://images.unsplash.com/photo-1543728068-b31aa2c89cd3?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "professional photography"
-    },
-    {
-      "id": "agency_showcase_2",
-      "description": "VÉLOURA Talent Showcase 2",
-      "imageUrl": "https://images.unsplash.com/photo-1543728069-a3f97c5a2f32?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "fashion photography"
-    },
-    {
-      "id": "agency_who_we_are",
-      "description": "VÉLOURA Agency Values",
-      "imageUrl": "https://images.unsplash.com/photo-1484319463707-0bc469eade5a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "imageHint": "editorial photography"
     }
   ]
 }
