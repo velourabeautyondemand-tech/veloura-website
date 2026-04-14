@@ -264,6 +264,12 @@
       "description": "VÉLOURA Talent Agency Roster",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fbca6d013-1ef8-4f5a-9397-8cd432ebe83e/watermark:F/width:640?csig=AAAAAAAAAAAAAAAAAAAAAO6532fNYnvPGyPcrtTEiZ0DESgjSJfTRKSnl_yTSiqJ&exp=1775444314&osig=AAAAAAAAAAAAAAAAAAAAAJ7KWj96g1XC3SxP03NP3gd9uEQAGJUDrTYhV8u0qasJ&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "creative talent"
+    },
+    {
+      "id": "team_group_photo",
+      "description": "VÉLOURA Team Group Photo",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fadda4ad4-baea-4f81-8e96-6f131d5f3ecc/watermark:F/width:502?csig=AAAAAAAAAAAAAAAAAAAAABwRADSa1buuo2n1enTNNZN4rsUCrVUm0RsN6VJrbh_Z&exp=1776141687&osig=AAAAAAAAAAAAAAAAAAAAAIneEngSbpwRzpXydyrFreRGapZXjsCbNHLlVerYeWap&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "team group"
     }
   ]
 }

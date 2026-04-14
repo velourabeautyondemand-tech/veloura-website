@@ -32,6 +32,7 @@ const values = [
 ]
 
 const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
+const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
 
 const teamMembers = [
     {
@@ -208,6 +209,23 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </section>
+
+                {/* Team Group Image Section */}
+                {teamGroupImageUrl && (
+                    <section className="pb-16 sm:pb-24 bg-secondary/50">
+                        <div className="container mx-auto px-4 md:px-6">
+                            <div className="relative w-full max-w-lg mx-auto aspect-[502/800] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
+                                <Image
+                                    src={teamGroupImageUrl}
+                                    alt="VÉLOURA Team Photo"
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint="team group"
+                                />
+                            </div>
+                        </div>
+                    </section>
+                )}
 
                 {/* CTA Section */}
                 <section className="py-16 sm:py-24">
