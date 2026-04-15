@@ -8,29 +8,6 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 
-const values = [
-    {
-        icon: Award,
-        title: "Uncompromising Quality",
-        description: "We partner with only the most talented and licensed beauty professionals who use premium products to ensure a flawless, long-lasting finish every time."
-    },
-    {
-        icon: HandHeart,
-        title: "Convenience & Comfort",
-        description: "Your time is precious. We bring the complete salon experience to your home, office, or hotel, on your schedule."
-    },
-    {
-        icon: Users,
-        title: "Empowering Professionals",
-        description: "We're committed to creating a supportive platform for beauty professionals to build their own businesses, control their schedules, and maximize their earnings."
-    },
-    {
-        icon: Sparkles,
-        title: "Safety & Trust",
-        description: "Your safety is our top priority. We vet all professionals and equip them with emergency panic buttons for every job. We also offer background checks to customers for a small fee to ensure a secure and comfortable experience for everyone."
-    },
-]
-
 const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
 const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
 const magazineFeatureImage = PlaceHolderImages.find(p => p.id === 'magazine_feature');
