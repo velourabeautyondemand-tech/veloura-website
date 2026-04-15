@@ -72,7 +72,7 @@ export default function AboutPage() {
                         <div className="prose lg:prose-lg max-w-3xl mx-auto text-muted-foreground">
                             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6 text-center">It Started With a Simple Problem</h2>
                             <p className="text-xl font-semibold text-foreground text-center mb-8">
-                                Why is something so essential so inconvenient?
+                                Why is something so essential so inefficient?
                             </p>
                             <p>
                                 Balancing work, life, and everything in between, we kept running into the same issue — there just wasn’t an easy way to access reliable beauty and lifestyle services when we needed them.
@@ -247,7 +247,7 @@ export default function AboutPage() {
 
                 {/* Team Group Image Section */}
                 {teamGroupImageUrl && (
-                    <section className="pb-16 sm:pb-24 bg-secondary/50">
+                    <section className="pb-16 sm:py-24 bg-secondary/50">
                         <div className="container mx-auto px-4 md:px-6">
                             <div className="relative w-full max-w-lg mx-auto aspect-[502/800] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
                                 <Image
