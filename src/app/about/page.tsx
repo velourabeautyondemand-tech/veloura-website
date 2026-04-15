@@ -36,7 +36,30 @@ const teamMembers = [
         imageUrl: riniImageUrl,
         hint: "media professional"
     }
-]
+];
+
+const values = [
+    {
+        title: "Empowerment",
+        description: "Giving professionals the freedom to build their own brand and schedule.",
+        icon: Sparkles
+    },
+    {
+        title: "Reliability",
+        description: "Consistently delivering high-quality, vetted services wherever you are.",
+        icon: Award
+    },
+    {
+        title: "Community",
+        description: "Building a supportive network of professionals and a loyal client base.",
+        icon: Users
+    },
+    {
+        title: "Convenience",
+        description: "Making self-care accessible and efficient for the modern, busy life.",
+        icon: HandHeart
+    }
+];
 
 export default function AboutPage() {
     return (
