@@ -215,7 +215,7 @@ export default function AboutPage() {
                                 >
                                     <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary/20 bg-background">
                                         <Image
-                                            src={member.imageUrl}
+                                            src={member.imageUrl || `https://picsum.photos/seed/${member.name}/200/200`}
                                             alt={member.name}
                                             fill
                                             className="object-contain"
