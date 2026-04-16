@@ -183,7 +183,7 @@ export default function ApplyPage() {
                                 We used to cover background check costs for everyone because we believe in making onboarding easy. But with so many starting and not finishing, it’s become tough to sustain — especially when we’re focused on supporting pros who are all-in.
                             </p>
                             <p className="font-semibold text-foreground">
-                                So here’s the new move: starting April 10, 2026, there’s a $29.99 onboarding fee. Not a profit — just a way to make sure we’re both serious. And the best part? It’s <span className="text-primary underline underline-offset-4">100% refunded</span> after your first completed booking. 🎉
+                                So here’s the new move: starting April 10, 2026, there’s a $29.99 onboarding fee. Not a profit — just a way to make sure we’re both serious. And the best part? It’s 100% refunded after your first completed booking.
                             </p>
                             <p>
                                 We’re doing this to keep the community strong — and we’re really glad you’re part of it.
@@ -205,7 +205,7 @@ export default function ApplyPage() {
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
                         <div>
-                            <h4 className="font-semibold text-lg">Apply Online</h4>
+                            <h4 className="font-semibold text-lg">Apply via the website or in the App</h4>
                             <div className="text-muted-foreground space-y-4">
                                 <p>Complete the onboarding application below. Provide your basic information and the services you offer.</p>
                                 <p>
@@ -280,17 +280,6 @@ export default function ApplyPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                        <Alert variant="destructive" className="bg-yellow-50 border-yellow-300 text-yellow-800">
-                          <AlertTriangle className="h-4 w-4 text-yellow-600" />
-                          <AlertTitle className="font-bold text-yellow-900">⚠️ Important</AlertTitle>
-                          <AlertDescription>
-                            <ul className="list-disc pl-5 mt-2">
-                                <li>Do not download the app before applying.</li>
-                                <li>Professional app access is granted only after approval.</li>
-                                <li>Each phone number can now be associated with both roles (Customer and Professional).</li>
-                            </ul>
-                          </AlertDescription>
-                        </Alert>
                         <div className="text-center space-y-4">
                             <Button asChild size="lg">
                                 <a href="https://admin.velourabeautyondemand.com/" target="_blank" rel="noopener noreferrer">Apply Now</a>
