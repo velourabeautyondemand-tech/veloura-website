@@ -282,6 +282,18 @@
       "description": "Runway Showcase",
       "imageUrl": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1200&h=800",
       "imageHint": "runway fashion"
+    },
+    {
+      "id": "agency_showcase_1",
+      "description": "High Fashion Editorial by Michael Lee",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1068/quality:92/uri:ifs%3A%2F%2FM%2F2864fd4a-902d-4620-b963-ccb2602aa0ca/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAJZ5oO4i_oB88txFZTgEwVTyRdnP16Hdyf_WL1ozVX5-&exp=1776344885&osig=AAAAAAAAAAAAAAAAAAAAAHASrH0N0UCrs8n6Jg1AbuhCc4AwOodxesKMRGq0zmjz&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "fashion photography"
+    },
+    {
+      "id": "agency_showcase_2",
+      "description": "Luxury Editorial by Michael Lee",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1068/quality:92/uri:ifs%3A%2F%2FM%2F1f5d3c73-389c-4696-8087-274afdfc649c/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAG5OvrzQU9f9McR4S30uwsvWWSk1KwH_yEmWeQEDVZPP&exp=1776345128&osig=AAAAAAAAAAAAAAAAAAAAAOk6tmJar6j5486LbxAFTZNSYVfDELbO7NsZ_hqMJ343&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "luxury editorial"
     }
   ]
 }

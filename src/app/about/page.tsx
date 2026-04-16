@@ -7,7 +7,6 @@ import { Award, HandHeart, Sparkles, Users, Linkedin, Newspaper } from 'lucide-r
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-// Data constants defined at the top level to ensure availability in the component scope
 const values = [
     {
         title: "Empowerment",
