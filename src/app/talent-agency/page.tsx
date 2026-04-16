@@ -6,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Award, MapPin, Layers, MessageSquare, Camera } from 'lucide-react';
+import { Star, Award, MapPin, Layers, MessageSquare } from 'lucide-react';
 
 const whyWorkWithUs = [
     {
