@@ -2,13 +2,11 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube, Heart } from "lucide-react";
+import { Heart, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
-import Link from 'next/link';
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import {
   Accordion,
   AccordionContent,
@@ -18,69 +16,18 @@ import {
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-const benefits = [
-    {
-        icon: DollarSign,
-        title: "Earn 80% per service",
-        description: "Plus, you keep 100% of your tips."
-    },
-    {
-        icon: BadgePercent,
-        title: "Transparent Earnings",
-        description: "No sign-up fees, no monthly fees, and no hidden fees."
-    },
-    {
-        icon: MapPin,
-        title: "Hyper-Local Bookings",
-        description: "Get bookings from clients within a 6-mile radius of your location."
-    },
-    {
-        icon: Clock,
-        title: "Set Your Own Schedule",
-        description: "Work when and where you want. You have full control over your calendar."
-    },
-    {
-        icon: Briefcase,
-        title: "Build Your Personal Brand",
-        description: "We give you the platform, you build your reputation with full control."
-    },
-    {
-        icon: ShieldCheck,
-        title: "Safety & Security",
-        description: "VÉLOURA provides access to Silent Beacon personal safety devices to help support professional safety during mobile appointments."
-    },
-    {
-        icon: Users,
-        title: "Nationwide Community",
-        description: "Join a supportive network of beauty professionals across the country."
-    },
-    {
-        icon: BarChart3,
-        title: "Grow Your Income",
-        description: "Get access to a steady, reliable stream of on-demand clients."
-    }
-];
-
 const faqs = [
     {
         question: "Should I download the app before signing up?",
-        answer: "Please do not download the app before applying. Professional app access is granted only after your application is approved. To complete your onboarding, please follow these steps: Complete the professional application, submit your application, pass background screening. You’ll be notified once your onboarding is complete. Receive approval confirmation from VÉLOURA and log in to the app using the phone number you signed up with."
+        answer: "Professional app access is granted after your application is initiated. To complete your onboarding, please follow the steps outlined below: Apply via the website or app, set up your profile, and complete your verification. Each phone number can now be associated with both customer and professional roles."
     },
     {
         question: "I’m trying to submit my application, but it keeps failing. What should I do?",
         answer: "We’re currently updating the app to provide a better experience. If you are having trouble submitting your application, please ensure you are using the official application link: https://velourabeautyondemand.com/apply. If the issue persists, please contact our support team at support@velourabeautyondemand.com."
     },
     {
-        question: "Can I be both a customer and a professional using the same phone number?",
-        answer: "Yes, each phone number can now be associated with both roles."
-    },
-    {
         question: "I haven’t received anything about the background check. Is something wrong?",
-        answer: "Background checks are initiated after your application is successfully submitted and reviewed. If your application did not complete or failed, the background check will not start. Once approved, you’ll receive a separate notification with next steps."
-    },
-    {
-        question: "How do I know if my professional application is approved?",
-        answer: "You’ll receive an email confirmation once your status is updated to Approved. Approved professionals will then be guided to: Sign the required agreement or waiver, Receive the Silent Beacon safety device (if accepted), and Begin accepting bookings."
+        answer: "Background checks are initiated after your profile is set up and reviewed. Once you've completed the initial onboarding steps, you’ll receive a separate notification with next steps from Checkr."
     },
     {
         question: "What is the Silent Beacon safety device?",
@@ -88,49 +35,11 @@ const faqs = [
     },
     {
         question: "Is the Silent Beacon Safety Device deposit mandatory?",
-        answer: "All professionals are required to sign the Safety Device Waiver, which includes the option to accept or decline the Silent Beacon safety device. While the waiver is mandatory, the device itself may be accepted or declined according to the professional’s choice and the terms outlined in the agreement."
-    },
-    {
-        question: "I already applied once. Do I need to apply again?",
-        answer: "If your application failed, was incomplete, or tied to a conflicting account, you may need to reapply. Please use the official application link: https://velourabeautyondemand.com/apply. If you’re unsure, contact our support team."
-    },
-    {
-        question: "Who can I contact if I need help with sign-up or onboarding?",
-        answer: "We’re happy to help! Email us at support@velourabeautyondemand.com. Please include: Your full name, email used to sign up, phone number, and a screenshot or description of the issue (if possible)."
+        answer: "All professionals are required to sign the Safety Device Waiver, which includes the option to accept or decline the Silent Beacon safety device. While the waiver is mandatory, the device itself may be accepted or declined according to the professional’s choice."
     },
     {
         question: "When can I start accepting jobs?",
-        answer: "You can start accepting jobs as soon as your professional status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app.\n\nOnce you’re live, we’d love your help sharing VÉLOURA with your community 💗\nFeel free to post on your social media, tell your clients, and help us spread the word — the more visibility you have, the more booking opportunities come your way.\n\nWelcome to VÉLOURA. Let’s grow together and bring beauty on demand to the world ✨"
-    },
-    {
-        question: "Is VÉLOURA currently updating the app?",
-        answer: "Yes. We’re actively improving the platform to provide a better experience."
-    },
-    {
-        question: "How do scheduling, payments, and location changes work?",
-        answer: `• Schedule & availability: Yes, you can set your own availability in the app, so it works around your schedule.
-• Bookings: Clients can only book services during the availability you’ve set in the app.
-• Payments: Payouts are handled via Stripe. You can link your Stripe account directly in your profile settings to receive funds after each completed booking.
-• Client payment: Yes, clients pay through the app at the time of booking/service.
-• Changing locations: Yes, you can update your service location if you travel — just adjust it in the app so clients in that area can find you.`
-    },
-    {
-        question: "Are there any new features coming soon?",
-        answer: `Yes! We’re actively rolling out new features to improve the experience for both customers and beauty professionals. Upcoming enhancements include:
-
-Flexible Pricing Updates
-Beauty professionals will be able to pay a one-time fee to update their service pricing directly within the app.
-
-Parking Fee Add-On
-Customers will have the option to add parking costs to their booking when applicable.
-
-5-Star Ratings, Reviews & Photo Support
-Customers will be able to leave 5-star ratings and reviews, with the ability to upload photos to support feedback.
-
-Experience Levels Displayed on Profiles
-The admin team will assign experience levels, which will be displayed on professional profiles in both the customer and professional apps.
-
-We’re committed to continuously improving the platform and appreciate your feedback as we grow.`
+        answer: "You can start accepting jobs as soon as your professional status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app."
     }
 ];
 
@@ -227,36 +136,36 @@ export default function ApplyPage() {
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
                         <div>
+                            <h4 className="font-semibold text-lg">Set Up Your Profile</h4>
+                            <p className="text-muted-foreground">In the app, you'll add your services, pricing, availability, and service areas. This is what customers see when searching and booking.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
+                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings. All payouts for completed services will be deposited directly into your connected Stripe account. Professionals keep 100% of tips.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
+                        <div>
                             <h4 className="font-semibold text-lg">Background Check & Verification</h4>
                             <p className="text-muted-foreground">After signing up, you’ll complete an online screening through Checkr. This process reviews your identity and criminal history.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
                         <div>
                             <h4 className="font-semibold text-lg">Check Your Email</h4>
                             <p className="text-muted-foreground">Please make sure to check all your email folders — including your spam/junk folder — for messages from Checkr.com and from us regarding your account status.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
-                        <div>
-                            <h4 className="font-semibold text-lg">Set Up Your Profile</h4>
-                            <p className="text-muted-foreground">In the app, you'll add your services, pricing, availability, and service areas. This is what customers see when searching and booking.</p>
-                        </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
-                        <div>
-                            <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All professionals are required to required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
-                        </div>
-                    </li>
-                    <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
                         <div>
-                            <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
-                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings. All payouts for completed services will be deposited directly into your connected Stripe account. Professionals keep 100% of tips.</p>
+                            <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
+                            <p className="text-muted-foreground">All professionals are required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
