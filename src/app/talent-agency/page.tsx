@@ -6,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Award, MapPin, Layers, MessageSquare, Mail, Camera } from 'lucide-react';
+import { Star, Award, MapPin, Layers, MessageSquare, Camera } from 'lucide-react';
 
 const whyWorkWithUs = [
     {
@@ -28,7 +28,6 @@ const whyWorkWithUs = [
 
 export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
-    const agencyRunway = PlaceHolderImages.find(p => p.id === 'agency_runway');
     const michaelLee1 = PlaceHolderImages.find(p => p.id === 'agency_showcase_1');
     const michaelLee2 = PlaceHolderImages.find(p => p.id === 'agency_showcase_2');
 
@@ -86,27 +85,36 @@ export default function TalentAgencyPage() {
                             <h2 className="text-3xl font-bold font-headline sm:text-4xl">Creative Showcase</h2>
                             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto flex items-center justify-center gap-2">
                                 <Camera className="w-5 h-5 text-primary" />
-                                Photography by Michael Lee
+                                Portfolio Highlights
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl group">
+                        <div className="space-y-12 max-w-6xl mx-auto">
+                            {/* Showcase Item 1 - Horizontal */}
+                            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
                                 <Image
-                                    src={michaelLee1?.imageUrl || "https://picsum.photos/seed/michael1/800/1000"}
+                                    src={michaelLee1?.imageUrl || "https://picsum.photos/seed/michael1/1600/900"}
                                     alt="Michael Lee Photography 1"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     data-ai-hint="fashion photography"
                                 />
+                                <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                                    Photography by Michael Lee
+                                </div>
                             </div>
-                            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl group">
+                            
+                            {/* Showcase Item 2 - Horizontal */}
+                            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
                                 <Image
-                                    src={michaelLee2?.imageUrl || "https://picsum.photos/seed/michael2/800/1000"}
+                                    src={michaelLee2?.imageUrl || "https://picsum.photos/seed/michael2/1600/900"}
                                     alt="Michael Lee Photography 2"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     data-ai-hint="luxury editorial"
                                 />
+                                <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                                    Photography by Michael Lee
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -133,27 +141,27 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Partnership CTA - Compact Design */}
+                {/* Partnership CTA - Ultra Compact Design */}
                 <section className="py-12 bg-background">
-                    <div className="container mx-auto px-4 md:px-6 max-w-xl">
-                        <div className="bg-primary p-6 md:p-8 rounded-3xl text-primary-foreground text-center space-y-4 shadow-lg border-2 border-white/10 relative overflow-hidden">
-                             <h2 className="text-2xl font-bold font-headline">Start Your Partnership</h2>
-                             <p className="text-sm opacity-90">
-                                Need a bespoke team for your next production? Contact us today to discuss your requirements.
+                    <div className="container mx-auto px-4 md:px-6 max-w-lg">
+                        <div className="bg-primary p-6 rounded-3xl text-primary-foreground text-center space-y-4 shadow-lg">
+                             <h2 className="text-xl font-bold font-headline">Start Your Partnership</h2>
+                             <p className="text-xs opacity-90">
+                                Need a bespoke team for your next production? Contact us today.
                              </p>
-                             <div className="flex flex-col items-center gap-4 pt-2">
-                                <Button size="lg" variant="secondary" className="text-primary font-bold w-full sm:w-auto px-8 rounded-full" asChild>
+                             <div className="flex flex-col items-center gap-3 pt-2">
+                                <Button size="sm" variant="secondary" className="text-primary font-bold px-6 rounded-full w-full sm:w-auto" asChild>
                                     <a href="mailto:support@velourabeautyondemand.com?subject=Agency%20Partnership">
-                                        Email the Agency Team
+                                        Email Agency Team
                                     </a>
                                 </Button>
                                 
                                 <div className="space-y-1">
-                                    <div className="flex items-center justify-center gap-2 text-white font-semibold text-sm">
-                                        <MessageSquare className="w-4 h-4" />
+                                    <div className="flex items-center justify-center gap-2 text-white font-semibold text-xs">
+                                        <MessageSquare className="w-3 h-3" />
                                         <span>Text Us: (305) 317-2759</span>
                                     </div>
-                                    <p className="text-[10px] opacity-70 italic leading-none">Text messages only — no calls.</p>
+                                    <p className="text-[10px] opacity-70 italic leading-none">Text only — no calls.</p>
                                 </div>
                              </div>
                         </div>
