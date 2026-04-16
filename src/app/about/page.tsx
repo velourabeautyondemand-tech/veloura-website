@@ -8,10 +8,10 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
-const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
-const magazineFeatureImage = PlaceHolderImages.find(p => p.id === 'magazine_feature');
 const roxanneImageUrl = PlaceHolderImages.find(p => p.id === 'team_roxanne')?.imageUrl || "";
 const riniImageUrl = PlaceHolderImages.find(p => p.id === 'team_rini')?.imageUrl || "";
+const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
+const magazineFeatureImage = PlaceHolderImages.find(p => p.id === 'magazine_feature');
 
 const teamMembers = [
     {
@@ -229,6 +229,22 @@ export default function AboutPage() {
                                 </div>
                             ))}
                         </div>
+                        
+                        {/* Team Group Image Section */}
+                        {teamGroupImageUrl && (
+                            <div className="mt-16 text-center">
+                                <div className="relative w-full max-w-lg mx-auto aspect-[502/800] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
+                                    <Image
+                                        src={teamGroupImageUrl}
+                                        alt="VÉLOURA Team Photo"
+                                        fill
+                                        className="object-cover"
+                                        data-ai-hint="team group"
+                                    />
+                                </div>
+                            </div>
+                        )}
+
                         <div className="mt-16 bg-primary/5 rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto border border-primary/10">
                             <h3 className="text-2xl font-bold font-headline mb-4 flex items-center justify-center gap-2">
                                 <Heart className="text-primary fill-primary w-6 h-6" /> Join Our Team
@@ -243,23 +259,6 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </section>
-
-                {/* Team Group Image Section */}
-                {teamGroupImageUrl && (
-                    <section className="pb-16 sm:py-24 bg-secondary/50">
-                        <div className="container mx-auto px-4 md:px-6">
-                            <div className="relative w-full max-w-lg mx-auto aspect-[502/800] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
-                                <Image
-                                    src={teamGroupImageUrl}
-                                    alt="VÉLOURA Team Photo"
-                                    fill
-                                    className="object-cover"
-                                    data-ai-hint="team group"
-                                />
-                            </div>
-                        </div>
-                    </section>
-                )}
 
                 {/* CTA Section */}
                 <section className="py-16 sm:py-24">
