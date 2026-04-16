@@ -136,7 +136,7 @@
     {
       "id": "waxing",
       "description": "Waxing service",
-      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leg waxing"
     },
     {
@@ -200,36 +200,6 @@
       "imageHint": "glamour shoot"
     },
     {
-      "id": "tech_avatar_1",
-      "description": "Avatar for Jessica",
-      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman portrait"
-    },
-    {
-      "id": "tech_avatar_2",
-      "description": "Avatar for Maria",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fDE3NTk1NDgyA9fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman smiling"
-    },
-    {
-      "id": "tech_avatar_3",
-      "description": "Avatar for Chloe",
-      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
-      "imageHint": "woman face"
-    },
-    {
-      "id": "tech_avatar_4",
-      "description": "Avatar for Ben",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3RcmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "man portrait"
-    },
-    {
-      "id": "tech_avatar_5",
-      "description": "Avatar for Sarah",
-      "imageUrl": "https://images.unsplash.com/photo-1614436201459-156d322d38c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbWlsaW5nJTIwd29tYW58ZW58MHx8fHwxNzU5NTExMjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "smiling woman"
-    },
-    {
       "id": "founder_photo",
       "description": "VÉLOURA Founder",
       "imageUrl": "https://i.imgur.com/wjTMG9D.png",
@@ -272,12 +242,6 @@
       "imageHint": "west palm team"
     },
     {
-      "id": "join_team_banner",
-      "description": "Join Our Team Banner",
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
-      "imageHint": "team recruitment"
-    },
-    {
       "id": "agency_hero",
       "description": "VÉLOURA Talent Agency Roster",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fbca6d013-1ef8-4f5a-9397-8cd432ebe83e/watermark:F/width:640?csig=AAAAAAAAAAAAAAAAAAAAAO6532fNYnvPGyPcrtTEiZ0DESgjSJfTRKSnl_yTSiqJ&exp=1775444314&osig=AAAAAAAAAAAAAAAAAAAAAJ7KWj96g1XC3SxP03NP3gd9uEQAGJUDrTYhV8u0qasJ&signer=media-rpc&x-canva-quality=screen",
@@ -290,22 +254,28 @@
       "imageHint": "editorial photography"
     },
     {
-      "id": "agency_showcase",
-      "description": "Agency Editorial Portfolio",
-      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?auto=format&fit=crop&q=80&w=1200&h=800",
-      "imageHint": "professional photography"
+      "id": "agency_runway_showcase",
+      "description": "VÉLOURA Runway Showcase",
+      "imageUrl": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1200&h=800",
+      "imageHint": "runway fashion"
     },
     {
-      "id": "agency_showcase_2",
-      "description": "Agency Fashion Portfolio",
-      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?auto=format&fit=crop&q=80&w=1200&h=800",
-      "imageHint": "fashion photography"
+      "id": "agency_editorial_showcase",
+      "description": "VÉLOURA Editorial Showcase",
+      "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1200&h=800",
+      "imageHint": "editorial fashion"
     },
     {
       "id": "silent_beacon_logo",
       "description": "Silent Beacon logo",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:731/quality:100/uri:ifs%3A%2F%2FM%2Fbefb1e4b-1c68-4ea9-87ae-20c7cdd7294a/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAADa_-MWtsj7088V2Ol8r43RxyyYBRZY1ad9WFuWXWBlO&exp=1775287689&osig=AAAAAAAAAAAAAAAAAAAAAO3hY3J31iawE5n0QewLYRjs6OcsYahK3I_NsV1PUsDf&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "silent beacon"
+    },
+    {
+      "id": "join_team_banner",
+      "description": "Join Our Team Banner",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
+      "imageHint": "team recruitment"
     }
   ]
 }

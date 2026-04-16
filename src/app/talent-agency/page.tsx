@@ -38,9 +38,9 @@ const whyWorkWithUs = [
 
 export default function TalentAgencyPage() {
     const agencyHero = PlaceHolderImages.find(p => p.id === 'agency_hero');
-    const agencyShowcase = PlaceHolderImages.find(p => p.id === 'agency_showcase');
-    const agencyShowcase2 = PlaceHolderImages.find(p => p.id === 'agency_showcase_2');
     const agencyWhoWeAre = PlaceHolderImages.find(p => p.id === 'agency_who_we_are');
+    const agencyShowcase1 = PlaceHolderImages.find(p => p.id === 'agency_runway_showcase');
+    const agencyShowcase2 = PlaceHolderImages.find(p => p.id === 'agency_editorial_showcase');
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -99,7 +99,7 @@ export default function TalentAgencyPage() {
                                     data-ai-hint="editorial photography"
                                 />
                                 <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                                    Photo by Sasha Lebedeva
+                                    VÉLOURA Editorial
                                 </div>
                             </div>
                         )}
@@ -225,17 +225,17 @@ export default function TalentAgencyPage() {
                 {/* Showcase Section */}
                 <section className="py-16 sm:py-24 bg-secondary/10 space-y-12">
                     <div className="container mx-auto px-4 md:px-6">
-                        {agencyShowcase?.imageUrl && (
+                        {agencyShowcase1?.imageUrl && (
                             <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
                                 <Image
-                                    src={agencyShowcase.imageUrl}
-                                    alt={agencyShowcase.description || "Showcase 1"}
+                                    src={agencyShowcase1.imageUrl}
+                                    alt={agencyShowcase1.description || "Runway Showcase"}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    data-ai-hint="professional photography"
+                                    data-ai-hint="runway fashion"
                                 />
                                 <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                                    Photo by Michael Lee
+                                    VÉLOURA Runway
                                 </div>
                             </div>
                         )}
@@ -245,13 +245,13 @@ export default function TalentAgencyPage() {
                             <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
                                 <Image
                                     src={agencyShowcase2.imageUrl}
-                                    alt={agencyShowcase2.description || "Showcase 2"}
+                                    alt={agencyShowcase2.description || "Editorial Showcase"}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     data-ai-hint="fashion photography"
                                 />
                                 <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                                    Photo by Michael Lee
+                                    VÉLOURA Editorial
                                 </div>
                             </div>
                         )}
