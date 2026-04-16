@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Award, HandHeart, Sparkles, Users, Linkedin, Heart, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { cn } from '@/lib/utils';
 
 const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
 const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
