@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube } from "lucide-react";
+import { DollarSign, MapPin, Clock, Briefcase, ShieldCheck, Users, BarChart3, AlertTriangle, BadgePercent, Youtube, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -168,6 +168,29 @@ export default function ApplyPage() {
                 <p className="text-lg max-w-3xl mx-auto text-muted-foreground">
                     VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
                 </p>
+            </section>
+
+            {/* Note Section */}
+            <section className="max-w-3xl mx-auto mb-12">
+                <Card className="bg-primary/5 border-primary/20 shadow-lg">
+                    <CardContent className="p-8 space-y-4">
+                        <div className="flex items-center gap-2 text-primary">
+                            <Heart className="w-5 h-5 fill-primary" />
+                            <h3 className="font-bold text-xl font-headline">Honestly? We really didn’t want to do this.</h3>
+                        </div>
+                        <div className="prose text-muted-foreground leading-relaxed">
+                            <p>
+                                We used to cover background check costs for everyone because we believe in making onboarding easy. But with so many starting and not finishing, it’s become tough to sustain — especially when we’re focused on supporting pros who are all-in.
+                            </p>
+                            <p className="font-semibold text-foreground">
+                                So here’s the new move: starting April 10, 2026, there’s a $29.99 onboarding fee. Not a profit — just a way to make sure we’re both serious. And the best part? It’s <span className="text-primary underline underline-offset-4">100% refunded</span> after your first completed booking. 🎉
+                            </p>
+                            <p>
+                                We’re doing this to keep the community strong — and we’re really glad you’re part of it.
+                            </p>
+                        </div>
+                    </CardContent>
+                </Card>
             </section>
 
             {/* Onboarding Steps Section */}
