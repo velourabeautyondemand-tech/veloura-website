@@ -4,12 +4,13 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sparkles, Mail, MessageSquare } from 'lucide-react';
+import { Sparkles, Mail, MessageSquare, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Suspense } from 'react';
 
-export default function EventsPage() {
+function EventsContent() {
     const eventHeroImage = PlaceHolderImages.find(p => p.id === 'event_hero');
     const westPalmImage = PlaceHolderImages.find(p => p.id === 'west_palm_team');
 
@@ -125,5 +126,13 @@ export default function EventsPage() {
             </main>
             <Footer />
         </div>
+    );
+}
+
+export default function EventsPage() {
+    return (
+        <Suspense fallback={<div className="flex items-center justify-center h-screen"><Loader2 className="animate-spin h-8 w-8 text-primary" /></div>}>
+            <EventsContent />
+        </Suspense>
     );
 }

@@ -57,7 +57,7 @@ export default function TalentAgencyPage() {
                                         </a>
                                     </Button>
                                     <Button size="lg" variant="outline" asChild>
-                                        <a href="https://velourabeautyondemand.com/apply" target="_blank" rel="noopener noreferrer">
+                                        <a href="/apply">
                                             Apply to Join Agency
                                         </a>
                                     </Button>
@@ -119,31 +119,30 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Contact CTA */}
-                <section className="py-16 sm:py-24 bg-background">
-                    <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                        <div className="bg-primary p-8 md:p-12 rounded-3xl text-primary-foreground text-center space-y-8 shadow-2xl relative overflow-hidden">
-                             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+                {/* Contact CTA - Smaller Redesign */}
+                <section className="py-12 bg-background">
+                    <div className="container mx-auto px-4 md:px-6 max-w-2xl">
+                        <div className="bg-primary p-6 md:p-8 rounded-2xl text-primary-foreground text-center space-y-6 shadow-xl relative overflow-hidden">
+                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                              
-                             <h2 className="text-3xl md:text-5xl font-bold font-headline relative z-10">Start Your Partnership</h2>
-                             <p className="text-lg opacity-90 relative z-10">
+                             <h2 className="text-2xl md:text-3xl font-bold font-headline relative z-10">Start Your Partnership</h2>
+                             <p className="text-base opacity-90 relative z-10">
                                 Need a bespoke team for your next production? Contact us today to discuss your requirements.
                              </p>
-                             <div className="flex flex-col items-center gap-6 relative z-10">
-                                <Button size="lg" variant="secondary" className="text-primary font-bold px-8 py-6 text-xl rounded-full hover:scale-105 transition-transform" asChild>
+                             <div className="flex flex-col items-center gap-4 relative z-10">
+                                <Button size="lg" variant="secondary" className="text-primary font-bold px-6 py-4 text-lg rounded-full hover:scale-105 transition-transform" asChild>
                                     <a href="mailto:support@velourabeautyondemand.com?subject=Agency%20Partnership">
-                                        <Mail className="mr-2 h-6 w-6" />
+                                        <Mail className="mr-2 h-5 w-5" />
                                         Email the Agency Team
                                     </a>
                                 </Button>
                                 
-                                <div className="flex flex-col items-center gap-2">
-                                    <div className="flex items-center gap-2 text-white font-semibold text-xl">
-                                        <MessageSquare className="w-6 h-6" />
+                                <div className="space-y-1">
+                                    <div className="flex items-center justify-center gap-2 text-white font-semibold">
+                                        <MessageSquare className="w-4 h-4" />
                                         <span>Text Us: (305) 317-2759</span>
                                     </div>
-                                    <p className="text-sm opacity-80 italic">Text messages only — this number does not receive calls.</p>
+                                    <p className="text-xs opacity-80 italic leading-none">Text messages only — this number does not receive calls.</p>
                                 </div>
                              </div>
                         </div>

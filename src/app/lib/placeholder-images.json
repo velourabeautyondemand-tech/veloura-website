@@ -78,24 +78,6 @@
       "description": "VÉLOURA West Palm Beach Team",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2Fde80dc16-f67e-4709-a0e5-9d35a8c66fcc/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANNvDgzfjvS3e4v8g0v9Ep1XcwnZI4xmBaRETMwule1n&exp=1776338242&osig=AAAAAAAAAAAAAAAAAAAAAKJxM7CdSYplR7Q62txD6li1dGJR0WU6JlEELIrMmA37&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "west palm team"
-    },
-    {
-      "id": "agency_hero",
-      "description": "VÉLOURA Talent Agency Editorial",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?auto=format&fit=crop&q=80&w=1200&h=800",
-      "imageHint": "editorial fashion"
-    },
-    {
-      "id": "agency_runway",
-      "description": "VÉLOURA Runway Showcase",
-      "imageUrl": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1200&h=800",
-      "imageHint": "runway fashion"
-    },
-    {
-      "id": "join_team_banner",
-      "description": "Join Our Team Banner",
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
-      "imageHint": "team recruitment"
     }
   ]
 }

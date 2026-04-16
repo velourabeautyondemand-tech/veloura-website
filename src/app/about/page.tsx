@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { Award, HandHeart, Sparkles, Users, Linkedin, Heart, Newspaper } from 'lucide-react';
+import { Award, HandHeart, Sparkles, Users, Linkedin, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
