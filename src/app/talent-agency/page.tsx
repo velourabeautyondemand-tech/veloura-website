@@ -66,11 +66,11 @@ export default function TalentAgencyPage() {
                             </div>
                             <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
                                 <Image
-                                    src={agencyHero?.imageUrl || "https://images.unsplash.com/photo-1595982248316-52de80608518?auto=format&fit=crop&q=80&w=1200&h=800"}
+                                    src={agencyHero?.imageUrl || "https://picsum.photos/seed/agency/1200/800"}
                                     alt={agencyHero?.description || "Talent Agency Editorial"}
                                     fill
                                     className="object-cover"
-                                    data-ai-hint="fashion editorial"
+                                    data-ai-hint="creative talent"
                                     priority
                                 />
                             </div>
@@ -83,32 +83,36 @@ export default function TalentAgencyPage() {
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="space-y-12 max-w-6xl mx-auto">
                             {/* Showcase Item 1 - Horizontal */}
-                            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
-                                <Image
-                                    src={michaelLee1?.imageUrl || "https://picsum.photos/seed/michael1/1600/900"}
-                                    alt="Michael Lee Photography 1"
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    data-ai-hint="fashion photography"
-                                />
-                                <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                                    Photography by Michael Lee
+                            {michaelLee1 && (
+                                <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
+                                    <Image
+                                        src={michaelLee1.imageUrl}
+                                        alt={michaelLee1.description}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        data-ai-hint="fashion photography"
+                                    />
+                                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                                        Photography by Michael Lee
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                             
                             {/* Showcase Item 2 - Horizontal */}
-                            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
-                                <Image
-                                    src={michaelLee2?.imageUrl || "https://picsum.photos/seed/michael2/1600/900"}
-                                    alt="Michael Lee Photography 2"
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    data-ai-hint="luxury editorial"
-                                />
-                                <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                                    Photography by Michael Lee
+                            {michaelLee2 && (
+                                <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
+                                    <Image
+                                        src={michaelLee2.imageUrl}
+                                        alt={michaelLee2.description}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        data-ai-hint="luxury editorial"
+                                    />
+                                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                                        Photography by Michael Lee
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                 </section>
