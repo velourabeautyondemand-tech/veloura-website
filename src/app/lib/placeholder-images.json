@@ -39,7 +39,7 @@
     },
     {
       "id": "founder_photo",
-      "description": "VÉLOURA Founder",
+      "description": "VÉLOURA Founder - Cherry Cheng",
       "imageUrl": "https://i.imgur.com/wjTMG9D.png",
       "imageHint": "woman portrait"
     },
@@ -90,6 +90,12 @@
       "description": "VÉLOURA Runway Showcase",
       "imageUrl": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1200&h=800",
       "imageHint": "runway fashion"
+    },
+    {
+      "id": "join_team_banner",
+      "description": "Join Our Team Banner",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
+      "imageHint": "team recruitment"
     }
   ]
 }
