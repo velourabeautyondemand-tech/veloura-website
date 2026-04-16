@@ -178,7 +178,7 @@
     {
       "id": "vip_3",
       "description": "Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDdtOA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal beauty"
     },
     {
@@ -282,6 +282,30 @@
       "description": "VÉLOURA Talent Agency Roster",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fbca6d013-1ef8-4f5a-9397-8cd432ebe83e/watermark:F/width:640?csig=AAAAAAAAAAAAAAAAAAAAAO6532fNYnvPGyPcrtTEiZ0DESgjSJfTRKSnl_yTSiqJ&exp=1775444314&osig=AAAAAAAAAAAAAAAAAAAAAJ7KWj96g1XC3SxP03NP3gd9uEQAGJUDrTYhV8u0qasJ&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "creative talent"
+    },
+    {
+      "id": "agency_who_we_are",
+      "description": "Talent Agency Editorial",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?auto=format&fit=crop&q=80&w=1200&h=800",
+      "imageHint": "editorial photography"
+    },
+    {
+      "id": "agency_showcase",
+      "description": "Agency Editorial Portfolio",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?auto=format&fit=crop&q=80&w=1200&h=800",
+      "imageHint": "professional photography"
+    },
+    {
+      "id": "agency_showcase_2",
+      "description": "Agency Fashion Portfolio",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?auto=format&fit=crop&q=80&w=1200&h=800",
+      "imageHint": "fashion photography"
+    },
+    {
+      "id": "silent_beacon_logo",
+      "description": "Silent Beacon logo",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:731/quality:100/uri:ifs%3A%2F%2FM%2Fbefb1e4b-1c68-4ea9-87ae-20c7cdd7294a/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAADa_-MWtsj7088V2Ol8r43RxyyYBRZY1ad9WFuWXWBlO&exp=1775287689&osig=AAAAAAAAAAAAAAAAAAAAAO3hY3J31iawE5n0QewLYRjs6OcsYahK3I_NsV1PUsDf&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "silent beacon"
     }
   ]
 }
