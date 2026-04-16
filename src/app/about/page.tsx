@@ -213,13 +213,15 @@ export default function AboutPage() {
                                     className="flex flex-col items-center text-center space-y-4 transition-all duration-300"
                                 >
                                     <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary/20 bg-background">
-                                        <Image
-                                            src={member.imageUrl || `https://picsum.photos/seed/${member.name}/200/200`}
-                                            alt={member.name}
-                                            fill
-                                            className="object-contain"
-                                            data-ai-hint={member.hint}
-                                        />
+                                        {member.imageUrl && (
+                                            <Image
+                                                src={member.imageUrl}
+                                                alt={member.name}
+                                                fill
+                                                className="object-contain"
+                                                data-ai-hint={member.hint}
+                                            />
+                                        )}
                                     </div>
                                     <div className="space-y-2">
                                         <h3 className="text-2xl font-bold font-headline">{member.name}</h3>

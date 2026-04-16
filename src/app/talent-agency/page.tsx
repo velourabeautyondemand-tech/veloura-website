@@ -89,8 +89,8 @@ export default function TalentAgencyPage() {
                 {/* Editorial Showcase Above About */}
                 <section className="py-12 bg-background">
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
-                            {agencyWhoWeAre && (
+                        {agencyWhoWeAre?.imageUrl && (
+                            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
                                 <Image
                                     src={agencyWhoWeAre.imageUrl}
                                     alt={agencyWhoWeAre.description || "Who We Are Showcase"}
@@ -98,11 +98,11 @@ export default function TalentAgencyPage() {
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     data-ai-hint="editorial photography"
                                 />
-                            )}
-                            <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                                Photo by Sasha Lebedeva
+                                <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
+                                    Photo by Sasha Lebedeva
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </section>
 
@@ -225,8 +225,8 @@ export default function TalentAgencyPage() {
                 {/* Showcase Section */}
                 <section className="py-16 sm:py-24 bg-secondary/10 space-y-12">
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
-                            {agencyShowcase && (
+                        {agencyShowcase?.imageUrl && (
+                            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
                                 <Image
                                     src={agencyShowcase.imageUrl}
                                     alt={agencyShowcase.description || "Showcase 1"}
@@ -234,15 +234,15 @@ export default function TalentAgencyPage() {
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     data-ai-hint="professional photography"
                                 />
-                            )}
-                            <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                                Photo by Michael Lee
+                                <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
+                                    Photo by Michael Lee
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
-                            {agencyShowcase2 && (
+                        {agencyShowcase2?.imageUrl && (
+                            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group">
                                 <Image
                                     src={agencyShowcase2.imageUrl}
                                     alt={agencyShowcase2.description || "Showcase 2"}
@@ -250,11 +250,11 @@ export default function TalentAgencyPage() {
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     data-ai-hint="fashion photography"
                                 />
-                            )}
-                            <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                                Photo by Michael Lee
+                                <div className="absolute bottom-4 right-6 text-white/90 text-sm font-medium bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
+                                    Photo by Michael Lee
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </section>
 
