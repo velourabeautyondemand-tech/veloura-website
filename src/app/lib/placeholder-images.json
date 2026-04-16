@@ -102,6 +102,12 @@
       "description": "Silent Beacon logo",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:731/quality:100/uri:ifs%3A%2F%2FM%2Fbefb1e4b-1c68-4ea9-87ae-20c7cdd7294a/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAACA0uoi0T5SM2m7zPQtE6YUQV3vHk979Jyz76EJu_igO&exp=1776338889&osig=AAAAAAAAAAAAAAAAAAAAALjUKFpy8uZB7TLAerfXZ6QoN1qnzGOha-1WfMhjoWWD&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "silent beacon"
+    },
+    {
+      "id": "join_team_banner",
+      "description": "Join Our Team Banner",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
+      "imageHint": "team recruitment"
     }
   ]
 }
