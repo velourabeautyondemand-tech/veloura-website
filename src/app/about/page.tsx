@@ -7,6 +7,7 @@ import { Award, HandHeart, Sparkles, Users, Linkedin, Newspaper } from 'lucide-r
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
+// Data constants defined at the top level to ensure availability in the component scope
 const values = [
     {
         title: "Empowerment",
@@ -68,9 +69,9 @@ export default function AboutPage() {
                 {/* Our Story Section */}
                 <section id="story" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="prose lg:prose-lg max-w-3xl mx-auto text-muted-foreground">
-                            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6 text-center">It Started With a Simple Problem</h2>
-                            <p className="text-xl font-semibold text-foreground text-center mb-8">
+                        <div className="prose lg:prose-lg max-w-3xl mx-auto text-muted-foreground text-center">
+                            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">It Started With a Simple Problem</h2>
+                            <p className="text-xl font-semibold text-foreground mb-8">
                                 Why is something so essential so inefficient?
                             </p>
                             <p>
@@ -82,7 +83,7 @@ export default function AboutPage() {
                             <p>
                                 VÉLOURA was built to solve both — creating a better way for people to connect, work, and live.
                             </p>
-                             <p className="font-semibold text-foreground text-xl text-center my-8">
+                             <p className="font-semibold text-foreground text-xl my-8">
                                 VÉLOURA isn’t just about beauty on demand — it’s about connection, trust, and community.
                             </p>
                         </div>

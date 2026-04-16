@@ -119,10 +119,11 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Contact CTA - Smaller Redesign */}
+                {/* Contact CTA - Redesigned to be smaller */}
                 <section className="py-12 bg-background">
                     <div className="container mx-auto px-4 md:px-6 max-w-2xl">
                         <div className="bg-primary p-6 md:p-8 rounded-2xl text-primary-foreground text-center space-y-6 shadow-xl relative overflow-hidden">
+                             {/* Decorative circle */}
                              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                              
                              <h2 className="text-2xl md:text-3xl font-bold font-headline relative z-10">Start Your Partnership</h2>
