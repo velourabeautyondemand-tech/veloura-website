@@ -7,60 +7,60 @@ import { Award, HandHeart, Sparkles, Users, Linkedin, Heart, Newspaper } from 'l
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
-const roxanneImageUrl = PlaceHolderImages.find(p => p.id === 'team_roxanne')?.imageUrl || "";
-const riniImageUrl = PlaceHolderImages.find(p => p.id === 'team_rini')?.imageUrl || "";
-const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
-const magazineFeatureImage = PlaceHolderImages.find(p => p.id === 'magazine_feature');
-
-const teamMembers = [
-    {
-        name: "Huiyu \"Cherry\" Cheng",
-        role: "Founder & Visionary",
-        description: "She didn't just build VÉLOURA — she built it from real-life experience. Seeing how outdated systems limited both clients and independent professionals, she set out to create something better — a platform where services move with your life, not the other way around. Today, VÉLOURA empowers professionals and delivers beauty and lifestyle services on demand — where and when they’re needed.",
-        imageUrl: founderImageUrl,
-        hint: "woman portrait"
-    },
-    {
-        name: "Roxanne Resma",
-        role: "Operations Director",
-        description: "Roxanne oversees operations at VÉLOURA, ensuring everything runs efficiently as we grow. She manages onboarding, systems, and day-to-day execution — keeping both professionals and clients supported every step of the way.",
-        imageUrl: roxanneImageUrl,
-        hint: "operations director"
-    },
-    {
-        name: "Rini Sugianto",
-        role: "Media Lead",
-        description: "Dedicated to capturing the beauty and artistry of the VÉLOURA experience through compelling visual storytelling and brand production.",
-        imageUrl: riniImageUrl,
-        hint: "media professional"
-    }
-];
-
-const values = [
-    {
-        title: "Empowerment",
-        description: "Giving professionals the freedom to build their own brand and schedule.",
-        icon: Sparkles
-    },
-    {
-        title: "Reliability",
-        description: "Consistently delivering high-quality, vetted services wherever you are.",
-        icon: Award
-    },
-    {
-        title: "Community",
-        description: "Building a supportive network of professionals and a loyal client base.",
-        icon: Users
-    },
-    {
-        title: "Convenience",
-        description: "Making self-care accessible and efficient for the modern, busy life.",
-        icon: HandHeart
-    }
-];
-
 export default function AboutPage() {
+    const founderImageUrl = PlaceHolderImages.find(p => p.id === 'founder_photo')?.imageUrl || "https://i.imgur.com/wjTMG9D.png";
+    const roxanneImageUrl = PlaceHolderImages.find(p => p.id === 'team_roxanne')?.imageUrl || "";
+    const riniImageUrl = PlaceHolderImages.find(p => p.id === 'team_rini')?.imageUrl || "";
+    const teamGroupImageUrl = PlaceHolderImages.find(p => p.id === 'team_group_photo')?.imageUrl || "";
+    const magazineFeatureImage = PlaceHolderImages.find(p => p.id === 'magazine_feature');
+
+    const teamMembers = [
+        {
+            name: "Huiyu \"Cherry\" Cheng",
+            role: "Founder & Visionary",
+            description: "She didn't just build VÉLOURA — she built it from real-life experience. Seeing how outdated systems limited both clients and independent professionals, she set out to create something better — a platform where services move with your life, not the other way around. Today, VÉLOURA empowers professionals and delivers beauty and lifestyle services on demand — where and when they’re needed.",
+            imageUrl: founderImageUrl,
+            hint: "woman portrait"
+        },
+        {
+            name: "Roxanne Resma",
+            role: "Operations Director",
+            description: "Roxanne oversees operations at VÉLOURA, ensuring everything runs efficiently as we grow. She manages onboarding, systems, and day-to-day execution — keeping both professionals and clients supported every step of the way.",
+            imageUrl: roxanneImageUrl,
+            hint: "operations director"
+        },
+        {
+            name: "Rini Sugianto",
+            role: "Media Lead",
+            description: "Dedicated to capturing the beauty and artistry of the VÉLOURA experience through compelling visual storytelling and brand production.",
+            imageUrl: riniImageUrl,
+            hint: "media professional"
+        }
+    ];
+
+    const values = [
+        {
+            title: "Empowerment",
+            description: "Giving professionals the freedom to build their own brand and schedule.",
+            icon: Sparkles
+        },
+        {
+            title: "Reliability",
+            description: "Consistently delivering high-quality, vetted services wherever you are.",
+            icon: Award
+        },
+        {
+            title: "Community",
+            description: "Building a supportive network of professionals and a loyal client base.",
+            icon: Users
+        },
+        {
+            title: "Convenience",
+            description: "Making self-care accessible and efficient for the modern, busy life.",
+            icon: HandHeart
+        }
+    ];
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
