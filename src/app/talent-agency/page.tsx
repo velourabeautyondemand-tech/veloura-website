@@ -78,16 +78,9 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Michael Lee Showcase Section */}
+                {/* Creative Showcase - Photos Only */}
                 <section className="py-16 sm:py-24 bg-background">
                     <div className="container mx-auto px-4 md:px-6">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold font-headline sm:text-4xl">Creative Showcase</h2>
-                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto flex items-center justify-center gap-2">
-                                <Camera className="w-5 h-5 text-primary" />
-                                Portfolio Highlights
-                            </p>
-                        </div>
                         <div className="space-y-12 max-w-6xl mx-auto">
                             {/* Showcase Item 1 - Horizontal */}
                             <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">

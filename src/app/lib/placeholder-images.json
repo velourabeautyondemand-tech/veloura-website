@@ -231,33 +231,21 @@
     },
     {
       "id": "founder_photo",
-      "description": "VÉLOURA Founder - Cherry Cheng",
+      "description": "VÉLOURA Founder",
       "imageUrl": "https://i.imgur.com/wjTMG9D.png",
       "imageHint": "woman portrait"
     },
     {
-      "id": "team_roxanne",
-      "description": "Roxanne Resma - Operations Director",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAADZnQN_nORHcbPuQTrweG3B86-bTZ3hHQX5iY2Y4Mo1-&exp=1776341041&osig=AAAAAAAAAAAAAAAAAAAAACbH-w8Ij4NgXAGaBeWHy5K00AoO8MwZ94BDCCp4Pkgu&signer=media-rpc&x-canva-quality=screen",
-      "imageHint": "operations director"
+      "id": "join_team_banner",
+      "description": "Join Our Team Banner",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
+      "imageHint": "team recruitment"
     },
     {
-      "id": "team_rini",
-      "description": "Rini Sugianto - Media Lead",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAFy30QdK_PWM4v4ZZ6LHNZ6o3Vg5xJyZo2X1ce1Lyg51&exp=1776143156&osig=AAAAAAAAAAAAAAAAAAAAAKzLHxzLNh7spRtG1KFKSJBbLBv3LV-gHSX0zpxm6tHP&signer=media-rpc&x-canva-quality=screen",
-      "imageHint": "media professional"
-    },
-    {
-      "id": "team_group_photo",
-      "description": "VÉLOURA Team Group Photo",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fadda4ad4-baea-4f81-8e96-6f131d5f3ecc/watermark:F/width:502?csig=AAAAAAAAAAAAAAAAAAAAABwRADSa1buuo2n1enTNNZN4rsUCrVUm0RsN6VJrbh_Z&exp=1776141687&osig=AAAAAAAAAAAAAAAAAAAAAIneEngSbpwRzpXydyrFreRGapZXjsCbNHLlVerYeWap&signer=media-rpc&x-canva-quality=screen",
-      "imageHint": "team group"
-    },
-    {
-      "id": "magazine_feature",
-      "description": "Global Woman Magazine Feature",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:800/quality:100/uri:ifs%3A%2F%2FM%2F017a498f-4bfd-4a85-be19-42f72b0f98b6/watermark:F/width:560?csig=AAAAAAAAAAAAAAAAAAAAALKe1ZRaIaok8kCy6RBuEvukFmLqDLvw8MuMhKZqlTes&exp=1776142432&osig=AAAAAAAAAAAAAAAAAAAAAPD9I2kMtQMgFgPWtDILC62qhMMB2jykZno5mE16-dJJ&signer=media-rpc&x-canva-quality=screen",
-      "imageHint": "magazine cover"
+      "id": "silent_beacon_logo",
+      "description": "Silent Beacon logo",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:731/quality:100/uri:ifs%3A%2F%2FM%2Fbefb1e4b-1c68-4ea9-87ae-20c7cdd7294a/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAADa_-MWtsj7088V2Ol8r43RxyyYBRZY1ad9WFuWXWBlO&exp=1775287689&osig=AAAAAAAAAAAAAAAAAAAAAO3hY3J31iawE5n0QewLYRjs6OcsYahK3I_NsV1PUsDf&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "silent beacon"
     },
     {
       "id": "event_hero",
@@ -273,15 +261,33 @@
     },
     {
       "id": "agency_hero",
-      "description": "VÉLOURA Talent Agency Editorial",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?auto=format&fit=crop&q=80&w=1200&h=800",
-      "imageHint": "fashion editorial"
+      "description": "VÉLOURA Talent Agency Roster",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fbca6d013-1ef8-4f5a-9397-8cd432ebe83e/watermark:F/width:640?csig=AAAAAAAAAAAAAAAAAAAAAO6532fNYnvPGyPcrtTEiZ0DESgjSJfTRKSnl_yTSiqJ&exp=1775444314&osig=AAAAAAAAAAAAAAAAAAAAAJ7KWj96g1XC3SxP03NP3gd9uEQAGJUDrTYhV8u0qasJ&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "creative talent"
     },
     {
-      "id": "agency_runway",
-      "description": "Runway Showcase",
-      "imageUrl": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1200&h=800",
-      "imageHint": "runway fashion"
+      "id": "team_roxanne",
+      "description": "Roxanne Resma - Operations Director",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAADZnQN_nORHcbPuQTrweG3B86-bTZ3hHQX5iY2Y4Mo1-&exp=1776341041&osig=AAAAAAAAAAAAAAAAAAAAACbH-w8Ij4NgXAGaBeWHy5K00AoO8MwZ94BDCCp4Pkgu&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "operations director"
+    },
+    {
+      "id": "team_rini",
+      "description": "Rini Sugianto - Media Lead",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAFy30QdK_PWM4v4ZZ6LHNZ6o3Vg5xJyZo2X1ce1Lyg51&exp=1776143156&osig=AAAAAAAAAAAAAAAAAAAAAKzLHxzLNh7spRtG1KFKSJBbLBv3LV-gHSX0zpxm6tHP&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "media professional"
+    },
+    {
+      "id": "team_group_photo",
+      "description": "VÉLOURA Team Photo",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fadda4ad4-baea-4f81-8e96-6f131d5f3ecc/watermark:F/width:502?csig=AAAAAAAAAAAAAAAAAAAAABwRADSa1buuo2n1enTNNZN4rsUCrVUm0RsN6VJrbh_Z&exp=1776141687&osig=AAAAAAAAAAAAAAAAAAAAAIneEngSbpwRzpXydyrFreRGapZXjsCbNHLlVerYeWap&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "team group"
+    },
+    {
+      "id": "magazine_feature",
+      "description": "Global Woman Magazine Feature",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:800/quality:100/uri:ifs%3A%2F%2FM%2F017a498f-4bfd-4a85-be19-42f72b0f98b6/watermark:F/width:560?csig=AAAAAAAAAAAAAAAAAAAAALKe1ZRaIaok8kCy6RBuEvukFmLqDLvw8MuMhKZqlTes&exp=1776142432&osig=AAAAAAAAAAAAAAAAAAAAAPD9I2kMtQMgFgPWtDILC62qhMMB2jykZno5mE16-dJJ&signer=media-rpc&x-canva-quality=screen",
+      "imageHint": "magazine cover"
     },
     {
       "id": "agency_showcase_1",
