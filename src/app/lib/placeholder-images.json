@@ -38,18 +38,6 @@
       "imageHint": "dip powder"
     },
     {
-      "id": "makeup_1",
-      "description": "Natural Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1596496057842-5363e75f5b59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxuYXR1cmFsJTIwbWFrZXVwfGVufDB8fHx8MTY3MjAwMzA1NXww&ixlib=rb-4.0.3&q=80&w=1080",
-      "imageHint": "natural makeup"
-    },
-    {
-      "id": "hair_1",
-      "description": "Hair Blowout",
-      "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
-      "imageHint": "hair blowout"
-    },
-    {
       "id": "founder_photo",
       "description": "VÉLOURA Founder",
       "imageUrl": "https://i.imgur.com/wjTMG9D.png",
@@ -108,6 +96,12 @@
       "description": "VÉLOURA Team Photo",
       "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fadda4ad4-baea-4f81-8e96-6f131d5f3ecc/watermark:F/width:502?csig=AAAAAAAAAAAAAAAAAAAAAC5Xr5tvybwNH5gmyhQm-9MVyXMrh5ZowuYvz-dlyB9J&exp=1776339687&osig=AAAAAAAAAAAAAAAAAAAAAKPoWdiwxQW-zelD5ZzW3MNJ_weMpXmrwRyHHFzkgwY8&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "team group"
+    },
+    {
+      "id": "silent_beacon_logo",
+      "description": "Silent Beacon logo",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:731/quality:100/uri:ifs%3A%2F%2FM%2Fbefb1e4b-1c68-4ea9-87ae-20c7cdd7294a/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAACA0uoi0T5SM2m7zPQtE6YUQV3vHk979Jyz76EJu_igO&exp=1776338889&osig=AAAAAAAAAAAAAAAAAAAAALjUKFpy8uZB7TLAerfXZ6QoN1qnzGOha-1WfMhjoWWD&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageHint": "silent beacon"
     }
   ]
 }
