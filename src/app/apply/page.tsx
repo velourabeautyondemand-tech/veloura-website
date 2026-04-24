@@ -230,7 +230,7 @@ export default function ApplyPage() {
 
             {/* FAQ Section */}
             <section id="faq" className="mb-16 md:mb-24">
-              <div className="max-w-3xl mx-auto">
+              <div className="max-w-3xl auto">
                  <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold sm:text-4xl font-headline">Frequently Asked Questions</h2>
                 </div>
