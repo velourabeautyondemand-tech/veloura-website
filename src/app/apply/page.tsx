@@ -19,7 +19,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const faqs = [
     {
         question: "Should I download the app before signing up?",
-        answer: "Professional app access is granted after your application is initiated. To complete your onboarding, please follow the steps outlined below: Apply via the website or app, set up your profile, and complete your verification."
+        answer: "Professional app access is granted only after approval. Each phone number can now be associated with both roles (Customer and Professional). To complete your onboarding, please follow the steps outlined below: Apply via the website or app, set up your profile, and complete your verification."
     },
     {
         question: "I’m trying to submit my application, but it keeps failing. What should I do?",
@@ -133,36 +133,36 @@ export default function ApplyPage() {
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
                         <div>
+                            <h4 className="font-semibold text-lg">Set Up Your Profile</h4>
+                            <p className="text-muted-foreground">In the app, you'll add your services, pricing, availability, and service areas. This is what customers see when searching and booking.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
+                            <p className="text-muted-foreground">All professionals are required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
+                        <div>
                             <h4 className="font-semibold text-lg">Background Check & Verification</h4>
                             <p className="text-muted-foreground">After signing up, you’ll complete an online screening through Checkr. This process reviews your identity and criminal history.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
                         <div>
                             <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
                             <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
-                        <div>
-                            <h4 className="font-semibold text-lg">Set Up Your Profile</h4>
-                            <p className="text-muted-foreground">In the app, you'll add your services, pricing, availability, and service areas. This is what customers see when searching and booking.</p>
-                        </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
                         <div>
                             <h4 className="font-semibold text-lg">Check Your Email</h4>
                             <p className="text-muted-foreground">Please make sure to check all your email folders — including your spam/junk folder — for messages regarding your account status and activation.</p>
-                        </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
-                        <div>
-                            <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All professionals are required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
