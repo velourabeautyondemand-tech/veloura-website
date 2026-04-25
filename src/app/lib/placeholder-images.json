@@ -82,7 +82,7 @@
     {
       "id": "makeup_5",
       "description": "Bridesmaids Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridesmaids"
     },
     {
@@ -256,7 +256,7 @@
     {
       "id": "west_palm_team",
       "description": "VÉLOURA West Palm Beach Team",
-      "imageUrl": "https://storage.googleapis.com/studio-8096841563-8bcb9.firebasestorage.app/1482523981896677157.jpeg",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/1482523981896677157.jpeg?alt=media&token=ed3929e3-04e3-48b6-8f79-41946cadf951",
       "imageHint": "west palm team"
     },
     {
