@@ -70,7 +70,7 @@
     {
       "id": "makeup_3",
       "description": "Bridal Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMG1ha2V1cHxlbnwwfHx8fDE2NjY2MTc1Mzh8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMG1ha2V1cHxlbnwwfHx8fDE2NjY2MTc1Mzh8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal makeup"
     },
     {
@@ -298,7 +298,7 @@
     {
       "id": "join_team_banner",
       "description": "Join Our Team Banner",
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Create%20a%20modern%2C%20luxurious%20recruitment%20post%20for%20a%20beauty-on-demand%20app%20called%20V%C3%89LOURA%2C%20powered%20by%20iAmDreamMaker%20Group.%20The%20post%20should%20attract%20Makeup%20Artists%2C%20Hairstylists%2C%20and%20Nail%20Technicians%20wh.jpg?alt=media&token=7a13eee8-c869-486a-8e9a-44de25b58cfd",
       "imageHint": "team recruitment"
     }
   ]
