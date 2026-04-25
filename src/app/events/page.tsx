@@ -4,7 +4,7 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sparkles, Mail, MessageSquare, Loader2 } from 'lucide-react';
+import { Sparkles, Mail, MessageSquare, Loader2, Calendar as CalendarIcon, MapPin as MapPinIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -13,6 +13,7 @@ import { Suspense } from 'react';
 function EventsContent() {
     const eventHeroImage = PlaceHolderImages.find(p => p.id === 'event_hero');
     const westPalmImage = PlaceHolderImages.find(p => p.id === 'west_palm_team');
+    const eventMay2026Image = PlaceHolderImages.find(p => p.id === 'event_may_2026');
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -29,46 +30,96 @@ function EventsContent() {
                             </p>
                         </div>
 
-                        {/* Featured Event Image - New York Team */}
-                        {eventHeroImage && (
-                            <div className="mb-12">
-                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
-                                    <Image
-                                        src={eventHeroImage.imageUrl}
-                                        alt={eventHeroImage.description}
-                                        fill
-                                        className="object-cover"
-                                        data-ai-hint={eventHeroImage.imageHint}
-                                        priority
-                                    />
-                                    {/* Caption Overlay */}
-                                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                                        New York Team
+                        {/* Event 5/7/2026 Card */}
+                        <Card className="shadow-lg overflow-hidden border-2 border-primary/20 mb-16">
+                            <CardHeader className="text-center bg-accent/5 pb-8">
+                                {eventMay2026Image && (
+                                    <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 shadow-md">
+                                        <Image
+                                            src={eventMay2026Image.imageUrl}
+                                            alt={eventMay2026Image.description}
+                                            fill
+                                            className="object-contain bg-background"
+                                            data-ai-hint={eventMay2026Image.imageHint}
+                                            priority
+                                        />
+                                    </div>
+                                )}
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4">
+                                    <Sparkles className="w-3.5 h-3.5" />
+                                    <span>FEATURED EVENT</span>
+                                </div>
+                                <CardTitle className="text-3xl font-headline text-primary">VÉLOURA Special Event</CardTitle>
+                                <div className="flex flex-col items-center gap-2 mt-4 text-muted-foreground font-semibold">
+                                    <div className="flex items-center gap-2">
+                                        <CalendarIcon className="w-5 h-5 text-primary" />
+                                        <span>Date: 05/07/2026</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <MapPinIcon className="w-5 h-5 text-primary" />
+                                        <span>Location Details in Invitation</span>
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                                <CardDescription className="pt-4 text-lg max-w-lg mx-auto">
+                                    An exclusive gathering for creative talent and industry leaders. Request your invitation to secure a spot at our premier networking experience.
+                                </CardDescription>
+                            </CardHeader>
+                            <CardContent className="pt-8 pb-10 text-center bg-white/50 backdrop-blur-sm">
+                                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                    <Button asChild size="lg" variant="accent" className="font-bold shadow-lg hover:scale-105 transition-transform">
+                                        <a href="https://forms.gle/HE9LuLS8EGyczDwv6" target="_blank" rel="noopener noreferrer">Request to Join</a>
+                                    </Button>
+                                    <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 shadow-sm">
+                                        <a href="https://luma.com/gtf2g251" target="_blank" rel="noopener noreferrer">Event Details</a>
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
 
-                        {/* West Palm Beach Team Image */}
-                        {westPalmImage && (
-                            <div className="mb-12">
-                                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
-                                    <Image
-                                        src={westPalmImage.imageUrl}
-                                        alt={westPalmImage.description}
-                                        fill
-                                        className="object-cover"
-                                        data-ai-hint={westPalmImage.imageHint}
-                                    />
-                                    {/* Caption Overlay */}
-                                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                                        West Palm Beach Team
+                        {/* Past/Other Teams Showcase */}
+                        <div className="space-y-12">
+                             <div className="text-center">
+                                <h2 className="text-2xl font-bold font-headline mb-8">Our Teams Across the Country</h2>
+                             </div>
+
+                             {/* Featured Event Image - New York Team */}
+                            {eventHeroImage && (
+                                <div className="mb-12">
+                                    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
+                                        <Image
+                                            src={eventHeroImage.imageUrl}
+                                            alt={eventHeroImage.description}
+                                            fill
+                                            className="object-cover"
+                                            data-ai-hint={eventHeroImage.imageHint}
+                                        />
+                                        {/* Caption Overlay */}
+                                        <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                                            New York Team
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
-                        
-                        <div className="space-y-12">
+                            )}
+
+                            {/* West Palm Beach Team Image */}
+                            {westPalmImage && (
+                                <div className="mb-12">
+                                    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
+                                        <Image
+                                            src={westPalmImage.imageUrl}
+                                            alt={westPalmImage.description}
+                                            fill
+                                            className="object-cover"
+                                            data-ai-hint={westPalmImage.imageHint}
+                                        />
+                                        {/* Caption Overlay */}
+                                        <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                                            West Palm Beach Team
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            
                             {/* Miami Event */}
                             <Card className="shadow-lg overflow-hidden">
                                 <CardHeader className="text-center bg-primary/10">
