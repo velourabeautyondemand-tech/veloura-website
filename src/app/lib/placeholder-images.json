@@ -136,7 +136,7 @@
     {
       "id": "waxing",
       "description": "Waxing service",
-      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leg waxing"
     },
     {
@@ -250,7 +250,7 @@
     {
       "id": "event_hero",
       "description": "VÉLOURA New York Team",
-      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F75a8e094-1443-44ec-bbc9-3e42cdee7de2/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANQ9CjP9wxGmhSfCxbxnmUSNclr3qpoJ3q5LAYQ6xq6N&exp=1776341554&osig=AAAAAAAAAAAAAAAAAAAAAK9o2TsZ_hTmvV9Zj-bgbuiDR6ABKNB_OR6pyab2SSiC&signer=media-rpc&x-canva-quality=screen_2x",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/IMG_6003.jpeg?alt=media&token=424e4fb1-f7ca-40bb-9959-7e14ac139921",
       "imageHint": "new york team"
     },
     {

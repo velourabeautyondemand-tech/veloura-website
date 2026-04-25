@@ -79,32 +79,29 @@ export default function ApplyPage() {
                 </p>
             </section>
 
-            {/* Onboarding Fee Note */}
-            <section className="max-w-3xl mx-auto mb-12">
-                <Card className="bg-primary/5 border-primary/20 shadow-lg">
-                    <CardContent className="p-8 space-y-4">
-                        <div className="flex items-center gap-2 text-primary">
-                            <Heart className="w-5 h-5 fill-primary" />
-                            <h3 className="font-bold text-xl font-headline">Honestly? We really didn’t want to do this.</h3>
-                        </div>
-                        <div className="prose text-muted-foreground leading-relaxed">
-                            <p>
-                                We used to cover background check costs for everyone because we believe in making onboarding easy. But with so many starting and not finishing, it’s become tough to sustain — especially when we’re focused on supporting pros who are all-in.
-                            </p>
-                            <p className="font-semibold text-foreground">
-                                So here’s the new move: starting April 10, 2026, there’s a $29.99 onboarding fee. Not a profit — just a way to make sure we’re both serious. And the best part? It’s 100% refunded after your first completed booking.
-                            </p>
-                            <p>
-                                We’re doing this to keep the community strong — and we’re really glad you’re part of it.
-                            </p>
-                        </div>
-                    </CardContent>
-                </Card>
-            </section>
-
             {/* Onboarding Steps Section */}
             <section id="onboarding" className="mb-16 md:mb-24">
               <div className="max-w-3xl mx-auto space-y-8 bg-card p-8 rounded-xl shadow-xl">
+                
+                {/* Onboarding Fee Note */}
+                <div className="bg-primary/5 border-primary/20 p-8 rounded-xl mb-8 space-y-4">
+                    <div className="flex items-center gap-2 text-primary">
+                        <Heart className="w-5 h-5 fill-primary" />
+                        <h3 className="font-bold text-xl font-headline">Honestly? We really didn’t want to do this.</h3>
+                    </div>
+                    <div className="prose text-muted-foreground leading-relaxed">
+                        <p>
+                            We used to cover background check costs for everyone because we believe in making onboarding easy. But with so many starting and not finishing, it’s become tough to sustain — especially when we’re focused on supporting pros who are all-in.
+                        </p>
+                        <p className="font-semibold text-foreground">
+                            So here’s the new move: starting April 10, 2026, there’s a $29.99 onboarding fee. Not a profit — just a way to make sure we’re both serious. And the best part? It’s 100% refunded after your first completed booking.
+                        </p>
+                        <p>
+                            We’re doing this to keep the community strong — and we’re really glad you’re part of it.
+                        </p>
+                    </div>
+                </div>
+
                 <div className="text-center border-b pb-6">
                     <h2 className="text-3xl font-bold font-headline">Professional Onboarding Process</h2>
                     <p className="text-muted-foreground mt-2">Follow these steps to join the VÉLOURA professional network.</p>
@@ -130,42 +127,42 @@ export default function ApplyPage() {
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">2</div>
                         <div>
                             <h4 className="font-semibold text-lg">Download the VÉLOURA App</h4>
-                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand app and log in as a Professional using your registered phone number.</p>
+                            <p className="text-muted-foreground">Download the VÉLOURA Beauty on Demand app and log in using your registered phone number.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">3</div>
-                        <div>
-                            <h4 className="font-semibold text-lg">Set Up Your Profile</h4>
-                            <p className="text-muted-foreground">In the app, you'll add your services, pricing, availability, and service areas. This is what customers see when searching and booking.</p>
-                        </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
-                        <div>
-                            <h4 className="font-semibold text-lg">Check Your Email</h4>
-                            <p className="text-muted-foreground">Please make sure to check all your email folders — including your spam/junk folder — for messages from Checkr.com and from us regarding your account status.</p>
-                        </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
                         <div>
                             <h4 className="font-semibold text-lg">Background Check & Verification</h4>
                             <p className="text-muted-foreground">After signing up, you’ll complete an online screening through Checkr. This process reviews your identity and criminal history.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
+                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                        <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">5</div>
+                        <div>
+                            <h4 className="font-semibold text-lg">Set Up Your Profile</h4>
+                            <p className="text-muted-foreground">In the app, you'll add your services, pricing, availability, and service areas. This is what customers see when searching and booking.</p>
+                        </div>
+                    </li>
+                    <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">6</div>
                         <div>
-                            <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
-                            <p className="text-muted-foreground">All professionals are required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
+                            <h4 className="font-semibold text-lg">Check Your Email</h4>
+                            <p className="text-muted-foreground">Please make sure to check all your email folders — including your spam/junk folder — for messages regarding your account status and activation.</p>
                         </div>
                     </li>
                     <li className="flex items-start gap-4">
                         <div className="flex-shrink-0 bg-primary text-primary-foreground rounded-full h-8 w-8 flex items-center justify-center font-bold">7</div>
                         <div>
-                            <h4 className="font-semibold text-lg">Payment & Payout Setup (Stripe)</h4>
-                            <p className="text-muted-foreground">Your payment and payout processing is securely powered by Stripe. From your profile, you can either link an existing Stripe account or create a new one to receive earnings from completed bookings.</p>
+                            <h4 className="font-semibold text-lg">Safety Device Waiver (Mandatory)</h4>
+                            <p className="text-muted-foreground">All professionals are required to electronically sign the VÉLOURA Safety Device Waiver & Agreement before activation on the platform.</p>
                         </div>
                     </li>
                      <li className="flex items-start gap-4">
