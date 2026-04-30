@@ -129,7 +129,7 @@ export default function HomePage() {
               <div className="mt-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                   {interfaceImages.map((img, index) => (
-                    <div key={index} className="relative aspect-[9/19.5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white ring-1 ring-black/5 hover:scale-105 transition-transform duration-500">
+                    <div key={index} className="relative aspect-[9/19.5] overflow-hidden shadow-2xl border-4 border-white ring-1 ring-black/5 hover:scale-105 transition-transform duration-500">
                       <Image
                         src={img!.imageUrl}
                         alt={img!.description}
