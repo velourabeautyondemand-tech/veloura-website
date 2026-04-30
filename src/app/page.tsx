@@ -112,7 +112,7 @@ export default function HomePage() {
                     Starting April 10, 2026, a $29.99 onboarding fee applies to ensure committed applicants — fully refunded after your first completed booking.
                   </p>
                 </div>
-              <p className="mt-10 text-lg font-bold text-primary">
+              <p className="mt-10 text-xl font-bold text-primary">
                 Launching Soon — Your Choice: We Come to You, or You Come to Us
               </p>
               <div className="mt-2 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
