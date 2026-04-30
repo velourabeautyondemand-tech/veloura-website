@@ -117,7 +117,7 @@ export default function HomePage() {
               </p>
               <div className="mt-2 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
               <p className="mt-4 text-lg text-foreground">
-                Find professionals within a 6-mile radius. No traffic, no parking, no waiting.
+                Find professionals near you — no traffic, no parking, no waiting. Just more time for what matters.
               </p>
 
               {/* Interface Gallery */}
