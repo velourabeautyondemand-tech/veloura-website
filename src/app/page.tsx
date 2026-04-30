@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout } from 'lucide-react';
+import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout, Clock, Home } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -11,9 +11,19 @@ import { DiscountPopup } from '@/components/features/discount-popup';
 
 const useCases = [
   {
-    icon: Award,
-    title: 'Fashion/Runway & VIP Events',
-    description: 'Last-minute glam for red carpets, shoots, or parties.',
+    icon: Clock,
+    title: 'Last-Minute Needs',
+    description: 'Glam, photographer, or event support — right when you need it.',
+  },
+  {
+    icon: Briefcase,
+    title: 'Busy Schedules',
+    description: 'No traffic. No waiting. Just more time for what matters.',
+  },
+  {
+    icon: Home,
+    title: 'At-Home Convenience',
+    description: 'Stay in your space. We bring everything to you.',
   },
   {
     icon: HandHeart,
@@ -23,17 +33,12 @@ const useCases = [
   {
     icon: Sparkles,
     title: 'Recovery & Wellness',
-    description: 'Compassionate, hygienic service for clients healing or with limited mobility.',
+    description: 'Professional, respectful care — where you feel most comfortable.',
   },
   {
-    icon: Briefcase,
-    title: 'Busy Professionals',
-    description: 'Only have a one-hour break? We\'ll meet you at your office or hotel.',
-  },
-  {
-    icon: Users,
-    title: 'Home Comfort Seekers',
-    description: 'Prefer privacy and convenience? Enjoy salon quality on your couch.',
+    icon: Layout,
+    title: 'Real-Life Moments',
+    description: 'From everyday needs to special occasions — handled seamlessly.',
   },
 ];
 
@@ -195,22 +200,36 @@ export default function HomePage() {
         {/* For Real Life Section */}
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">For Real Life - Not Perfect Schedules</h2>
-                    <p className="mt-4 text-lg text-muted-foreground">Life moves fast. From high-fashion moments to real-life chaos, <strong className="text-primary">VÉLOURA brings beauty wherever you are.</strong></p>
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Built for Real Life — Not Perfect Schedules</h2>
+                    <div className="mt-6 space-y-4">
+                        <p className="text-xl font-semibold text-foreground">
+                            No time. No flexibility. Too many moving parts. <br />
+                            We get it.
+                        </p>
+                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                            VÉLOURA brings beauty, photography, and event services directly to you — so you don’t have to figure it out.
+                        </p>
+                    </div>
                 </div>
-                <ul className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-x-12 gap-y-12">
                     {useCases.map((item, index) => (
-                        <li key={index} className="flex items-start gap-4">
-                            <item.icon className="w-8 h-8 text-primary mt-1" />
-                            <div>
-                                <h3 className="font-bold text-lg">{item.title}</h3>
-                                <p className="text-muted-foreground">{item.description}</p>
+                        <div key={index} className="flex items-start gap-5">
+                            <div className="bg-primary/10 p-3 rounded-xl shrink-0">
+                                <item.icon className="w-7 h-7 text-primary" />
                             </div>
-                        </li>
+                            <div>
+                                <h3 className="font-bold text-xl mb-1">{item.title}</h3>
+                                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                            </div>
+                        </div>
                     ))}
-                </ul>
-                 <p className="text-center mt-10 text-lg italic text-muted-foreground">Because beauty should move with you, not slow you down.</p>
+                </div>
+                 <div className="text-center mt-20 p-8 rounded-2xl bg-secondary/20 border border-primary/5">
+                    <p className="text-xl font-medium text-foreground italic">
+                        "Because your time matters — and getting ready shouldn’t be the hard part."
+                    </p>
+                </div>
             </div>
         </section>
 
