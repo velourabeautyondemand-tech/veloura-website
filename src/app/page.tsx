@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone } from 'lucide-react';
+import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -57,6 +57,14 @@ const problemsSolved = [
 ];
 
 export default function HomePage() {
+  const interfaceImages = [
+    PlaceHolderImages.find(p => p.id === 'interface_1'),
+    PlaceHolderImages.find(p => p.id === 'interface_2'),
+    PlaceHolderImages.find(p => p.id === 'interface_3'),
+    PlaceHolderImages.find(p => p.id === 'interface_4'),
+    PlaceHolderImages.find(p => p.id === 'interface_5'),
+  ].filter(Boolean);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -65,7 +73,7 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
                  VÉLOURA
               </h1>
@@ -111,6 +119,27 @@ export default function HomePage() {
               <p className="mt-4 text-lg text-foreground">
                 Find professionals within a 6-mile radius. No traffic, no parking, no waiting.
               </p>
+
+              {/* All New Interface Gallery */}
+              <div className="mt-16 space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider">
+                  <Layout className="w-4 h-4" />
+                  <span>ALL NEW INTERFACE</span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                  {interfaceImages.map((img, index) => (
+                    <div key={index} className="relative aspect-[9/19.5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white ring-1 ring-black/5 hover:scale-105 transition-transform duration-500">
+                      <Image
+                        src={img!.imageUrl}
+                        alt={img!.description}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={img!.imageHint}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>

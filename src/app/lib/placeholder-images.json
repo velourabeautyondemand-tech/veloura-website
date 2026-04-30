@@ -306,6 +306,36 @@
       "description": "VÉLOURA Event May 2026",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/V%C3%89LOURA%20(1).png?alt=media&token=fd4b1045-5f8f-46b0-948b-51b27b7aadaf",
       "imageHint": "event banner"
+    },
+    {
+      "id": "interface_1",
+      "description": "App Interface Screenshot 1",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image1.jpg?alt=media&token=b91b81dc-36fc-4540-818c-baeba4c47aa1",
+      "imageHint": "app interface"
+    },
+    {
+      "id": "interface_2",
+      "description": "App Interface Screenshot 2",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image2.jpg?alt=media&token=3f0275dd-0d26-4407-a728-03ed40d9cdea",
+      "imageHint": "app interface"
+    },
+    {
+      "id": "interface_3",
+      "description": "App Interface Screenshot 3",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image3.jpg?alt=media&token=26b3c87e-61a8-4fb6-ad4c-6aec71869e4f",
+      "imageHint": "app interface"
+    },
+    {
+      "id": "interface_4",
+      "description": "App Interface Screenshot 4",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image4.jpg?alt=media&token=61a95617-aa56-4ecf-9f2a-0afd3bba2821",
+      "imageHint": "app interface"
+    },
+    {
+      "id": "interface_5",
+      "description": "App Interface Screenshot 5",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image5.jpg?alt=media&token=95c53d38-e0b9-4e07-90e5-b51222cfed48",
+      "imageHint": "app interface"
     }
   ]
 }
