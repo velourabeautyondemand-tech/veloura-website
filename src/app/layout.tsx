@@ -51,7 +51,7 @@ export default function RootLayout({
             src="https://dunsregistered.dnb.com/drsus.js?duns=f54604e6691278f60393f51e1c9ef37e&ProfileURL=https://www.dnb.com/business-directory/company-profiles.iamdreammaker_production_group_llc.f54604e6691278f60393f51e1c9ef37e.html?referrer=DRS"
             strategy="lazyOnload"
         />
+        <Script src="//code.tidio.co/4fg7y7nkjc8bki5w501dtqca6eptnd2v.js" strategy="afterInteractive" />
       </body>
     </html>
   );
-}
