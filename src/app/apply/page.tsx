@@ -254,6 +254,24 @@ export default function ApplyPage() {
             <section id="onboarding" className="mb-16 md:mb-24">
               <div className="max-w-3xl mx-auto space-y-8 bg-card p-8 rounded-xl shadow-xl">
                 
+                {/* Onboarding Video Short */}
+                <div className="text-center mb-8">
+                    <h3 className="text-xl font-bold font-headline mb-4 flex items-center justify-center gap-2">
+                        <Youtube className="text-primary h-6 w-6" />
+                        Watch: Our Onboarding Guide
+                    </h3>
+                    <div className="aspect-[9/16] max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-primary/10">
+                         <iframe
+                            className="w-full h-full"
+                            src="https://www.youtube.com/embed/Elqun7Kx7kY"
+                            title="VÉLOURA Onboarding Guide"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+
                 {/* Onboarding Fee Note */}
                 <div className="bg-primary/5 border-primary/20 p-8 rounded-xl mb-8 space-y-4">
                     <div className="flex items-center gap-2 text-primary">
