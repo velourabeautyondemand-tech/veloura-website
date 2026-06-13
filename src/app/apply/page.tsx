@@ -170,12 +170,12 @@ export default function ApplyPage() {
 
                 {joinTeamImage && (
                     <div className="mt-8 mb-16 flex flex-col items-center">
-                        <div className="relative w-full max-w-5xl aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
+                        <div className="relative w-full max-w-2xl aspect-[3/4] md:aspect-auto md:h-[800px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
                             <Image
                                 src={joinTeamImage.imageUrl}
                                 alt={joinTeamImage.description}
                                 fill
-                                className="object-cover object-center"
+                                className="object-contain bg-background"
                                 data-ai-hint={joinTeamImage.imageHint}
                                 priority
                             />
