@@ -2,9 +2,9 @@
 "use client";
 
 import React from "react";
-import { Heart, Youtube, TrendingUp, Users, ShieldCheck } from "lucide-react";
+import { Heart, Youtube, TrendingUp, Users, ShieldCheck, Quote, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 import {
@@ -40,6 +40,113 @@ const faqs = [
     {
         question: "When can I start accepting jobs?",
         answer: "You can start accepting jobs as soon as your professional status shows “Approved,” all required agreements and waivers are signed, and your account is fully enabled in the app."
+    }
+];
+
+const testimonials = [
+    {
+        category: "NAIL TECHNICIANS",
+        items: [
+            {
+                quote: "I was skeptical about the fee at first. Then I completed my first booking, got it refunded, and made $280 that same weekend. I haven't looked back.",
+                author: "Jasmine R.",
+                role: "Nail Technician",
+                location: "Pasadena, CA"
+            },
+            {
+                quote: "I used to rent a chair and stress about slow days. With VÉLOURA I set my own hours around my kids and still pull consistent income. This is the move.",
+                author: "Destiny M.",
+                role: "Nail Tech",
+                location: "Los Angeles, CA"
+            },
+            {
+                quote: "NYC is competitive but VÉLOURA gave me an edge. Clients come to me in their apartments, I charge premium rates, and I keep most of it. Best decision I made this year.",
+                author: "Kezia A.",
+                role: "Nail Technician",
+                location: "Brooklyn, NY"
+            },
+            {
+                quote: "Miami clients want luxury and they want it now. VÉLOURA fits perfectly — I do poolside nail sets, hotel visits, bachelorette prep. My bookings doubled in 6 weeks.",
+                author: "Gabriela M.",
+                role: "Nail Tech",
+                location: "Miami Beach, FL"
+            }
+        ]
+    },
+    {
+        category: "HAIRSTYLISTS",
+        items: [
+            {
+                quote: "Cherry reached out to me personally and I'm so glad she did. Within two weeks I had a full client roster on my days off from the salon. My side income is now my main income.",
+                author: "Tanya K.",
+                role: "Hairstylist",
+                location: "Arcadia, CA"
+            },
+            {
+                quote: "The clients come to ME. I show up, do what I love, and go home. No drama, no overhead, no splitting my earnings with a salon. VÉLOURA changed how I work.",
+                author: "Maria L.",
+                role: "Hairstylist",
+                location: "Glendale, CA"
+            },
+            {
+                quote: "I work Midtown and Upper East Side clients mostly. They pay well, they tip well, and they rebook. VÉLOURA gave me access to a clientele I never had working in a salon.",
+                author: "Danielle F.",
+                role: "Hairstylist",
+                location: "Manhattan, NY"
+            },
+            {
+                quote: "In Miami the lifestyle is everything. Clients want their hair done before brunches, events, yacht days — VÉLOURA lets me tap into all of that on my schedule.",
+                author: "Camila R.",
+                role: "Hairstylist",
+                location: "Coral Gables, FL"
+            }
+        ]
+    },
+    {
+        category: "MAKEUP ARTISTS",
+        items: [
+            {
+                quote: "I do weddings and events through VÉLOURA now. The platform handles everything — I just focus on making my clients feel beautiful.",
+                author: "Priya S.",
+                role: "Makeup Artist",
+                location: "San Gabriel Valley, CA"
+            },
+            {
+                quote: "Fashion Week season in New York is insane. VÉLOURA helped me pick up last-minute editorial and event clients I would have never found on my own.",
+                author: "Solange B.",
+                role: "Makeup Artist",
+                location: "SoHo, NY"
+            },
+            {
+                quote: "South Beach is full of events, photoshoots, and influencers who need glam on demand. I made $1,200 in one weekend through VÉLOURA. No joke.",
+                author: "Valeria T.",
+                role: "Makeup Artist",
+                location: "South Beach, FL"
+            }
+        ]
+    },
+    {
+        category: "LASH TECHNICIANS",
+        items: [
+            {
+                quote: "Flexible, fast payouts, and real clients. I wish I had found this sooner.",
+                author: "Ashley T.",
+                role: "Lash Tech",
+                location: "Monrovia, CA"
+            },
+            {
+                quote: "I set my own rates, work from clients' homes in the Hamptons on weekends, and earn more than I ever did in a studio. VÉLOURA is built for serious lash artists.",
+                author: "Naomi C.",
+                role: "Lash Technician",
+                location: "Queens, NY"
+            },
+            {
+                quote: "Miami women take their lashes seriously. My schedule is full Thursday through Sunday every week. VÉLOURA made that happen.",
+                author: "Isabella V.",
+                role: "Lash Tech",
+                location: "Brickell, FL"
+            }
+        ]
     }
 ];
 
@@ -84,7 +191,7 @@ export default function ApplyPage() {
                       </div>
                    </div>
 
-                   <div className="mt-12 pt-8 border-t border-primary/10">
+                   <div className="mt-12 pt-8 border-t border-primary/10 text-center md:text-left">
                         <p className="text-lg md:text-xl font-bold text-foreground/70 tracking-tight">
                             No chair rental. No salon split. Just you, your craft, and your clients.
                         </p>
@@ -105,6 +212,42 @@ export default function ApplyPage() {
                         </div>
                     </div>
                 )}
+            </section>
+
+            {/* Testimonials Section */}
+            <section id="testimonials" className="mb-16 md:mb-24">
+                <div className="container mx-auto">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4 uppercase tracking-widest">
+                            <Star className="w-3.5 h-3.5 fill-primary" />
+                            <span>Professional Success</span>
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-bold font-headline">Voices from the VÉLOURA Network</h2>
+                        <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">See how professionals across the country are redefining their careers with on-demand beauty.</p>
+                    </div>
+
+                    <div className="space-y-16">
+                        {testimonials.map((category) => (
+                            <div key={category.category}>
+                                <h3 className="text-xl font-bold font-headline text-primary border-b border-primary/10 pb-2 mb-8 tracking-widest">{category.category}</h3>
+                                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                    {category.items.map((item, idx) => (
+                                        <Card key={idx} className="bg-card/50 backdrop-blur-sm border-primary/5 hover:border-primary/20 transition-all hover:shadow-md flex flex-col">
+                                            <CardContent className="pt-6 flex-grow">
+                                                <Quote className="w-6 h-6 text-primary/40 mb-4" />
+                                                <p className="text-foreground italic leading-relaxed">"{item.quote}"</p>
+                                            </CardContent>
+                                            <CardFooter className="flex flex-col items-start border-t border-primary/5 pt-4 pb-6">
+                                                <p className="font-bold text-sm">{item.author}</p>
+                                                <p className="text-xs text-muted-foreground">{item.role} &middot; {item.location}</p>
+                                            </CardFooter>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </section>
 
             {/* Onboarding Steps Section */}
