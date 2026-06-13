@@ -89,7 +89,7 @@ const testimonials = [
                 location: "Glendale, CA"
             },
             {
-                quote: "I work Midtown and Upper East Side clients mostly. They pay well, they tip well, and they rebook. VÉLOURA gave access to a clientele I never had working in a salon.",
+                quote: "I work Midtown and Upper East Side clients mostly. They pay well, they tip well, and they rebook. VÉLOURA gave me access to a clientele I never had working in a salon.",
                 author: "Danielle F.",
                 role: "Hairstylist",
                 location: "Manhattan, NY"
@@ -215,18 +215,9 @@ export default function ApplyPage() {
                 </div>
             </section>
 
-            {/* Onboarding Process Header & Video */}
+            {/* Onboarding Process Video */}
             <section id="onboarding-process" className="mb-16 md:mb-24">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold font-headline">Professional Onboarding Process</h2>
-                    <p className="text-muted-foreground mt-2">Follow these steps to join the VÉLOURA professional network.</p>
-                </div>
-                
                 <div className="max-w-sm mx-auto text-center space-y-6 mb-16">
-                    <h3 className="text-xl font-bold font-headline flex items-center justify-center gap-2">
-                        <Youtube className="text-primary h-6 w-6" />
-                        Onboarding Guide
-                    </h3>
                     <div className="aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
                          <iframe
                             className="w-full h-full"
