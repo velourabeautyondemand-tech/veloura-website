@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { Heart, Youtube } from "lucide-react";
+import { Heart, Youtube, TrendingUp, Users, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -49,19 +49,51 @@ export default function ApplyPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1 bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-24">
+      <main className="flex-1 bg-gradient-to-br from-primary/5 via-background to-accent/5 py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
             
             {/* Hero Section */}
             <section className="text-center mb-16 md:mb-24">
-                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                    Your talent. Your schedule. <br />
-                    Your earnings — elevated.
+                <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-6 leading-tight">
+                    Earn More. Work Free. <br /> Build Yours.
                 </h1>
+                <p className="text-xl md:text-2xl font-semibold max-w-4xl mx-auto text-foreground/80 mb-12">
+                  VÉLOURA brings the clients to you — you keep 80% of every booking, set your own schedule, and grow your business on your terms.
+                </p>
+
+                {/* Earnings & Benefits Highlight */}
+                <div className="bg-white/50 backdrop-blur-sm p-8 md:p-12 rounded-3xl max-w-5xl mx-auto my-16 border border-primary/20 shadow-2xl relative overflow-hidden">
+                   <div className="absolute top-0 right-0 p-4 opacity-5">
+                       <TrendingUp className="w-48 h-48 text-primary" />
+                   </div>
+                   
+                   <div className="grid md:grid-cols-2 gap-12 text-left relative z-10">
+                      <div className="space-y-3">
+                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                            Potential Weekly Earnings
+                         </div>
+                         <h3 className="font-bold text-xl text-foreground">Nail tech doing 4 bookings a week?</h3>
+                         <p className="text-3xl md:text-4xl font-bold font-headline text-primary">$400–$600 <span className="text-sm font-medium text-muted-foreground">in your pocket.</span></p>
+                      </div>
+                      <div className="space-y-3">
+                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider">
+                            High Demand Rates
+                         </div>
+                         <h3 className="font-bold text-xl text-foreground">Hairstylist with 6 appointments?</h3>
+                         <p className="text-3xl md:text-4xl font-bold font-headline text-accent">Easy $700–$1,000/week.</p>
+                      </div>
+                   </div>
+
+                   <div className="mt-12 pt-8 border-t border-primary/10">
+                        <p className="text-lg md:text-xl font-bold text-foreground/70 tracking-tight">
+                            No chair rental. No salon split. Just you, your craft, and your clients.
+                        </p>
+                   </div>
+                </div>
                 
                 {joinTeamImage && (
                     <div className="mt-8 mb-10 flex flex-col items-center">
-                        <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <div className="relative w-full max-w-3xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
                             <Image
                                 src={joinTeamImage.imageUrl}
                                 alt={joinTeamImage.description}
@@ -73,10 +105,6 @@ export default function ApplyPage() {
                         </div>
                     </div>
                 )}
-
-                <p className="text-lg max-w-3xl mx-auto text-muted-foreground">
-                    VÉLOURA is a mobile beauty & lifestyle platform designed to empower independent professionals, connect them with clients, and solve the biggest challenges in the industry — all in one app.
-                </p>
             </section>
 
             {/* Onboarding Steps Section */}
