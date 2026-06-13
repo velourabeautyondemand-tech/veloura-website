@@ -89,7 +89,7 @@ const testimonials = [
                 location: "Glendale, CA"
             },
             {
-                quote: "I work Midtown and Upper East Side clients mostly. They pay well, they tip well, and they rebook. VÉLOURA gave me access to a clientele I never had working in a salon.",
+                quote: "I work Midtown and Upper East Side clients mostly. They pay well, they tip well, and they rebook. VÉLOURA gave access to a clientele I never had working in a salon.",
                 author: "Danielle F.",
                 role: "Hairstylist",
                 location: "Manhattan, NY"
@@ -168,8 +168,23 @@ export default function ApplyPage() {
                   VÉLOURA brings the clients to you — you keep 80% of every booking, set your own schedule, and grow your business on your terms.
                 </p>
 
+                {joinTeamImage && (
+                    <div className="mt-8 mb-16 flex flex-col items-center">
+                        <div className="relative w-full max-w-5xl aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
+                            <Image
+                                src={joinTeamImage.imageUrl}
+                                alt={joinTeamImage.description}
+                                fill
+                                className="object-cover object-center"
+                                data-ai-hint={joinTeamImage.imageHint}
+                                priority
+                            />
+                        </div>
+                    </div>
+                )}
+
                 {/* Earnings & Benefits Highlight */}
-                <div className="bg-white/50 backdrop-blur-sm p-8 md:p-12 rounded-3xl max-w-5xl mx-auto my-16 border border-primary/20 shadow-2xl relative overflow-hidden">
+                <div className="bg-white/50 backdrop-blur-sm p-8 md:p-12 rounded-3xl max-w-5xl mx-auto mb-16 border border-primary/20 shadow-2xl relative overflow-hidden">
                    <div className="absolute top-0 right-0 p-4 opacity-5">
                        <TrendingUp className="w-48 h-48 text-primary" />
                    </div>
@@ -197,21 +212,6 @@ export default function ApplyPage() {
                         </p>
                    </div>
                 </div>
-                
-                {joinTeamImage && (
-                    <div className="mt-8 mb-10 flex flex-col items-center">
-                        <div className="relative w-full max-w-3xl aspect-video rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
-                            <Image
-                                src={joinTeamImage.imageUrl}
-                                alt={joinTeamImage.description}
-                                fill
-                                className="object-cover"
-                                data-ai-hint={joinTeamImage.imageHint}
-                                priority
-                            />
-                        </div>
-                    </div>
-                )}
             </section>
 
             {/* Testimonials Section */}
