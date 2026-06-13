@@ -2,9 +2,9 @@
 "use client";
 
 import React from "react";
-import { Heart, Youtube, TrendingUp, Users, ShieldCheck, Quote, Star } from "lucide-react";
+import { Heart, Youtube, TrendingUp, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 import {
@@ -160,7 +160,7 @@ export default function ApplyPage() {
         <div className="container mx-auto px-4 md:px-6">
             
             {/* Hero Section */}
-            <section className="text-center mb-16 md:mb-24">
+            <section className="text-center mb-12">
                 <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-6 leading-tight">
                     Earn More. Work Free. <br /> Build Yours.
                 </h1>
@@ -170,12 +170,13 @@ export default function ApplyPage() {
 
                 {joinTeamImage && (
                     <div className="mt-8 mb-16 flex flex-col items-center">
-                        <div className="relative w-full max-w-2xl aspect-[3/4] md:aspect-auto md:h-[800px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
+                        <div className="relative w-full max-w-2xl aspect-auto rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
                             <Image
                                 src={joinTeamImage.imageUrl}
                                 alt={joinTeamImage.description}
-                                fill
-                                className="object-contain bg-background"
+                                width={1080}
+                                height={1350}
+                                className="w-full h-auto object-contain bg-background"
                                 data-ai-hint={joinTeamImage.imageHint}
                                 priority
                             />
@@ -211,6 +212,26 @@ export default function ApplyPage() {
                             No chair rental. No salon split. Just you, your craft, and your clients.
                         </p>
                    </div>
+                </div>
+            </section>
+
+            {/* Onboarding Video Section - On Top of process */}
+            <section id="onboarding-guide" className="mb-16">
+                <div className="max-w-sm mx-auto text-center space-y-6">
+                    <h2 className="text-2xl font-bold font-headline flex items-center justify-center gap-2">
+                        <Youtube className="text-primary h-6 w-6" />
+                        Onboarding Guide
+                    </h2>
+                    <div className="aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
+                         <iframe
+                            className="w-full h-full"
+                            src="https://www.youtube.com/embed/Elqun7Kx7kY"
+                            title="VÉLOURA Onboarding Guide"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
                 </div>
             </section>
 
@@ -254,24 +275,6 @@ export default function ApplyPage() {
             <section id="onboarding" className="mb-16 md:mb-24">
               <div className="max-w-3xl mx-auto space-y-8 bg-card p-8 rounded-xl shadow-xl">
                 
-                {/* Onboarding Video Short */}
-                <div className="text-center mb-8">
-                    <h3 className="text-xl font-bold font-headline mb-4 flex items-center justify-center gap-2">
-                        <Youtube className="text-primary h-6 w-6" />
-                        Watch: Our Onboarding Guide
-                    </h3>
-                    <div className="aspect-[9/16] max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-primary/10">
-                         <iframe
-                            className="w-full h-full"
-                            src="https://www.youtube.com/embed/Elqun7Kx7kY"
-                            title="VÉLOURA Onboarding Guide"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-                </div>
-
                 {/* Onboarding Fee Note */}
                 <div className="bg-primary/5 border-primary/20 p-8 rounded-xl mb-8 space-y-4">
                     <div className="flex items-center gap-2 text-primary">
@@ -382,33 +385,6 @@ export default function ApplyPage() {
                             <p className="text-sm text-muted-foreground mt-4 italic max-w-lg mx-auto">
                                 Starting April 10, 2026, a $29.99 onboarding fee applies to ensure committed applicants — fully refunded after your first completed booking.
                             </p>
-                        </div>
-                    </CardContent>
-                </Card>
-            </section>
-
-            {/* How to sign up video */}
-            <section id="how-to-video" className="mb-16 md:mb-24">
-                <Card className="max-w-4xl mx-auto shadow-2xl">
-                    <CardHeader className="text-center">
-                        <CardTitle className="font-headline text-3xl flex items-center justify-center gap-2">
-                            <Youtube className="h-8 w-8 text-primary" />
-                            How to Sign Up
-                        </CardTitle>
-                        <CardDescription className="text-md">
-                            Watch this quick tutorial on how to complete your professional application.
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="aspect-video w-full rounded-md overflow-hidden bg-muted flex items-center justify-center text-muted-foreground">
-                            <iframe
-                              className="w-full h-full"
-                              src="https://www.youtube.com/embed/3VqLnfcATpk"
-                              title="How to Sign Up as a Professional"
-                              frameBorder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowFullScreen
-                            ></iframe>
                         </div>
                     </CardContent>
                 </Card>
