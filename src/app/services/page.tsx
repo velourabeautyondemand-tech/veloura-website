@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Clock, Phone, FileText, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ReviewsSection } from '@/components/features/reviews-section';
 
 export default function ServicesPage() {
     const serviceCategories = [
@@ -66,6 +67,10 @@ export default function ServicesPage() {
                                 </div>
                             </section>
                         ))}
+                    </div>
+
+                    <div className="mt-24">
+                        <ReviewsSection />
                     </div>
 
                     <div className="max-w-5xl mx-auto mt-20 grid md:grid-cols-2 gap-8">
