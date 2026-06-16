@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout, Clock, Home } from 'lucide-react';
+import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout, Clock, Home, CheckCircle, ShieldCheck, Zap, Star } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -40,6 +40,52 @@ const useCases = [
     title: 'Real-Life Moments',
     description: 'From everyday needs to special occasions — handled seamlessly.',
   },
+];
+
+const howItWorks = [
+  {
+    step: '01',
+    title: 'Download & Explore',
+    description: 'Get the VÉLOURA app on iOS or Android. Browse our curated menu of luxury beauty, photography, and event services.',
+  },
+  {
+    step: '02',
+    title: 'Select Your Pro',
+    description: 'View profiles, ratings, and portfolios of elite, vetted professionals available in your area.',
+  },
+  {
+    step: '03',
+    title: 'Book Your Moment',
+    description: 'Choose a time and location that fits your life. Our pros arrive fully equipped to deliver the salon experience to your door.',
+  },
+  {
+    step: '04',
+    title: 'Relax & Enjoy',
+    description: 'Experience professional care in the comfort of your home. No traffic, no waiting—just luxury on your terms.',
+  }
+];
+
+const platformBenefits = [
+  {
+    icon: ShieldCheck,
+    title: 'Vetted Professionals',
+    description: 'Every VÉLOURA pro undergoes rigorous identity and background checks to ensure your safety and quality of service.',
+  },
+  {
+    icon: Zap,
+    title: 'Instant Booking',
+    description: 'Our real-time scheduling system lets you book last-minute or plan ahead with confidence.',
+  },
+  {
+    icon: Star,
+    title: 'Premium Quality',
+    description: 'We partner with leading beauty brands and top-tier talent to provide five-star results every time.',
+  },
+  {
+    icon: Heart,
+    title: 'Personalized Care',
+    description: 'Enjoy one-on-one attention and services tailored specifically to your needs and environment.',
+  }
 ];
 
 const problemsSolved = [
@@ -132,6 +178,52 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How to get salon services at home Section */}
+        <section className="py-16 sm:py-24 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">How to Get Salon Services at Home</h2>
+              <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                Transforming your living room into a luxury studio is easier than ever. Follow these simple steps to start your on-demand beauty journey.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {howItWorks.map((item, index) => (
+                <div key={index} className="relative p-6 rounded-2xl bg-secondary/20 border border-primary/5 shadow-sm">
+                  <div className="text-4xl font-bold text-primary/20 absolute top-4 right-6 font-headline">{item.step}</div>
+                  <h3 className="text-xl font-bold mb-3 pr-8">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Top on-demand beauty app benefits Section */}
+        <section className="py-16 sm:py-24 bg-secondary/30">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Top Benefits of On-Demand Beauty</h2>
+              <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                Experience the best mobile beauty platform features designed for your lifestyle.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {platformBenefits.map((benefit, index) => (
+                <div key={index} className="flex gap-5 p-8 rounded-3xl bg-card border border-primary/10 hover:shadow-md transition-shadow">
+                  <div className="bg-primary/10 p-3 rounded-xl h-fit">
+                    <benefit.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">{benefit.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
