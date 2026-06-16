@@ -3,8 +3,9 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { services } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { Clock, Phone } from 'lucide-react';
+import { Clock, Phone, FileText, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ServicesPage() {
     const serviceCategories = [
@@ -67,18 +68,39 @@ export default function ServicesPage() {
                         ))}
                     </div>
 
-                    <section className="text-center mt-20 border-t pt-12">
-                        <h2 className="text-2xl font-bold font-headline">Don't see the service you're looking for?</h2>
-                        <p className="mt-2 text-muted-foreground max-xl mx-auto">
-                            Request a custom service by contacting us - we'll get back to you as soon as possible!
-                        </p>
-                         <Button asChild size="lg" variant="accent" className="mt-6">
-                            <a href="mailto:support@velourabeautyondemand.com?subject=Urgent%20Service%20Request" target="_blank" rel="noopener noreferrer">
-                                <Phone className="mr-2 h-5 w-5" />
-                                Urgent Request
-                            </a>
-                        </Button>
-                    </section>
+                    <div className="max-w-5xl mx-auto mt-20 grid md:grid-cols-2 gap-8">
+                        <section className="text-center p-8 bg-card rounded-2xl border shadow-sm">
+                            <ShieldCheck className="w-10 h-10 text-primary mx-auto mb-4" />
+                            <h2 className="text-2xl font-bold font-headline">Customer Policy</h2>
+                            <p className="mt-2 text-muted-foreground text-sm">
+                                Review our reliability standards, cancellation policies, and professional conduct requirements.
+                            </p>
+                             <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+                                <Button asChild variant="outline" size="sm">
+                                    <Link href="/customer-policy">View Policy Page</Link>
+                                </Button>
+                                <Button asChild variant="secondary" size="sm">
+                                    <a href="https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura_Customer_Policy%20(1).pdf?alt=media&token=89f24616-4796-4ba4-9732-dcbf8e014084" target="_blank" rel="noopener noreferrer">
+                                        <FileText className="mr-2 h-4 w-4" />
+                                        Download PDF
+                                    </a>
+                                </Button>
+                            </div>
+                        </section>
+
+                        <section className="text-center p-8 bg-card rounded-2xl border shadow-sm">
+                            <Phone className="w-10 h-10 text-primary mx-auto mb-4" />
+                            <h2 className="text-2xl font-bold font-headline">Custom Requests</h2>
+                            <p className="mt-2 text-muted-foreground text-sm">
+                                Don't see the service you're looking for? Request a custom service and we'll get back to you.
+                            </p>
+                             <Button asChild size="sm" variant="accent" className="mt-6">
+                                <a href="mailto:support@velourabeautyondemand.com?subject=Urgent%20Service%20Request" target="_blank" rel="noopener noreferrer">
+                                    Urgent Request
+                                </a>
+                            </Button>
+                        </section>
+                    </div>
 
                      <section className="text-center mt-24 bg-primary/5 rounded-2xl p-12 max-w-4xl mx-auto border border-primary/10">
                         <h2 className="text-3xl font-bold font-headline mb-4">Download Our App</h2>
