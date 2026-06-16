@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -18,8 +17,11 @@ export const metadata: Metadata = {
   description: 'Book professional beauty technicians to your door.',
   icons: {
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-      { url: '/apple-touch-icon-precomposed.png', sizes: '180x180', type: 'image/png' },
+      { 
+        url: 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c', 
+        sizes: '180x180', 
+        type: 'image/png' 
+      },
     ],
   },
   verification: {
