@@ -51,6 +51,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'csuxjmfbwmkxiegfpljm.supabase.co',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'uploads.dovetale.com',
         port: '',
         pathname: '/**',
