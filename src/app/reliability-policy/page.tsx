@@ -6,9 +6,13 @@ import Footer from '@/components/shared/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { NailIcon } from '@/components/shared/logo';
-import { Calendar, AlertTriangle, ShieldCheck, Clock, CheckCircle2, Info } from 'lucide-react';
+import { Calendar, AlertTriangle, ShieldCheck, Clock, CheckCircle2, Info, Download, FileText } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function ReliabilityPolicyPage() {
+    const customerPdfUrl = "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura_Customer_Policy%20(1).pdf?alt=media&token=89f24616-4796-4ba4-9732-dcbf8e014084";
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -40,7 +44,7 @@ export default function ReliabilityPolicyPage() {
                                             Technician Reliability & Cancellation Policy
                                         </CardTitle>
                                         <CardDescription className="text-base pt-2">
-                                            At VÉLOURA, our clients rely on us for important occasions including weddings, special events, business meetings, photoshoots, travel, and last-minute beauty needs. To maintain a reliable marketplace, technicians are expected to keep their availability up to date and honor all confirmed bookings.
+                                            At VÉLOURA, our clients rely on us for important occasions. To maintain a reliable marketplace, technicians are expected to keep their availability up to date and honor all confirmed bookings.
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="pt-8 space-y-8">
@@ -50,20 +54,9 @@ export default function ReliabilityPolicyPage() {
                                                 Availability
                                             </h3>
                                             <ul className="space-y-2 text-muted-foreground list-disc pl-5">
-                                                <li>Technicians are responsible for keeping their schedules and availability current within the VÉLOURA app.</li>
-                                                <li>Failure to update availability may result in scheduling conflicts or missed booking opportunities.</li>
-                                                <li>Technicians who maintain accurate schedules may receive priority for future booking opportunities.</li>
-                                            </ul>
-                                        </section>
-
-                                        <section className="space-y-4">
-                                            <h3 className="text-xl font-bold flex items-center gap-2">
-                                                <CheckCircle2 className="w-5 h-5 text-primary" />
-                                                Confirmed Bookings
-                                            </h3>
-                                            <ul className="space-y-2 text-muted-foreground list-disc pl-5">
-                                                <li>Once a booking has been confirmed, technicians are expected to honor their commitment.</li>
-                                                <li>Repeated cancellations negatively impact the customer experience and platform reliability.</li>
+                                                <li>Technicians are responsible for keeping their schedules current in the VÉLOURA app.</li>
+                                                <li>Failure to update availability may result in scheduling conflicts.</li>
+                                                <li>Maintaining accurate schedules may receive priority for future bookings.</li>
                                             </ul>
                                         </section>
 
@@ -75,35 +68,21 @@ export default function ReliabilityPolicyPage() {
                                             <div className="grid gap-4 mt-4">
                                                 <div className="flex gap-4">
                                                     <span className="font-bold text-primary shrink-0">1st</span>
-                                                    <p className="text-sm"><strong>Warning notice:</strong> An initial reminder of our reliability standards.</p>
+                                                    <p className="text-sm"><strong>Warning notice:</strong> Initial reminder of standards.</p>
                                                 </div>
                                                 <div className="flex gap-4">
                                                     <span className="font-bold text-primary shrink-0">2nd</span>
-                                                    <p className="text-sm"><strong>Reduced Visibility:</strong> Occurring within 30 days, this results in lower placement in search results and fewer booking opportunities.</p>
+                                                    <p className="text-sm"><strong>Reduced Visibility:</strong> Lower placement in search results for 30 days.</p>
                                                 </div>
                                                 <div className="flex gap-4">
                                                     <span className="font-bold text-primary shrink-0">3rd</span>
-                                                    <p className="text-sm"><strong>Temporary Suspension:</strong> Occurring within 30 days, this results in a suspension from receiving new bookings for 7 days.</p>
-                                                </div>
-                                                <div className="flex gap-4">
-                                                    <span className="font-bold text-primary shrink-0">Repeat</span>
-                                                    <p className="text-sm"><strong>Account Review:</strong> Persistent issues will lead to a full account review and possible permanent removal from the platform.</p>
+                                                    <p className="text-sm"><strong>Temporary Suspension:</strong> Suspension from receiving new bookings for 7 days.</p>
                                                 </div>
                                             </div>
                                         </section>
 
-                                        <section className="space-y-4">
-                                            <h3 className="text-xl font-bold">Exceptions</h3>
-                                            <p className="text-muted-foreground text-sm">
-                                                No penalty may be applied in cases involving medical emergencies, family emergencies, safety concerns, severe weather or natural disasters, or other circumstances approved by VÉLOURA management.
-                                            </p>
-                                        </section>
-
                                         <div className="pt-6 border-t">
-                                            <p className="text-xs text-muted-foreground italic">
-                                                By continuing to use the platform, technicians agree to comply with these policies and help maintain a reliable experience for every VÉLOURA client.
-                                            </p>
-                                            <p className="text-xs font-bold text-foreground mt-2">
+                                            <p className="text-xs font-bold text-foreground">
                                                 Effective Date: June 2026
                                             </p>
                                         </div>
@@ -113,62 +92,61 @@ export default function ReliabilityPolicyPage() {
 
                             <TabsContent value="customer" className="animate-in fade-in-50 duration-500">
                                 <Card className="shadow-xl border-none">
-                                    <CardHeader className="bg-accent/5 pb-8 border-b">
-                                        <CardTitle className="text-2xl font-headline text-accent flex items-center gap-2">
-                                            <Info className="w-6 h-6" />
-                                            Customer Cancellation Policy
-                                        </CardTitle>
-                                        <CardDescription className="text-base pt-2">
-                                            Our professionals block out time and travel specifically for you. To respect their craft and schedule, we maintain the following policy for client-initiated cancellations.
-                                        </CardDescription>
+                                    <CardHeader className="bg-accent/5 pb-8 border-b flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                        <div>
+                                            <CardTitle className="text-2xl font-headline text-accent flex items-center gap-2">
+                                                <Info className="w-6 h-6" />
+                                                Customer Policy
+                                            </CardTitle>
+                                            <CardDescription className="text-base pt-2">
+                                                Respecting the time and craft of our elite professionals.
+                                            </CardDescription>
+                                        </div>
+                                        <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent/5 shrink-0">
+                                            <a href={customerPdfUrl} target="_blank" rel="noopener noreferrer">
+                                                <Download className="mr-2 h-4 w-4" />
+                                                Download PDF
+                                            </a>
+                                        </Button>
                                     </CardHeader>
                                     <CardContent className="pt-8 space-y-8">
                                         <section className="space-y-6">
                                             <div className="flex items-start gap-4">
-                                                <div className="bg-accent/10 p-2 rounded-lg">
-                                                    <Clock className="w-5 h-5 text-accent" />
+                                                <div className="bg-accent/10 p-2 rounded-lg text-accent">
+                                                    <Clock className="w-5 h-5" />
                                                 </div>
                                                 <div>
-                                                    <h3 className="font-bold text-lg">More than 24 hours notice</h3>
-                                                    <p className="text-muted-foreground">You can cancel or reschedule through the app at no cost. Your deposit (if applicable) will be fully refunded or credited.</p>
+                                                    <h3 className="font-bold text-lg">24+ Hours Notice</h3>
+                                                    <p className="text-muted-foreground text-sm">Cancel or reschedule through the app at no cost.</p>
                                                 </div>
                                             </div>
                                             
                                             <div className="flex items-start gap-4">
-                                                <div className="bg-orange-500/10 p-2 rounded-lg">
-                                                    <AlertTriangle className="w-5 h-5 text-orange-500" />
+                                                <div className="bg-orange-500/10 p-2 rounded-lg text-orange-600">
+                                                    <AlertTriangle className="w-5 h-5" />
                                                 </div>
                                                 <div>
-                                                    <h3 className="font-bold text-lg">Within 24 hours notice</h3>
-                                                    <p className="text-muted-foreground">A cancellation fee equal to 50% of the scheduled service price will be charged to compensate the professional for their lost time.</p>
+                                                    <h3 className="font-bold text-lg">Less than 24 Hours</h3>
+                                                    <p className="text-muted-foreground text-sm">A cancellation fee equal to 50% of the service price will be charged.</p>
                                                 </div>
                                             </div>
 
                                             <div className="flex items-start gap-4">
-                                                <div className="bg-destructive/10 p-2 rounded-lg">
-                                                    <AlertTriangle className="w-5 h-5 text-destructive" />
+                                                <div className="bg-destructive/10 p-2 rounded-lg text-destructive">
+                                                    <AlertTriangle className="w-5 h-5" />
                                                 </div>
                                                 <div>
-                                                    <h3 className="font-bold text-lg">No-Show / Cancellation at arrival</h3>
-                                                    <p className="text-muted-foreground">If you are not present at the location when the professional arrives or cancel upon arrival, 100% of the service fee will be charged.</p>
+                                                    <h3 className="font-bold text-lg">No-Show / Arrival Cancel</h3>
+                                                    <p className="text-muted-foreground text-sm">100% of the service fee will be charged to compensate the pro.</p>
                                                 </div>
                                             </div>
                                         </section>
 
-                                        <section className="bg-muted/30 p-6 rounded-xl space-y-4">
-                                            <h3 className="font-bold">Late Arrivals</h3>
-                                            <p className="text-sm text-muted-foreground">
-                                                If you are running late, please message your professional directly through the app. Professionals are only required to wait for 15 minutes. After 15 minutes, the appointment may be considered a "No-Show."
-                                            </p>
-                                        </section>
-
-                                        <div className="pt-6 border-t">
-                                            <p className="text-xs text-muted-foreground italic">
-                                                We appreciate your understanding and support of our independent beauty professionals.
-                                            </p>
-                                            <p className="text-xs font-bold text-foreground mt-2">
-                                                Effective Date: June 2026
-                                            </p>
+                                        <div className="bg-muted/30 p-6 rounded-xl text-center">
+                                            <p className="text-sm font-medium mb-4">For the complete set of customer rules and protections:</p>
+                                            <Button asChild variant="accent">
+                                                <Link href="/customer-policy">View Dedicated Customer Policy Page</Link>
+                                            </Button>
                                         </div>
                                     </CardContent>
                                 </Card>
