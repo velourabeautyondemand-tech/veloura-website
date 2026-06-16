@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { Heart, Youtube, TrendingUp, Star, Quote } from "lucide-react";
+import { Heart, Youtube, TrendingUp, Star, Quote, ShieldCheck, FileText, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Link from 'next/link';
 
 const faqs = [
     {
@@ -316,6 +317,52 @@ export default function ApplyPage() {
                             </div>
                         </li>
                     </ol>
+                </div>
+            </section>
+
+             {/* Professional Policies Section */}
+             <section id="policies" className="mb-16 md:mb-24">
+                <div className="max-w-4xl mx-auto">
+                    <Card className="border-2 border-primary/20 shadow-xl overflow-hidden">
+                        <div className="bg-primary/5 p-6 border-b flex items-center gap-3">
+                            <ShieldCheck className="w-8 h-8 text-primary" />
+                            <div>
+                                <h3 className="text-2xl font-bold font-headline">Professional Standards</h3>
+                                <p className="text-sm text-muted-foreground">Reliability is our foundation.</p>
+                            </div>
+                        </div>
+                        <CardContent className="p-8">
+                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                                <div className="space-y-4">
+                                    <p className="text-muted-foreground">
+                                        VÉLOURA is built on trust. Our clients rely on your expertise for their most important life moments.
+                                    </p>
+                                    <p className="font-semibold">
+                                        Please review our Reliability & Cancellation Policy before continuing with your application.
+                                    </p>
+                                    <Button asChild variant="outline" className="group">
+                                        <Link href="/reliability-policy">
+                                            <FileText className="mr-2 h-4 w-4" />
+                                            View Reliability Policy
+                                            <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        </Link>
+                                    </Button>
+                                </div>
+                                <div className="bg-secondary/20 p-6 rounded-2xl border border-primary/5 space-y-4">
+                                    <h4 className="font-bold flex items-center gap-2">
+                                        <Star className="w-4 h-4 text-primary fill-primary" />
+                                        Key Highlights
+                                    </h4>
+                                    <ul className="space-y-2 text-sm">
+                                        <li className="flex items-center gap-2">• Maintain active, accurate calendars</li>
+                                        <li className="flex items-center gap-2">• Honor all confirmed bookings</li>
+                                        <li className="flex items-center gap-2">• Clear, fair cancellation pathways</li>
+                                        <li className="flex items-center gap-2">• Emergency exceptions honored</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
                 </div>
             </section>
 
