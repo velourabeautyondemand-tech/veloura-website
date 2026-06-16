@@ -2,58 +2,104 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://velourabeautyondemand.com/</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/services</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/talent-agency</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/apply</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/pro-discounts</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/about</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/events</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/partner-press</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://velourabeautyondemand.com/contact</loc>
-    <priority>0.7</priority>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/home-beauty-services</loc>
-    <priority>0.9</priority>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/best-mobile-beauty-platform</loc>
-    <priority>0.9</priority>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/on-demand-beauty-app</loc>
-    <priority>0.9</priority>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/beauty-services-near-me</loc>
-    <priority>0.9</priority>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velourabeautyondemand.com/compare-beauty-apps</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://velourabeautyondemand.com/join-as-hair-stylist</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://velourabeautyondemand.com/join-as-makeup-artist</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://velourabeautyondemand.com/join-as-photographer</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://velourabeautyondemand.com/beauty-professional-jobs</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
