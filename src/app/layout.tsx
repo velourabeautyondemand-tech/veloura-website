@@ -16,13 +16,7 @@ export const metadata: Metadata = {
   title: 'VÉLOURA',
   description: 'Book professional beauty technicians to your door.',
   icons: {
-    apple: [
-      { 
-        url: 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c', 
-        sizes: '180x180', 
-        type: 'image/png' 
-      },
-    ],
+    apple: 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c',
   },
   verification: {
     other: {
