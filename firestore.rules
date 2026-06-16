@@ -4,85 +4,69 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     function isAdmin() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+      return request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
 
-    /**
-     * @description Controls access to user profile documents.
-     * @path /databases/{database}/documents/users/{userId}
-     * @allow (get, create, update, delete, list) User with ID 'user123' can read, create, update, and delete their own profile.
-     * @deny (get, create, update, delete, list) User with ID 'user456' cannot access user profile 'user123'.
-     * @principle Enforces document ownership for all operations on user profiles.
-     */
     match /users/{userId} {
-      // Function to check if the user is signed in
       function isSignedIn() {
         return request.auth != null;
       }
-
-      // Function to check if the requesting user is the owner of the document
       function isOwner(userId) {
         return request.auth.uid == userId;
       }
-
       allow get: if isSignedIn() && isOwner(userId);
       allow list: if false;
-
       allow create: if isSignedIn() && isOwner(userId);
       allow update: if isSignedIn() && isOwner(userId);
       allow delete: if isSignedIn() && isOwner(userId);
     }
 
-    /**
-     * @description Controls access to technician application documents.
-     * @path /databases/{database}/documents/technician_applications/{applicationId}
-     * @allow (get, list) Any user can read or list technician applications.
-     * @allow (create) Signed-in user can create new technician applications.
-     * @deny (update, delete) No user can update or delete a technician application.
-     * @principle Allows public read for technician applications, restricts modification.
-     */
     match /technician_applications/{applicationId} {
-      function isSignedIn() {
-        return request.auth != null;
-      }
-
       allow get: if true;
       allow list: if true;
-
       allow create: if true;
-      allow update: if false;
-      allow delete: if false;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
 
-    /**
-     * @description Controls access to technician documents.
-     * @path /databases/{database}/documents/technicians/{technicianId}
-     * @allow (get, list) Any user can read or list approved technician profiles.
-     * @deny (create, update, delete) Only admins or system processes can create, update, or delete technician profiles.
-     * @principle Restricts creation, update, and deletion of technician profiles.
-     */
     match /technicians/{technicianId} {
       allow get: if true;
       allow list: if true;
-
-      allow create: if false;
-      allow update: if false;
-      allow delete: if false;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
     
-    /**
-     * @description Controls access to subscriber documents.
-     * @path /databases/{database}/documents/subscribers/{subscriberId}
-     * @allow (create) Any user can create (subscribe).
-     * @deny (get, list, update, delete) No user can read, update, or delete subscriber information.
-     * @principle Public write for subscriptions, but no read/update/delete access.
-     */
     match /subscribers/{subscriberId} {
         allow get: if isAdmin();
         allow list: if isAdmin();
         allow create: if true;
         allow update: if false;
         allow delete: if false;
+    }
+
+    match /contact_inquiries/{inquiryId} {
+        allow get: if isAdmin();
+        allow list: if isAdmin();
+        allow create: if true;
+        allow update: if false;
+        allow delete: if isAdmin();
+    }
+
+    match /press_inquiries/{inquiryId} {
+        allow get: if isAdmin();
+        allow list: if isAdmin();
+        allow create: if true;
+        allow update: if false;
+        allow delete: if isAdmin();
+    }
+
+    match /partnership_inquiries/{inquiryId} {
+        allow get: if isAdmin();
+        allow list: if isAdmin();
+        allow create: if true;
+        allow update: if false;
+        allow delete: if isAdmin();
     }
   }
 }

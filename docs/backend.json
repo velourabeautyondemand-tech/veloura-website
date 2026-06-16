@@ -176,6 +176,31 @@
         }
       },
       "required": ["email", "subscribedAt"]
+    },
+    "ContactInquiry": {
+      "title": "Contact Inquiry",
+      "type": "object",
+      "description": "Represents a general contact form submission.",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "submittedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["name", "email", "subject", "message", "submittedAt"]
     }
   },
   "auth": {
@@ -221,6 +246,12 @@
           "$ref": "#/entities/Subscriber"
         },
         "description": "Stores email addresses of users who subscribed for news."
+      },
+      "/contact_inquiries/{inquiryId}": {
+        "schema": {
+          "$ref": "#/entities/ContactInquiry"
+        },
+        "description": "Stores general contact form submissions."
       }
     }
   }

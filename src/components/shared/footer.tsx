@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Twitter, Instagram, Facebook, Linkedin, Youtube, Briefcase, ShieldCheck, Mail } from "lucide-react";
+import { Instagram, Youtube, Briefcase, ShieldCheck } from "lucide-react";
 import { NailIcon } from "./logo";
 
 export default function Footer() {
@@ -18,7 +18,7 @@ export default function Footer() {
             <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link>
             <Link href="/talent-agency" className="text-muted-foreground hover:text-primary transition-colors">Talent Agency</Link>
             <Link href="/pro-discounts" className="text-muted-foreground hover:text-primary transition-colors">Our Partners</Link>
-            <a href="https://velourabeautyondemand.com/apply" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Careers</a>
+            <Link href="/apply" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
             <Link href="/partner-press" className="text-muted-foreground hover:text-primary transition-colors">Partner / Press</Link>
             
              <Link href="https://www.instagram.com/veloura_beauty_x?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -43,10 +43,10 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2 mt-4 sm:mt-0">
             <Link href="/support" className="hover:text-primary transition-colors">Support</Link>
+            <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
             <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
             <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link href="/partner-agreement" className="hover:text-primary transition-colors">Partner Agreement</Link>
-            <a href="mailto:support@velourabeautyondemand.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contact</a>
             <a href="https://www.dnb.com/business-directory/company-profiles.iamdreammaker_production_group_llc.f54604e6691278f60393f51e1c9ef37e.html?referrer=DRS" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
               <ShieldCheck className="h-4 w-4" />
               <span>Dun & Bradstreet</span>
