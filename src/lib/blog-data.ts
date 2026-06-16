@@ -20,31 +20,43 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>In-home beauty services for elderly individuals are defined as professional grooming and personal care treatments delivered directly to a senior's home by licensed, vetted beauty professionals. They remove travel barriers, reduce fall and illness risks, restore dignity, and deliver measurable gains in mood, cognitive engagement, and self-esteem.</p>
 
-      <h3>1. Convenience and Safety</h3>
+      <h3 class="mt-8 mb-4">1. How in-home beauty services improve convenience and safety for seniors</h3>
       <p>The single biggest advantage of at-home beauty care is the elimination of travel. For elderly individuals with limited mobility, arthritis, or balance issues, a trip to a salon involves physical effort, logistical coordination, and real risk. Staying home removes exposure to infectious environments and eliminates the hazard of navigating unfamiliar spaces, which is where most senior falls occur.</p>
-      <ul>
-        <li>No transportation coordination required for family members</li>
-        <li>Reduced exposure to colds, flu, and other contagious illnesses</li>
-        <li>Lower risk of falls on wet salon floors or unfamiliar stairs</li>
-        <li>Flexible timing that respects the senior's daily rhythm</li>
-        <li>One-on-one attention from a professional focused solely on them</li>
+      
+      <div class="my-10">
+        <img src="https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/1781578512737_Professional-providing-safe-nail-care-to-elderly-man.jpeg?alt=media&token=b437549b-f8e0-4db7-a883-98582fec9680" alt="Safe nail care for seniors" class="rounded-2xl shadow-xl w-full h-auto object-cover max-h-[500px]" />
+      </div>
+
+      <p class="font-semibold text-foreground">Scheduling flexibility matters just as much.</p>
+      <p>Traditional salon hours often conflict with medication schedules, therapy appointments, or low-energy periods of the day. By bringing the service to the senior, families can pick the exact window when their loved one is most comfortable and alert.</p>
+
+      <ul class="space-y-6 my-8 ml-6 list-disc">
+        <li class="pl-2">No transportation coordination required for family members</li>
+        <li class="pl-2">Reduced exposure to colds, flu, and other contagious illnesses</li>
+        <li class="pl-2">Lower risk of falls on wet salon floors or unfamiliar stairs</li>
+        <li class="pl-2">Flexible timing that respects the senior's daily rhythm</li>
+        <li class="pl-2">One-on-one attention from a professional focused solely on them</li>
       </ul>
 
-      <h3>2. Personalized and Gentle Care</h3>
+      <h3 class="mt-12 mb-4">2. Personalized and Gentle Care</h3>
       <p>Standard salon services are not designed for fragile skin, limited range of motion, or cognitive sensitivity. Elderly skin is thinner, drier, and more prone to bruising. A trained provider uses fragrance-free products, avoids heavy chemicals, and adapts application methods to minimize discomfort.</p>
-      <ul>
-        <li>Gentle scalp massages and low-heat blowouts</li>
-        <li>Soft gel manicures using non-toxic, low-odor formulas</li>
-        <li>Mild hydrating facials suited for mature, sensitive skin</li>
-        <li>Light makeup application that honors personal style preferences</li>
+      <ul class="space-y-4 my-6 ml-6 list-disc">
+        <li class="pl-2">Gentle scalp massages and low-heat blowouts</li>
+        <li class="pl-2">Soft gel manicures using non-toxic, low-odor formulas</li>
+        <li class="pl-2">Mild hydrating facials suited for mature, sensitive skin</li>
+        <li class="pl-2">Light makeup application that honors personal style preferences</li>
       </ul>
 
-      <h3>3. Emotional and Psychological Benefits</h3>
+      <h3 class="mt-12 mb-4">3. Emotional and Psychological Benefits</h3>
       <p>The emotional impact of home beauty care for seniors is well-documented and often underestimated. Beauty routines reduce dementia symptoms and isolation while increasing overall satisfaction. A fresh blowout or a clean manicure signals to the brain that the day has purpose and structure.</p>
-      <blockquote>"After her first in-home manicure, my mother called three people to tell them about her nails. She hadn't made a social call in months." — Family caregiver, Los Angeles</blockquote>
+      <blockquote class="border-l-4 border-primary pl-6 py-4 my-8 italic text-xl text-foreground bg-primary/5 rounded-r-xl">
+        "After her first in-home manicure, my mother called three people to tell them about her nails. She hadn't made a social call in months." — Family caregiver, Los Angeles
+      </blockquote>
 
-      <h3>Book In-Home Beauty for Your Loved One</h3>
-      <p>VÉLOURA connects you with licensed, vetted beauty professionals who come directly to your loved one's home. <a href="https://velourabeautyondemand.com">Book through VÉLOURA today.</a></p>
+      <div class="mt-12 p-8 bg-secondary/30 rounded-2xl border border-primary/10">
+        <h3 class="text-2xl font-bold font-headline mb-4">Book In-Home Beauty for Your Loved One</h3>
+        <p>VÉLOURA connects you with licensed, vetted beauty professionals who come directly to your loved one's home. <a href="/" class="text-primary font-bold hover:underline">Download the VÉLOURA app today.</a></p>
+      </div>
     `,
     author: 'VÉLOURA',
     date: '2026-06-16',
@@ -59,9 +71,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Discover how technology is redefining luxury and why bringing the salon to your home is the ultimate time-saver.',
     content: `
       <p>Self-care used to mean clearing an entire afternoon, fighting traffic, and hoping your appointment didn't run late. But the world has changed. In 2026, luxury is defined by convenience and control over one's time.</p>
-      <h3>The Commute is Dead</h3>
+      <h3 class="mt-8 mb-4">The Commute is Dead</h3>
       <p>The biggest barrier to consistent self-care has always been the logistics. VÉLOURA removes that barrier by moving the "salon" to wherever you are.</p>
-      <h3>Personalized Excellence</h3>
+      <h3 class="mt-8 mb-4">Personalized Excellence</h3>
       <p>In a traditional salon, technicians are often managing multiple clients at once. With VÉLOURA, you get 100% of the professional's focus.</p>
     `,
     author: 'Huiyu "Cherry" Cheng',
