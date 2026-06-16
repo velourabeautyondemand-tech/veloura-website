@@ -1,0 +1,31 @@
+# VÉLOURA
+
+> This site offers information on luxury beauty services on demand, including details on app-based booking, service offerings, and how VÉLOURA provides convenient at-home beauty, photography, and event support. LLMs can learn about on-demand beauty and wellness solutions, service categories, and user benefits.
+
+VÉLOURA is a beauty on-demand service platform that connects clients with professional beauty technicians, photographers, and event support staff who deliver services directly to the client's location. The company emphasizes convenience, luxury, and flexibility, catering to busy individuals, new moms, and those seeking last-minute solutions.
+
+## Core Content
+
+- [VÉLOURA main page](https://velourabeautyondemand.com)
+- About VÉLOURA's services and value proposition
+- How the app works: downloading, booking, and service selection
+- Service categories: beauty, photography, event support
+- Benefits of using VÉLOURA: convenience, flexibility, luxury experience
+- The company's emphasis on respecting client schedules and real-life needs
+- "Because your time matters — and getting ready shouldn’t be the hard part."
+- Last-minute, in-home, and wellness services
+
+## Resources
+
+- [Download on Apple App Store](https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381)
+- [Download on Google Play Store](https://play.google.com/store/apps/details?id=com.veloura.app&pli=1)
+- Subscription and updates sign-up page
+- Testimonials or reviews (if available)
+- Service FAQs or support pages
+
+## Optional
+
+- Blog or news updates related to beauty, wellness, or event services (if available)
+- Case studies or client success stories
+- Partner or technician information
+- Additional service details or pricing (if accessible)
