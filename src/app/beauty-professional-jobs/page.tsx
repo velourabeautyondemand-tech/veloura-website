@@ -1,21 +1,16 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Slider } from '@/components/ui/slider';
-import { CheckCircle, Briefcase, Clock, DollarSign, Star, Quote } from 'lucide-react';
+import { CheckCircle, Briefcase } from 'lucide-react';
 import Link from 'next/link';
+import { EarningsCalculator } from '@/components/features/earnings-calculator';
 
 export default function BeautyProfessionalJobsPage() {
-    const [bookings, setBookings] = useState([5]);
-    const avgRate = 135; // Weighted avg for all pros
-    const earnings = bookings[0] * avgRate * 0.8; // 80% take home
-
     const faqs = [
         {
             q: "Which cities is VÉLOURA hiring in?",
@@ -64,35 +59,9 @@ export default function BeautyProfessionalJobsPage() {
                     <div className="container mx-auto px-4">
                         <div className="max-w-3xl mx-auto text-center mb-12">
                             <h2 className="text-3xl font-bold font-headline mb-4">Earnings Calculator</h2>
-                            <p className="text-muted-foreground">Select your expected weekly bookings to see your potential earnings.</p>
+                            <p className="text-muted-foreground">Adjust the parameters to estimate your potential income on the VÉLOURA platform.</p>
                         </div>
-                        <Card className="max-w-xl mx-auto shadow-xl border-primary/10">
-                            <CardContent className="pt-10 pb-10 px-8 space-y-10">
-                                <div className="space-y-6">
-                                    <div className="flex justify-between items-end">
-                                        <label className="font-bold text-lg">Bookings Per Week</label>
-                                        <span className="text-3xl font-bold text-primary">{bookings[0]}</span>
-                                    </div>
-                                    <Slider 
-                                        value={bookings} 
-                                        onValueChange={setBookings} 
-                                        max={25} 
-                                        step={1} 
-                                        className="py-4"
-                                    />
-                                </div>
-                                <div className="bg-secondary/50 rounded-2xl p-8 text-center border border-primary/5">
-                                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-2">Estimated Weekly Earnings</p>
-                                    <div className="text-5xl font-black text-foreground font-headline flex items-center justify-center">
-                                        <DollarSign className="w-8 h-8 text-primary" />
-                                        {Math.round(earnings)}
-                                    </div>
-                                    <p className="mt-4 text-xs text-muted-foreground italic">
-                                        *Estimated payout after VÉLOURA's 20% platform fee. Pros keep 100% of tips.
-                                    </p>
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <EarningsCalculator />
                     </div>
                 </section>
 
