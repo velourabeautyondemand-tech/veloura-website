@@ -1,91 +1,103 @@
+'use client';
 
-import { notFound } from 'next/navigation';
+import { blogPosts } from '@/lib/blog-data';
+import { notFound, useParams } from 'next/navigation';
+import Link from 'next/link';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { blogPosts } from '@/lib/blog-data';
-import { Badge } from '@/components/ui/badge';
-import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { ChevronLeft, Clock, Calendar, Loader2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+export default function BlogPostPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+  const [post, setPost] = useState<typeof blogPosts[0] | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  useEffect(() => {
+    if (slug) {
+      const foundPost = blogPosts.find((p) => p.slug === slug);
+      setPost(foundPost || null);
+      setIsLoaded(true);
+    }
+  }, [slug]);
+
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   if (!post) {
-    notFound();
+    return notFound();
   }
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1 bg-background py-12">
-        <article className="container mx-auto px-4 md:px-6">
+      <main className="flex-1 bg-background py-12 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
-            <Button asChild variant="ghost" size="sm" className="mb-8">
-              <Link href="/blog">
-                <ArrowLeft className="mr-2 w-4 h-4" />
-                Back to Blog
+            <Button asChild variant="ghost" className="mb-8 p-0 hover:bg-transparent text-muted-foreground hover:text-primary transition-colors">
+              <Link href="/blog" className="flex items-center gap-2">
+                <ChevronLeft className="w-4 h-4" />
+                Back to Journal
               </Link>
             </Button>
 
-            <div className="space-y-4 mb-8">
-              <Badge variant="accent">{post.category}</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold font-headline leading-tight">
-                {post.title}
-              </h1>
-              <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground pt-4 border-y py-4">
-                <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-primary" />
-                  <span className="font-semibold text-foreground">{post.author}</span>
+            <article className="space-y-8">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                  {post.category}
                 </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  {post.readTime}
+                <h1 className="text-4xl md:text-5xl font-bold font-headline leading-tight text-foreground">
+                  {post.title}
+                </h1>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    {post.readTime}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="relative aspect-video rounded-3xl overflow-hidden mb-12 shadow-2xl">
-              <Image
-                src={post.imageUrl}
-                alt={post.title}
-                fill
-                className="object-cover"
-                data-ai-hint={post.imageHint}
-                priority
+              {post.imageUrl && (
+                <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src={post.imageUrl}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={post.imageHint}
+                    priority
+                  />
+                </div>
+              )}
+
+              <div 
+                className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-headline prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary hover:prose-a:underline"
+                dangerouslySetInnerHTML={{ __html: post.content }}
               />
-            </div>
+            </article>
 
-            <div 
-              className="prose lg:prose-xl max-w-none text-muted-foreground prose-headings:text-foreground prose-headings:font-headline prose-a:text-primary prose-strong:text-foreground"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-            
             <div className="mt-16 pt-8 border-t">
-              <h3 className="text-2xl font-bold font-headline mb-4">About the Author</h3>
-              <div className="bg-secondary/20 p-6 rounded-2xl flex items-center gap-4">
-                <div className="bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
-                  {post.author.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-bold text-lg">{post.author}</p>
-                  <p className="text-sm">VÉLOURA Contributor</p>
-                </div>
-              </div>
+               <Button asChild variant="outline">
+                  <Link href="/blog">
+                    <ChevronLeft className="mr-2 h-4 w-4" />
+                    View all posts
+                  </Link>
+               </Button>
             </div>
           </div>
-        </article>
+        </div>
       </main>
       <Footer />
     </div>
