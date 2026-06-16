@@ -23,6 +23,7 @@ const navLinks = [
   { href: "/talent-agency", label: "Talent Agency" },
   { href: "/apply", label: "Join Our Team" },
   { href: "/pro-discounts", label: "Our Partners" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "Our Story" },
   { href: "/events", label: "Events" },
 ];
