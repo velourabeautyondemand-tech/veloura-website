@@ -49,39 +49,73 @@ export default function RootLayout({
                 "name": "VÉLOURA",
                 "@type": "WebPage",
                 "@context": "https://schema.org",
-                "isPartOf": {
-                  "url": "https://velourabeautyondemand.com",
-                  "name": "VÉLOURA",
-                  "@type": "Organization"
-                },
-                "publisher": {
-                  "url": "https://velourabeautyondemand.com",
-                  "name": "VÉLOURA",
-                  "@type": "Organization"
-                },
                 "inLanguage": "en",
                 "description": "Book professional beauty technicians to your door."
+              },
+              {
+                "url": "https://velourabeautyondemand.com",
+                "@type": "WebSite",
+                "@context": "https://schema.org",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://velourabeautyondemand.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@context": "https://schema.org",
+                "itemListElement": [
+                  {
+                    "item": "https://velourabeautyondemand.com",
+                    "name": "Home",
+                    "@type": "ListItem",
+                    "position": 1
+                  }
+                ]
               },
               {
                 "url": "https://velourabeautyondemand.com",
                 "name": "VÉLOURA",
                 "@type": "Organization",
                 "@context": "https://schema.org",
-                "description": "VÉLOURA brings beauty, photography, and event services directly to you—on demand."
+                "description": "VÉLOURA brings beauty, photography, and event services directly to you."
               },
               {
-                "url": "https://velourabeautyondemand.com",
-                "name": "VÉLOURA App",
+                "name": "How to get salon services at home with VÉLOURA",
+                "step": [
+                  {
+                    "name": "Download & Explore",
+                    "text": "Get the VÉLOURA app on iOS or Android. Browse our curated menu of luxury beauty, photography, and event services.",
+                    "@type": "HowToStep"
+                  },
+                  {
+                    "name": "Select Your Pro",
+                    "text": "View profiles, ratings, and portfolios of elite, vetted professionals available in your area.",
+                    "@type": "HowToStep"
+                  },
+                  {
+                    "name": "Book Your Moment",
+                    "text": "Choose a time and location that fits your life. Our pros arrive fully equipped to deliver the salon experience to your door.",
+                    "@type": "HowToStep"
+                  },
+                  {
+                    "name": "Relax & Enjoy",
+                    "text": "Relax while professionals deliver high-quality care in the comfort of your home.",
+                    "@type": "HowToStep"
+                  }
+                ],
+                "@type": "HowTo",
+                "@context": "https://schema.org",
+                "description": "Follow these steps to start your on-demand beauty journey with VÉLOURA."
+              },
+              {
+                "name": "VÉLOURA",
                 "@type": "SoftwareApplication",
                 "@context": "https://schema.org",
-                "publisher": {
-                  "url": "https://velourabeautyondemand.com",
-                  "name": "VÉLOURA",
-                  "@type": "Organization"
-                },
-                "description": "Download the VÉLOURA app to browse and book on-demand beauty services, photographers, and events.",
-                "operatingSystem": "iOS; Android",
-                "applicationCategory": "LifestyleApplication"
+                "description": "Download the VÉLOURA app to find vetted beauty professionals near you and book on-demand beauty services.",
+                "operatingSystem": "iOS, Android",
+                "applicationCategory": "Lifestyle"
               }
             ])
           }}
