@@ -39,6 +39,53 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "url": "https://velourabeautyondemand.com",
+                "name": "VÉLOURA",
+                "@type": "WebPage",
+                "@context": "https://schema.org",
+                "isPartOf": {
+                  "url": "https://velourabeautyondemand.com",
+                  "name": "VÉLOURA",
+                  "@type": "Organization"
+                },
+                "publisher": {
+                  "url": "https://velourabeautyondemand.com",
+                  "name": "VÉLOURA",
+                  "@type": "Organization"
+                },
+                "inLanguage": "en",
+                "description": "Book professional beauty technicians to your door."
+              },
+              {
+                "url": "https://velourabeautyondemand.com",
+                "name": "VÉLOURA",
+                "@type": "Organization",
+                "@context": "https://schema.org",
+                "description": "VÉLOURA brings beauty, photography, and event services directly to you—on demand."
+              },
+              {
+                "url": "https://velourabeautyondemand.com",
+                "name": "VÉLOURA App",
+                "@type": "SoftwareApplication",
+                "@context": "https://schema.org",
+                "publisher": {
+                  "url": "https://velourabeautyondemand.com",
+                  "name": "VÉLOURA",
+                  "@type": "Organization"
+                },
+                "description": "Download the VÉLOURA app to browse and book on-demand beauty services, photographers, and events.",
+                "operatingSystem": "iOS; Android",
+                "applicationCategory": "LifestyleApplication"
+              }
+            ])
+          }}
+        />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907553249"></script>
         <script dangerouslySetInnerHTML={{
