@@ -13,8 +13,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'VÉLOURA',
-  description: 'Book professional beauty technicians to your door.',
+  title: 'VÉLOURA | On-Demand Luxury Beauty at Home',
+  description: 'Book professional beauty technicians to your door. VÉLOURA connects you with elite beauty professionals for mobile and at-home services.',
   icons: {
     apple: [
       {
