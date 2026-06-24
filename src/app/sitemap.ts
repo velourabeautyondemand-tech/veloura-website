@@ -1,6 +1,11 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
 
+/**
+ * Next.js sitemap generator.
+ * This function returns an array of sitemap entries which Next.js
+ * automatically converts into a valid XML sitemap at /sitemap.xml.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://velourabeautyondemand.com';
 
