@@ -8,6 +8,7 @@ import { blogPosts } from '@/lib/blog-data';
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://velourabeautyondemand.com';
+  const currentDate = new Date();
 
   // Define core application routes
   const routes = [
@@ -38,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/compare-beauty-apps',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1 : 0.8,
   }));
