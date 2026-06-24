@@ -5,6 +5,8 @@ import { blogPosts } from '@/lib/blog-data';
  * Next.js sitemap generator.
  * This function returns an array of sitemap entries which Next.js
  * automatically converts into a valid XML sitemap at /sitemap.xml.
+ * 
+ * IMPORTANT: Ensure no static 'public/sitemap.xml' exists, as it will conflict.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://velourabeautyondemand.com';
@@ -44,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // Include dynamic blog post routes
+  // Include dynamic blog post routes from our centralized blog data
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
