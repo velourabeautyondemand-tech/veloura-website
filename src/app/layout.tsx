@@ -42,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="canonical" href="https://velourabeautyondemand.com" />
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
