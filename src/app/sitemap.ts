@@ -5,33 +5,7 @@ export const revalidate = 0;
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://velourabeautyondemand.com';
   const currentDate = new Date();
-  const routes = [
-    '',
-    '/services',
-    '/talent-agency',
-    '/apply',
-    '/pro-discounts',
-    '/blog',
-    '/about',
-    '/events',
-    '/contact',
-    '/support',
-    '/privacy',
-    '/terms',
-    '/partner-agreement',
-    '/partner-press',
-    '/reliability-policy',
-    '/customer-policy',
-    '/beauty-professional-jobs',
-    '/beauty-services-near-me',
-    '/best-mobile-beauty-platform',
-    '/home-beauty-services',
-    '/join-as-hair-stylist',
-    '/join-as-makeup-artist',
-    '/join-as-photographer',
-    '/on-demand-beauty-app',
-    '/compare-beauty-apps',
-  ].map((route) => ({
+  const routes = ['', '/services', '/talent-agency', '/apply', '/pro-discounts', '/blog', '/about', '/events', '/contact', '/support', '/privacy', '/terms', '/partner-agreement', '/partner-press', '/reliability-policy', '/customer-policy', '/beauty-professional-jobs', '/beauty-services-near-me', '/best-mobile-beauty-platform', '/home-beauty-services', '/join-as-hair-stylist', '/join-as-makeup-artist', '/join-as-photographer', '/on-demand-beauty-app', '/compare-beauty-apps'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
