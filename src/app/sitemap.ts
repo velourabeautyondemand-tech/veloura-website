@@ -37,13 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: currentDate,
-    changeFrequency: 'weekly',
+    changeFrequency: 'weekly' as const,
     priority: route === '' ? 1.0 : 0.8,
   }));
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
-    changeFrequency: 'monthly',
+    changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
   return [...staticEntries, ...blogEntries];
