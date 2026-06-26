@@ -14,10 +14,11 @@ export default function Footer() {
             <NailIcon className="h-6 w-6" />
             <span className="font-bold text-lg font-headline">VÉLOURA</span>
           </div>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex flex-wrap items-center justify-center space-x-6 text-sm font-medium">
             <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link>
             <Link href="/talent-agency" className="text-muted-foreground hover:text-primary transition-colors">Talent Agency</Link>
             <Link href="/pro-discounts" className="text-muted-foreground hover:text-primary transition-colors">Our Partners</Link>
+            <Link href="/hotel-partnerships" className="text-muted-foreground hover:text-primary transition-colors">Hotel Partnerships</Link>
             <Link href="/apply" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
             <Link href="/partner-press" className="text-muted-foreground hover:text-primary transition-colors">Partner / Press</Link>
             
@@ -37,7 +38,7 @@ export default function Footer() {
           
         </div>
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
-          <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-2">
+          <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-2 text-center sm:text-left">
             <p>&copy; {year} VÉLOURA. All rights reserved.</p>
             <p className="text-xs">powered by iAmDreamMaker Production Group</p>
           </div>
