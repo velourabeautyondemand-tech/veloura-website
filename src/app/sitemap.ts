@@ -32,6 +32,7 @@ const staticRoutes = [
 '/on-demand-beauty-app',
 '/compare-beauty-apps',
 '/hotel-partnerships',
+'/vendor-partners',
 ];
 const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
 url: `${baseUrl}${route}`,

@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Instagram, Youtube, Briefcase, ShieldCheck } from "lucide-react";
 import { NailIcon } from "./logo";
@@ -19,6 +18,7 @@ export default function Footer() {
             <Link href="/talent-agency" className="text-muted-foreground hover:text-primary transition-colors">Talent Agency</Link>
             <Link href="/pro-discounts" className="text-muted-foreground hover:text-primary transition-colors">Our Partners</Link>
             <Link href="/hotel-partnerships" className="text-muted-foreground hover:text-primary transition-colors">Hotel Partnerships</Link>
+            <Link href="/vendor-partners" className="text-muted-foreground hover:text-primary transition-colors">Vendor Partners</Link>
             <Link href="/apply" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
             <Link href="/partner-press" className="text-muted-foreground hover:text-primary transition-colors">Partner / Press</Link>
             
