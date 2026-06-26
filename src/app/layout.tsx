@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   verification: {
     other: {
       'impact-site-verification': 'bccc4b36-52b9-4b9a-b1e4-b51a9eb13213',
+      'integration-token': '0c8a34f5-763a-48e2-9e7e-abe4eaa13fc3'
     },
   },
 };
