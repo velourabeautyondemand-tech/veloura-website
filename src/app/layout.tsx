@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { Poppins } from 'next/font/google';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 import Script from 'next/script';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -43,7 +44,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://velourabeautyondemand.com" />
-        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -121,7 +121,6 @@ export default function RootLayout({
             ])
           }}
         />
-        {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907553249"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -142,6 +141,7 @@ export default function RootLayout({
             strategy="lazyOnload"
         />
         <Script src="//code.tidio.co/4fg7y7nkjc8bki5w501dtqca6eptnd2v.js" async strategy="afterInteractive" />
+        <GoogleAnalytics gaId="G-5XNNXSE6MC" />
       </body>
     </html>
   );

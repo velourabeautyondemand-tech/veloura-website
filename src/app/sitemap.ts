@@ -1,13 +1,10 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
-
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://velourabeautyondemand.com';
   const currentDate = new Date();
-
   const staticRoutes = [
     '',
     '/services',
@@ -37,20 +34,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/hotel-partners',
     '/vendor-partners',
   ];
-
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: currentDate,
     changeFrequency: 'weekly',
     priority: route === '' ? 1.0 : 0.8,
   }));
-
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.6,
   }));
-
   return [...staticEntries, ...blogEntries];
 }
