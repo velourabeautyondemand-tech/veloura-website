@@ -31,7 +31,7 @@ const staticRoutes = [
 '/join-as-photographer',
 '/on-demand-beauty-app',
 '/compare-beauty-apps',
-'/hotel-partnerships',
+'/hotel-partners',
 '/vendor-partners',
 ];
 const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({

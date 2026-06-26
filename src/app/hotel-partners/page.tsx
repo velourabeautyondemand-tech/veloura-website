@@ -5,62 +5,59 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { 
-    Briefcase, 
+    Hotel, 
     ShieldCheck, 
-    Layout, 
-    DollarSign, 
-    Users, 
+    Zap, 
+    Sparkles, 
+    Heart, 
+    UserCheck, 
     ArrowRight,
     CheckCircle2,
-    Zap,
-    Layers,
-    Smile
+    MapPin,
+    Handshake
 } from 'lucide-react';
 import Link from 'next/link';
 
-export default function VendorPartnershipPage() {
-    const outsourcingEmail = "mailto:support@velourabeautyondemand.com?subject=Vendor%20Outsourcing%20Partnership";
+export default function HotelPartnersPage() {
+    const partnershipEmail = "mailto:support@velourabeautyondemand.com?subject=Hotel%20Partnership%20Inquiry";
 
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": ["Service", "FAQPage"],
-        "name": "Beauty Services Outsourcing",
-        "serviceType": "Beauty Services Outsourcing",
+        "@type": "Service",
+        "serviceType": "Mobile Beauty Services",
         "provider": {
             "@type": "Organization",
-            "name": "VÉLOURA"
+            "name": "VÉLOURA",
+            "url": "https://velourabeautyondemand.com"
         },
-        "areaServed": ["Los Angeles", "New York City", "Miami"],
-        "mainEntity": [{
-            "@type": "Question",
-            "name": "How does white-label beauty outsourcing work?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "VÉLOURA acts as the fulfillment layer. You submit requests via a dedicated channel, and we handle the sourcing, vetting, and execution. You can choose to operate fully white-label under your brand or co-branded."
-            }
-        }]
+        "areaServed": [
+            { "@type": "City", "name": "Los Angeles" },
+            { "@type": "City", "name": "New York City" },
+            { "@type": "City", "name": "Miami" }
+        ],
+        "description": "Offer guests five-star, licensed beauty services on-site. VÉLOURA partners with hotels for liability-free, white-label guest glam."
     };
 
     const features = [
         {
-            title: "You Keep the Client Relationship. We Handle the Operations.",
-            description: "Sourcing and vetting beauty professionals, background checks (Checkr), and secure Stripe payment processing managed by our team.",
-            icon: Briefcase
+            title: "Turn Guest Requests Into Revenue, Not Liability",
+            description: "Every 'can you recommend a hairstylist' question is either an opportunity or a risk. VÉLOURA removes the risk: every professional is licensed, identity-verified, and background-checked.",
+            icon: ShieldCheck
         },
         {
-            title: "White-Label or Co-Branded — Your Choice",
-            description: "Operate fully behind the scenes under your brand, or as a visibly co-branded 'powered by VÉLOURA' service line.",
-            icon: Layout
+            title: "No Staffing. No Liability. No App to Learn.",
+            description: "Your concierge simply shares a link or QR code — guests book directly on their own device. We handle the insurance and safety protocols.",
+            icon: UserCheck
         },
         {
-            title: "Built for Variable, High-Stakes Demand",
-            description: "Perfect for production days, photoshoots, and wedding planners needing on-call glam teams without the overhead.",
-            icon: Zap
+            title: "Built for the Moments That Matter Most",
+            description: "From bridal parties and VIP arrivals to last-minute glam before a show, we provide the luxury support your property needs.",
+            icon: Heart
         },
         {
-            title: "Margin-Friendly Partnership Structure",
-            description: "Negotiated commission or flat per-event rates let you build costs directly into client pricing with clear margins.",
-            icon: DollarSign
+            title: "White-Label-Ready Guest Experience",
+            description: "We can tailor the booking experience to feel like an extension of your property — including co-branded confirmations and property-specific menus.",
+            icon: Sparkles
         }
     ];
 
@@ -77,27 +74,31 @@ export default function VendorPartnershipPage() {
                     <div className="container mx-auto px-4 md:px-6 relative z-10">
                         <div className="max-w-4xl mx-auto text-center">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
-                                <Briefcase className="w-4 h-4" />
-                                <span>Vendor & Outsourcing Partners</span>
+                                <Hotel className="w-4 h-4" />
+                                <span>Hotel & Hospitality Partners</span>
                             </div>
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline mb-6 leading-tight">
-                                Your Clients Want Beauty On-Site. <span className="text-primary italic">We're Already Built to Deliver It.</span>
+                                Your Guests Deserve Five-Star Beauty <span className="text-primary italic">Without Leaving the Suite.</span>
                             </h1>
                             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-                                VÉLOURA is the licensed, background-checked beauty fulfillment layer for event companies, talent agencies, and production teams who need reliable on-site glam.
+                                VÉLOURA brings licensed, background-checked beauty professionals directly to your property — turning every request into a five-star guest moment your concierge desk can deliver in minutes.
                             </p>
                             <Button asChild size="lg" className="h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:scale-105 transition-transform">
-                                <Link href={outsourcingEmail}>
-                                    Discuss an Outsourcing Partnership <ArrowRight className="ml-2 w-5 h-5" />
+                                <Link href={partnershipEmail}>
+                                    Become a VÉLOURA Hotel Partner <ArrowRight className="ml-2 w-5 h-5" />
                                 </Link>
                             </Button>
                         </div>
                     </div>
                 </section>
 
-                {/* Features */}
+                {/* Content Sections */}
                 <section className="py-16 sm:py-24 bg-background">
                     <div className="container mx-auto px-4 md:px-6">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-bold font-headline mb-4">Why Hotels Partner With VÉLOURA</h2>
+                            <p className="text-muted-foreground max-w-2xl mx-auto">Seamless integration. Professional standards. Unmatched convenience.</p>
+                        </div>
                         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                             {features.map((feature, i) => (
                                 <Card key={i} className="border-primary/5 hover:shadow-xl transition-shadow bg-secondary/10">
@@ -120,7 +121,7 @@ export default function VendorPartnershipPage() {
 
                 <div className="container mx-auto px-4 md:px-6 py-12 text-center border-t border-primary/10">
                     <p className="text-sm text-muted-foreground">
-                        Connect with our <Link href="/talent-agency" className="text-primary font-bold hover:underline">Talent Agency</Link> or explore <Link href="/hotel-partners" className="text-primary font-bold hover:underline">Hotel Partnerships</Link>.
+                        Looking for services? View our <Link href="/services" className="text-primary font-bold hover:underline">full service menu</Link> or learn <Link href="/about" className="text-primary font-bold hover:underline">our story</Link>.
                     </p>
                 </div>
             </main>
