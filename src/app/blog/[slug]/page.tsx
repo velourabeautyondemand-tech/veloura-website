@@ -1,35 +1,23 @@
-'use client';
-
-import { blogPosts } from '@/lib/blog-data';
-import { notFound, useParams } from 'next/navigation';
+import { getBlogBySlug } from 'babylovegrowth-next-js-blog';
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, Clock, Calendar, Loader2 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ChevronLeft, Clock, Calendar } from 'lucide-react';
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const slug = params?.slug as string;
-  const [post, setPost] = useState<typeof blogPosts[0] | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
-  useEffect(() => {
-    if (slug) {
-      const foundPost = blogPosts.find((p) => p.slug === slug);
-      setPost(foundPost || null);
-      setIsLoaded(true);
-    }
-  }, [slug]);
-
-  if (!isLoaded) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
-      </div>
-    );
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  let post = null;
+  
+  try {
+    post = await getBlogBySlug(slug);
+  } catch (e) {
+    console.error("Error fetching post:", e);
   }
 
   if (!post) {
@@ -52,7 +40,7 @@ export default function BlogPostPage() {
             <article className="space-y-8">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                  {post.category}
+                  {post.category || "Lifestyle"}
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold font-headline leading-tight text-foreground">
                   {post.title}
@@ -60,11 +48,11 @@ export default function BlogPostPage() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    {new Date(post.date || post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    {post.readTime}
+                    {post.readTime || "5 min read"}
                   </div>
                 </div>
               </div>
@@ -76,7 +64,6 @@ export default function BlogPostPage() {
                     alt={post.title}
                     fill
                     className="object-cover"
-                    data-ai-hint={post.imageHint}
                     priority
                   />
                 </div>

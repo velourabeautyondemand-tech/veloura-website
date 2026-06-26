@@ -1,7 +1,6 @@
-
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { blogPosts } from '@/lib/blog-data';
+import { getBlogs } from 'babylovegrowth-next-js-blog';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -9,7 +8,17 @@ import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function BlogPage() {
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
+
+export default async function BlogPage() {
+    let posts = [];
+    try {
+        posts = await getBlogs();
+    } catch (e) {
+        console.error("Failed to fetch blogs:", e);
+    }
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -25,29 +34,29 @@ export default function BlogPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                        {blogPosts.map((post) => (
-                            <Card key={post.slug} className="flex flex-col overflow-hidden hover:shadow-xl transition-shadow border-primary/5">
+                        {posts.map((post: any) => (
+                            <Card key={post.slug} className="flex flex-col overflow-hidden hover:shadow-xl transition-shadow border-primary/5 bg-card">
                                 <div className="relative aspect-video">
                                     <Image
-                                        src={post.imageUrl}
+                                        src={post.imageUrl || "https://picsum.photos/seed/blog/800/600"}
                                         alt={post.title}
                                         fill
                                         className="object-cover"
-                                        data-ai-hint={post.imageHint}
+                                        data-ai-hint="beauty blog"
                                     />
                                     <Badge className="absolute top-4 left-4" variant="accent">
-                                        {post.category}
+                                        {post.category || "Lifestyle"}
                                     </Badge>
                                 </div>
                                 <CardHeader>
                                     <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
                                         <div className="flex items-center gap-1">
                                             <Calendar className="w-3 h-3" />
-                                            {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                                            {new Date(post.date || post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <Clock className="w-3 h-3" />
-                                            {post.readTime}
+                                            {post.readTime || "5 min read"}
                                         </div>
                                     </div>
                                     <CardTitle className="font-headline text-2xl line-clamp-2">{post.title}</CardTitle>
@@ -67,6 +76,11 @@ export default function BlogPage() {
                             </Card>
                         ))}
                     </div>
+                    {posts.length === 0 && (
+                        <div className="text-center py-20">
+                            <p className="text-muted-foreground">New stories coming soon. Stay tuned!</p>
+                        </div>
+                    )}
                 </div>
             </main>
             <Footer />
