@@ -1,23 +1,39 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { getBlogs } from 'babylovegrowth-next-js-blog';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { blogPosts } from '@/lib/blog-data';
+
+async function getExternalBlogs() {
+  try {
+    const response = await fetch('https://www.babylovegrowth.com/api/blogs', {
+      headers: {
+        'x-api-key': process.env.BABYLOVEGROWTH_BLOG_API_KEY || '',
+      },
+      next: { revalidate: 3600 }
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    return data.blogs || [];
+  } catch (e) {
+    console.error("Failed to fetch external blogs:", e);
+    return [];
+  }
+}
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 export default async function BlogPage() {
-    let posts = [];
-    try {
-        posts = await getBlogs();
-    } catch (e) {
-        console.error("Failed to fetch blogs:", e);
-    }
+    const externalPosts = await getExternalBlogs();
+    // Combine external posts with local posts, removing duplicates by slug
+    const allPosts = [...externalPosts, ...blogPosts].filter((post, index, self) => 
+        index === self.findIndex((t) => t.slug === post.slug)
+    );
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -34,7 +50,7 @@ export default async function BlogPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                        {posts.map((post: any) => (
+                        {allPosts.map((post: any) => (
                             <Card key={post.slug} className="flex flex-col overflow-hidden hover:shadow-xl transition-shadow border-primary/5 bg-card">
                                 <div className="relative aspect-video">
                                     <Image
@@ -52,7 +68,7 @@ export default async function BlogPage() {
                                     <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
                                         <div className="flex items-center gap-1">
                                             <Calendar className="w-3 h-3" />
-                                            {new Date(post.date || post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                                            {new Date(post.date || post.createdAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <Clock className="w-3 h-3" />
@@ -76,7 +92,7 @@ export default async function BlogPage() {
                             </Card>
                         ))}
                     </div>
-                    {posts.length === 0 && (
+                    {allPosts.length === 0 && (
                         <div className="text-center py-20">
                             <p className="text-muted-foreground">New stories coming soon. Stay tuned!</p>
                         </div>

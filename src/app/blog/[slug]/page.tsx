@@ -1,4 +1,3 @@
-import { getBlogBySlug } from 'babylovegrowth-next-js-blog';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Header from '@/components/shared/header';
@@ -6,18 +5,34 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, Clock, Calendar } from 'lucide-react';
+import { blogPosts } from '@/lib/blog-data';
+
+async function getExternalBlogBySlug(slug: string) {
+  try {
+    const response = await fetch(`https://www.babylovegrowth.com/api/blogs/${slug}`, {
+      headers: {
+        'x-api-key': process.env.BABYLOVEGROWTH_BLOG_API_KEY || '',
+      },
+      next: { revalidate: 3600 }
+    });
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data.blog || null;
+  } catch (e) {
+    return null;
+  }
+}
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  let post = null;
   
-  try {
-    post = await getBlogBySlug(slug);
-  } catch (e) {
-    console.error("Error fetching post:", e);
+  // Try to find in local data first, then external
+  let post = blogPosts.find(p => p.slug === slug);
+  if (!post) {
+    post = await getExternalBlogBySlug(slug);
   }
 
   if (!post) {
@@ -48,7 +63,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    {new Date(post.date || post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    {new Date(post.date || post.createdAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
