@@ -21,7 +21,35 @@ async function getExternalBlogSlugs() {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://velourabeautyondemand.com';
   const currentDate = new Date();
-  const staticRoutes = ['', '/services', '/talent-agency', '/apply', '/pro-discounts', '/blog', '/about', '/events', '/contact', '/support', '/privacy', '/terms', '/partner-agreement', '/partner-press', '/reliability-policy', '/customer-policy', '/beauty-professional-jobs', '/beauty-services-near-me', '/best-mobile-beauty-platform', '/home-beauty-services', '/join-as-hair-stylist', '/join-as-makeup-artist', '/join-as-photographer', '/on-demand-beauty-app', '/compare-beauty-apps', '/hotel-partners', '/vendor-partners'];
+  const staticRoutes = [
+    '',
+    '/services',
+    '/talent-agency',
+    '/apply',
+    '/pro-discounts',
+    '/blog',
+    '/about',
+    '/events',
+    '/contact',
+    '/support',
+    '/privacy',
+    '/terms',
+    '/partner-agreement',
+    '/partner-press',
+    '/reliability-policy',
+    '/customer-policy',
+    '/beauty-professional-jobs',
+    '/beauty-services-near-me',
+    '/best-mobile-beauty-platform',
+    '/home-beauty-services',
+    '/join-as-hair-stylist',
+    '/join-as-makeup-artist',
+    '/join-as-photographer',
+    '/on-demand-beauty-app',
+    '/compare-beauty-apps',
+    '/hotel-partners',
+    '/vendor-partners'
+  ];
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: currentDate,
