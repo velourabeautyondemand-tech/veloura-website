@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Luxury On-Demand Beauty At Home With Pro Stylists',
+  title: 'VÉLOURA Talent Agency: Luxury Makeup Artists & Photographers',
   description: 'Book professional beauty technicians to your door. VÉLOURA connects you with elite beauty professionals for mobile and at-home services.',
   alternates: {
     canonical: 'https://velourabeautyondemand.com',
