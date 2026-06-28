@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -69,9 +68,9 @@ export default function AboutPage() {
                 <section id="story" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="prose lg:prose-lg max-w-3xl mx-auto text-muted-foreground text-center">
-                            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">It Started With a Simple Problem</h2>
+                            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">About VÉLOURA: Our Story</h1>
                             <p className="text-xl font-semibold text-foreground mb-8">
-                                Why is something so essential so inefficient?
+                                It Started With a Simple Problem: Why is something so essential so inefficient?
                             </p>
                             <p>
                                 Balancing work, life, and everything in between, we kept running into the same issue — there just wasn’t an easy way to access reliable beauty and lifestyle services when we needed them.
