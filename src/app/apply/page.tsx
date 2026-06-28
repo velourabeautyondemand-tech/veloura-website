@@ -1,8 +1,7 @@
-
 "use client";
 
 import React from "react";
-import { Heart, Youtube, TrendingUp, Star, Quote, ShieldCheck, FileText, ChevronRight, UserCheck } from "lucide-react";
+import { Heart, TrendingUp, Star, Quote, ShieldCheck, FileText, ChevronRight, UserCheck, GraduationCap, DollarSign, Home, Smartphone, MapPin, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Header from "@/components/shared/header";
@@ -154,6 +153,39 @@ const testimonials = [
 export default function ApplyPage() {
   const joinTeamImage = PlaceHolderImages.find(p => p.id === 'join_team_banner');
 
+  const graduateBenefits = [
+      {
+          title: "Keep 80% of every booking.",
+          description: "No commission games, no hidden cuts. What you earn is yours.",
+          icon: DollarSign
+      },
+      {
+          title: "No booth rent, no fees.",
+          description: "No monthly fees, no long-term contracts. Start working without the overhead.",
+          icon: Home
+      },
+      {
+          title: "Clients come to you.",
+          description: "We bring bookings through the app. No Flyers, no cold DMs, no building IG from scratch.",
+          icon: Smartphone
+      },
+      {
+          title: "Work within your area.",
+          description: "Set your service radius and take appointments close to home or wherever you're based.",
+          icon: MapPin
+      },
+      {
+          title: "Safety built in.",
+          description: "Access to Silent Beacon personal safety devices and insurance options for mobile appointments.",
+          icon: ShieldCheck
+      },
+      {
+          title: "Founding Pro Status.",
+          description: "Join now and be recognized as part of VÉLOURA's founding team with exclusive perks.",
+          icon: Star
+      }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -213,6 +245,53 @@ export default function ApplyPage() {
                             No chair rental. No salon split. Just you, your craft, and your clients.
                         </p>
                    </div>
+                </div>
+            </section>
+
+            {/* New Graduates Section */}
+            <section id="graduates" className="mb-16 md:mb-24">
+                <div className="max-w-5xl mx-auto">
+                    <div className="bg-primary/5 rounded-3xl p-8 md:p-16 border border-primary/20 shadow-xl overflow-hidden relative">
+                        <div className="absolute top-0 right-0 p-8 opacity-10 rotate-12 hidden lg:block">
+                            <GraduationCap className="w-64 h-64 text-primary" />
+                        </div>
+                        <div className="relative z-10">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                                <GraduationCap className="w-4 h-4" />
+                                <span>For New Graduates</span>
+                            </div>
+                            <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">
+                                You Just Got Licensed. <br className="hidden md:block" /> Now Get Booked.
+                            </h2>
+                            <p className="text-xl md:text-2xl font-semibold text-foreground/80 mb-8">
+                                Beauty school taught you the skills. <br className="hidden md:block" /> VÉLOURA gets you the clients.
+                            </p>
+                            <p className="text-lg text-muted-foreground mb-12 max-w-2xl leading-relaxed">
+                                No booth rent. No chair to rent. No waiting around for walk-ins. As a VÉLOURA Founding Professional, you start building your client base and your income from day one — on your schedule, in your area.
+                            </p>
+
+                            <h3 className="text-xl font-bold font-headline text-primary uppercase tracking-widest mb-8">Built for Where You Are Right Now</h3>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                                {graduateBenefits.map((benefit, i) => (
+                                    <div key={i} className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-primary/10 hover:shadow-md transition-all">
+                                        <benefit.icon className="w-8 h-8 text-primary mb-4" />
+                                        <h4 className="font-bold text-lg mb-2">{benefit.title}</h4>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border-2 border-primary/20 shadow-lg">
+                                <h3 className="text-2xl font-bold font-headline mb-4 flex items-center gap-2">
+                                    <CheckCircle2 className="text-primary w-6 h-6" />
+                                    From Licensed to Working — Faster
+                                </h3>
+                                <p className="text-lg text-muted-foreground leading-relaxed">
+                                    You don't need years of salon experience or an existing client list. You need your license, your skills, and a phone. We handle the rest.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
