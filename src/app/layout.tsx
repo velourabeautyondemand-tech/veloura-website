@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Join VÉLOURA Pro — On-Demand Luxury Beauty at Home',
+  title: 'Luxury On-Demand Beauty At Home With Pro Stylists',
   description: 'Book professional beauty technicians to your door. VÉLOURA connects you with elite beauty professionals for mobile and at-home services.',
   alternates: {
     canonical: 'https://velourabeautyondemand.com',
@@ -45,26 +45,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://velourabeautyondemand.com" />
-        {/* Google Analytics GA4 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5XNNXSE6MC"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-5XNNXSE6MC');
-          `
-        }} />
-        {/* Google Ads / Additional Tag */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907553249"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17907553249');
-          `
-        }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
