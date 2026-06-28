@@ -1,9 +1,7 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
-
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
-
 async function getExternalBlogSlugs() {
   try {
     const response = await fetch('https://www.babylovegrowth.com/api/blogs', {
@@ -17,7 +15,6 @@ async function getExternalBlogSlugs() {
     return [];
   }
 }
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://velourabeautyondemand.com';
   const currentDate = new Date();
