@@ -45,6 +45,26 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://velourabeautyondemand.com" />
+        {/* Google Analytics GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5XNNXSE6MC"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5XNNXSE6MC');
+          `
+        }} />
+        {/* Google Ads / Additional Tag */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907553249"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17907553249');
+          `
+        }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -122,15 +142,6 @@ export default function RootLayout({
             ])
           }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907553249"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17907553249');
-          `
-        }} />
       </head>
       <body className={cn('font-body antialiased', poppins.variable)}>
         <FirebaseClientProvider>
