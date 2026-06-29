@@ -51,6 +51,13 @@ export default function RootLayout({
             __html: JSON.stringify([
               {
                 "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "VÉLOURA Beauty on Demand",
+                "areaServed": ["Los Angeles", "New York City", "Miami"],
+                "serviceType": "Mobile Beauty Services"
+              },
+              {
+                "@context": "https://schema.org",
                 "@type": "WebPage",
                 "url": "https://velourabeautyondemand.com",
                 "name": "VÉLOURA",
