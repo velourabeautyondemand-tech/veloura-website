@@ -48,85 +48,16 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                "name": "VÉLOURA Beauty on Demand",
-                "areaServed": ["Los Angeles", "New York City", "Miami"],
-                "serviceType": "Mobile Beauty Services"
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "WebPage",
-                "url": "https://velourabeautyondemand.com",
-                "name": "VÉLOURA",
-                "isPartOf": {
-                  "@type": "Organization",
-                  "url": "https://velourabeautyondemand.com",
-                  "name": "VÉLOURA"
-                },
-                "inLanguage": "en",
-                "description": "Book professional beauty technicians to your door."
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "url": "https://velourabeautyondemand.com",
-                "name": "VÉLOURA",
-                "description": "VÉLOURA Beauty on Demand connects clients with vetted beauty professionals for mobile and at-home services."
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "MobileApplication",
-                "url": "https://velourabeautyondemand.com",
-                "name": "VÉLOURA",
-                "description": "VÉLOURA app for on-demand beauty services delivered to your door.",
-                "operatingSystem": "iOS, Android",
-                "applicationCategory": "Lifestyle"
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Service",
-                "name": "On-Demand Beauty Services",
-                "provider": {
-                  "@type": "Organization",
-                  "url": "https://velourabeautyondemand.com",
-                  "name": "VÉLOURA"
-                },
-                "areaServed": "Worldwide",
-                "description": "Professional beauty services delivered to your door. Book vetted professionals for mobile or in-home salon experiences.",
-                "serviceType": "Mobile beauty, at-home beauty services"
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "HowTo",
-                "name": "How to get salon services at home with VÉLOURA",
-                "description": "Follow these steps to start your on-demand beauty journey with VÉLOURA.",
-                "step": [
-                  {
-                    "@type": "HowToStep",
-                    "name": "Download & Explore",
-                    "text": "Get the VÉLOURA app on iOS or Android. Browse our curated menu of luxury beauty, photography, and event services."
-                  },
-                  {
-                    "@type": "HowToStep",
-                    "name": "Select Your Pro",
-                    "text": "View profiles, ratings, and portfolios of elite, vetted professionals available in your area."
-                  },
-                  {
-                    "@type": "HowToStep",
-                    "name": "Book Your Moment",
-                    "text": "Choose a time and location that fits your life. Our pros arrive fully equipped to deliver the salon experience to your door."
-                  },
-                  {
-                    "@type": "HowToStep",
-                    "name": "Relax & Enjoy",
-                    "text": "Relax while professionals deliver high-quality care in the comfort of your home."
-                  }
-                ]
-              }
-            ])
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "VÉLOURA Beauty on Demand",
+              "description": "Mobile beauty marketplace connecting clients with licensed beauty professionals for in-home, in-office, and event services.",
+              "url": "https://velourabeautyondemand.com",
+              "areaServed": ["Los Angeles", "New York City", "Miami"],
+              "serviceType": ["Mobile Manicures", "Lash Extensions", "Hair Styling", "Makeup Services", "Skincare"],
+              "priceRange": "$$"
+            })
           }}
         />
       </head>
