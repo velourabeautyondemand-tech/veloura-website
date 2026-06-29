@@ -45,6 +45,21 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://velourabeautyondemand.com" />
+        {/* Schema Block 1: Mobile Application */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MobileApplication",
+              "name": "VÉLOURA",
+              "operatingSystem": "iOS, Android",
+              "applicationCategory": "LifestyleApplication",
+              "url": "https://velourabeautyondemand.com"
+            })
+          }}
+        />
+        {/* Schema Block 2: Local Business */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
