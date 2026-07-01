@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: 'VÉLOURA Talent Agency: Luxury Makeup Artists & Photographers',
   description: 'Book professional beauty technicians to your door. VÉLOURA connects you with elite beauty professionals for mobile and at-home services.',
   alternates: {
-    canonical: 'https://velourabeautyondemand.com',
+    canonical: 'https://velourabeautyondemand.com/',
   },
   icons: {
     apple: [
@@ -44,7 +44,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://velourabeautyondemand.com" />
         {/* Schema Block 1: Mobile Application */}
         <script
           type="application/ld+json"
