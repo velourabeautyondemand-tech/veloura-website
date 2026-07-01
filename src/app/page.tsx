@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout, Clock, Home, CheckCircle, ShieldCheck, Zap, Star } from 'lucide-react';
 import Image from 'next/image';
@@ -8,6 +7,13 @@ import Footer from '@/components/shared/footer';
 import { SubscribeForm } from '@/components/features/subscribe-form';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DiscountPopup } from '@/components/features/discount-popup';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
 
 const useCases = [
   {

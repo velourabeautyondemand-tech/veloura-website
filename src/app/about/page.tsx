@@ -5,6 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Award, HandHeart, Sparkles, Users, Linkedin, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/about',
+  },
+};
 
 export default function AboutPage() {
     const values = [

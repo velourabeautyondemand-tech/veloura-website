@@ -1,9 +1,15 @@
-
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { MapPin, Home, Building2, Palmtree, Navigation } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/beauty-services-near-me',
+  },
+};
 
 export default function BeautyServicesNearMePage() {
     const locations = [

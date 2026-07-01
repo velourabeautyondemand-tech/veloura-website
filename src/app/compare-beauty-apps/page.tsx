@@ -1,9 +1,15 @@
-
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Check, X, Star, Users, Camera, Layout } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/compare-beauty-apps',
+  },
+};
 
 export default function CompareBeautyAppsPage() {
     return (

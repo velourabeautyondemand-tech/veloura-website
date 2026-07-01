@@ -1,4 +1,3 @@
-
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { services } from '@/lib/data';
@@ -7,6 +6,13 @@ import { Clock, Phone, FileText, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReviewsSection } from '@/components/features/reviews-section';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/services',
+  },
+};
 
 export default function ServicesPage() {
     const serviceCategories = [
