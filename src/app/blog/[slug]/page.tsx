@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
@@ -11,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, Clock, Calendar, Loader2 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { use } from 'react';
+import { blogPosts as legacyPosts } from '@/lib/blog-data';
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -22,7 +22,11 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     return doc(firestore, 'blogPosts', slug);
   }, [firestore, slug]);
 
-  const { data: post, isLoading, error } = useDoc(postRef);
+  const { data: firestorePost, isLoading, error } = useDoc(postRef);
+
+  // Check legacy posts if firestore post is not found and loading is done
+  const legacyPost = !firestorePost && !isLoading ? legacyPosts.find(p => p.slug === slug) : null;
+  const post = firestorePost || legacyPost;
 
   if (isLoading) {
     return (
@@ -36,9 +40,11 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     );
   }
 
-  if (error || (!isLoading && !post)) {
+  if (!post) {
     return notFound();
   }
+
+  const publishedDate = post.publishedAt || post.date;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -64,19 +70,19 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    {new Date(publishedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    5 min read
+                    {post.readTime || "5 min read"}
                   </div>
                 </div>
               </div>
 
-              {post.heroImageUrl && (
+              {(post.heroImageUrl || post.imageUrl) && (
                 <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl">
                   <Image
-                    src={post.heroImageUrl}
+                    src={post.heroImageUrl || post.imageUrl}
                     alt={post.title}
                     fill
                     className="object-cover"
