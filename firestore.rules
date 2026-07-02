@@ -21,6 +21,11 @@ service cloud.firestore {
       allow delete: if isSignedIn() && isOwner(userId);
     }
 
+    match /blogPosts/{slug} {
+      allow get, list: if true;
+      allow write: if false; // Only manageable via webhook/admin
+    }
+
     match /technician_applications/{applicationId} {
       allow get: if true;
       allow list: if true;

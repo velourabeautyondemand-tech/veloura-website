@@ -1,41 +1,42 @@
-import { notFound } from 'next/navigation';
+
+'use client';
+
+import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
+import { doc } from 'firebase/firestore';
 import Link from 'next/link';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, Clock, Calendar } from 'lucide-react';
-import { blogPosts } from '@/lib/blog-data';
+import { ChevronLeft, Clock, Calendar, Loader2 } from 'lucide-react';
+import { notFound } from 'next/navigation';
+import { use } from 'react';
 
-async function getExternalBlogBySlug(slug: string) {
-  try {
-    const response = await fetch(`https://www.babylovegrowth.com/api/blogs/${slug}`, {
-      headers: {
-        'x-api-key': process.env.BABYLOVEGROWTH_BLOG_API_KEY || '',
-      },
-      next: { revalidate: 3600 }
-    });
-    if (!response.ok) return null;
-    const data = await response.json();
-    return data.blog || null;
-  } catch (e) {
-    return null;
-  }
-}
+export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = use(params);
+  const { slug } = resolvedParams;
+  const firestore = useFirestore();
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 3600;
+  const postRef = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return doc(firestore, 'blogPosts', slug);
+  }, [firestore, slug]);
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  
-  // Try to find in local data first, then external
-  let post = blogPosts.find(p => p.slug === slug);
-  if (!post) {
-    post = await getExternalBlogBySlug(slug);
+  const { data: post, isLoading, error } = useDoc(postRef);
+
+  if (isLoading) {
+    return (
+        <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1 flex items-center justify-center">
+                <Loader2 className="h-10 w-10 animate-spin text-primary" />
+            </main>
+            <Footer />
+        </div>
+    );
   }
 
-  if (!post) {
+  if (error || (!isLoading && !post)) {
     return notFound();
   }
 
@@ -63,19 +64,19 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    {new Date(post.date || post.createdAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    {new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    {post.readTime || "5 min read"}
+                    5 min read
                   </div>
                 </div>
               </div>
 
-              {post.imageUrl && (
+              {post.heroImageUrl && (
                 <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl">
                   <Image
-                    src={post.imageUrl}
+                    src={post.heroImageUrl}
                     alt={post.title}
                     fill
                     className="object-cover"

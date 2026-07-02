@@ -33,6 +33,23 @@
       },
       "required": ["id", "email", "role"]
     },
+    "BlogPost": {
+      "title": "Blog Post",
+      "type": "object",
+      "description": "A blog post synced from Ghost CMS.",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "slug": { "type": "string" },
+        "content": { "type": "string" },
+        "heroImageUrl": { "type": "string", "format": "uri" },
+        "excerpt": { "type": "string" },
+        "metaDescription": { "type": "string" },
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "required": ["title", "slug", "content", "publishedAt"]
+    },
     "TechnicianApplication": {
       "title": "Professional Application",
       "type": "object",
@@ -216,6 +233,12 @@
           "$ref": "#/entities/UserProfile"
         },
         "description": "Stores public user profiles."
+      },
+      "/blogPosts/{slug}": {
+        "schema": {
+          "$ref": "#/entities/BlogPost"
+        },
+        "description": "Stores blog posts synced from Ghost CMS."
       },
       "/technician_applications/{applicationId}": {
         "schema": {
