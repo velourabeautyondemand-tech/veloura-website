@@ -24,7 +24,15 @@ const SummarizeTechnicianReviewsOutputSchema = z.object({
 export type SummarizeTechnicianReviewsOutput = z.infer<typeof SummarizeTechnicianReviewsOutputSchema>;
 
 export async function summarizeTechnicianReviews(input: SummarizeTechnicianReviewsInput): Promise<SummarizeTechnicianReviewsOutput> {
-  return summarizeTechnicianReviewsFlow(input);
+  try {
+    return await summarizeTechnicianReviewsFlow(input);
+  } catch (error: any) {
+    console.error("Summarize Reviews Flow Error:", error);
+    const message = error.message?.includes('429') 
+      ? "AI review summarization is currently over capacity. Please read the individual reviews below."
+      : "Failed to summarize reviews. Please try again later.";
+    throw new Error(message);
+  }
 }
 
 const prompt = ai.definePrompt({
@@ -46,6 +54,9 @@ const summarizeTechnicianReviewsFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
-    return output!;
+    if (!output) {
+      throw new Error("No summary could be generated.");
+    }
+    return output;
   }
 );

@@ -42,7 +42,16 @@ Provide a suggested service name, a luxury-toned reasoning, and some helpful pro
 });
 
 export async function matchTalent(input: MatchTalentInput): Promise<MatchTalentOutput> {
-  return matchTalentFlow(input);
+  try {
+    return await matchTalentFlow(input);
+  } catch (error: any) {
+    console.error("Match Talent Flow Error:", error);
+    // Extract a cleaner error message if it's a quota issue
+    const message = error.message?.includes('429') 
+      ? "Our AI Concierge is currently at peak capacity. Please try again in a few moments or explore our services menu manually." 
+      : "We encountered a hiccup while matching you. Please try again or contact support.";
+    throw new Error(message);
+  }
 }
 
 const matchTalentFlow = ai.defineFlow(
@@ -52,12 +61,16 @@ const matchTalentFlow = ai.defineFlow(
     outputSchema: MatchTalentOutputSchema,
   },
   async (input) => {
-    // We pass the static services as context to the prompt
     const { output } = await prompt({
       ...input,
       // @ts-ignore - Handlebars context
       services: services.map(s => ({ name: s.name, description: s.description }))
     });
-    return output!;
+    
+    if (!output) {
+      throw new Error("No recommendation could be generated at this time.");
+    }
+    
+    return output;
   }
 );

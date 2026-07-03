@@ -6,23 +6,27 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2 } from 'lucide-react';
+import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle } from 'lucide-react';
 import { matchTalent, type MatchTalentOutput } from '@/ai/flows/match-talent-flow';
 import Link from 'next/link';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function MatchPage() {
   const [description, setDescription] = useState('');
   const [result, setResult] = useState<MatchTalentOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleMatch() {
     if (!description.trim()) return;
     setIsLoading(true);
+    setError(null);
     try {
       const data = await matchTalent({ description });
       setResult(data);
-    } catch (error) {
-      console.error('AI Matching Error:', error);
+    } catch (err: any) {
+      console.error('AI Matching Error:', err);
+      setError(err.message || 'The AI Concierge is currently unavailable. Please browse our services manually.');
     } finally {
       setIsLoading(false);
     }
@@ -44,6 +48,14 @@ export default function MatchPage() {
                 Tell us about your event, your style, or your vibe. Our AI concierge will recommend the perfect service and professional for you.
               </p>
             </div>
+
+            {error && (
+              <Alert variant="destructive" className="animate-in fade-in slide-in-from-top-4 duration-300 shadow-lg">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertTitle>Concierge Unavailable</AlertTitle>
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
 
             {!result ? (
               <Card className="shadow-2xl border-primary/10">
