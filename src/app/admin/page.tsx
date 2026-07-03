@@ -60,8 +60,7 @@ export default function AdminDashboardPage() {
   const isLoading = professionalsLoading || bookingsLoading || pendingApplicationsLoading;
   const lastWebhook = webhookLogs?.[0];
 
-  const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + b.totalAmount, 0) || 0;
-  const totalBookings = bookings?.length || 0;
+  const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + (b.totalAmount || 0), 0) || 0;
   const totalProfessionals = professionals?.length || 0;
   const pendingApplications = pendingApplicationsData?.length || 0;
 
