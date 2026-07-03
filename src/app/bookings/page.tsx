@@ -2,33 +2,40 @@
 "use client";
 
 import Link from 'next/link';
-import { Calendar, Tag, User, Clock } from 'lucide-react';
-import { bookings } from '@/lib/data';
+import { Calendar as CalendarIcon, Tag, User, Clock, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { useUser } from '@/firebase';
-import { Loader2 } from 'lucide-react';
+import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
+import { collection, query, where, orderBy } from 'firebase/firestore';
 
 export default function BookingsPage() {
   const { user, isUserLoading } = useUser();
+  const firestore = useFirestore();
 
-  // MOCK: We will use a hardcoded customer ID for now.
-  // In a real app, you would use user.uid
-  const customerId = 'c1'; 
+  const bookingsQuery = useMemoFirebase(() => {
+    if (!firestore || !user) return null;
+    return query(
+        collection(firestore, 'bookings'),
+        where('customerId', '==', user.uid),
+        orderBy('createdAt', 'desc')
+    );
+  }, [firestore, user]);
 
-  const upcomingBookings = bookings.filter(b => b.customerId === customerId && b.status === 'upcoming');
-  const pastBookings = bookings.filter(b => b.customerId === customerId && b.status !== 'upcoming');
+  const { data: dbBookings, isLoading: isBookingsLoading } = useCollection(bookingsQuery);
 
-  const BookingCard = ({ booking }: { booking: typeof bookings[0] }) => (
-    <Card className="shadow-md hover:shadow-lg transition-shadow">
+  const upcomingBookings = (dbBookings || []).filter(b => b.status === 'pending' || b.status === 'confirmed');
+  const pastBookings = (dbBookings || []).filter(b => b.status === 'completed' || b.status === 'cancelled');
+
+  const BookingCard = ({ booking }: { booking: any }) => (
+    <Card className="shadow-md hover:shadow-lg transition-shadow border-primary/10">
       <CardHeader>
-        <CardTitle className="font-headline flex justify-between items-start">
+        <CardTitle className="font-headline flex justify-between items-start text-lg">
           {booking.serviceName}
-          <Badge variant={booking.status === 'completed' ? 'secondary' : booking.status === 'cancelled' ? 'destructive' : 'default'}>
+          <Badge variant={booking.status === 'completed' ? 'secondary' : booking.status === 'cancelled' ? 'destructive' : 'accent'}>
             {booking.status}
           </Badge>
         </CardTitle>
@@ -38,36 +45,25 @@ export default function BookingsPage() {
       </CardHeader>
       <CardContent className="space-y-2">
         <div className="flex items-center text-sm text-muted-foreground">
-          <Calendar className="w-4 h-4 mr-2" /> {new Date(booking.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+          <CalendarIcon className="w-4 h-4 mr-2" /> {new Date(booking.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
         <div className="flex items-center text-sm text-muted-foreground">
           <Clock className="w-4 h-4 mr-2" /> {booking.time}
         </div>
         <div className="flex items-center text-sm font-semibold text-primary">
-          <Tag className="w-4 h-4 mr-2" /> ${booking.price.toFixed(2)}
+          <Tag className="w-4 h-4 mr-2" /> ${booking.totalAmount?.toFixed(2)}
         </div>
       </CardContent>
        <CardFooter>
-            {booking.status === 'upcoming' && (
-                <Button variant="outline" size="sm">Cancel / Reschedule</Button>
+            {booking.status === 'pending' && (
+                <Button variant="outline" size="sm" className="w-full">Cancel Request</Button>
             )}
             {booking.status === 'completed' && (
-                 <Button variant="accent" size="sm">Book Again</Button>
+                 <Button variant="accent" size="sm" className="w-full">Book Again</Button>
             )}
       </CardFooter>
     </Card>
   );
-
-  const BookingList = ({ bookings }: { bookings: typeof pastBookings }) => {
-    if (bookings.length === 0) {
-      return <p className="text-center text-muted-foreground py-10">No bookings found in this category.</p>
-    }
-    return (
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {bookings.map(booking => <BookingCard key={booking.id} booking={booking} />)}
-      </div>
-    );
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -76,12 +72,12 @@ export default function BookingsPage() {
         <div className="container mx-auto px-4 md:px-6">
           <h1 className="text-3xl font-bold mb-8 font-headline">My Bookings</h1>
 
-           {isUserLoading ? (
+           {isUserLoading || isBookingsLoading ? (
             <div className="flex justify-center items-center py-20">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
            ) : !user ? (
-             <div className="text-center py-20 border-2 border-dashed rounded-lg">
+             <div className="text-center py-20 border-2 border-dashed rounded-lg bg-card">
               <h3 className="text-lg font-medium">Please Log In</h3>
               <p className="mt-2 text-sm text-muted-foreground">You need to be logged in to view your bookings.</p>
               <Button className="mt-6" asChild><Link href="/login">Log In</Link></Button>
@@ -89,14 +85,29 @@ export default function BookingsPage() {
            ) : (
             <Tabs defaultValue="upcoming">
                 <TabsList className="grid w-full grid-cols-2 md:w-[400px] mb-8">
-                    <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-                    <TabsTrigger value="past">Past</TabsTrigger>
+                    <TabsTrigger value="upcoming">Upcoming & Pending</TabsTrigger>
+                    <TabsTrigger value="past">History</TabsTrigger>
                 </TabsList>
                 <TabsContent value="upcoming">
-                    <BookingList bookings={upcomingBookings} />
+                    {upcomingBookings.length > 0 ? (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {upcomingBookings.map(b => <BookingCard key={b.id} booking={b} />)}
+                        </div>
+                    ) : (
+                        <div className="text-center py-20 bg-card rounded-xl border">
+                             <p className="text-muted-foreground">No upcoming bookings. Find your match today!</p>
+                             <Button asChild className="mt-6" variant="outline"><Link href="/match">Try AI Concierge</Link></Button>
+                        </div>
+                    )}
                 </TabsContent>
                 <TabsContent value="past">
-                     <BookingList bookings={pastBookings} />
+                     {pastBookings.length > 0 ? (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {pastBookings.map(b => <BookingCard key={b.id} booking={b} />)}
+                        </div>
+                    ) : (
+                        <p className="text-center text-muted-foreground py-10">No past bookings found.</p>
+                    )}
                 </TabsContent>
             </Tabs>
            )}

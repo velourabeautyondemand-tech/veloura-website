@@ -65,6 +65,26 @@
       },
       "required": ["title", "slug", "content", "publishedAt"]
     },
+    "Booking": {
+      "title": "Booking",
+      "type": "object",
+      "description": "An appointment booking between a customer and a professional.",
+      "properties": {
+        "id": { "type": "string" },
+        "customerId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "technicianId": { "type": "string" },
+        "technicianName": { "type": "string" },
+        "serviceId": { "type": "string" },
+        "serviceName": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "completed", "cancelled"] },
+        "totalAmount": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerId", "technicianId", "serviceId", "date", "time", "status"]
+    },
     "WebhookLog": {
       "title": "Webhook Log",
       "type": "object",
@@ -198,6 +218,12 @@
           "$ref": "#/entities/Service"
         },
         "description": "Stores the service menu."
+      },
+      "/bookings/{bookingId}": {
+        "schema": {
+          "$ref": "#/entities/Booking"
+        },
+        "description": "Stores appointment bookings."
       },
       "/webhook_logs/{logId}": {
         "schema": {

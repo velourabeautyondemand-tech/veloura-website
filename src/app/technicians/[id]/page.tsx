@@ -1,10 +1,10 @@
 
 'use client';
 
-import { notFound } from 'next/navigation';
-import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
-import { doc } from 'firebase/firestore';
-import { use } from 'react';
+import { notFound, useRouter } from 'next/navigation';
+import { useDoc, useFirestore, useMemoFirebase, useUser, addDocumentNonBlocking } from '@/firebase';
+import { doc, collection } from 'firebase/firestore';
+import { use, useState } from 'react';
 import { technicians as legacyTechs, services as allServices } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Header from '@/components/shared/header';
@@ -14,12 +14,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Calendar } from '@/components/ui/calendar';
-import { Star, MapPin, Sparkles, Calendar as CalendarIcon, Clock, Video, Loader2 } from 'lucide-react';
+import { Star, MapPin, Sparkles, Calendar as CalendarIcon, Clock, Video, Loader2, CheckCircle2 } from 'lucide-react';
 import ReviewSummarizer from '@/components/features/review-summarizer';
+import { useToast } from '@/hooks/use-toast';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export default function TechnicianProfilePage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
   const firestore = useFirestore();
+  const { user } = useUser();
+  const { toast } = useToast();
+  const router = useRouter();
+
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+  const [selectedServiceId, setSelectedServiceId] = useState<string | undefined>();
+  const [isBooking, setIsBooking] = useState(false);
 
   const techRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -28,7 +37,6 @@ export default function TechnicianProfilePage({ params }: { params: Promise<{ id
 
   const { data: firestoreTech, isLoading } = useDoc(techRef);
 
-  // Fallback to legacy data if not in firestore yet
   const legacyTech = !firestoreTech && !isLoading ? legacyTechs.find(t => t.id === resolvedParams.id) : null;
   const technician = firestoreTech || legacyTech;
 
@@ -50,6 +58,51 @@ export default function TechnicianProfilePage({ params }: { params: Promise<{ id
 
   const techAvatar = PlaceHolderImages.find(p => p.id === technician.avatarId);
   const techServices = (technician.services || []).map((serviceId: string) => allServices.find(s => s.id === serviceId)).filter(Boolean);
+
+  const handleBook = async () => {
+    if (!user) {
+        toast({ title: "Sign In Required", description: "Please log in to book a service." });
+        router.push('/login');
+        return;
+    }
+
+    if (!selectedServiceId || !selectedDate) {
+        toast({ title: "Missing Information", description: "Please select a service and a date." });
+        return;
+    }
+
+    const service = techServices.find(s => s.id === selectedServiceId);
+    if (!service) return;
+
+    setIsBooking(true);
+    try {
+        const bookingsCol = collection(firestore!, 'bookings');
+        addDocumentNonBlocking(bookingsCol, {
+            customerId: user.uid,
+            customerName: user.displayName || user.email,
+            technicianId: technician.id,
+            technicianName: technician.name,
+            serviceId: service.id,
+            serviceName: service.name,
+            date: selectedDate.toISOString().split('T')[0],
+            time: "10:00 AM", // Simplified for MVP
+            status: 'pending',
+            totalAmount: service.price || 0,
+            createdAt: new Date().toISOString()
+        });
+
+        toast({
+            title: "Booking Requested!",
+            description: `Your request for ${service.name} has been sent to ${technician.name}.`
+        });
+        
+        router.push('/bookings');
+    } catch (e) {
+        console.error(e);
+    } finally {
+        setIsBooking(false);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -97,18 +150,20 @@ export default function TechnicianProfilePage({ params }: { params: Promise<{ id
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="font-headline">Services</CardTitle>
+                  <CardTitle className="font-headline">Services Offered</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {techServices.map(service => service && (
-                     <div key={service.id} className="flex justify-between items-center p-3 rounded-lg bg-background hover:bg-muted/50 border border-primary/5">
+                     <div key={service.id} className="flex justify-between items-center p-4 rounded-lg bg-background border border-primary/5">
                         <div>
                             <h3 className="font-semibold">{service.name}</h3>
                             <p className="text-sm text-muted-foreground">{service.duration} mins</p>
                         </div>
+                        <div className="font-bold text-primary">
+                            ${service.price}
+                        </div>
                      </div>
                   ))}
-                  {techServices.length === 0 && <p className="text-muted-foreground italic">No specialized services listed.</p>}
                 </CardContent>
               </Card>
 
@@ -161,14 +216,44 @@ export default function TechnicianProfilePage({ params }: { params: Promise<{ id
                   <CardTitle className="font-headline text-2xl">Book an Appointment</CardTitle>
                   <CardDescription>Secure your spot with {technician.name.split(' ')[0]}.</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h3 className="font-semibold mb-2 flex items-center"><CalendarIcon className="w-4 h-4 mr-2" /> Select Date</h3>
-                    <Calendar mode="single" selected={new Date()} className="rounded-md border" disabled />
+                <CardContent className="space-y-6">
+                  <div className="space-y-2">
+                     <label className="text-sm font-semibold flex items-center gap-2"><Sparkles className="w-4 h-4 text-primary" /> Select Service</label>
+                     <Select onValueChange={setSelectedServiceId} value={selectedServiceId}>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Choose a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {techServices.map(s => (
+                                <SelectItem key={s.id} value={s.id}>{s.name} - ${s.price}</SelectItem>
+                            ))}
+                        </SelectContent>
+                     </Select>
                   </div>
-                  <Separator />
-                  <p className="text-sm text-center text-muted-foreground italic">Booking functionality will be enabled after your first content sync.</p>
-                  <Button size="lg" className="w-full text-lg" variant="accent" disabled>Request to Book</Button>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold flex items-center gap-2"><CalendarIcon className="w-4 h-4 text-primary" /> Select Date</label>
+                    <Calendar 
+                        mode="single" 
+                        selected={selectedDate} 
+                        onSelect={setSelectedDate} 
+                        className="rounded-md border bg-background" 
+                        disabled={(date) => date < new Date() || date.getDay() === 0}
+                    />
+                  </div>
+                  
+                  <Button 
+                    size="lg" 
+                    className="w-full text-lg font-bold" 
+                    variant="accent" 
+                    onClick={handleBook}
+                    disabled={isBooking}
+                  >
+                    {isBooking ? <Loader2 className="animate-spin" /> : "Request to Book"}
+                  </Button>
+                  <p className="text-[10px] text-center text-muted-foreground italic">
+                    By clicking book, you agree to VÉLOURA's Customer Policy and Cancellation terms.
+                  </p>
                 </CardContent>
               </Card>
             </div>
