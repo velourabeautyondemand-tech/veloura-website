@@ -23,6 +23,7 @@ export async function GET() {
   const staticRoutes = [
     '',
     '/services',
+    '/match',
     '/talent-agency',
     '/apply',
     '/pro-discounts',

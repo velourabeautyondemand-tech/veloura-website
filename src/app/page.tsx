@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout, Clock, Home, CheckCircle, ShieldCheck, Zap, Star } from 'lucide-react';
+import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout, Clock, Home, CheckCircle, ShieldCheck, Zap, Star, Wand2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -11,7 +11,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/',
+    canonical: 'https://velourabeautyondemand.com/',
   },
 };
 
@@ -131,48 +131,56 @@ export default function HomePage() {
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline uppercase">
                  VÉLOURA
               </h1>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mt-4 text-lg text-muted-foreground font-semibold">
                 Where technology meets beauty. One App. One Click.
               </p>
-               <div className="mt-10">
-                  <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Download the app</p>
-                  <div className="flex justify-center items-center gap-4 flex-wrap">
-                    <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
-                      <Image
-                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                        alt="Download on the App Store"
-                        width={150}
-                        height={50}
-                        className="h-12 w-auto transition-transform hover:scale-105"
-                      />
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
-                       <Image
-                        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                        alt="Get it on Google Play"
-                        width={170}
-                        height={50}
-                        className="h-14 w-auto transition-transform hover:scale-105"
-                      />
-                    </a>
+              
+               <div className="mt-12 flex flex-col items-center gap-6">
+                  <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-transform">
+                      <Link href="/match" className="flex items-center gap-2">
+                        <Wand2 className="w-6 h-6" />
+                        AI Concierge: Find Your Match
+                      </Link>
+                  </Button>
+                  
+                  <div className="flex flex-col items-center gap-4">
+                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground opacity-70">Download the VÉLOURA App</p>
+                    <div className="flex justify-center items-center gap-4 flex-wrap">
+                      <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
+                        <Image
+                          src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                          alt="Download on the App Store"
+                          width={150}
+                          height={50}
+                          className="h-10 w-auto transition-transform hover:scale-105"
+                        />
+                      </a>
+                      <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
+                         <Image
+                          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                          alt="Get it on Google Play"
+                          width={170}
+                          height={50}
+                          className="h-12 w-auto transition-transform hover:scale-105"
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              <p className="mt-10 text-xl font-bold text-primary">
+
+              <p className="mt-16 text-xl font-bold text-primary italic">
                 Launching Soon — Your Choice: We Come to You, or You Come to Us
               </p>
-              <div className="mt-2 font-bold tracking-[0.45rem] text-sm text-foreground/80">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5">Beauty on Demand</span></div>
-              <p className="mt-4 text-lg text-foreground">
-                Find professionals near you — no traffic, no parking, no waiting. Just more time for what matters.
-              </p>
+              <div className="mt-2 font-bold tracking-[0.45rem] text-sm text-foreground/80 uppercase">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5 lowercase">Beauty on Demand</span></div>
 
               {/* Interface Gallery */}
               <div className="mt-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                   {interfaceImages.map((img, index) => (
-                    <div key={index} className="relative aspect-[9/19.5] overflow-hidden shadow-2xl border-4 border-white ring-1 ring-black/5 hover:scale-105 transition-transform duration-500">
+                    <div key={index} className="relative aspect-[9/19.5] overflow-hidden shadow-2xl border-4 border-white ring-1 ring-black/5 hover:scale-105 transition-transform duration-500 rounded-2xl">
                       <Image
                         src={img!.imageUrl}
                         alt={img!.description}
@@ -186,6 +194,35 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* AI Concierge Promo Section */}
+        <section className="py-16 bg-primary text-primary-foreground overflow-hidden">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                    <div className="flex-1 space-y-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-widest">
+                            <Sparkles className="w-3.5 h-3.5" />
+                            <span>AI Talent Matcher</span>
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-bold font-headline leading-tight">Not sure what you need? <br /> Let our AI handle it.</h2>
+                        <p className="text-lg opacity-90 leading-relaxed">
+                            Tell the VÉLOURA AI Concierge about your event, your location, and your personal style. We'll find the perfect professional and service package tailored specifically for you.
+                        </p>
+                        <Button asChild variant="secondary" size="lg" className="h-14 px-10 text-primary font-bold rounded-full">
+                            <Link href="/match">
+                                Try the AI Concierge <ArrowRight className="ml-2 w-5 h-5" />
+                            </Link>
+                        </Button>
+                    </div>
+                    <div className="flex-1 relative aspect-square w-full max-sm mx-auto">
+                        <div className="absolute inset-0 bg-white/10 rounded-full animate-pulse scale-110"></div>
+                        <div className="bg-white/10 backdrop-blur-md rounded-full w-full h-full flex items-center justify-center border border-white/20 shadow-2xl">
+                            <Wand2 className="w-32 h-32 text-white opacity-90" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         {/* How to get salon services at home Section */}
@@ -272,7 +309,7 @@ export default function HomePage() {
 
         {/* Subscribe Section */}
         <section className="py-16 sm:py-24 bg-secondary/50">
-            <div className="container mx-auto px-4 md:px-6 max-w-xl text-center">
+            <div className="container mx-auto px-4 md:px-6 max-xl text-center">
                  <div className="flex items-center justify-center gap-2 mb-4">
                     <Newspaper className="h-5 w-5 text-primary"/>
                     <h3 className="font-semibold text-foreground text-xl">Stay in the loop!</h3>

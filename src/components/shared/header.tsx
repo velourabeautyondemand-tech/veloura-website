@@ -1,8 +1,7 @@
-
 "use client"
 
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { Menu, Sparkles } from "lucide-react"
 import { useUser, useAuth, useFirestore, useDoc, useMemoFirebase } from "@/firebase";
 import { doc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
@@ -20,12 +19,12 @@ import { NailIcon } from "./logo";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/match", label: "Find Your Match", icon: Sparkles },
   { href: "/talent-agency", label: "Talent Agency" },
   { href: "/apply", label: "Join Our Team" },
   { href: "/pro-discounts", label: "Our Partners" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "Our Story" },
-  { href: "/events", label: "Events" },
 ];
 
 function UserNavButtons() {
@@ -48,7 +47,7 @@ function UserNavButtons() {
   };
 
   if (isUserLoading) {
-    return null; // Or a loading spinner
+    return null;
   }
 
   if (!user) {
@@ -89,15 +88,16 @@ export default function Header() {
         <div className="mr-auto flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <NailIcon className="h-6 w-6" />
-            <span className="font-bold inline-block font-headline">VÉLOURA</span>
+            <span className="font-bold inline-block font-headline text-lg">VÉLOURA</span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden xl:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                className="transition-colors hover:text-foreground/80 text-foreground/60 flex items-center gap-1.5"
               >
+                {link.icon && <link.icon className="w-3.5 h-3.5 text-primary" />}
                 {link.label}
               </Link>
             ))}
@@ -113,7 +113,7 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="xl:hidden"
             >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle Menu</span>
@@ -125,7 +125,7 @@ export default function Header() {
               <div className="flex items-center border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
                   <NailIcon className="h-6 w-6" />
-                  <span className="font-bold">VÉLOURA</span>
+                  <span className="font-bold font-headline">VÉLOURA</span>
                 </Link>
               </div>
               <div className="flex-1 flex flex-col pt-6 space-y-4">
@@ -133,8 +133,9 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-lg font-medium transition-colors hover:text-primary"
+                    className="text-lg font-medium transition-colors hover:text-primary flex items-center gap-2"
                   >
+                    {link.icon && <link.icon className="w-4 h-4 text-primary" />}
                     {link.label}
                   </Link>
                 ))}
