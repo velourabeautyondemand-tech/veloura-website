@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -17,41 +18,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  ChartTooltip,
-  ChartTooltipContent,
-  ChartContainer,
-  ChartConfig,
-} from "@/components/ui/chart";
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart } from "recharts";
 import { Badge } from "@/components/ui/badge";
-import { Users, BookOpen, DollarSign, Loader2, Bell } from "lucide-react";
-import { useCollection, useFirestore, useMemoFirebase } from "@/firebase";
-import { collection, query, where } from "firebase/firestore";
+import { Button } from "@/components/ui/button";
+import { Users, BookOpen, DollarSign, Loader2, Bell, Database, RefreshCw, CheckCircle } from "lucide-react";
+import { useCollection, useFirestore, useMemoFirebase, setDocumentNonBlocking } from "@/firebase";
+import { collection, query, where, doc } from "firebase/firestore";
 import { cn } from "@/lib/utils";
-
-const chartData = [
-  { month: "January", revenue: 0, bookings: 0 },
-  { month: "February", revenue: 0, bookings: 0 },
-  { month: "March", revenue: 0, bookings: 0 },
-  { month: "April", revenue: 0, bookings: 0 },
-  { month: "May", revenue: 0, bookings: 0 },
-  { month: "June", revenue: 0, bookings: 0 },
-];
-
-const chartConfig = {
-  revenue: {
-    label: "Revenue",
-    color: "hsl(var(--primary))",
-  },
-  bookings: {
-    label: "Bookings",
-    color: "hsl(var(--accent))",
-  },
-} satisfies ChartConfig;
+import { services as staticServices, technicians as staticTechs } from "@/lib/data";
 
 export default function AdminDashboardPage() {
   const firestore = useFirestore();
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [syncDone, setSyncDone] = useState(false);
 
   const professionalsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -79,14 +57,56 @@ export default function AdminDashboardPage() {
   const totalProfessionals = professionals?.length || 0;
   const pendingApplications = pendingApplicationsData?.length || 0;
 
+  const handleSyncData = async () => {
+    if (!firestore) return;
+    setIsSyncing(true);
+    try {
+      // Sync Services
+      staticServices.forEach((service) => {
+        const serviceRef = doc(firestore, 'services', service.id);
+        setDocumentNonBlocking(serviceRef, service, { merge: true });
+      });
+
+      // Sync Technicians (Approved)
+      staticTechs.forEach((tech) => {
+        const techRef = doc(firestore, 'technicians', tech.id);
+        setDocumentNonBlocking(techRef, {
+          ...tech,
+          applicationStatus: 'approved'
+        }, { merge: true });
+      });
+
+      setSyncDone(true);
+      setTimeout(() => setSyncDone(false), 3000);
+    } catch (e) {
+      console.error("Sync Error:", e);
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-3xl font-bold font-headline">Overview</h2>
+        <Button 
+          variant="outline" 
+          onClick={handleSyncData} 
+          disabled={isSyncing}
+          className={cn(syncDone && "border-green-500 text-green-600")}
+        >
+          {isSyncing ? <RefreshCw className="mr-2 h-4 w-4 animate-spin" /> : syncDone ? <CheckCircle className="mr-2 h-4 w-4" /> : <Database className="mr-2 h-4 w-4" />}
+          {isSyncing ? "Syncing..." : syncDone ? "System Synced" : "Sync Static Data"}
+        </Button>
+      </div>
+
        {isLoading && (
           <div className="flex justify-center items-center py-10">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
             <p className="ml-4">Loading dashboard data...</p>
           </div>
         )}
+
       {!isLoading && (
       <>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -126,7 +146,7 @@ export default function AdminDashboardPage() {
             pendingApplications > 0 && "bg-primary/10 border-primary animate-pulse"
             )}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">New Professional Applications</CardTitle>
+              <CardTitle className="text-sm font-medium">New Applications</CardTitle>
               <Bell className={cn("h-4 w-4 text-muted-foreground", pendingApplications > 0 && "text-primary")} />
             </CardHeader>
             <CardContent>
@@ -135,43 +155,6 @@ export default function AdminDashboardPage() {
             </CardContent>
           </Card>
         </Link>
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Revenue Overview</CardTitle>
-            <CardDescription>Monthly revenue for the last 6 months (Static Data).</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[250px] w-full">
-              <LineChart data={chartData}>
-                <CartesianGrid vertical={false} />
-                <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
-                <YAxis />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <Line dataKey="revenue" type="monotone" stroke="var(--color-revenue)" strokeWidth={2} dot={false} />
-              </LineChart>
-            </ChartContainer>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Bookings Overview</CardTitle>
-            <CardDescription>Monthly bookings for the last 6 months (Static Data).</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[250px] w-full">
-                <BarChart data={chartData}>
-                    <CartesianGrid vertical={false} />
-                    <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
-                    <YAxis />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="bookings" fill="var(--color-bookings)" radius={4} />
-                </BarChart>
-            </ChartContainer>
-          </CardContent>
-        </Card>
       </div>
 
       <Card>

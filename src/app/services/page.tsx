@@ -1,33 +1,36 @@
+
+'use client';
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { services } from '@/lib/data';
+import { services as legacyServices } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { Clock, Phone, FileText, ShieldCheck } from 'lucide-react';
+import { Clock, Phone, FileText, ShieldCheck, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReviewsSection } from '@/components/features/reviews-section';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: '/services',
-  },
-};
+import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
+import { collection, query } from 'firebase/firestore';
 
 export default function ServicesPage() {
-    const serviceCategories = [
-        { title: 'NAILs', services: services.filter(s => s.category === 'NAILs') },
-        { title: 'Pedicures', services: services.filter(s => s.category === 'Pedicures') },
-        { title: 'Nail Enhancements', services: services.filter(s => s.category === 'Nail Enhancements') },
-        { title: 'Glow & Skin Wellness', services: services.filter(s => s.category === 'Glow & Skin Wellness') },
-        { title: 'Makeup', services: services.filter(s => s.category === 'Makeup') },
-        { title: 'Hair', services: services.filter(s => s.category === 'Hair') },
-        { title: 'Photography', services: services.filter(s => s.category === 'Photography') },
-        { title: 'Event Coordination', services: services.filter(s => s.category === 'Event Coordination') },
-        { title: 'VIP Packages', services: services.filter(s => s.category === 'VIP Packages') },
+    const firestore = useFirestore();
+
+    const servicesQuery = useMemoFirebase(() => {
+        if (!firestore) return null;
+        return query(collection(firestore, 'services'));
+    }, [firestore]);
+
+    const { data: firestoreServices, isLoading } = useCollection(servicesQuery);
+
+    // Merge static and firestore services, prioritizing firestore
+    const allServices = firestoreServices?.length ? firestoreServices : legacyServices;
+
+    const categories = [
+        'NAILs', 'Pedicures', 'Nail Enhancements', 'Glow & Skin Wellness', 
+        'Makeup', 'Hair', 'Photography', 'Event Coordination', 'VIP Packages'
     ];
 
-    const ServiceListItem = ({ service }: { service: typeof services[0] }) => {
+    const ServiceListItem = ({ service }: { service: any }) => {
         return (
             <div key={service.id} className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-xl bg-card border shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="flex-1">
@@ -46,7 +49,6 @@ export default function ServicesPage() {
         );
     }
 
-
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -61,19 +63,31 @@ export default function ServicesPage() {
                             Explore our curated list of beauty, photography, event planning, and more — all delivered to you.
                         </p>
                     </div>
+
+                    {isLoading && (
+                        <div className="flex justify-center py-20">
+                            <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                        </div>
+                    )}
                     
-                    <div className="max-w-5xl mx-auto space-y-16">
-                        {serviceCategories.map(category => category.services.length > 0 && (
-                            <section key={category.title} id={category.title.toLowerCase().replace(/ /g, '-')} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <h2 className="text-2xl font-bold tracking-tight mb-6 font-headline text-primary border-b border-primary/10 pb-2">{category.title}</h2>
-                                <div className="space-y-4">
-                                    {category.services.map((service) => (
-                                        <ServiceListItem key={service.id} service={service} />
-                                    ))}
-                                </div>
-                            </section>
-                        ))}
-                    </div>
+                    {!isLoading && (
+                        <div className="max-w-5xl mx-auto space-y-16">
+                            {categories.map(catTitle => {
+                                const filtered = allServices.filter(s => s.category === catTitle);
+                                if (filtered.length === 0) return null;
+                                return (
+                                    <section key={catTitle} id={catTitle.toLowerCase().replace(/ /g, '-')} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                        <h2 className="text-2xl font-bold tracking-tight mb-6 font-headline text-primary border-b border-primary/10 pb-2">{catTitle}</h2>
+                                        <div className="space-y-4">
+                                            {filtered.map((service) => (
+                                                <ServiceListItem key={service.id} service={service} />
+                                            ))}
+                                        </div>
+                                    </section>
+                                );
+                            })}
+                        </div>
+                    )}
 
                     <div className="mt-24">
                         <ReviewsSection />
@@ -112,31 +126,6 @@ export default function ServicesPage() {
                             </Button>
                         </section>
                     </div>
-
-                     <section className="text-center mt-24 bg-primary/5 rounded-2xl p-12 max-w-4xl mx-auto border border-primary/10">
-                        <h2 className="text-3xl font-bold font-headline mb-4">Download Our App</h2>
-                        <p className="text-lg text-muted-foreground mb-8">Ready to book? Download our app to explore more services and schedule your next luxury experience instantly.</p>
-                        <div className="flex justify-center items-center gap-6 flex-wrap">
-                            <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                    alt="Download on the App Store"
-                                    width={150}
-                                    height={50}
-                                    className="h-12 w-auto transition-transform hover:scale-105"
-                                />
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                                    alt="Get it on Google Play"
-                                    width={170}
-                                    height={50}
-                                    className="h-14 w-auto transition-transform hover:scale-105"
-                                />
-                            </a>
-                        </div>
-                    </section>
                 </div>
             </main>
             <Footer />

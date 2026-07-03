@@ -33,6 +33,21 @@
       },
       "required": ["id", "email", "role"]
     },
+    "Service": {
+      "title": "Service",
+      "type": "object",
+      "description": "Represents a beauty or lifestyle service.",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "duration": { "type": "string" },
+        "imageId": { "type": "string" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "name", "category"]
+    },
     "BlogPost": {
       "title": "Blog Post",
       "type": "object",
@@ -193,31 +208,6 @@
         }
       },
       "required": ["email", "subscribedAt"]
-    },
-    "ContactInquiry": {
-      "title": "Contact Inquiry",
-      "type": "object",
-      "description": "Represents a general contact form submission.",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string",
-          "format": "email"
-        },
-        "subject": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "submittedAt": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "required": ["name", "email", "subject", "message", "submittedAt"]
     }
   },
   "auth": {
@@ -239,6 +229,12 @@
           "$ref": "#/entities/BlogPost"
         },
         "description": "Stores blog posts synced from Ghost CMS."
+      },
+      "/services/{serviceId}": {
+        "schema": {
+          "$ref": "#/entities/Service"
+        },
+        "description": "Stores the service menu."
       },
       "/technician_applications/{applicationId}": {
         "schema": {
@@ -269,12 +265,6 @@
           "$ref": "#/entities/Subscriber"
         },
         "description": "Stores email addresses of users who subscribed for news."
-      },
-      "/contact_inquiries/{inquiryId}": {
-        "schema": {
-          "$ref": "#/entities/ContactInquiry"
-        },
-        "description": "Stores general contact form submissions."
       }
     }
   }

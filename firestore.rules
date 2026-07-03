@@ -23,7 +23,12 @@ service cloud.firestore {
 
     match /blogPosts/{slug} {
       allow get, list: if true;
-      allow write: if false; // Only manageable via webhook/admin
+      allow write: if false; 
+    }
+
+    match /services/{serviceId} {
+      allow get, list: if true;
+      allow write: if isAdmin();
     }
 
     match /technician_applications/{applicationId} {
