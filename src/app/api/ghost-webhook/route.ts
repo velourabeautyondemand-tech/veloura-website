@@ -1,37 +1,53 @@
-
 import { NextResponse } from 'next/server';
 import { initializeFirebase } from '@/firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const post = body.post?.current;
-
-    if (!post) {
-      return NextResponse.json({ error: 'Invalid Ghost webhook payload' }, { status: 400 });
-    }
+    
+    // Ghost sends 'post' object for post-related events
+    const postCurrent = body.post?.current;
+    const postPrevious = body.post?.previous;
 
     const { firestore } = initializeFirebase();
 
-    // Map Ghost fields to Firestore schema
-    const mappedPost = {
-      id: post.id,
-      title: post.title,
-      slug: post.slug,
-      content: post.html,
-      heroImageUrl: post.feature_image || null,
-      excerpt: post.excerpt || null,
-      metaDescription: post.meta_description || null,
-      publishedAt: post.published_at,
-      url: post.url,
-      updatedAt: new Date().toISOString(),
-    };
+    // Handle Deletion
+    if (!postCurrent && postPrevious?.slug) {
+      const docRef = doc(firestore, 'blogPosts', postPrevious.slug);
+      await deleteDoc(docRef);
+      return NextResponse.json({ success: true, message: 'Post deleted' }, { status: 200 });
+    }
 
-    const docRef = doc(firestore, 'blogPosts', post.slug);
-    await setDoc(docRef, mappedPost, { merge: true });
+    if (!postCurrent) {
+      return NextResponse.json({ error: 'Invalid Ghost webhook payload' }, { status: 400 });
+    }
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    const docRef = doc(firestore, 'blogPosts', postCurrent.slug);
+
+    // Only save/update if status is published
+    if (postCurrent.status === 'published') {
+        const mappedPost = {
+          id: postCurrent.id,
+          title: postCurrent.title,
+          slug: postCurrent.slug,
+          content: postCurrent.html,
+          heroImageUrl: postCurrent.feature_image || null,
+          excerpt: postCurrent.excerpt || null,
+          metaDescription: postCurrent.meta_description || null,
+          publishedAt: postCurrent.published_at,
+          url: postCurrent.url,
+          updatedAt: new Date().toISOString(),
+          status: postCurrent.status
+        };
+        await setDoc(docRef, mappedPost, { merge: true });
+        return NextResponse.json({ success: true, message: 'Post synced' }, { status: 200 });
+    } else {
+        // If it's a draft or scheduled, remove it from the live site if it was previously there
+        await deleteDoc(docRef);
+        return NextResponse.json({ success: true, message: 'Non-published post removed from live site' }, { status: 200 });
+    }
+
   } catch (error: any) {
     console.error('Ghost Webhook Error:', error);
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
