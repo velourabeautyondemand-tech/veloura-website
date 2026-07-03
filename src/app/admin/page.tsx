@@ -49,16 +49,16 @@ export default function AdminDashboardPage() {
 
   const webhookLogsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    return query(collection(firestore, 'webhook_logs'), orderBy('receivedAt', 'desc'), limit(1));
+    return query(collection(firestore, 'webhook_logs'), orderBy('receivedAt', 'desc'), limit(5));
   }, [firestore]);
 
   const { data: professionals, isLoading: professionalsLoading } = useCollection(professionalsQuery);
   const { data: bookings, isLoading: bookingsLoading } = useCollection(bookingsQuery);
   const { data: pendingApplicationsData, isLoading: pendingApplicationsLoading } = useCollection(pendingApplicationsQuery);
-  const { data: lastWebhookLogs, isLoading: webhookLoading } = useCollection(webhookLogsQuery);
+  const { data: webhookLogs, isLoading: webhookLoading } = useCollection(webhookLogsQuery);
 
   const isLoading = professionalsLoading || bookingsLoading || pendingApplicationsLoading;
-  const lastWebhook = lastWebhookLogs?.[0];
+  const lastWebhook = webhookLogs?.[0];
 
   const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + b.totalAmount, 0) || 0;
   const totalBookings = bookings?.length || 0;
@@ -217,9 +217,9 @@ export default function AdminDashboardPage() {
             <CardContent>
                 {webhookLoading ? (
                     <div className="flex justify-center py-6"><Loader2 className="animate-spin h-6 w-6" /></div>
-                ) : lastWebhookLogs && lastWebhookLogs.length > 0 ? (
+                ) : webhookLogs && webhookLogs.length > 0 ? (
                     <div className="space-y-4">
-                        {lastWebhookLogs.slice(0, 5).map((log, i) => (
+                        {webhookLogs.map((log, i) => (
                             <div key={i} className="flex items-center justify-between text-sm border-b pb-2 last:border-0">
                                 <div>
                                     <p className="font-bold">{log.event}</p>
