@@ -32,7 +32,11 @@ export default function BlogPage() {
             isDynamic: true
         })),
         ...legacyPosts.filter(lp => !(firestorePosts || []).some(fp => fp.slug === lp.slug))
-    ].sort((a, b) => new Date(b.date || b.publishedAt).getTime() - new Date(a.date || a.publishedAt).getTime());
+    ].sort((a, b) => {
+        const dateA = new Date(a.publishedAt || a.date).getTime();
+        const dateB = new Date(b.publishedAt || b.date).getTime();
+        return dateB - dateA;
+    });
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -85,7 +89,7 @@ export default function BlogPage() {
                                     </CardHeader>
                                     <CardContent className="flex-grow">
                                         <CardDescription className="text-sm leading-relaxed line-clamp-3">
-                                            {post.excerpt || post.metaDescription}
+                                            {post.excerpt || post.metaDescription || "Read more about this topic on our blog."}
                                         </CardDescription>
                                     </CardContent>
                                     <CardFooter className="pt-0 pb-6 px-6">
