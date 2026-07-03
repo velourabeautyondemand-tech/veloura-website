@@ -5,20 +5,6 @@ import { collection, getDocs } from 'firebase/firestore';
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
-async function getExternalBlogSlugs() {
-  try {
-    const response = await fetch('https://www.babylovegrowth.com/api/blogs', {
-      headers: { 'x-api-key': process.env.BABYLOVEGROWTH_BLOG_API_KEY || '' },
-      next: { revalidate: 3600 }
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-    return (data.blogs || []).map((b: any) => b.slug);
-  } catch (e) {
-    return [];
-  }
-}
-
 async function getFirestoreBlogSlugs() {
   try {
     const { firestore } = initializeFirebase();
@@ -64,11 +50,10 @@ export async function GET() {
     '/vendor-partners'
   ];
 
-  const externalSlugs = await getExternalBlogSlugs();
   const firestoreSlugs = await getFirestoreBlogSlugs();
   const legacySlugs = legacyPosts.map(p => p.slug);
   
-  const allSlugs = Array.from(new Set([...legacySlugs, ...externalSlugs, ...firestoreSlugs]));
+  const allSlugs = Array.from(new Set([...legacySlugs, ...firestoreSlugs]));
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;

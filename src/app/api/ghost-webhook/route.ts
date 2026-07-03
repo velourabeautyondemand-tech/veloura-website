@@ -12,11 +12,11 @@ export async function POST(request: Request) {
 
     const { firestore } = initializeFirebase();
 
-    // Handle Deletion
+    // Handle Deletion or Unpublishing
     if (!postCurrent && postPrevious?.slug) {
       const docRef = doc(firestore, 'blogPosts', postPrevious.slug);
       await deleteDoc(docRef);
-      return NextResponse.json({ success: true, message: 'Post deleted' }, { status: 200 });
+      return NextResponse.json({ success: true, message: 'Post deleted from website' }, { status: 200 });
     }
 
     if (!postCurrent) {
@@ -35,17 +35,18 @@ export async function POST(request: Request) {
           heroImageUrl: postCurrent.feature_image || null,
           excerpt: postCurrent.excerpt || null,
           metaDescription: postCurrent.meta_description || null,
-          publishedAt: postCurrent.published_at,
+          publishedAt: postCurrent.published_at || new Date().toISOString(),
           url: postCurrent.url,
           updatedAt: new Date().toISOString(),
-          status: postCurrent.status
+          status: postCurrent.status,
+          category: "Lifestyle" // Default category
         };
         await setDoc(docRef, mappedPost, { merge: true });
-        return NextResponse.json({ success: true, message: 'Post synced' }, { status: 200 });
+        return NextResponse.json({ success: true, message: 'Post synced to website' }, { status: 200 });
     } else {
-        // If it's a draft or scheduled, remove it from the live site if it was previously there
+        // If it's switched back to draft or scheduled, remove it from the live site
         await deleteDoc(docRef);
-        return NextResponse.json({ success: true, message: 'Non-published post removed from live site' }, { status: 200 });
+        return NextResponse.json({ success: true, message: 'Post hidden from website (status changed)' }, { status: 200 });
     }
 
   } catch (error: any) {
