@@ -5,6 +5,10 @@ import { collection, getDocs } from 'firebase/firestore';
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
+// Ghost API Configuration
+const GHOST_URL = 'https://veloura-beauty-on-demand.ghost.io';
+const GHOST_CONTENT_KEY = '29a6cc12d143f907f50654a724';
+
 async function getFirestoreBlogSlugs() {
   try {
     const { firestore } = initializeFirebase();
@@ -12,6 +16,18 @@ async function getFirestoreBlogSlugs() {
     return querySnapshot.docs.map(doc => doc.id);
   } catch (e) {
     console.error('Sitemap Firestore Fetch Error:', e);
+    return [];
+  }
+}
+
+async function getGhostApiSlugs() {
+  try {
+    const res = await fetch(`${GHOST_URL}/ghost/api/content/posts/?key=${GHOST_CONTENT_KEY}&fields=slug&limit=all`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return (data.posts || []).map((p: any) => p.slug);
+  } catch (e) {
+    console.error('Sitemap Ghost API Fetch Error:', e);
     return [];
   }
 }
@@ -52,9 +68,11 @@ export async function GET() {
   ];
 
   const firestoreSlugs = await getFirestoreBlogSlugs();
+  const ghostApiSlugs = await getGhostApiSlugs();
   const legacySlugs = legacyPosts.map(p => p.slug);
   
-  const allSlugs = Array.from(new Set([...legacySlugs, ...firestoreSlugs]));
+  // Combine all sources and remove duplicates
+  const allSlugs = Array.from(new Set([...legacySlugs, ...firestoreSlugs, ...ghostApiSlugs]));
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;

@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, DollarSign, Loader2, Bell, Database, RefreshCw, CheckCircle, Activity, Globe } from "lucide-react";
+import { Users, BookOpen, DollarSign, Loader2, Bell, Database, RefreshCw, CheckCircle, Activity, Globe, Link2 } from "lucide-react";
 import { useCollection, useFirestore, useMemoFirebase, setDocumentNonBlocking } from "@/firebase";
 import { collection, query, where, doc, orderBy, limit } from "firebase/firestore";
 import { cn } from "@/lib/utils";
@@ -208,36 +208,48 @@ export default function AdminDashboardPage() {
             </CardContent>
         </Card>
 
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-2"><Activity className="w-5 h-5 text-primary" /> Recent Sync Activity</CardTitle>
-                <CardDescription>Logs from your Ghost CMS webhook connection.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                {webhookLoading ? (
-                    <div className="flex justify-center py-6"><Loader2 className="animate-spin h-6 w-6" /></div>
-                ) : webhookLogs && webhookLogs.length > 0 ? (
-                    <div className="space-y-4">
-                        {webhookLogs.map((log, i) => (
-                            <div key={i} className="flex items-center justify-between text-sm border-b pb-2 last:border-0">
-                                <div>
-                                    <p className="font-bold">{log.event}</p>
-                                    <p className="text-xs text-muted-foreground">{log.payloadSummary}</p>
+        <div className="space-y-6">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2"><Activity className="w-5 h-5 text-primary" /> Recent Sync Activity</CardTitle>
+                    <CardDescription>Logs from your Ghost CMS webhook connection.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {webhookLoading ? (
+                        <div className="flex justify-center py-6"><Loader2 className="animate-spin h-6 w-6" /></div>
+                    ) : webhookLogs && webhookLogs.length > 0 ? (
+                        <div className="space-y-4">
+                            {webhookLogs.map((log, i) => (
+                                <div key={i} className="flex items-center justify-between text-sm border-b pb-2 last:border-0">
+                                    <div>
+                                        <p className="font-bold">{log.event}</p>
+                                        <p className="text-xs text-muted-foreground">{log.payloadSummary}</p>
+                                    </div>
+                                    <div className="text-right">
+                                        <p className={cn("text-xs font-bold", log.status === 'error' ? "text-destructive" : "text-green-600")}>
+                                            {log.status.toUpperCase()}
+                                        </p>
+                                        <p className="text-[10px] text-muted-foreground">{format(new Date(log.receivedAt), "MMM d, HH:mm:ss")}</p>
+                                    </div>
                                 </div>
-                                <div className="text-right">
-                                    <p className={cn("text-xs font-bold", log.status === 'error' ? "text-destructive" : "text-green-600")}>
-                                        {log.status.toUpperCase()}
-                                    </p>
-                                    <p className="text-[10px] text-muted-foreground">{format(new Date(log.receivedAt), "MMM d, HH:mm:ss")}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    <p className="text-center text-muted-foreground py-10 text-sm italic">No webhook activity recorded yet.</p>
-                )}
-            </CardContent>
-        </Card>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-center text-muted-foreground py-10 text-sm italic">No webhook activity recorded yet.</p>
+                    )}
+                </CardContent>
+            </Card>
+
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-sm"><Link2 className="w-4 h-4 text-primary" /> Ghost API Config</CardTitle>
+                </CardHeader>
+                <CardContent className="text-[10px] font-mono opacity-50 space-y-1">
+                    <p>URL: https://veloura-beauty-on-demand.ghost.io</p>
+                    <p>CONTENT KEY: 29a6...5a26</p>
+                </CardContent>
+            </Card>
+        </div>
       </div>
       </>
       )}
