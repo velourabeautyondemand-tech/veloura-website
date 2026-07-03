@@ -31,6 +31,11 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    match /webhook_logs/{logId} {
+        allow read: if isAdmin();
+        allow write: if false; // Only written via server-side Route Handler
+    }
+
     match /technician_applications/{applicationId} {
       allow get: if true;
       allow list: if true;

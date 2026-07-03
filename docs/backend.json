@@ -65,6 +65,19 @@
       },
       "required": ["title", "slug", "content", "publishedAt"]
     },
+    "WebhookLog": {
+      "title": "Webhook Log",
+      "type": "object",
+      "description": "Logs of incoming webhook activity for health monitoring.",
+      "properties": {
+        "source": { "type": "string" },
+        "event": { "type": "string" },
+        "receivedAt": { "type": "string", "format": "date-time" },
+        "status": { "type": "string" },
+        "payloadSummary": { "type": "string" }
+      },
+      "required": ["source", "receivedAt", "status"]
+    },
     "TechnicianApplication": {
       "title": "Professional Application",
       "type": "object",
@@ -143,56 +156,6 @@
       },
       "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "applicationStatus", "licenseNumber"]
     },
-    "PressInquiry": {
-      "title": "Press Inquiry",
-      "type": "object",
-      "description": "Represents a press inquiry submission.",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "publication": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string",
-          "format": "email"
-        },
-        "message": {
-          "type": "string"
-        },
-        "submittedAt": {
-            "type": "string",
-            "format": "date-time"
-        }
-      },
-      "required": ["name", "publication", "email", "message", "submittedAt"]
-    },
-    "PartnershipInquiry": {
-      "title": "Partnership Inquiry",
-      "type": "object",
-      "description": "Represents a partnership inquiry submission.",
-      "properties": {
-        "companyName": {
-          "type": "string"
-        },
-        "contactName": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string",
-          "format": "email"
-        },
-        "message": {
-          "type": "string"
-        },
-        "submittedAt": {
-            "type": "string",
-            "format": "date-time"
-        }
-      },
-      "required": ["companyName", "contactName", "email", "message", "submittedAt"]
-    },
     "Subscriber": {
       "title": "Subscriber",
       "type": "object",
@@ -236,6 +199,12 @@
         },
         "description": "Stores the service menu."
       },
+      "/webhook_logs/{logId}": {
+        "schema": {
+          "$ref": "#/entities/WebhookLog"
+        },
+        "description": "Logs of incoming webhook activity."
+      },
       "/technician_applications/{applicationId}": {
         "schema": {
           "$ref": "#/entities/TechnicianApplication"
@@ -247,18 +216,6 @@
           "$ref": "#/entities/Technician"
         },
         "description": "Stores profiles of approved and active professionals."
-      },
-       "/press_inquiries/{inquiryId}": {
-        "schema": {
-          "$ref": "#/entities/PressInquiry"
-        },
-        "description": "Stores submitted press inquiries."
-      },
-      "/partnership_inquiries/{inquiryId}": {
-        "schema": {
-            "$ref": "#/entities/PartnershipInquiry"
-        },
-        "description": "Stores submitted partnership inquiries."
       },
       "/subscribers/{subscriberId}": {
         "schema": {

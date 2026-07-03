@@ -1,8 +1,21 @@
+
 import { NextResponse } from 'next/server';
 import { initializeFirebase } from '@/firebase';
-import { doc, setDoc, deleteDoc } from 'firebase/firestore';
+import { doc, setDoc, deleteDoc, addDoc, collection } from 'firebase/firestore';
+
+export async function GET() {
+  return NextResponse.json({ 
+    status: 'online', 
+    service: 'Ghost Webhook Handler',
+    timestamp: new Date().toISOString(),
+    instructions: 'Point your Ghost "Post updated" webhook to this URL.'
+  }, { status: 200 });
+}
 
 export async function POST(request: Request) {
+  const { firestore } = initializeFirebase();
+  const receivedAt = new Date().toISOString();
+
   try {
     const body = await request.json();
     
@@ -10,7 +23,14 @@ export async function POST(request: Request) {
     const postCurrent = body.post?.current;
     const postPrevious = body.post?.previous;
 
-    const { firestore } = initializeFirebase();
+    // Log the incoming request for health verification
+    await addDoc(collection(firestore, 'webhook_logs'), {
+      source: 'Ghost',
+      event: postCurrent ? 'Post Sync' : 'Handshake/Unknown',
+      receivedAt,
+      status: 'received',
+      payloadSummary: postCurrent?.title || postPrevious?.slug || 'No data'
+    });
 
     // Handle Deletion or Unpublishing
     if (!postCurrent && postPrevious?.slug) {
@@ -51,6 +71,20 @@ export async function POST(request: Request) {
 
   } catch (error: any) {
     console.error('Ghost Webhook Error:', error);
+    
+    // Log failure
+    try {
+        await addDoc(collection(firestore, 'webhook_logs'), {
+            source: 'Ghost',
+            event: 'Failure',
+            receivedAt,
+            status: 'error',
+            errorMessage: error.message
+        });
+    } catch (logError) {
+        console.error('Failed to log webhook error:', logError);
+    }
+
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }

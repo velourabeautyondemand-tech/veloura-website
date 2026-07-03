@@ -20,11 +20,12 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, DollarSign, Loader2, Bell, Database, RefreshCw, CheckCircle } from "lucide-react";
+import { Users, BookOpen, DollarSign, Loader2, Bell, Database, RefreshCw, CheckCircle, Activity, Globe } from "lucide-react";
 import { useCollection, useFirestore, useMemoFirebase, setDocumentNonBlocking } from "@/firebase";
-import { collection, query, where, doc } from "firebase/firestore";
+import { collection, query, where, doc, orderBy, limit } from "firebase/firestore";
 import { cn } from "@/lib/utils";
 import { services as staticServices, technicians as staticTechs } from "@/lib/data";
+import { format } from "date-fns";
 
 export default function AdminDashboardPage() {
   const firestore = useFirestore();
@@ -46,11 +47,18 @@ export default function AdminDashboardPage() {
     return query(collection(firestore, 'technician_applications'), where('applicationStatus', '==', 'pending'));
   }, [firestore]);
 
+  const webhookLogsQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, 'webhook_logs'), orderBy('receivedAt', 'desc'), limit(1));
+  }, [firestore]);
+
   const { data: professionals, isLoading: professionalsLoading } = useCollection(professionalsQuery);
   const { data: bookings, isLoading: bookingsLoading } = useCollection(bookingsQuery);
   const { data: pendingApplicationsData, isLoading: pendingApplicationsLoading } = useCollection(pendingApplicationsQuery);
+  const { data: lastWebhookLogs, isLoading: webhookLoading } = useCollection(webhookLogsQuery);
 
   const isLoading = professionalsLoading || bookingsLoading || pendingApplicationsLoading;
+  const lastWebhook = lastWebhookLogs?.[0];
 
   const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + b.totalAmount, 0) || 0;
   const totalBookings = bookings?.length || 0;
@@ -89,15 +97,17 @@ export default function AdminDashboardPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-bold font-headline">Overview</h2>
-        <Button 
-          variant="outline" 
-          onClick={handleSyncData} 
-          disabled={isSyncing}
-          className={cn(syncDone && "border-green-500 text-green-600")}
-        >
-          {isSyncing ? <RefreshCw className="mr-2 h-4 w-4 animate-spin" /> : syncDone ? <CheckCircle className="mr-2 h-4 w-4" /> : <Database className="mr-2 h-4 w-4" />}
-          {isSyncing ? "Syncing..." : syncDone ? "System Synced" : "Sync Static Data"}
-        </Button>
+        <div className="flex gap-4">
+            <Button 
+                variant="outline" 
+                onClick={handleSyncData} 
+                disabled={isSyncing}
+                className={cn(syncDone && "border-green-500 text-green-600")}
+            >
+                {isSyncing ? <RefreshCw className="mr-2 h-4 w-4 animate-spin" /> : syncDone ? <CheckCircle className="mr-2 h-4 w-4" /> : <Database className="mr-2 h-4 w-4" />}
+                {isSyncing ? "Syncing..." : syncDone ? "System Synced" : "Sync Static Data"}
+            </Button>
+        </div>
       </div>
 
        {isLoading && (
@@ -120,16 +130,22 @@ export default function AdminDashboardPage() {
             <p className="text-xs text-muted-foreground">Based on completed bookings</p>
           </CardContent>
         </Card>
-        <Card>
+        
+        <Card className={cn(lastWebhook ? "border-green-200 bg-green-50/30" : "bg-card")}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Bookings</CardTitle>
-            <BookOpen className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium">Ghost Sync Health</CardTitle>
+            <Globe className={cn("h-4 w-4", lastWebhook ? "text-green-600" : "text-muted-foreground")} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+{totalBookings}</div>
-            <p className="text-xs text-muted-foreground">All time bookings</p>
+            <div className="text-xl font-bold uppercase tracking-tight">
+                {lastWebhook ? "Connected" : "No Sync Yet"}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+                {lastWebhook ? `Last ping: ${format(new Date(lastWebhook.receivedAt), "MMM d, HH:mm")}` : "Waiting for first post update"}
+            </p>
           </CardContent>
         </Card>
+
          <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Professionals</CardTitle>
@@ -140,6 +156,7 @@ export default function AdminDashboardPage() {
              <p className="text-xs text-muted-foreground">Total registered professionals</p>
           </CardContent>
         </Card>
+
         <Link href="/admin/applications">
           <Card className={cn(
             "transition-all hover:shadow-lg",
@@ -157,43 +174,72 @@ export default function AdminDashboardPage() {
         </Link>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Bookings</CardTitle>
-          <CardDescription>An overview of the most recent bookings.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Customer ID</TableHead>
-                <TableHead>Professional ID</TableHead>
-                <TableHead>Service ID</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {bookings?.slice(0, 5).map(booking => (
-                <TableRow key={booking.id}>
-                  <TableCell className="font-mono text-xs">{booking.customerId}</TableCell>
-                  <TableCell className="font-mono text-xs">{booking.technicianId}</TableCell>
-                  <TableCell className="font-mono text-xs">{booking.serviceId}</TableCell>
-                  <TableCell>
-                    <Badge variant={booking.status === 'completed' ? 'secondary' : booking.status === 'cancelled' ? 'destructive' : 'default'}>{booking.status}</Badge>
-                  </TableCell>
-                  <TableCell className="text-right">${booking.totalAmount?.toFixed(2) || '0.00'}</TableCell>
-                </TableRow>
-              ))}
-               {(!bookings || bookings.length === 0) && (
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card>
+            <CardHeader>
+            <CardTitle>Recent Bookings</CardTitle>
+            <CardDescription>An overview of the most recent bookings.</CardDescription>
+            </CardHeader>
+            <CardContent>
+            <Table>
+                <TableHeader>
                 <TableRow>
-                    <TableCell colSpan={5} className="text-center text-muted-foreground py-10">No bookings found.</TableCell>
+                    <TableHead>Customer</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-right">Amount</TableHead>
                 </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+                </TableHeader>
+                <TableBody>
+                {bookings?.slice(0, 5).map(booking => (
+                    <TableRow key={booking.id}>
+                    <TableCell className="font-mono text-xs">{booking.customerName || booking.customerId}</TableCell>
+                    <TableCell>
+                        <Badge variant={booking.status === 'completed' ? 'secondary' : booking.status === 'cancelled' ? 'destructive' : 'default'}>{booking.status}</Badge>
+                    </TableCell>
+                    <TableCell className="text-right">${booking.totalAmount?.toFixed(2) || '0.00'}</TableCell>
+                    </TableRow>
+                ))}
+                {(!bookings || bookings.length === 0) && (
+                    <TableRow>
+                        <TableCell colSpan={3} className="text-center text-muted-foreground py-10">No bookings found.</TableCell>
+                    </TableRow>
+                )}
+                </TableBody>
+            </Table>
+            </CardContent>
+        </Card>
+
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2"><Activity className="w-5 h-5 text-primary" /> Recent Sync Activity</CardTitle>
+                <CardDescription>Logs from your Ghost CMS webhook connection.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                {webhookLoading ? (
+                    <div className="flex justify-center py-6"><Loader2 className="animate-spin h-6 w-6" /></div>
+                ) : lastWebhookLogs && lastWebhookLogs.length > 0 ? (
+                    <div className="space-y-4">
+                        {lastWebhookLogs.slice(0, 5).map((log, i) => (
+                            <div key={i} className="flex items-center justify-between text-sm border-b pb-2 last:border-0">
+                                <div>
+                                    <p className="font-bold">{log.event}</p>
+                                    <p className="text-xs text-muted-foreground">{log.payloadSummary}</p>
+                                </div>
+                                <div className="text-right">
+                                    <p className={cn("text-xs font-bold", log.status === 'error' ? "text-destructive" : "text-green-600")}>
+                                        {log.status.toUpperCase()}
+                                    </p>
+                                    <p className="text-[10px] text-muted-foreground">{format(new Date(log.receivedAt), "MMM d, HH:mm:ss")}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-center text-muted-foreground py-10 text-sm italic">No webhook activity recorded yet.</p>
+                )}
+            </CardContent>
+        </Card>
+      </div>
       </>
       )}
     </div>
