@@ -1,4 +1,3 @@
-
 import { NextResponse } from 'next/server';
 import { initializeFirebase } from '@/firebase';
 import { doc, setDoc, addDoc, collection } from 'firebase/firestore';
