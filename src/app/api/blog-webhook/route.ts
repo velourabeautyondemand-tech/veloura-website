@@ -10,31 +10,52 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  let firestoreInstance;
+  const receivedAt = new Date().toISOString();
+  
   try {
+    const { firestore } = initializeFirebase();
+    firestoreInstance = firestore;
+
     // 1. Validate Authorization Bearer Token
     const authHeader = request.headers.get('authorization');
-    if (!authHeader || !authHeader.startsWith('Bearer ') || authHeader.split(' ')[1] !== BABYLOVEGROWTH_WEBHOOK_SECRET) {
+    const token = authHeader?.startsWith('Bearer ') ? authHeader.split(' ')[1] : null;
+
+    if (!token || token !== BABYLOVEGROWTH_WEBHOOK_SECRET) {
+      // Log unauthorized attempt
+      await addDoc(collection(firestore, 'webhook_logs'), {
+        source: 'BabyLoveGrowth',
+        event: 'Sync Attempt',
+        receivedAt,
+        status: 'error',
+        payloadSummary: 'Unauthorized: Invalid or missing Bearer token'
+      });
       return NextResponse.json({ status: 'error', message: 'Unauthorized' }, { status: 401 });
     }
 
     // 2. Parse payload
     const payload = await request.json();
-    const receivedAt = new Date().toISOString();
     
     // 3. Validate mandatory fields
     if (!payload.slug || !payload.title || !payload.content_html) {
-      return NextResponse.json({ status: 'error', message: 'Missing required fields: slug, title, or content_html' }, { status: 400 });
+      await addDoc(collection(firestore, 'webhook_logs'), {
+        source: 'BabyLoveGrowth',
+        event: 'Sync Attempt',
+        receivedAt,
+        status: 'error',
+        payloadSummary: `Missing fields: ${!payload.slug ? 'slug ' : ''}${!payload.title ? 'title ' : ''}${!payload.content_html ? 'content' : ''}`
+      });
+      return NextResponse.json({ status: 'error', message: 'Missing required fields' }, { status: 400 });
     }
 
-    // 4. Initialize and Write to Firestore
-    const { firestore } = initializeFirebase();
+    // 4. Map and Write to Firestore
     const docRef = doc(firestore, 'blogPosts', payload.slug);
 
     const mappedPost = {
-      id: payload.id,
+      id: payload.id?.toString() || payload.slug,
       title: payload.title,
       slug: payload.slug,
-      content: payload.content_html, // Mapped for site rendering
+      content: payload.content_html,
       metaDescription: payload.metaDescription || null,
       heroImageUrl: payload.heroImageUrl || null,
       content_markdown: payload.content_markdown || null,
@@ -48,25 +69,36 @@ export async function POST(request: Request) {
       status: 'published'
     };
 
-    // Use internal sync
     await setDoc(docRef, mappedPost, { merge: true });
 
-    // Log the sync for Admin Dashboard visibility
+    // Log the success
     await addDoc(collection(firestore, 'webhook_logs'), {
       source: 'BabyLoveGrowth',
       event: 'Article Sync',
       receivedAt,
       status: 'success',
-      payloadSummary: payload.title
+      payloadSummary: `Synced: ${payload.title}`
     });
 
-    // 5. Return EXACT required success response
     return NextResponse.json({ status: "success" }, { status: 200 });
 
   } catch (error: any) {
     console.error('BabyLoveGrowth Webhook Error:', error);
     
-    // Ensure errors return JSON
+    if (firestoreInstance) {
+        try {
+            await addDoc(collection(firestoreInstance, 'webhook_logs'), {
+                source: 'BabyLoveGrowth',
+                event: 'Sync Failure',
+                receivedAt,
+                status: 'error',
+                payloadSummary: error.message
+            });
+        } catch (logErr) {
+            console.error('Failed to log error to Firestore:', logErr);
+        }
+    }
+
     return NextResponse.json({ 
       status: 'error', 
       message: error.message 

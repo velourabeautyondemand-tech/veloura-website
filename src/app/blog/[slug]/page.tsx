@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
@@ -14,7 +15,7 @@ import { blogPosts as legacyPosts } from '@/lib/blog-data';
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
-  const { slug } = resolvedParams;
+  const slug = decodeURIComponent(resolvedParams.slug);
   const firestore = useFirestore();
 
   const postRef = useMemoFirebase(() => {

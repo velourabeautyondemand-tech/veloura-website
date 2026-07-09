@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, DollarSign, Loader2, Bell, Database, RefreshCw, CheckCircle, Activity, Globe, Link2 } from "lucide-react";
+import { Users, BookOpen, DollarSign, Loader2, Bell, Database, RefreshCw, CheckCircle, Activity, Globe, Link2, AlertCircle } from "lucide-react";
 import { useCollection, useFirestore, useMemoFirebase, setDocumentNonBlocking } from "@/firebase";
 import { collection, query, where, doc, orderBy, limit } from "firebase/firestore";
 import { cn } from "@/lib/utils";
@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
 
   const webhookLogsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
-    return query(collection(firestore, 'webhook_logs'), orderBy('receivedAt', 'desc'), limit(5));
+    return query(collection(firestore, 'webhook_logs'), orderBy('receivedAt', 'desc'), limit(10));
   }, [firestore]);
 
   const { data: professionals, isLoading: professionalsLoading } = useCollection(professionalsQuery);
@@ -58,7 +58,7 @@ export default function AdminDashboardPage() {
   const { data: webhookLogs, isLoading: webhookLoading } = useCollection(webhookLogsQuery);
 
   const isLoading = professionalsLoading || bookingsLoading || pendingApplicationsLoading;
-  const lastWebhook = webhookLogs?.[0];
+  const lastWebhook = webhookLogs?.find(l => l.status === 'success' || l.status === 'received');
 
   const totalRevenue = bookings?.filter(b => b.status === 'completed').reduce((sum, b) => sum + (b.totalAmount || 0), 0) || 0;
   const totalProfessionals = professionals?.length || 0;
@@ -68,13 +68,11 @@ export default function AdminDashboardPage() {
     if (!firestore) return;
     setIsSyncing(true);
     try {
-      // Sync Services
       staticServices.forEach((service) => {
         const serviceRef = doc(firestore, 'services', service.id);
         setDocumentNonBlocking(serviceRef, service, { merge: true });
       });
 
-      // Sync Technicians (Approved)
       staticTechs.forEach((tech) => {
         const techRef = doc(firestore, 'technicians', tech.id);
         setDocumentNonBlocking(techRef, {
@@ -132,7 +130,7 @@ export default function AdminDashboardPage() {
         
         <Card className={cn(lastWebhook ? "border-green-200 bg-green-50/30" : "bg-card")}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Ghost Sync Health</CardTitle>
+            <CardTitle className="text-sm font-medium">CMS Sync Health</CardTitle>
             <Globe className={cn("h-4 w-4", lastWebhook ? "text-green-600" : "text-muted-foreground")} />
           </CardHeader>
           <CardContent>
@@ -140,7 +138,7 @@ export default function AdminDashboardPage() {
                 {lastWebhook ? "Connected" : "No Sync Yet"}
             </div>
             <p className="text-xs text-muted-foreground mt-1">
-                {lastWebhook ? `Last ping: ${format(new Date(lastWebhook.receivedAt), "MMM d, HH:mm")}` : "Waiting for first post update"}
+                {lastWebhook ? `Last sync: ${format(new Date(lastWebhook.receivedAt), "MMM d, HH:mm")}` : "Waiting for first update"}
             </p>
           </CardContent>
         </Card>
@@ -211,8 +209,8 @@ export default function AdminDashboardPage() {
         <div className="space-y-6">
             <Card>
                 <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><Activity className="w-5 h-5 text-primary" /> Recent Sync Activity</CardTitle>
-                    <CardDescription>Logs from your Ghost CMS webhook connection.</CardDescription>
+                    <CardTitle className="flex items-center gap-2"><Activity className="w-5 h-5 text-primary" /> Sync Activity Logs</CardTitle>
+                    <CardDescription>Real-time logs from external CMS webhooks.</CardDescription>
                 </CardHeader>
                 <CardContent>
                     {webhookLoading ? (
@@ -221,15 +219,21 @@ export default function AdminDashboardPage() {
                         <div className="space-y-4">
                             {webhookLogs.map((log, i) => (
                                 <div key={i} className="flex items-center justify-between text-sm border-b pb-2 last:border-0">
-                                    <div>
-                                        <p className="font-bold">{log.event}</p>
-                                        <p className="text-xs text-muted-foreground">{log.payloadSummary}</p>
+                                    <div className="flex items-start gap-3">
+                                        {log.status === 'error' ? <AlertCircle className="w-4 h-4 text-destructive mt-0.5" /> : <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />}
+                                        <div>
+                                            <p className="font-bold flex items-center gap-2">
+                                                {log.source} 
+                                                <span className="text-[10px] font-normal px-1.5 py-0.5 bg-muted rounded uppercase">{log.event}</span>
+                                            </p>
+                                            <p className="text-xs text-muted-foreground line-clamp-1">{log.payloadSummary}</p>
+                                        </div>
                                     </div>
-                                    <div className="text-right">
-                                        <p className={cn("text-xs font-bold", log.status === 'error' ? "text-destructive" : "text-green-600")}>
-                                            {log.status.toUpperCase()}
+                                    <div className="text-right shrink-0">
+                                        <p className={cn("text-[10px] font-bold uppercase", log.status === 'error' ? "text-destructive" : "text-green-600")}>
+                                            {log.status}
                                         </p>
-                                        <p className="text-[10px] text-muted-foreground">{format(new Date(log.receivedAt), "MMM d, HH:mm:ss")}</p>
+                                        <p className="text-[10px] text-muted-foreground">{format(new Date(log.receivedAt), "MMM d, HH:mm")}</p>
                                     </div>
                                 </div>
                             ))}
@@ -242,11 +246,19 @@ export default function AdminDashboardPage() {
 
             <Card>
                 <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-sm"><Link2 className="w-4 h-4 text-primary" /> Ghost API Config</CardTitle>
+                    <CardTitle className="flex items-center gap-2 text-sm"><Link2 className="w-4 h-4 text-primary" /> API Configurations</CardTitle>
                 </CardHeader>
-                <CardContent className="text-[10px] font-mono opacity-50 space-y-1">
-                    <p>URL: https://veloura-beauty-on-demand.ghost.io</p>
-                    <p>CONTENT KEY: 29a6...5a26</p>
+                <CardContent className="text-[10px] font-mono opacity-60 space-y-2">
+                    <div>
+                        <p className="font-bold text-foreground">Ghost CMS:</p>
+                        <p>URL: https://veloura-beauty-on-demand.ghost.io</p>
+                        <p>Endpoint: /api/ghost-webhook</p>
+                    </div>
+                    <div>
+                        <p className="font-bold text-foreground">BabyLoveGrowth:</p>
+                        <p>Endpoint: /api/blog-webhook</p>
+                        <p>Auth: Bearer Token Required</p>
+                    </div>
                 </CardContent>
             </Card>
         </div>
