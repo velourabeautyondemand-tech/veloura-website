@@ -25,10 +25,10 @@ export async function POST(request: Request) {
       // Log unauthorized attempt
       await addDoc(collection(firestore, 'webhook_logs'), {
         source: 'BabyLoveGrowth',
-        event: 'Sync Attempt',
+        event: 'Auth Failure',
         receivedAt,
         status: 'error',
-        payloadSummary: 'Unauthorized: Invalid or missing Bearer token'
+        payloadSummary: `Unauthorized: Invalid or missing token. Header: ${authHeader?.substring(0, 15)}...`
       });
       return NextResponse.json({ status: 'error', message: 'Unauthorized' }, { status: 401 });
     }
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     if (!payload.slug || !payload.title || !payload.content_html) {
       await addDoc(collection(firestore, 'webhook_logs'), {
         source: 'BabyLoveGrowth',
-        event: 'Sync Attempt',
+        event: 'Validation Failure',
         receivedAt,
         status: 'error',
         payloadSummary: `Missing fields: ${!payload.slug ? 'slug ' : ''}${!payload.title ? 'title ' : ''}${!payload.content_html ? 'content' : ''}`
@@ -48,13 +48,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ status: 'error', message: 'Missing required fields' }, { status: 400 });
     }
 
-    // 4. Map and Write to Firestore
-    const docRef = doc(firestore, 'blogPosts', payload.slug);
+    // 4. Sanitize and Map Slug
+    const cleanSlug = payload.slug.toString().trim().replace(/^\//, '').replace(/\/$/, '');
+    const docRef = doc(firestore, 'blogPosts', cleanSlug);
 
     const mappedPost = {
-      id: payload.id?.toString() || payload.slug,
+      id: payload.id?.toString() || cleanSlug,
       title: payload.title,
-      slug: payload.slug,
+      slug: cleanSlug,
       content: payload.content_html,
       metaDescription: payload.metaDescription || null,
       heroImageUrl: payload.heroImageUrl || null,
@@ -69,6 +70,7 @@ export async function POST(request: Request) {
       status: 'published'
     };
 
+    // Use setDoc for atomicity
     await setDoc(docRef, mappedPost, { merge: true });
 
     // Log the success
@@ -77,7 +79,7 @@ export async function POST(request: Request) {
       event: 'Article Sync',
       receivedAt,
       status: 'success',
-      payloadSummary: `Synced: ${payload.title}`
+      payloadSummary: `Synced: ${payload.title} (Slug: ${cleanSlug})`
     });
 
     return NextResponse.json({ status: "success" }, { status: 200 });
@@ -89,7 +91,7 @@ export async function POST(request: Request) {
         try {
             await addDoc(collection(firestoreInstance, 'webhook_logs'), {
                 source: 'BabyLoveGrowth',
-                event: 'Sync Failure',
+                event: 'Critical Error',
                 receivedAt,
                 status: 'error',
                 payloadSummary: error.message

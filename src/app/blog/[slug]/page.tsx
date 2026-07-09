@@ -8,9 +8,8 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, Clock, Calendar, Loader2 } from 'lucide-react';
-import { notFound } from 'next/navigation';
-import { use } from 'react';
+import { ChevronLeft, Clock, Calendar, Loader2, AlertTriangle, Search } from 'lucide-react';
+import { use, useEffect, useState } from 'react';
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -41,8 +40,35 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     );
   }
 
+  // Improved Error and Not Found state for debugging
   if (!post) {
-    return notFound();
+    return (
+        <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1 flex items-center justify-center bg-secondary/30 py-24">
+                <div className="max-w-md w-full bg-card p-8 rounded-2xl shadow-xl text-center border-2 border-dashed border-primary/20">
+                    <Search className="h-16 w-16 mx-auto text-primary mb-6 opacity-40" />
+                    <h1 className="text-3xl font-bold font-headline mb-4">Post Not Found</h1>
+                    <p className="text-muted-foreground mb-8">
+                        We couldn't find the article you're looking for. <br />
+                        <span className="text-xs font-mono bg-muted px-2 py-1 rounded mt-2 inline-block">ID: {slug}</span>
+                    </p>
+                    <div className="space-y-4">
+                        <Button asChild className="w-full">
+                            <Link href="/blog">Browse All Articles</Link>
+                        </Button>
+                        <Button asChild variant="outline" className="w-full">
+                            <Link href="/">Back to Home</Link>
+                        </Button>
+                    </div>
+                    {error && (
+                        <p className="mt-6 text-xs text-destructive italic">Error details: {error.message}</p>
+                    )}
+                </div>
+            </main>
+            <Footer />
+        </div>
+    );
   }
 
   const publishedDate = post.publishedAt || post.date;
