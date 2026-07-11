@@ -21,7 +21,7 @@ export default function BlogPage() {
         return query(collection(firestore, 'blogPosts'), orderBy('publishedAt', 'desc'));
     }, [firestore]);
 
-    const { data: firestorePosts, isLoading, error } = useCollection(servicesQuery);
+    const { data: firestorePosts, isLoading, error } = useCollection(postsQuery);
 
     // Combine legacy static posts with new dynamic posts from Firestore
     // Sort combined list by date descending
@@ -34,8 +34,8 @@ export default function BlogPage() {
         })),
         ...legacyPosts.filter(lp => !(firestorePosts || []).some(fp => fp.slug === lp.slug))
     ].sort((a, b) => {
-        const dateA = new Date(a.publishedAt || a.date).getTime();
-        const dateB = new Date(b.publishedAt || b.date).getTime();
+        const dateA = new Date(a.publishedAt || a.date || 0).getTime();
+        const dateB = new Date(b.publishedAt || b.date || 0).getTime();
         return dateB - dateA;
     });
 
