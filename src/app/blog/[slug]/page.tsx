@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
@@ -8,9 +7,10 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, Clock, Calendar, Loader2, AlertTriangle, Search } from 'lucide-react';
-import { use, useEffect, useState } from 'react';
+import { ChevronLeft, Clock, Calendar, Loader2, Search } from 'lucide-react';
+import { use } from 'react';
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
+import { GhostSignupForm } from '@/components/features/ghost-signup-form';
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -40,7 +40,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     );
   }
 
-  // Improved Error and Not Found state for debugging
   if (!post) {
     return (
         <div className="flex flex-col min-h-screen">
@@ -123,6 +122,10 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
             </article>
+
+            <div className="mt-16">
+              <GhostSignupForm />
+            </div>
 
             <div className="mt-16 pt-8 border-t">
                <Button asChild variant="outline">

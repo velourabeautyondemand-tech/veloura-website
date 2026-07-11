@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
 import { collection, query, orderBy } from 'firebase/firestore';
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
+import { GhostSignupForm } from '@/components/features/ghost-signup-form';
 
 export default function BlogPage() {
     const firestore = useFirestore();
@@ -20,7 +21,7 @@ export default function BlogPage() {
         return query(collection(firestore, 'blogPosts'), orderBy('publishedAt', 'desc'));
     }, [firestore]);
 
-    const { data: firestorePosts, isLoading, error } = useCollection(postsQuery);
+    const { data: firestorePosts, isLoading, error } = useCollection(servicesQuery);
 
     // Combine legacy static posts with new dynamic posts from Firestore
     // Sort combined list by date descending
@@ -109,6 +110,10 @@ export default function BlogPage() {
                             <p className="text-muted-foreground">New stories coming soon. Stay tuned!</p>
                         </div>
                     )}
+
+                    <div className="mt-20">
+                        <GhostSignupForm />
+                    </div>
                 </div>
             </main>
             <Footer />
