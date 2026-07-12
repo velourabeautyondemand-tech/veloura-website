@@ -24,7 +24,7 @@ export default function BlogPage() {
     const { data: firestorePosts, isLoading, error } = useCollection(postsQuery);
 
     // Combine legacy static posts with new dynamic posts from Firestore
-    // Sort combined list by date descending
+    // Sort combined list by date descending with safe date parsing
     const allPosts = [
         ...(firestorePosts || []).map(p => ({
             ...p,
@@ -99,7 +99,7 @@ export default function BlogPage() {
                                         <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
                                             <div className="flex items-center gap-1">
                                                 <Calendar className="w-3 h-3" />
-                                                {new Date(post.publishedAt || post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                                                {post.publishedAt || post.date ? new Date(post.publishedAt || post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'Recent'}
                                             </div>
                                             <div className="flex items-center gap-1">
                                                 <Clock className="w-3 h-3" />

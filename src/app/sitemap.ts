@@ -1,10 +1,40 @@
 import { MetadataRoute } from 'next';
-import { blogPosts } from '@/lib/blog-data';
+import { blogPosts as legacyPosts } from '@/lib/blog-data';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
 import { getAllPublishedSEONodes } from '@/lib/seo-marketplace';
+import { initializeFirebase } from '@/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
+
+// Ghost API Configuration
+const GHOST_URL = 'https://velourabeautyondemand.com/blog'; // Updated to point to the subfolder or main domain
+const GHOST_CONTENT_KEY = '29a6cc12d143f907f50654a724';
+
+async function getFirestoreBlogSlugs() {
+  try {
+    const { firestore } = initializeFirebase();
+    const querySnapshot = await getDocs(collection(firestore, 'blogPosts'));
+    return querySnapshot.docs.map(doc => doc.id);
+  } catch (e) {
+    console.error('Sitemap Firestore Fetch Error:', e);
+    return [];
+  }
+}
+
+async function getGhostApiSlugs() {
+  try {
+    // Note: This fetch might fail during build if networking is restricted or env vars are missing
+    const res = await fetch(`https://veloura-beauty-on-demand.ghost.io/ghost/api/content/posts/?key=${GHOST_CONTENT_KEY}&fields=slug&limit=all`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return (data.posts || []).map((p: any) => p.slug);
+  } catch (e) {
+    console.error('Sitemap Ghost API Fetch Error:', e);
+    return [];
+  }
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://velourabeautyondemand.com';
@@ -27,7 +57,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/partner-agreement',
     '/partner-press',
     '/reliability-policy',
-    '/customer-policy'
+    '/customer-policy',
+    '/beauty-professional-jobs',
+    '/beauty-services-near-me',
+    '/best-mobile-beauty-platform',
+    '/home-beauty-services',
+    '/join-as-hair-stylist',
+    '/join-as-makeup-artist',
+    '/join-as-photographer',
+    '/on-demand-beauty-app',
+    '/compare-beauty-apps',
+    '/hotel-partners',
+    '/vendor-partners'
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -69,9 +110,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
-  // Blog Posts
-  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+  // Dynamic Blog Posts (Firestore + Ghost + Legacy)
+  const firestoreSlugs = await getFirestoreBlogSlugs();
+  const ghostApiSlugs = await getGhostApiSlugs();
+  const legacySlugs = legacyPosts.map(p => p.slug);
+  
+  const allBlogSlugs = Array.from(new Set([...legacySlugs, ...firestoreSlugs, ...ghostApiSlugs]));
+
+  const blogEntries: MetadataRoute.Sitemap = allBlogSlugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6
