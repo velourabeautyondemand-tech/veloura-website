@@ -1,29 +1,17 @@
-
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function NailIcon({ className }: { className?: string }) {
   return (
-    <svg
-      role="img"
-      aria-label="VÉLOURA icon"
-      viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-8 h-8", className)}
-    >
-      <rect width="100" height="100" rx="20" fill="hsl(var(--primary))" />
-      
-      <text
-        x="50"
-        y="70"
-        fontFamily="serif"
-        fontSize="60"
-        fontWeight="bold"
-        fill="hsl(var(--primary-foreground))"
-        textAnchor="middle"
-        letterSpacing="-2"
-      >
-        V
-      </text>
-    </svg>
+    <div className={cn("relative aspect-square overflow-hidden", className)}>
+      <Image
+        src="https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c"
+        alt="VÉLOURA Logo"
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-contain"
+        priority
+      />
+    </div>
   );
 }
