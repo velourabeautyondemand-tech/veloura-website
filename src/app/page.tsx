@@ -75,7 +75,7 @@ const platformBenefits = [
   {
     icon: ShieldCheck,
     title: 'Vetted Professionals',
-    description: 'Every VÉLOURA pro undergoes rigorous identity and background checks to ensure your safety and quality of service.',
+    description: 'Every VÉLOURA Beauty on Demand pro undergoes rigorous identity and background checks to ensure your safety and quality of service.',
   },
   {
     icon: Zap,
@@ -147,7 +147,7 @@ export default function HomePage() {
                   </Button>
                   
                   <div className="flex flex-col items-center gap-4">
-                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground opacity-70">Download the VÉLOURA Beauty on Demand App</p>
+                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground opacity-70">Download the App</p>
                     <div className="flex justify-center items-center gap-4 flex-wrap">
                       <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
                         <Image
@@ -174,7 +174,6 @@ export default function HomePage() {
               <p className="mt-16 text-xl font-bold text-primary italic">
                 Launching Soon — Your Choice: We Come to You, or You Come to Us
               </p>
-              <div className="mt-2 font-bold tracking-[0.45rem] text-sm text-foreground/80 uppercase">VÉLOURA <span className="font-normal tracking-[0.2rem] ml-1.5 lowercase">Beauty on Demand</span></div>
 
               {/* Interface Gallery */}
               <div className="mt-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
@@ -277,7 +276,7 @@ export default function HomePage() {
                 <div className="max-w-3xl mx-auto text-center bg-secondary/20 p-8 md:p-12 rounded-3xl">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
                         <Smartphone className="w-4 h-4" />
-                        <span>EXPERIENCE VÉLOURA Beauty on Demand</span>
+                        <span>EXPERIENCE THE APP</span>
                     </div>
                     <h2 className="text-3xl font-bold font-headline mb-4">Download Our App</h2>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
