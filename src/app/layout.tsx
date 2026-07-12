@@ -15,8 +15,44 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://velourabeautyondemand.com'),
-  title: 'VÉLOURA Beauty on Demand: Luxury Makeup Artists & Photographers',
-  description: 'Book professional beauty technicians to your door. VÉLOURA Beauty on Demand connects you with elite beauty professionals for mobile and at-home services.',
+  title: {
+    default: 'VÉLOURA Beauty On Demand',
+    template: '%s | VÉLOURA Beauty On Demand',
+  },
+  description: 'Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.',
+  openGraph: {
+    title: 'VÉLOURA Beauty On Demand',
+    description: 'Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.',
+    url: 'https://velourabeautyondemand.com',
+    siteName: 'VÉLOURA Beauty On Demand',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'VÉLOURA Beauty On Demand',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VÉLOURA Beauty On Demand',
+    description: 'Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.',
+    images: ['/twitter-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     apple: [
       {
