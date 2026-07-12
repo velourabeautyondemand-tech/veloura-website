@@ -39,8 +39,28 @@ export default function BlogPage() {
         return dateB - dateA;
     });
 
+    const blogSchema = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": "https://blog.velourabeautyondemand.com/#blog",
+      "url": "https://blog.velourabeautyondemand.com/",
+      "name": "VÉLOURA Beauty On Demand Blog",
+      "description": "Guides about mobile beauty services, accessible beauty, hotel beauty, bridal services, beauty careers, and the independent beauty industry.",
+      "publisher": {
+        "@id": "https://velourabeautyondemand.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://velourabeautyondemand.com/#website"
+      },
+      "inLanguage": "en-US"
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+            />
             <Header />
             <main className="flex-1 bg-secondary/30 py-12 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">
