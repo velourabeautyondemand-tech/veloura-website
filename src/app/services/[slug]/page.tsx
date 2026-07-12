@@ -1,0 +1,167 @@
+
+import { notFound } from 'next/navigation';
+import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
+import Header from '@/components/shared/header';
+import Footer from '@/components/shared/footer';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Star, Wand2 } from 'lucide-react';
+import Link from 'next/link';
+import { Metadata } from 'next';
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateStaticParams() {
+  return ACTIVE_SERVICES.map((service) => ({
+    slug: service.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const service = ACTIVE_SERVICES.find((s) => s.slug === resolvedParams.slug);
+  if (!service) return {};
+
+  return {
+    title: service.seoTitle,
+    description: service.seoDescription,
+    alternates: {
+      canonical: `https://velourabeautyondemand.com/services/${service.slug}`,
+    },
+    openGraph: {
+      title: service.seoTitle,
+      description: service.seoDescription,
+      url: `https://velourabeautyondemand.com/services/${service.slug}`,
+      siteName: 'VÉLOURA Beauty On Demand',
+      type: 'website',
+    }
+  };
+}
+
+export default async function ServiceHubPage({ params }: Props) {
+  const resolvedParams = await params;
+  const service = ACTIVE_SERVICES.find((s) => s.slug === resolvedParams.slug);
+
+  if (!service) {
+    notFound();
+  }
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.name,
+    "description": service.description,
+    "provider": {
+      "@id": "https://velourabeautyondemand.com/#organization"
+    },
+    "areaServed": ACTIVE_LOCATIONS.map(l => ({ "@type": "City", "name": l.name }))
+  };
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Header />
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="bg-secondary/30 py-16 md:py-24 border-b">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-6xl font-extrabold font-headline mb-6 tracking-tight">
+              {service.h1}
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
+              {service.description}
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
+                <Link href="/match">Find My Match <Wand2 className="ml-2 w-5 h-5" /></Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-14 px-10 text-lg font-bold rounded-full">
+                <Link href="/services">View All Services</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Long Content Section */}
+        <section className="py-16 sm:py-24 bg-background">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="prose lg:prose-lg max-w-none text-muted-foreground mb-16">
+              <h2 className="text-3xl font-bold font-headline text-foreground">Premium {service.name} Near You</h2>
+              <p>{service.longDescription}</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              <Card className="border-primary/10 shadow-md">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <ShieldCheck className="text-primary w-6 h-6" /> Licensed Professionals
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm">Every {service.name.toLowerCase()} expert on our platform is identity-verified and license-authenticated.</p>
+                </CardContent>
+              </Card>
+              <Card className="border-primary/10 shadow-md">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Clock className="text-primary w-6 h-6" /> Real-Time Booking
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm">Need a {service.name.toLowerCase()} specialist today? Our app shows real-time availability in your area.</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Markets Section */}
+            <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10 mb-16 text-center">
+              <h3 className="text-2xl font-bold font-headline mb-4">Available in Our Major Markets</h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {ACTIVE_LOCATIONS.map((loc) => (
+                  <Link 
+                    key={loc.slug} 
+                    href={`/locations/${loc.slug}`}
+                    className="px-6 py-3 bg-white rounded-full border border-primary/10 font-bold hover:text-primary hover:border-primary transition-all flex items-center gap-2"
+                  >
+                    <MapPin className="w-4 h-4" /> {loc.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* FAQ Section */}
+            <div className="space-y-8">
+              <h2 className="text-3xl font-bold font-headline text-center">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible className="bg-card border rounded-xl px-6">
+                {service.faqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left font-bold">{faq.q}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="py-20 bg-primary text-primary-foreground text-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience the Best {service.name}</h2>
+            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Luxury is just a few clicks away. Download the VÉLOURA app to get started.</p>
+            <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full">
+              <Link href="/match">Find Your Perfect Match</Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}

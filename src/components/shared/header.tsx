@@ -1,10 +1,12 @@
+
 "use client"
 
 import Link from "next/link"
-import { Menu, Sparkles } from "lucide-react"
+import { Menu, Sparkles, ChevronDown } from "lucide-react"
 import { useUser, useAuth, useFirestore, useDoc, useMemoFirebase } from "@/firebase";
 import { doc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
+import { ACTIVE_SERVICES } from "@/lib/marketplace-data";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -13,12 +15,18 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { NailIcon } from "./logo";
 
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "Services", hasDropdown: true },
   { href: "/match", label: "Find Your Match", icon: Sparkles },
   { href: "/talent-agency", label: "Talent Agency" },
   { href: "/apply", label: "Join Our Team" },
@@ -92,14 +100,32 @@ export default function Header() {
           </Link>
           <nav className="hidden xl:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map(link => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-foreground/80 text-foreground/60 flex items-center gap-1.5"
-              >
-                {link.icon && <link.icon className="w-3.5 h-3.5 text-primary" />}
-                {link.label}
-              </Link>
+              link.hasDropdown ? (
+                <DropdownMenu key={link.href}>
+                  <DropdownMenuTrigger className="transition-colors hover:text-foreground/80 text-foreground/60 flex items-center gap-1">
+                    {link.label} <ChevronDown className="w-3 h-3" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-56">
+                    <DropdownMenuItem asChild>
+                      <Link href="/services" className="font-bold">Overview Hub</Link>
+                    </DropdownMenuItem>
+                    {ACTIVE_SERVICES.map(s => (
+                      <DropdownMenuItem key={s.slug} asChild>
+                        <Link href={`/services/${s.slug}`}>{s.name}</Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="transition-colors hover:text-foreground/80 text-foreground/60 flex items-center gap-1.5"
+                >
+                  {link.icon && <link.icon className="w-3.5 h-3.5 text-primary" />}
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
         </div>
