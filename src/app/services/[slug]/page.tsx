@@ -6,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Star, Wand2 } from 'lucide-react';
+import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Star, Wand2, Hotel, Home, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -117,6 +117,25 @@ export default async function ServiceHubPage({ params }: Props) {
                   <p className="text-sm">Need a {service.name.toLowerCase()} specialist today? Our app shows real-time availability in your area.</p>
                 </CardContent>
               </Card>
+            </div>
+
+            {/* Venue and Occasion Internal Links */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-16">
+                <Link href="/venues/hotels" className="p-6 bg-secondary/20 rounded-xl border hover:border-primary transition-all group">
+                    <Hotel className="w-6 h-6 text-primary mb-3" />
+                    <p className="font-bold text-sm">Hotel {service.name}</p>
+                    <p className="text-[10px] text-muted-foreground mt-1">Services delivered to your suite.</p>
+                </Link>
+                <Link href="/venues/home-service" className="p-6 bg-secondary/20 rounded-xl border hover:border-primary transition-all group">
+                    <Home className="w-6 h-6 text-primary mb-3" />
+                    <p className="font-bold text-sm">At-Home {service.name}</p>
+                    <p className="text-[10px] text-muted-foreground mt-1">Salon results in your living room.</p>
+                </Link>
+                <Link href="/occasions/weddings" className="p-6 bg-secondary/20 rounded-xl border hover:border-primary transition-all group">
+                    <Sparkles className="w-6 h-6 text-primary mb-3" />
+                    <p className="font-bold text-sm">Wedding {service.name}</p>
+                    <p className="text-[10px] text-muted-foreground mt-1">Bridal and bridal party specialists.</p>
+                </Link>
             </div>
 
             {/* Markets Section */}

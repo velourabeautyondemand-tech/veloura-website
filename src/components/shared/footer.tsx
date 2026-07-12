@@ -36,11 +36,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-widest mb-4">Services</h3>
+            <h3 className="font-bold text-sm uppercase tracking-widest mb-4">Marketplace</h3>
             <ul className="space-y-2 text-sm">
-              {ACTIVE_SERVICES.map(s => (
-                <li key={s.slug}><Link href={`/services/${s.slug}`} className="text-muted-foreground hover:text-primary transition-colors">{s.name}</Link></li>
-              ))}
+              <li><Link href="/venues/hotels" className="text-muted-foreground hover:text-primary transition-colors">Hotel Beauty</Link></li>
+              <li><Link href="/venues/home-service" className="text-muted-foreground hover:text-primary transition-colors">At-Home Salon</Link></li>
+              <li><Link href="/occasions/weddings" className="text-muted-foreground hover:text-primary transition-colors">Wedding Glam</Link></li>
+              <li><Link href="/solutions/seniors" className="text-muted-foreground hover:text-primary transition-colors">Senior Care</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors font-bold">All Services</Link></li>
             </ul>
           </div>
@@ -59,7 +60,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link></li>
               <li><Link href="/talent-agency" className="text-muted-foreground hover:text-primary transition-colors">Talent Agency</Link></li>
-              <li><Link href="/pro-discounts" className="text-muted-foreground hover:text-primary transition-colors">Our Partners</Link></li>
               <li><Link href="/apply" className="text-muted-foreground hover:text-primary transition-colors font-bold text-primary">Join Our Team</Link></li>
               <li><Link href="/partner-press" className="text-muted-foreground hover:text-primary transition-colors">Partner / Press</Link></li>
             </ul>

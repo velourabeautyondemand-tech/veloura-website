@@ -2,23 +2,10 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
+import { getAllPublishedNodes } from '@/lib/registry';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
-
-async function getExternalBlogSlugs() {
-  try {
-    const response = await fetch('https://www.babylovegrowth.com/api/blogs', {
-      headers: { 'x-api-key': process.env.BABYLOVEGROWTH_BLOG_API_KEY || '' },
-      next: { revalidate: 3600 }
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-    return (data.blogs || []).map((b: any) => b.slug);
-  } catch (e) {
-    return [];
-  }
-}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://velourabeautyondemand.com';
@@ -41,18 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/partner-agreement',
     '/partner-press',
     '/reliability-policy',
-    '/customer-policy',
-    '/beauty-professional-jobs',
-    '/beauty-services-near-me',
-    '/best-mobile-beauty-platform',
-    '/home-beauty-services',
-    '/join-as-hair-stylist',
-    '/join-as-makeup-artist',
-    '/join-as-photographer',
-    '/on-demand-beauty-app',
-    '/compare-beauty-apps',
-    '/hotel-partners',
-    '/vendor-partners'
+    '/customer-policy'
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -62,7 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.8
   }));
 
-  // Service Hubs
+  // Service Hubs (Legacy)
   const serviceEntries: MetadataRoute.Sitemap = ACTIVE_SERVICES.map((s) => ({
     url: `${baseUrl}/services/${s.slug}`,
     lastModified: currentDate,
@@ -70,7 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7
   }));
 
-  // Location Hubs
+  // Location Hubs (Legacy)
   const locationEntries: MetadataRoute.Sitemap = ACTIVE_LOCATIONS.map((l) => ({
     url: `${baseUrl}/locations/${l.slug}`,
     lastModified: currentDate,
@@ -78,15 +54,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7
   }));
 
-  const externalSlugs = await getExternalBlogSlugs();
-  const allSlugs = Array.from(new Set([...blogPosts.map(p => p.slug), ...externalSlugs]));
+  // Registry-Driven Hubs (Phase 2)
+  const registryNodes = getAllPublishedNodes();
+  const registryEntries: MetadataRoute.Sitemap = registryNodes.map((node) => ({
+    url: `${baseUrl}/${node.type === 'service' ? 'services' : node.type + 's'}/${node.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7
+  }));
 
-  const blogEntries: MetadataRoute.Sitemap = allSlugs.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
+  // Blog Posts
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6
   }));
 
-  return [...staticEntries, ...serviceEntries, ...locationEntries, ...blogEntries];
+  return [
+    ...staticEntries, 
+    ...serviceEntries, 
+    ...locationEntries, 
+    ...registryEntries, 
+    ...blogEntries
+  ];
 }
