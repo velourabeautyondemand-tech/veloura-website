@@ -52,7 +52,7 @@ const howItWorks = [
   {
     step: '01',
     title: 'Download & Explore',
-    description: 'Get the VÉLOURA app on iOS or Android. Browse our curated menu of luxury beauty, photography, and event services.',
+    description: 'Get the VÉLOURA Beauty on Demand app on iOS or Android. Browse our curated menu of luxury beauty, photography, and event services.',
   },
   {
     step: '02',
@@ -132,7 +132,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline uppercase">
-                 VÉLOURA
+                 VÉLOURA Beauty on Demand
               </h1>
               <p className="mt-4 text-lg text-muted-foreground font-semibold">
                 Where technology meets beauty. One App. One Click.
@@ -147,7 +147,7 @@ export default function HomePage() {
                   </Button>
                   
                   <div className="flex flex-col items-center gap-4">
-                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground opacity-70">Download the VÉLOURA App</p>
+                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground opacity-70">Download the VÉLOURA Beauty on Demand App</p>
                     <div className="flex justify-center items-center gap-4 flex-wrap">
                       <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
                         <Image
@@ -207,7 +207,7 @@ export default function HomePage() {
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold font-headline leading-tight">Not sure what you need? <br /> Let our AI handle it.</h2>
                         <p className="text-lg opacity-90 leading-relaxed">
-                            Tell the VÉLOURA AI Concierge about your event, your location, and your personal style. We'll find the perfect professional and service package tailored specifically for you.
+                            Tell the VÉLOURA Beauty on Demand AI Concierge about your event, your location, and your personal style. We'll find the perfect professional and service package tailored specifically for you.
                         </p>
                         <Button asChild variant="secondary" size="lg" className="h-14 px-10 text-primary font-bold rounded-full">
                             <Link href="/match">
@@ -231,7 +231,7 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">How to Get Salon Services at Home</h2>
               <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                Transforming your living room into a luxury studio is easier than ever. Follow these simple steps to start your on-demand beauty journey.
+                Transforming your living room into a luxury studio is easier than ever. Follow these simple steps to start your on-demand beauty journey with VÉLOURA Beauty on Demand.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -277,7 +277,7 @@ export default function HomePage() {
                 <div className="max-w-3xl mx-auto text-center bg-secondary/20 p-8 md:p-12 rounded-3xl">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
                         <Smartphone className="w-4 h-4" />
-                        <span>EXPERIENCE VÉLOURA</span>
+                        <span>EXPERIENCE VÉLOURA Beauty on Demand</span>
                     </div>
                     <h2 className="text-3xl font-bold font-headline mb-4">Download Our App</h2>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -334,7 +334,7 @@ export default function HomePage() {
                             We get it.
                         </p>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            VÉLOURA brings beauty, photography, and event services directly to you — so you don’t have to figure it out.
+                            VÉLOURA Beauty on Demand brings beauty, photography, and event services directly to you — so you don’t have to figure it out.
                         </p>
                     </div>
                 </div>
@@ -395,7 +395,7 @@ export default function HomePage() {
                         </li>
                     ))}
                 </ul>
-                <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA turns your beauty routine into a moment of calm, confidence, and care.</p>
+                <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA Beauty on Demand turns your beauty routine into a moment of calm, confidence, and care.</p>
             </div>
         </section>
 

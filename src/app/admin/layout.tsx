@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -75,7 +74,7 @@ function AdminLayoutContent({
           <SidebarHeader>
              <Link href="/" className="flex items-center gap-2">
                 <NailIcon className="w-6 h-6" />
-                <span className="font-semibold font-headline text-lg">VÉLOURA</span>
+                <span className="font-semibold font-headline text-lg tracking-tight">VÉLOURA Beauty on Demand</span>
              </Link>
           </SidebarHeader>
           <SidebarContent>

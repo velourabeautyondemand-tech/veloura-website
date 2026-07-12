@@ -88,7 +88,7 @@ export default function Header() {
         <div className="mr-auto flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <NailIcon className="h-6 w-6" />
-            <span className="font-bold inline-block font-headline text-lg">VÉLOURA</span>
+            <span className="font-bold inline-block font-headline text-lg">VÉLOURA Beauty on Demand</span>
           </Link>
           <nav className="hidden xl:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map(link => (
@@ -125,7 +125,7 @@ export default function Header() {
               <div className="flex items-center border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
                   <NailIcon className="h-6 w-6" />
-                  <span className="font-bold font-headline">VÉLOURA</span>
+                  <span className="font-bold font-headline">VÉLOURA Beauty on Demand</span>
                 </Link>
               </div>
               <div className="flex-1 flex flex-col pt-6 space-y-4">

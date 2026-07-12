@@ -15,8 +15,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://velourabeautyondemand.com'),
-  title: 'VÉLOURA Talent Agency: Luxury Makeup Artists & Photographers',
-  description: 'Book professional beauty technicians to your door. VÉLOURA connects you with elite beauty professionals for mobile and at-home services.',
+  title: 'VÉLOURA Beauty on Demand: Luxury Makeup Artists & Photographers',
+  description: 'Book professional beauty technicians to your door. VÉLOURA Beauty on Demand connects you with elite beauty professionals for mobile and at-home services.',
   icons: {
     apple: [
       {
@@ -49,7 +49,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "MobileApplication",
-              "name": "VÉLOURA",
+              "name": "VÉLOURA Beauty on Demand",
               "operatingSystem": "iOS, Android",
               "applicationCategory": "LifestyleApplication",
               "url": "https://velourabeautyondemand.com"

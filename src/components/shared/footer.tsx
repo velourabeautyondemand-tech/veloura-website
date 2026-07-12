@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center space-x-2 mb-4 md:mb-0">
             <NailIcon className="h-6 w-6" />
-            <span className="font-bold text-lg font-headline">VÉLOURA</span>
+            <span className="font-bold text-lg font-headline">VÉLOURA Beauty on Demand</span>
           </div>
           <nav className="flex flex-wrap items-center justify-center space-x-6 text-sm font-medium">
             <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link>
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
           <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-2 text-center sm:text-left">
-            <p>&copy; {year} VÉLOURA. All rights reserved.</p>
+            <p>&copy; {year} VÉLOURA Beauty on Demand. All rights reserved.</p>
             <p className="text-xs">powered by iAmDreamMaker Production Group</p>
           </div>
           <div className="flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2 mt-4 sm:mt-0">

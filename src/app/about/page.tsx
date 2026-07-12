@@ -47,21 +47,21 @@ export default function AboutPage() {
         {
             name: "Huiyu \"Cherry\" Cheng",
             role: "Founder & Visionary",
-            description: "She didn't just build VÉLOURA — she built it from real-life experience. Seeing how outdated systems limited both clients and independent professionals, she set out to create something better — a platform where services move with your life, not the other way around. Today, VÉLOURA empowers professionals and delivers beauty and lifestyle services on demand — where and when they’re needed.",
+            description: "She didn't just build VÉLOURA Beauty on Demand — she built it from real-life experience. Seeing how outdated systems limited both clients and independent professionals, she set out to create something better — a platform where services move with your life, not the other way around. Today, VÉLOURA Beauty on Demand empowers professionals and delivers beauty and lifestyle services on demand — where and when they’re needed.",
             imageUrl: founderImage?.imageUrl || "https://picsum.photos/seed/founder/400/400",
             hint: "woman portrait"
         },
         {
             name: "Roxanne Resma",
             role: "Operations Director",
-            description: "Roxanne oversees operations at VÉLOURA, ensuring everything runs efficiently as we grow. She manages onboarding, systems, and day-to-day execution — keeping both professionals and clients supported every step of the way.",
+            description: "Roxanne oversees operations at VÉLOURA Beauty on Demand, ensuring everything runs efficiently as we grow. She manages onboarding, systems, and day-to-day execution — keeping both professionals and clients supported every step of the way.",
             imageUrl: roxanneImage?.imageUrl || "https://picsum.photos/seed/roxanne/400/400",
             hint: "operations director"
         },
         {
             name: "Rini Sugianto",
             role: "Media Lead",
-            description: "Dedicated to capturing the beauty and artistry of the VÉLOURA experience through compelling visual storytelling and brand production.",
+            description: "Dedicated to capturing the beauty and artistry of the VÉLOURA Beauty on Demand experience through compelling visual storytelling and brand production.",
             imageUrl: riniImage?.imageUrl || "https://picsum.photos/seed/rini/400/400",
             hint: "media professional"
         }
@@ -75,7 +75,7 @@ export default function AboutPage() {
                 <section id="story" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="prose lg:prose-lg max-w-3xl mx-auto text-muted-foreground text-center">
-                            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">About VÉLOURA: Our Story</h1>
+                            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">About VÉLOURA Beauty on Demand: Our Story</h1>
                             <p className="text-xl font-semibold text-foreground mb-8">
                                 It Started With a Simple Problem: Why is something so essential so inefficient?
                             </p>
@@ -86,10 +86,10 @@ export default function AboutPage() {
                                 At the same time, we saw so many talented professionals struggling to grow without being tied to traditional setups.
                             </p>
                             <p>
-                                VÉLOURA was built to solve both — creating a better way for people to connect, work, and live.
+                                VÉLOURA Beauty on Demand was built to solve both — creating a better way for people to connect, work, and live.
                             </p>
                              <p className="font-semibold text-foreground text-xl my-8">
-                                VÉLOURA isn’t just about beauty on demand — it’s about connection, trust, and community.
+                                VÉLOURA Beauty on Demand isn’t just about beauty on demand — it’s about connection, trust, and community.
                             </p>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
                                         "As a busy professional, I was constantly choosing between my schedule and feeling put together — and somehow, my schedule always won."
                                     </p>
                                     <p>
-                                        "That’s where VÉLOURA began. A platform designed not only to make services more accessible, but to empower professionals — giving them more freedom, more control, and more opportunity."
+                                        "That’s where VÉLOURA Beauty on Demand began. A platform designed not only to make services more accessible, but to empower professionals — giving them more freedom, more control, and more opportunity."
                                     </p>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
                                 </div>
                                 <h3 className="text-3xl font-bold font-headline">Featured in Global Woman Magazine</h3>
                                 <p className="text-lg text-muted-foreground">
-                                    Read about Huiyu "Cherry" Cheng's vision for VÉLOURA and how she is redefining the beauty industry through technology and empowerment.
+                                    Read about Huiyu "Cherry" Cheng's vision for VÉLOURA Beauty on Demand and how she is redefining the beauty industry through technology and empowerment.
                                 </p>
                                 <Button asChild variant="accent" size="lg">
                                     <Link href="https://globalwomanmagazine.com/huiyu-cherry-cheng/" target="_blank" rel="noopener noreferrer">
@@ -219,7 +219,7 @@ export default function AboutPage() {
                                 <div className="relative w-full max-w-lg mx-auto aspect-[502/800] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
                                     <Image
                                         src={teamGroupImage.imageUrl}
-                                        alt="VÉLOURA Team Photo"
+                                        alt="VÉLOURA Beauty on Demand Team Photo"
                                         fill
                                         className="object-cover"
                                         data-ai-hint="team group"
