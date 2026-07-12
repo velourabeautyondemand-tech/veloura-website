@@ -33,7 +33,7 @@ export default function BlogPage() {
             isDynamic: true
         })),
         ...legacyPosts.filter(lp => !(firestorePosts || []).some(fp => fp.slug === lp.slug))
-    ].sort((a, b) => {
+    ].sort((a: any, b: any) => {
         const dateA = new Date(a.publishedAt || a.date || 0).getTime();
         const dateB = new Date(b.publishedAt || b.date || 0).getTime();
         return dateB - dateA;
@@ -128,6 +128,12 @@ export default function BlogPage() {
                     {!isLoading && allPosts.length === 0 && (
                         <div className="text-center py-20">
                             <p className="text-muted-foreground">New stories coming soon. Stay tuned!</p>
+                        </div>
+                    )}
+
+                    {error && (
+                        <div className="text-center py-10 text-destructive text-sm italic">
+                            Error loading updates: {error.message}
                         </div>
                     )}
 

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Heart, Award, HandHeart, Sparkles, Users, Briefcase, ShoppingCart, Calendar, Newspaper, Smartphone, Layout, Clock, Home, CheckCircle, ShieldCheck, Zap, Star, Wand2, ArrowRight } from 'lucide-react';
+import { Heart, HandHeart, Sparkles, Briefcase, Newspaper, Smartphone, Layout, Clock, Home, ShieldCheck, Zap, Star, Wand2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/shared/header';
@@ -215,14 +215,12 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData)
-          }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData)
+        }}
+      />
       <Header />
       <DiscountPopup />
       <main className="flex-1">
