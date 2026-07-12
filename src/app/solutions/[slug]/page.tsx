@@ -3,6 +3,7 @@ import { getSEONodeBySlug, getAllPublishedSEONodes } from '@/lib/seo-marketplace
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Heart, ShieldCheck, ArrowRight, Wand2, CheckCircle2, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
