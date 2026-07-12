@@ -1,12 +1,12 @@
-
 import { notFound } from 'next/navigation';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
+import { getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Star, Wand2, Hotel, Home, Sparkles } from 'lucide-react';
+import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Star, Wand2, Hotel, Home, Sparkles, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -49,6 +49,8 @@ export default async function ServiceHubPage({ params }: Props) {
     notFound();
   }
 
+  const seoNodes = getAllPublishedSEONodes();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -68,6 +70,19 @@ export default async function ServiceHubPage({ params }: Props) {
       />
       <Header />
       <main className="flex-1">
+        {/* Breadcrumbs */}
+        <div className="bg-background py-4 border-b">
+            <div className="container mx-auto px-4 md:px-6">
+                <nav className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest font-bold">
+                    <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <Link href="/services" className="hover:text-primary transition-colors">Services</Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-primary">{service.name}</span>
+                </nav>
+            </div>
+        </div>
+
         {/* Hero Section */}
         <section className="bg-secondary/30 py-16 md:py-24 border-b">
           <div className="container mx-auto px-4 text-center">
@@ -114,28 +129,22 @@ export default async function ServiceHubPage({ params }: Props) {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm">Need a {service.name.toLowerCase()} specialist today? Our app shows real-time availability in your area.</p>
+                  <p className="text-sm">Need a {service.name.toLowerCase()} specialist today? Our platform shows real-time availability in your area.</p>
                 </CardContent>
               </Card>
             </div>
 
             {/* Venue and Occasion Internal Links */}
             <div className="grid sm:grid-cols-3 gap-4 mb-16">
-                <Link href="/venues/hotels" className="p-6 bg-secondary/20 rounded-xl border hover:border-primary transition-all group">
-                    <Hotel className="w-6 h-6 text-primary mb-3" />
-                    <p className="font-bold text-sm">Hotel {service.name}</p>
-                    <p className="text-[10px] text-muted-foreground mt-1">Services delivered to your suite.</p>
-                </Link>
-                <Link href="/venues/home-service" className="p-6 bg-secondary/20 rounded-xl border hover:border-primary transition-all group">
-                    <Home className="w-6 h-6 text-primary mb-3" />
-                    <p className="font-bold text-sm">At-Home {service.name}</p>
-                    <p className="text-[10px] text-muted-foreground mt-1">Salon results in your living room.</p>
-                </Link>
-                <Link href="/occasions/weddings" className="p-6 bg-secondary/20 rounded-xl border hover:border-primary transition-all group">
-                    <Sparkles className="w-6 h-6 text-primary mb-3" />
-                    <p className="font-bold text-sm">Wedding {service.name}</p>
-                    <p className="text-[10px] text-muted-foreground mt-1">Bridal and bridal party specialists.</p>
-                </Link>
+                {seoNodes.filter(n => n.type === 'venue' || n.type === 'occasion').slice(0, 3).map(node => (
+                    <Link key={node.id} href={`/${node.type}s/${node.slug}`} className="p-6 bg-secondary/20 rounded-xl border hover:border-primary transition-all group">
+                        {node.type === 'venue' && node.slug === 'hotels' && <Hotel className="w-6 h-6 text-primary mb-3" />}
+                        {node.type === 'venue' && node.slug === 'home-service' && <Home className="w-6 h-6 text-primary mb-3" />}
+                        {node.type === 'occasion' && <Sparkles className="w-6 h-6 text-primary mb-3" />}
+                        <p className="font-bold text-sm">{node.slug.replace('-', ' ')} {service.name}</p>
+                        <p className="text-[10px] text-muted-foreground mt-1 line-clamp-1">{node.metadata.description}</p>
+                    </Link>
+                ))}
             </div>
 
             {/* Markets Section */}
@@ -173,7 +182,7 @@ export default async function ServiceHubPage({ params }: Props) {
         <section className="py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience the Best {service.name}</h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Luxury is just a few clicks away. Download the VÉLOURA app to get started.</p>
+            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Luxury is just a few clicks away. Match with a pro to get started.</p>
             <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full">
               <Link href="/match">Find Your Perfect Match</Link>
             </Button>

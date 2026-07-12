@@ -1,12 +1,10 @@
-
 import { notFound } from 'next/navigation';
-import { getNodeBySlug, getPublishedNodesByType } from '@/lib/registry';
+import { getSEONodeBySlug, getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Sparkles, Star, Calendar, ArrowRight, Wand2, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Star, Calendar, ArrowRight, Wand2, ChevronRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ACTIVE_SERVICES } from '@/lib/marketplace-data';
@@ -16,14 +14,16 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return getPublishedNodesByType('occasion').map((node) => ({
-    slug: node.slug,
-  }));
+  return getAllPublishedSEONodes()
+    .filter(n => n.type === 'occasion')
+    .map((node) => ({
+      slug: node.slug,
+    }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const node = getNodeBySlug('occasion', slug);
+  const node = getSEONodeBySlug('occasion', slug);
   if (!node) return {};
 
   return {
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function OccasionHubPage({ params }: Props) {
   const { slug } = await params;
-  const node = getNodeBySlug('occasion', slug);
+  const node = getSEONodeBySlug('occasion', slug);
 
   if (!node) {
     notFound();
@@ -68,6 +68,19 @@ export default async function OccasionHubPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main className="flex-1">
+         {/* Breadcrumbs */}
+        <div className="bg-background py-4 border-b">
+            <div className="container mx-auto px-4 md:px-6">
+                <nav className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest font-bold">
+                    <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-foreground/40">Occasions</span>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-primary">{node.slug.replace('-', ' ')}</span>
+                </nav>
+            </div>
+        </div>
+
         <section className="bg-secondary/50 py-16 md:py-24 border-b">
           <div className="container mx-auto px-4 text-center">
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 uppercase tracking-widest">
@@ -78,7 +91,7 @@ export default async function OccasionHubPage({ params }: Props) {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">{node.content.intro}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" variant="accent" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
-                <Link href="/match">Personalize My Occasion <Wand2 className="ml-2 w-5 h-5" /></Link>
+                <Link href={node.cta.href}>{node.cta.label} <Wand2 className="ml-2 w-5 h-5" /></Link>
               </Button>
             </div>
           </div>
@@ -101,12 +114,12 @@ export default async function OccasionHubPage({ params }: Props) {
                 <h3 className="text-2xl font-bold font-headline mb-6 text-center text-accent">Occasion-Ready Standards</h3>
                 <div className="grid sm:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                        <p className="font-bold flex items-center gap-2"><Star className="w-5 h-5 text-accent" /> High-Pressure Performance</p>
-                        <p className="text-sm text-muted-foreground">Our occasion specialists are trained to deliver results under the tight timelines of weddings and events.</p>
+                        <p className="font-bold flex items-center gap-2 text-foreground"><Star className="w-5 h-5 text-accent" /> Expert Performance</p>
+                        <p className="text-sm text-muted-foreground">Our specialists are trained to deliver professional results under the timelines of weddings and events.</p>
                     </div>
                     <div className="space-y-2">
-                        <p className="font-bold flex items-center gap-2"><Calendar className="w-5 h-5 text-accent" /> Reliable Coordination</p>
-                        <p className="text-sm text-muted-foreground">We handle the logistics of the glam team so you can focus on the celebration.</p>
+                        <p className="font-bold flex items-center gap-2 text-foreground"><Calendar className="w-5 h-5 text-accent" /> Coordinated Logistics</p>
+                        <p className="text-sm text-muted-foreground">We handle the coordination of the glam team so you can focus on the celebration.</p>
                     </div>
                 </div>
             </div>
@@ -124,9 +137,14 @@ export default async function OccasionHubPage({ params }: Props) {
             </div>
             
             <div className="mt-16 text-center">
-                 <Button asChild variant="link" className="text-muted-foreground">
-                    <Link href="/services">View All Occasion-Based Services <ArrowRight className="ml-2 w-4 h-4" /></Link>
-                 </Button>
+                 <h3 className="font-bold mb-6 uppercase tracking-widest text-sm opacity-60">Related Services</h3>
+                 <div className="flex flex-wrap justify-center gap-3">
+                    {ACTIVE_SERVICES.map(s => (
+                        <Button key={s.slug} asChild variant="outline" size="sm">
+                            <Link href={`/services/${s.slug}`}>{s.name}</Link>
+                        </Button>
+                    ))}
+                 </div>
             </div>
           </div>
         </section>
@@ -136,7 +154,7 @@ export default async function OccasionHubPage({ params }: Props) {
             <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Book Your Occasion Look</h2>
             <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Don’t leave your event look to chance. Book with VÉLOURA’s elite specialists.</p>
             <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-accent rounded-full">
-              <Link href="/match">Secure My Date</Link>
+              <Link href={node.cta.href}>{node.cta.label}</Link>
             </Button>
           </div>
         </section>

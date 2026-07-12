@@ -1,8 +1,7 @@
-
 "use client"
 
 import Link from "next/link"
-import { Menu, Sparkles, ChevronDown } from "lucide-react"
+import { Menu, Sparkles, ChevronDown, Scissors, Wand2, Hotel, Home, Heart } from "lucide-react"
 import { useUser, useAuth, useFirestore, useDoc, useMemoFirebase } from "@/firebase";
 import { doc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
@@ -105,15 +104,45 @@ export default function Header() {
                   <DropdownMenuTrigger className="transition-colors hover:text-foreground/80 text-foreground/60 flex items-center gap-1">
                     {link.label} <ChevronDown className="w-3 h-3" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-56">
-                    <DropdownMenuItem asChild>
-                      <Link href="/services" className="font-bold">Overview Hub</Link>
-                    </DropdownMenuItem>
-                    {ACTIVE_SERVICES.map(s => (
-                      <DropdownMenuItem key={s.slug} asChild>
-                        <Link href={`/services/${s.slug}`}>{s.name}</Link>
-                      </DropdownMenuItem>
-                    ))}
+                  <DropdownMenuContent align="start" className="w-[640px] p-6">
+                    <div className="grid grid-cols-3 gap-8">
+                        <div className="space-y-4">
+                            <h4 className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-2">
+                                <Scissors className="w-3 h-3" /> Beauty Hubs
+                            </h4>
+                            <div className="flex flex-col gap-2">
+                                <Link href="/services" className="hover:text-primary transition-colors font-bold">Overview</Link>
+                                {ACTIVE_SERVICES.slice(0, 4).map(s => (
+                                    <Link key={s.slug} href={`/services/${s.slug}`} className="hover:text-primary transition-colors text-foreground/70">{s.name}</Link>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="space-y-4">
+                            <h4 className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-2">
+                                <Wand2 className="w-3 h-3" /> Occasions & Venues
+                            </h4>
+                            <div className="flex flex-col gap-2 text-foreground/70">
+                                <Link href="/occasions/weddings" className="hover:text-primary transition-colors flex items-center gap-2">
+                                    <Sparkles className="w-3 h-3" /> Wedding Glam
+                                </Link>
+                                <Link href="/venues/hotels" className="hover:text-primary transition-colors flex items-center gap-2">
+                                    <Hotel className="w-3 h-3" /> Hotel Service
+                                </Link>
+                                <Link href="/venues/home-service" className="hover:text-primary transition-colors flex items-center gap-2">
+                                    <Home className="w-3 h-3" /> At-Home Salon
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="space-y-4">
+                            <h4 className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-2">
+                                <Heart className="w-3 h-3" /> Personalized
+                            </h4>
+                            <div className="flex flex-col gap-2 text-foreground/70">
+                                <Link href="/solutions/seniors" className="hover:text-primary transition-colors">Senior Beauty</Link>
+                                <Link href="/match" className="hover:text-primary transition-colors font-bold text-primary">AI Concierge</Link>
+                            </div>
+                        </div>
+                    </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (

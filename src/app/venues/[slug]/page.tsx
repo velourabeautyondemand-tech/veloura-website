@@ -1,12 +1,11 @@
-
 import { notFound } from 'next/navigation';
-import { getNodeBySlug, getPublishedNodesByType } from '@/lib/registry';
+import { getSEONodeBySlug, getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { ShieldCheck, Clock, MapPin, ArrowRight, Wand2, CheckCircle2, Home, Building2, Palmtree } from 'lucide-react';
+import { ShieldCheck, MapPin, ArrowRight, Wand2, CheckCircle2, ChevronRight, Home, Building2, Palmtree } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ACTIVE_SERVICES } from '@/lib/marketplace-data';
@@ -16,14 +15,16 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return getPublishedNodesByType('venue').map((node) => ({
-    slug: node.slug,
-  }));
+  return getAllPublishedSEONodes()
+    .filter(n => n.type === 'venue')
+    .map((node) => ({
+      slug: node.slug,
+    }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const node = getNodeBySlug('venue', slug);
+  const node = getSEONodeBySlug('venue', slug);
   if (!node) return {};
 
   return {
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function VenueHubPage({ params }: Props) {
   const { slug } = await params;
-  const node = getNodeBySlug('venue', slug);
+  const node = getSEONodeBySlug('venue', slug);
 
   if (!node) {
     notFound();
@@ -69,6 +70,19 @@ export default async function VenueHubPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main className="flex-1">
+        {/* Breadcrumbs */}
+        <div className="bg-background py-4 border-b">
+            <div className="container mx-auto px-4 md:px-6">
+                <nav className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest font-bold">
+                    <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-foreground/40">Venues</span>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-primary">{node.slug.replace('-', ' ')}</span>
+                </nav>
+            </div>
+        </div>
+
         <section className="bg-secondary/50 py-16 md:py-24 border-b">
           <div className="container mx-auto px-4 text-center">
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 uppercase tracking-widest">
@@ -79,7 +93,7 @@ export default async function VenueHubPage({ params }: Props) {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">{node.content.intro}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
-                <Link href="/match">Find My Match <Wand2 className="ml-2 w-5 h-5" /></Link>
+                <Link href={node.cta.href}>{node.cta.label} <Wand2 className="ml-2 w-5 h-5" /></Link>
               </Button>
             </div>
           </div>
@@ -105,14 +119,14 @@ export default async function VenueHubPage({ params }: Props) {
                         <ShieldCheck className="w-6 h-6 text-primary shrink-0" />
                         <div>
                             <p className="font-bold">Fully Vetted Pros</p>
-                            <p className="text-xs text-muted-foreground">Every professional undergoes identity and background checks via Checkr.</p>
+                            <p className="text-xs text-muted-foreground">Every professional undergoes identity and background checks.</p>
                         </div>
                     </div>
                      <div className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
                         <div>
                             <p className="font-bold">Licensed Talent Only</p>
-                            <p className="text-xs text-muted-foreground">We verify state-issued cosmetology and esthetician licenses for all beauty pros.</p>
+                            <p className="text-xs text-muted-foreground">We verify state-issued cosmetology and esthetician licenses.</p>
                         </div>
                     </div>
                 </div>
@@ -131,7 +145,7 @@ export default async function VenueHubPage({ params }: Props) {
             </div>
             
             <div className="mt-16 pt-12 border-t text-center">
-                 <h3 className="font-bold mb-6">Explore Available Services</h3>
+                 <h3 className="font-bold mb-6 uppercase tracking-widest text-sm opacity-60">Explore Available Services</h3>
                  <div className="flex flex-wrap justify-center gap-3">
                     {ACTIVE_SERVICES.map(s => (
                         <Button key={s.slug} asChild variant="outline" size="sm">
@@ -145,10 +159,10 @@ export default async function VenueHubPage({ params }: Props) {
 
         <section className="py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience VÉLOURA {slug === 'hotels' ? 'Guest' : 'At-Home'} Services</h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Elite beauty is just a few clicks away. Book your professional today.</p>
+            <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience VÉLOURA Professional Services</h2>
+            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Elite beauty is just a few clicks away. Match with your professional today.</p>
             <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full">
-              <Link href="/match">Book Your Match</Link>
+              <Link href={node.cta.href}>{node.cta.label}</Link>
             </Button>
           </div>
         </section>

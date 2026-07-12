@@ -1,8 +1,7 @@
-
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
-import { getAllPublishedNodes } from '@/lib/registry';
+import { getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
@@ -38,7 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.8
   }));
 
-  // Service Hubs (Legacy)
+  // Service Hubs
   const serviceEntries: MetadataRoute.Sitemap = ACTIVE_SERVICES.map((s) => ({
     url: `${baseUrl}/services/${s.slug}`,
     lastModified: currentDate,
@@ -46,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7
   }));
 
-  // Location Hubs (Legacy)
+  // Location Hubs
   const locationEntries: MetadataRoute.Sitemap = ACTIVE_LOCATIONS.map((l) => ({
     url: `${baseUrl}/locations/${l.slug}`,
     lastModified: currentDate,
@@ -54,14 +53,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7
   }));
 
-  // Registry-Driven Hubs (Phase 2)
-  const registryNodes = getAllPublishedNodes();
-  const registryEntries: MetadataRoute.Sitemap = registryNodes.map((node) => ({
-    url: `${baseUrl}/${node.type === 'service' ? 'services' : node.type + 's'}/${node.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7
-  }));
+  // SEO Marketplace Hubs (Venues, Occasions, Solutions)
+  const seoNodes = getAllPublishedSEONodes();
+  const seoEntries: MetadataRoute.Sitemap = seoNodes.map((node) => {
+    let segment = 'services';
+    if (node.type === 'venue') segment = 'venues';
+    if (node.type === 'occasion') segment = 'occasions';
+    if (node.type === 'solution') segment = 'solutions';
+    
+    return {
+        url: `${baseUrl}/${segment}/${node.slug}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7
+    };
+  });
 
   // Blog Posts
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
@@ -75,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticEntries, 
     ...serviceEntries, 
     ...locationEntries, 
-    ...registryEntries, 
+    ...seoEntries,
     ...blogEntries
   ];
 }

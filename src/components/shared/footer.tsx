@@ -1,8 +1,7 @@
-
 import Link from "next/link";
 import { Instagram, Youtube, Briefcase, ShieldCheck } from "lucide-react";
 import { NailIcon } from "./logo";
-import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from "@/lib/marketplace-data";
+import { ACTIVE_LOCATIONS } from "@/lib/marketplace-data";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -41,7 +40,7 @@ export default function Footer() {
               <li><Link href="/venues/hotels" className="text-muted-foreground hover:text-primary transition-colors">Hotel Beauty</Link></li>
               <li><Link href="/venues/home-service" className="text-muted-foreground hover:text-primary transition-colors">At-Home Salon</Link></li>
               <li><Link href="/occasions/weddings" className="text-muted-foreground hover:text-primary transition-colors">Wedding Glam</Link></li>
-              <li><Link href="/solutions/seniors" className="text-muted-foreground hover:text-primary transition-colors">Senior Care</Link></li>
+              <li><Link href="/solutions/seniors" className="text-muted-foreground hover:text-primary transition-colors">Senior Beauty Services</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors font-bold">All Services</Link></li>
             </ul>
           </div>
