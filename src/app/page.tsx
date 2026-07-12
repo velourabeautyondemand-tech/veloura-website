@@ -122,49 +122,104 @@ export default function HomePage() {
     PlaceHolderImages.find(p => p.id === 'interface_5'),
   ].filter(Boolean);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://velourabeautyondemand.com/#organization",
+        "name": "VÉLOURA Beauty On Demand",
+        "legalName": "iAmDreamMaker Production Group LLC",
+        "url": "https://velourabeautyondemand.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://velourabeautyondemand.com/#logo",
+          "url": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
+          "contentUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
+          "caption": "VÉLOURA Beauty On Demand"
+        },
+        "image": {
+          "@id": "https://velourabeautyondemand.com/#logo"
+        },
+        "description": "VÉLOURA Beauty On Demand is an on-demand beauty marketplace connecting customers with licensed beauty professionals for mobile beauty services at homes, hotels, offices, weddings, events, and corporate locations across the United States.",
+        "sameAs": [
+          "https://www.instagram.com/veloura_beauty_x/",
+          "https://www.youtube.com/@VÉLOURABeautyonDemand",
+          "https://blog.velourabeautyondemand.com/"
+        ],
+        "knowsAbout": [
+          "Mobile beauty services",
+          "On-demand beauty services",
+          "At-home beauty services",
+          "Hotel beauty services",
+          "Bridal beauty services",
+          "Accessible beauty services",
+          "Beauty services for seniors",
+          "Mobile hairstylists",
+          "Mobile makeup artists",
+          "Mobile nail technicians",
+          "Independent beauty professionals",
+          "Beauty professional careers"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://velourabeautyondemand.com/#website",
+        "url": "https://velourabeautyondemand.com/",
+        "name": "VÉLOURA Beauty On Demand",
+        "description": "Book mobile beauty professionals for services at your home, hotel, office, wedding, or event.",
+        "publisher": {
+          "@id": "https://velourabeautyondemand.com/#organization"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://velourabeautyondemand.com/#webpage",
+        "url": "https://velourabeautyondemand.com/",
+        "name": "VÉLOURA Beauty On Demand | Mobile Beauty Marketplace",
+        "isPartOf": {
+          "@id": "https://velourabeautyondemand.com/#website"
+        },
+        "about": {
+          "@id": "https://velourabeautyondemand.com/#organization"
+        },
+        "description": "Premium on-demand beauty services delivered to your door. Book licensed professionals for nails, hair, makeup, and more."
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "VÉLOURA Beauty on Demand",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "LifestyleApplication",
+        "url": "https://velourabeautyondemand.com",
+        "author": {
+          "@id": "https://velourabeautyondemand.com/#organization"
+        },
+        "publisher": {
+          "@id": "https://velourabeautyondemand.com/#organization"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "VÉLOURA Beauty on Demand",
+        "image": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
+        "url": "https://velourabeautyondemand.com",
+        "priceRange": "$$",
+        "areaServed": ["Los Angeles", "New York City", "Miami"],
+        "parentOrganization": {
+          "@id": "https://velourabeautyondemand.com/#organization"
+        }
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": "https://velourabeautyondemand.com/#organization",
-                  "name": "VÉLOURA Beauty On Demand",
-                  "url": "https://velourabeautyondemand.com/",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "@id": "https://velourabeautyondemand.com/#logo",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
-                    "contentUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
-                    "caption": "VÉLOURA Beauty On Demand"
-                  },
-                  "image": {
-                    "@id": "https://velourabeautyondemand.com/#logo"
-                  },
-                  "description": "VÉLOURA Beauty On Demand is an on-demand beauty marketplace that connects customers with licensed beauty professionals for mobile beauty services at homes, hotels, offices, weddings, events, and corporate locations across the United States.",
-                  "sameAs": [
-                    "https://www.instagram.com/veloura_beauty_x/",
-                    "https://www.youtube.com/@V%C3%89LOURABeautyonDemand"
-                  ]
-                },
-                {
-                  "@type": "WebSite",
-                  "@id": "https://velourabeautyondemand.com/#website",
-                  "url": "https://velourabeautyondemand.com/",
-                  "name": "VÉLOURA Beauty On Demand",
-                  "description": "Book mobile beauty professionals for services at your home, hotel, office, wedding, or event.",
-                  "publisher": {
-                    "@id": "https://velourabeautyondemand.com/#organization"
-                  },
-                  "inLanguage": "en-US"
-                }
-              ]
-            })
+            __html: JSON.stringify(structuredData)
           }}
         />
       </head>

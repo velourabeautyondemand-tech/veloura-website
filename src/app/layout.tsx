@@ -77,38 +77,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Schema Block 1: Mobile Application */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "MobileApplication",
-              "name": "VÉLOURA Beauty on Demand",
-              "operatingSystem": "iOS, Android",
-              "applicationCategory": "LifestyleApplication",
-              "url": "https://velourabeautyondemand.com"
-            })
-          }}
-        />
-        {/* Schema Block 2: Local Business */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "VÉLOURA Beauty on Demand",
-              "description": "Mobile beauty marketplace connecting clients with licensed beauty professionals for in-home, in-office, and event services.",
-              "url": "https://velourabeautyondemand.com",
-              "areaServed": ["Los Angeles", "New York City", "Miami"],
-              "serviceType": ["Mobile Manicures", "Lash Extensions", "Hair Styling", "Makeup Services", "Skincare"],
-              "priceRange": "$$"
-            })
-          }}
-        />
-      </head>
       <body className={cn('font-body antialiased', poppins.variable)}>
         <FirebaseClientProvider>
           {children}
