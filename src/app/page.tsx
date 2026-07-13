@@ -258,7 +258,7 @@ export default function HomePage() {
                       </a>
                       <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                          <Image
-                          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                          src="https://www.gstatic.com/marketing-cms/assets/images/e1/8a/041f778e49dd8a553b7fb220f747/consolenavlogo.svg"
                           alt="Get it on Google Play"
                           width={170}
                           height={50}
@@ -393,7 +393,7 @@ export default function HomePage() {
                         </a>
                         <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                             <Image
-                                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                                src="https://www.gstatic.com/marketing-cms/assets/images/e1/8a/041f778e49dd8a553b7fb220f747/consolenavlogo.svg"
                                 alt="Get it on Google Play"
                                 width={170}
                                 height={50}

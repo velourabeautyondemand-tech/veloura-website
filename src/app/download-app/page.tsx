@@ -84,8 +84,8 @@ export default function DownloadAppPage() {
                   className="transition-transform hover:scale-105"
                 >
                   <Image
-                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                    alt="Get VÉLOURA on Google Play"
+                    src="https://www.gstatic.com/marketing-cms/assets/images/e1/8a/041f778e49dd8a553b7fb220f747/consolenavlogo.svg"
+                    alt="Get it on Google Play"
                     width={230}
                     height={60}
                     className="h-16 w-auto"
