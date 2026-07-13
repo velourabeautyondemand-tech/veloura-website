@@ -463,23 +463,25 @@ export default function HomePage() {
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">We Solve Everyday Beauty Problems - with Luxury Convenience</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
-                    <div className="relative aspect-video w-full rounded-md overflow-hidden bg-muted shadow-lg">
+                    {/* Responsive Video Container 1 */}
+                    <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
                         <iframe
-                            className="absolute inset-0 w-full h-full"
-                            src="https://www.youtube-nocookie.com/embed/Ox4SEDyYh8Q"
-                            title="YouTube video player"
+                            className="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/Ox4SEDyYh8Q"
+                            title="VÉLOURA Solutions 1"
                             style={{ border: 0 }}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
                         ></iframe>
                     </div>
-                    <div className="relative aspect-video w-full rounded-md overflow-hidden bg-muted shadow-lg">
+                    {/* Responsive Video Container 2 */}
+                    <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
                         <iframe
-                            className="absolute inset-0 w-full h-full"
-                            src="https://www.youtube-nocookie.com/embed/Oq-3R0VMSAw"
-                            title="YouTube video player 2"
+                            className="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/Oq-3R0VMSAw"
+                            title="VÉLOURA Solutions 2"
                             style={{ border: 0 }}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
                         ></iframe>
                     </div>
