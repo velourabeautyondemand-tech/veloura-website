@@ -256,13 +256,14 @@ export default function HomePage() {
                           className="h-10 w-auto transition-transform hover:scale-105"
                         />
                       </a>
-                      <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
+                      <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                          <Image
                           src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                           alt="Get it on Google Play"
                           width={170}
                           height={50}
                           className="h-12 w-auto transition-transform hover:scale-105"
+                          unoptimized
                         />
                       </a>
                     </div>
@@ -303,9 +304,9 @@ export default function HomePage() {
                             <span>AI Talent Matcher</span>
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold font-headline leading-tight">Not sure what you need? <br /> Let our AI handle it.</h2>
-                        <p className="text-lg opacity-90 leading-relaxed">
+                        <h3 className="text-lg opacity-90 leading-relaxed font-normal">
                             Tell the VÉLOURA Beauty on Demand AI Concierge about your event, your location, and your personal style. We'll find the perfect professional and service package tailored specifically for you.
-                        </p>
+                        </h3>
                         <Button asChild variant="secondary" size="lg" className="h-14 px-10 text-primary font-bold rounded-full">
                             <Link href="/match">
                                 Try the AI Concierge <ArrowRight className="ml-2 w-5 h-5" />
@@ -390,13 +391,14 @@ export default function HomePage() {
                                 className="h-12 w-auto transition-transform hover:scale-105"
                             />
                         </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pli=1" target="_blank" rel="noopener noreferrer">
+                        <a href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                             <Image
                                 src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                                 alt="Get it on Google Play"
                                 width={170}
                                 height={50}
                                 className="h-14 w-auto transition-transform hover:scale-105"
+                                unoptimized
                             />
                         </a>
                     </div>
@@ -409,7 +411,7 @@ export default function HomePage() {
             <div className="container mx-auto px-4 md:px-6 max-xl text-center">
                  <div className="flex items-center justify-center gap-2 mb-4">
                     <Newspaper className="h-5 w-5 text-primary"/>
-                    <h3 className="font-semibold text-foreground text-xl">Stay in the loop!</h3>
+                    <h2 className="font-semibold text-foreground text-xl">Stay in the loop!</h2>
                 </div>
                 <p className="text-muted-foreground mb-6">
                     Subscribe to be the first to know when we launch.
@@ -467,10 +469,10 @@ export default function HomePage() {
                     <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
                         <iframe
                             className="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/Ox4SEDyYh8Q"
+                            src="https://www.youtube-nocookie.com/embed/Ox4SEDyYh8Q"
                             title="VÉLOURA Solutions 1"
                             style={{ border: 0 }}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                             allowFullScreen
                         ></iframe>
                     </div>
@@ -478,10 +480,10 @@ export default function HomePage() {
                     <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
                         <iframe
                             className="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/Oq-3R0VMSAw"
+                            src="https://www.youtube-nocookie.com/embed/Oq-3R0VMSAw"
                             title="VÉLOURA Solutions 2"
                             style={{ border: 0 }}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                             allowFullScreen
                         ></iframe>
                     </div>

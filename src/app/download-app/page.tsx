@@ -78,7 +78,7 @@ export default function DownloadAppPage() {
                   />
                 </a>
                 <a 
-                  href="https://play.google.com/store/apps/details?id=com.veloura.app" 
+                  href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="transition-transform hover:scale-105"
@@ -89,6 +89,7 @@ export default function DownloadAppPage() {
                     width={230}
                     height={60}
                     className="h-16 w-auto"
+                    unoptimized
                   />
                 </a>
               </div>
