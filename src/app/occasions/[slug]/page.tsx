@@ -1,10 +1,11 @@
+
 import { notFound } from 'next/navigation';
 import { getSEONodeBySlug, getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Sparkles, Star, Calendar, ArrowRight, Wand2, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Star, Calendar, ArrowRight, Wand2, ChevronRight, CheckCircle2, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ACTIVE_SERVICES } from '@/lib/marketplace-data';
@@ -93,6 +94,12 @@ export default async function OccasionHubPage({ params }: Props) {
               <Button asChild size="lg" variant="accent" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
                 <Link href={node.cta.href}>{node.cta.label} <Wand2 className="ml-2 w-5 h-5" /></Link>
               </Button>
+               <Button asChild size="lg" variant="outline" className="h-14 px-10 text-lg font-bold rounded-full">
+                <Link href="/book" className="flex items-center gap-2">
+                   <Smartphone className="w-5 h-5" />
+                   Download the App
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -152,9 +159,9 @@ export default async function OccasionHubPage({ params }: Props) {
         <section className="py-20 bg-accent text-accent-foreground text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Book Your Occasion Look</h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Don’t leave your event look to chance. Book with VÉLOURA’s elite specialists.</p>
+            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Don’t leave your event look to chance. Request and book through the VÉLOURA app.</p>
             <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-accent rounded-full">
-              <Link href={node.cta.href}>{node.cta.label}</Link>
+              <Link href="/book">Explore Services in the App</Link>
             </Button>
           </div>
         </section>

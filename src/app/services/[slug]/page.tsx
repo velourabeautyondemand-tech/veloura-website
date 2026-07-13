@@ -1,3 +1,4 @@
+
 import { notFound } from 'next/navigation';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
 import { getAllPublishedSEONodes } from '@/lib/seo-marketplace';
@@ -6,7 +7,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Star, Wand2, Hotel, Home, Sparkles, ChevronRight } from 'lucide-react';
+import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Star, Wand2, Hotel, Home, Sparkles, ChevronRight, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -94,10 +95,13 @@ export default async function ServiceHubPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
-                <Link href="/match">Find My Match <Wand2 className="ml-2 w-5 h-5" /></Link>
+                <Link href="/match">Find Your VÉLOURA Match <Wand2 className="ml-2 w-5 h-5" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-14 px-10 text-lg font-bold rounded-full">
-                <Link href="/services">View All Services</Link>
+                <Link href="/book" className="flex items-center gap-2">
+                   <Smartphone className="w-5 h-5" />
+                   Download the App
+                </Link>
               </Button>
             </div>
           </div>
@@ -106,7 +110,7 @@ export default async function ServiceHubPage({ params }: Props) {
         {/* Long Content Section */}
         <section className="py-16 sm:py-24 bg-background">
           <div className="container mx-auto px-4 max-w-4xl">
-            <div className="prose lg:prose-lg max-w-none text-muted-foreground mb-16">
+            <div className="prose lg:prose-lg max-none text-muted-foreground mb-16">
               <h2 className="text-3xl font-bold font-headline text-foreground">Premium {service.name} Near You</h2>
               <p>{service.longDescription}</p>
             </div>
@@ -182,9 +186,9 @@ export default async function ServiceHubPage({ params }: Props) {
         <section className="py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience the Best {service.name}</h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Luxury is just a few clicks away. Match with a pro to get started.</p>
+            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Luxury is just a few clicks away. Download the app to get started.</p>
             <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full">
-              <Link href="/match">Find Your Perfect Match</Link>
+              <Link href="/book">Find Beauty Professionals in the App</Link>
             </Button>
           </div>
         </section>

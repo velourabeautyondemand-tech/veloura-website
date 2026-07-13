@@ -1,7 +1,8 @@
+
 'use client';
 
 import React, { useState } from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Smartphone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -122,10 +123,13 @@ export function ReviewsSection() {
             )}
 
             <div className="text-center mt-16 space-y-6">
-                <p className="text-sm text-muted-foreground font-light">Ready to experience Veloura for yourself?</p>
+                <p className="text-sm text-muted-foreground font-light">Ready to experience VÉLOURA for yourself?</p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <Button asChild className="rounded-full h-12 px-8 uppercase tracking-wider text-xs font-bold shadow-lg shadow-primary/10">
-                        <Link href="/book">Book a service</Link>
+                        <Link href="/book" className="flex items-center gap-2">
+                             <Smartphone className="w-4 h-4" />
+                             Download the App
+                        </Link>
                     </Button>
                     <Button variant="outline" asChild className="rounded-full h-12 px-8 uppercase tracking-wider text-xs font-bold border-primary text-primary hover:bg-primary/5">
                         <Link href="/contact">Leave a review</Link>

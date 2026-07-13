@@ -1,3 +1,4 @@
+
 import { notFound } from 'next/navigation';
 import { getSEONodeBySlug, getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 import Header from '@/components/shared/header';
@@ -5,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { ShieldCheck, MapPin, ArrowRight, Wand2, CheckCircle2, ChevronRight, Home, Building2, Palmtree } from 'lucide-react';
+import { ShieldCheck, MapPin, ArrowRight, Wand2, CheckCircle2, ChevronRight, Home, Building2, Palmtree, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ACTIVE_SERVICES } from '@/lib/marketplace-data';
@@ -93,7 +94,13 @@ export default async function VenueHubPage({ params }: Props) {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">{node.content.intro}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
-                <Link href={node.cta.href}>{node.cta.label} <Wand2 className="ml-2 w-5 h-5" /></Link>
+                <Link href="/match">Find Your VÉLOURA Match <Wand2 className="ml-2 w-5 h-5" /></Link>
+              </Button>
+               <Button asChild size="lg" variant="outline" className="h-14 px-10 text-lg font-bold rounded-full">
+                <Link href="/book" className="flex items-center gap-2">
+                   <Smartphone className="w-5 h-5" />
+                   Download the App
+                </Link>
               </Button>
             </div>
           </div>
@@ -160,9 +167,9 @@ export default async function VenueHubPage({ params }: Props) {
         <section className="py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience VÉLOURA Professional Services</h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Elite beauty is just a few clicks away. Match with your professional today.</p>
+            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Elite beauty is just a few clicks away. Download the app to match with your professional today.</p>
             <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full">
-              <Link href={node.cta.href}>{node.cta.label}</Link>
+              <Link href="/book">Find Beauty Professionals in the App</Link>
             </Button>
           </div>
         </section>

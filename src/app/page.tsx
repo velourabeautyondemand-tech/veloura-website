@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Heart, HandHeart, Sparkles, Briefcase, Newspaper, Smartphone, Layout, Clock, Home, ShieldCheck, Zap, Star, Wand2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
@@ -237,14 +238,14 @@ export default function HomePage() {
               
                <div className="mt-12 flex flex-col items-center gap-6">
                   <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-transform">
-                      <Link href="/match" className="flex items-center gap-2">
-                        <Wand2 className="w-6 h-6" />
-                        AI Concierge: Find Your Match
+                      <Link href="/book" className="flex items-center gap-2">
+                        <Smartphone className="w-6 h-6" />
+                        Download the App to Book
                       </Link>
                   </Button>
                   
                   <div className="flex flex-col items-center gap-4">
-                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground opacity-70">Download the App</p>
+                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground opacity-70">Get VÉLOURA on the App Store</p>
                     <div className="flex justify-center items-center gap-4 flex-wrap">
                       <a href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank" rel="noopener noreferrer">
                         <Image
@@ -269,7 +270,7 @@ export default function HomePage() {
                 </div>
 
               <p className="mt-16 text-xl font-bold text-primary italic">
-                Launching Soon — Your Choice: We Come to You, or You Come to Us
+                Your Choice: We Come to You, or You Come to Us
               </p>
 
               {/* Interface Gallery */}

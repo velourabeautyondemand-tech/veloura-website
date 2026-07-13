@@ -1,3 +1,4 @@
+
 import { notFound } from 'next/navigation';
 import { getSEONodeBySlug, getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 import Header from '@/components/shared/header';
@@ -5,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Heart, ShieldCheck, ArrowRight, Wand2, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Heart, ShieldCheck, ArrowRight, Wand2, CheckCircle2, ChevronRight, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -93,6 +94,12 @@ export default async function SolutionHubPage({ params }: Props) {
               <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
                 <Link href={node.cta.href}>{node.cta.label}</Link>
               </Button>
+               <Button asChild size="lg" variant="outline" className="h-14 px-10 text-lg font-bold rounded-full">
+                <Link href="/book" className="flex items-center gap-2">
+                   <Smartphone className="w-5 h-5" />
+                   Download the App
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -152,7 +159,7 @@ export default async function SolutionHubPage({ params }: Props) {
                     <Link href="/contact">Contact Our Team</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="h-14 px-12 text-lg font-bold rounded-full border-primary text-primary">
-                    <Link href="/blog/in-home-beauty-services-for-elderly">Read Care Guide</Link>
+                    <Link href="/book">Find Beauty Professionals in the App</Link>
                 </Button>
             </div>
           </div>

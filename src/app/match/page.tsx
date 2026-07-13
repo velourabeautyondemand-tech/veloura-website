@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -6,7 +7,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle } from 'lucide-react';
+import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle, Smartphone } from 'lucide-react';
 import { matchTalent, type MatchTalentOutput } from '@/ai/flows/match-talent-flow';
 import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -45,7 +46,7 @@ export default function MatchPage() {
               </div>
               <h1 className="text-4xl md:text-5xl font-bold font-headline">Find Your VÉLOURA Match</h1>
               <p className="text-lg text-muted-foreground">
-                Tell us about your event, your style, or your vibe. Our AI concierge will recommend the perfect service and professional for you.
+                Tell us about your event, your style, or your vibe. Our AI concierge will recommend the perfect service for you.
               </p>
             </div>
 
@@ -113,8 +114,9 @@ export default function MatchPage() {
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4">
                       <Button asChild size="lg" className="flex-1 h-14 text-lg font-bold shadow-lg">
-                        <Link href="/book">
-                          Book This Service <ArrowRight className="ml-2 w-5 h-5" />
+                        <Link href="/book" className="flex items-center gap-2">
+                           <Smartphone className="w-5 h-5" />
+                           Download the App to Book
                         </Link>
                       </Button>
                       <Button 
