@@ -133,6 +133,17 @@ function EventsContent() {
                                     </div>
                                 </CardHeader>
                                 <CardContent className="pt-6 text-center space-y-4 text-muted-foreground">
+                                    <div className="aspect-video w-full rounded-md overflow-hidden bg-muted mb-6 shadow-inner">
+                                        <iframe
+                                            className="w-full h-full"
+                                            src="https://www.youtube.com/embed/Ox4SEDyYh8Q"
+                                            title="VÉLOURA Miami Recruiting Seminar"
+                                            style={{ border: 0 }}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                                            allowFullScreen
+                                            loading="lazy"
+                                        ></iframe>
+                                    </div>
                                     <p className="text-lg font-semibold text-foreground">
                                         All applications have been processed!
                                     </p>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -303,9 +304,10 @@ export default function ApplyPage() {
                             className="w-full h-full"
                             src="https://www.youtube.com/embed/Elqun7Kx7kY"
                             title="VÉLOURA Onboarding Guide"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            style={{ border: 0 }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                             allowFullScreen
+                            loading="lazy"
                         ></iframe>
                     </div>
                 </div>

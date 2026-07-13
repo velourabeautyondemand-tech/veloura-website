@@ -468,9 +468,10 @@ export default function HomePage() {
                             className="w-full h-full"
                             src="https://www.youtube.com/embed/Ox4SEDyYh8Q"
                             title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            style={{ border: 0 }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                             allowFullScreen
+                            loading="lazy"
                         ></iframe>
                     </div>
                     <div className="aspect-video w-full rounded-md overflow-hidden bg-muted flex items-center justify-center text-muted-foreground">
@@ -478,9 +479,10 @@ export default function HomePage() {
                             className="w-full h-full"
                             src="https://www.youtube.com/embed/Oq-3R0VMSAw"
                             title="YouTube video player 2"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            style={{ border: 0 }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                             allowFullScreen
+                            loading="lazy"
                         ></iframe>
                     </div>
                 </div>
