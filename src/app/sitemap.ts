@@ -1,3 +1,4 @@
+
 import { MetadataRoute } from 'next';
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
@@ -68,7 +69,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/on-demand-beauty-app',
     '/compare-beauty-apps',
     '/hotel-partners',
-    '/vendor-partners'
+    '/vendor-partners',
+    '/download-app'
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
