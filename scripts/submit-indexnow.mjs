@@ -1,65 +1,58 @@
 /**
- * IndexNow Submission Script for VÉLOURA
- * This script notifies search engines of new or updated content.
+ * @fileOverview IndexNow Submission Script for VÉLOURA
+ * This script submits the homepage to the IndexNow API to notify search engines like Bing.
  */
 
+const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
 const HOST = 'velourabeautyondemand.com';
 const KEY = 'ed9e45eb6c2f42099395e12d35282eb1';
-const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const API_ENDPOINT = 'https://api.indexnow.org/indexnow';
+const KEY_LOCATION = 'https://velourabeautyondemand.com/ed9e45eb6c2f42099395e12d35282eb1.txt';
 
-async function submitUrls(urlList) {
-  if (!urlList || urlList.length === 0) {
-    console.error('Error: No URLs provided for submission.');
-    return;
-  }
+// The exact test URL requested for initial verification
+const urlList = [
+  'https://velourabeautyondemand.com/'
+];
 
-  // Point 4: Ensure all URLs begin with the required marketing domain prefix
-  const validUrls = urlList.filter(url => url.startsWith(`https://${HOST}/`));
-  
-  if (validUrls.length === 0) {
-    console.error(`Error: No valid URLs found. All URLs must begin with https://${HOST}/`);
-    return;
-  }
+// STRICT VALIDATION: Ensure all URLs belong to the verified host
+const validUrls = urlList.filter(url => url.startsWith(`https://${HOST}/`));
 
-  if (validUrls.length < urlList.length) {
-    console.warn(`Warning: Filtered out ${urlList.length - validUrls.length} URLs that do not belong to the target host.`);
-  }
+const payload = {
+  host: HOST,
+  key: KEY,
+  keyLocation: KEY_LOCATION,
+  urlList: validUrls,
+};
 
-  const payload = {
-    host: HOST,
-    key: KEY,
-    keyLocation: KEY_LOCATION,
-    urlList: validUrls,
-  };
-
-  console.log(`Initiating IndexNow submission for ${validUrls.length} URLs...`);
+async function submitToIndexNow() {
+  console.log('--- IndexNow Submission ---');
+  console.log(`Endpoint: ${INDEXNOW_ENDPOINT}`);
+  console.log('Payload:', JSON.stringify(payload, null, 2));
 
   try {
-    // Point 2: Submit to the standard IndexNow API endpoint
-    const response = await fetch(API_ENDPOINT, {
+    const response = await fetch(INDEXNOW_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
       body: JSON.stringify(payload),
     });
 
-    if (response.ok) {
-      console.log('IndexNow submission successful. Search engines have been notified.');
+    console.log(`HTTP Status: ${response.status} ${response.statusText}`);
+    const responseBody = await response.text();
+    console.log('Response Body:', responseBody || '(empty)');
+
+    if (response.status === 200 || response.status === 202) {
+      console.log('SUCCESS: URL submitted successfully to IndexNow.');
     } else {
-      const errorText = await response.text();
-      console.error(`IndexNow submission failed with status ${response.status}: ${errorText}`);
+      console.error(`FAILURE: IndexNow API returned status ${response.status}`);
     }
   } catch (error) {
-    console.error('An unexpected error occurred during IndexNow submission:', error);
+    console.error('CRITICAL ERROR: Failed to connect to IndexNow API:', error.message);
   }
 }
 
-// CLI entry point
-const args = process.argv.slice(2);
-if (args.length > 0) {
-  submitUrls(args);
+if (validUrls.length > 0) {
+  submitToIndexNow();
 } else {
-  // Default submission if no arguments provided
-  console.log('No arguments provided. Submitting the marketing homepage as a heartbeat...');
-  submitUrls([`https://${HOST}/`]);
+  console.error('ERROR: No valid URLs found for submission. URLs must start with https://velourabeautyondemand.com/');
 }
