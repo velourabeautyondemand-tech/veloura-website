@@ -22,7 +22,7 @@ export default function HomeBeautyServicesPage() {
 
                 <section className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                        <div className="prose lg:prose-lg max-w-none text-muted-foreground">
+                        <div className="prose lg:prose-lg max-none text-muted-foreground">
                             <h2 className="text-3xl font-bold font-headline text-foreground">Bringing the Salon to Your Door</h2>
                             <p>
                                 In today's fast-paced world, finding time for self-care shouldn't be another chore. VÉLOURA is redefining the beauty industry by offering a mobile-first platform that eliminates the need for travel, parking, and waiting rooms. Whether you're a busy professional, a new parent, or simply value the comfort of your own space, our at-home beauty services are designed for you.
@@ -79,7 +79,7 @@ export default function HomeBeautyServicesPage() {
                                     <Link href="https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381" target="_blank">App Store</Link>
                                 </Button>
                                 <Button asChild size="lg" variant="outline">
-                                    <Link href="https://play.google.com/store/apps/details?id=com.veloura.app" target="_blank">Google Play</Link>
+                                    <Link href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank">Google Play</Link>
                                 </Button>
                             </div>
                         </div>

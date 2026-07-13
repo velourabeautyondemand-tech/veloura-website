@@ -30,7 +30,7 @@ export default function OnDemandBeautyAppPage() {
                                         </Link>
                                     </Button>
                                     <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg font-bold">
-                                         <Link href="https://play.google.com/store/apps/details?id=com.veloura.app" target="_blank">
+                                         <Link href="https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share" target="_blank">
                                             <Smartphone className="mr-2 w-5 h-5" />
                                             Download for Android
                                         </Link>

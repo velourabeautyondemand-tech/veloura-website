@@ -313,9 +313,9 @@ export default function HomePage() {
                             </Link>
                         </Button>
                     </div>
-                    <div className="flex-1 relative aspect-square w-full max-sm mx-auto">
-                        <div className="absolute inset-0 bg-white/10 rounded-full animate-pulse scale-110"></div>
-                        <div className="bg-white/10 backdrop-blur-md rounded-full w-full h-full flex items-center justify-center border border-white/20 shadow-2xl">
+                    <div className="flex-1 relative w-full max-w-sm mx-auto" style={{ paddingBottom: '100%' }}>
+                         <div className="absolute inset-0 bg-white/10 rounded-full animate-pulse scale-110"></div>
+                         <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-full w-full h-full flex items-center justify-center border border-white/20 shadow-2xl">
                             <Wand2 className="w-32 h-32 text-white opacity-90" />
                         </div>
                     </div>
@@ -342,6 +342,48 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Problems Solved Section */}
+        <section className="py-16 sm:py-24 bg-secondary/50">
+            <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+                 <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">We Solve Everyday Beauty Problems - with Luxury Convenience</h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    {/* Responsive Video Container 1 */}
+                    <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
+                        <iframe
+                            className="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube-nocookie.com/embed/Ox4SEDyYh8Q"
+                            title="VÉLOURA Solutions 1"
+                            style={{ border: 0 }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                    {/* Responsive Video Container 2 */}
+                    <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
+                        <iframe
+                            className="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube-nocookie.com/embed/Oq-3R0VMSAw"
+                            title="VÉLOURA Solutions 2"
+                            style={{ border: 0 }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+                 <ul className="space-y-8">
+                    {problemsSolved.map((item, index) => (
+                        <li key={index}>
+                            <p className="font-bold text-lg text-primary">{item.problem}</p>
+                            <p className="text-muted-foreground mt-1">{item.solution}</p>
+                        </li>
+                    ))}
+                </ul>
+                <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA Beauty on Demand turns your beauty routine into a moment of calm, confidence, and care.</p>
+            </div>
         </section>
 
         {/* Top on-demand beauty app benefits Section */}
@@ -455,48 +497,6 @@ export default function HomePage() {
                         "Because your time matters — and getting ready shouldn’t be the hard part."
                     </p>
                 </div>
-            </div>
-        </section>
-
-        {/* Problems Solved Section */}
-        <section className="py-16 sm:py-24 bg-secondary/50">
-            <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">We Solve Everyday Beauty Problems - with Luxury Convenience</h2>
-                </div>
-                <div className="grid md:grid-cols-2 gap-8 mb-12">
-                    {/* Responsive Video Container 1 */}
-                    <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
-                        <iframe
-                            className="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube-nocookie.com/embed/Ox4SEDyYh8Q"
-                            title="VÉLOURA Solutions 1"
-                            style={{ border: 0 }}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-                    {/* Responsive Video Container 2 */}
-                    <div className="w-full relative overflow-hidden rounded-xl shadow-lg bg-muted" style={{ paddingBottom: '56.25%' }}>
-                        <iframe
-                            className="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube-nocookie.com/embed/Oq-3R0VMSAw"
-                            title="VÉLOURA Solutions 2"
-                            style={{ border: 0 }}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-                </div>
-                 <ul className="space-y-8">
-                    {problemsSolved.map((item, index) => (
-                        <li key={index}>
-                            <p className="font-bold text-lg text-primary">{item.problem}</p>
-                            <p className="text-muted-foreground mt-1">{item.solution}</p>
-                        </li>
-                    ))}
-                </ul>
-                <p className="text-center font-bold text-xl mt-12 text-foreground">VÉLOURA Beauty on Demand turns your beauty routine into a moment of calm, confidence, and care.</p>
             </div>
         </section>
 
