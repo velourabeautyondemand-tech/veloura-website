@@ -299,15 +299,14 @@ export default function ApplyPage() {
             {/* Onboarding Process Video */}
             <section id="onboarding-process" className="mb-16 md:mb-24">
                 <div className="max-w-sm mx-auto text-center space-y-6 mb-16">
-                    <div className="aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10">
+                    <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-8 border-white ring-1 ring-primary/10 bg-muted">
                          <iframe
-                            className="w-full h-full"
-                            src="https://www.youtube.com/embed/Elqun7Kx7kY"
+                            className="absolute inset-0 w-full h-full"
+                            src="https://www.youtube-nocookie.com/embed/Elqun7Kx7kY"
                             title="VÉLOURA Onboarding Guide"
                             style={{ border: 0 }}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                             allowFullScreen
-                            loading="lazy"
                         ></iframe>
                     </div>
                 </div>
