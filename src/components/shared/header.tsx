@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, Sparkles, ChevronDown, Scissors, Wand2, Hotel, Home, Heart } from "lucide-react"
+import { Menu, Sparkles, ChevronDown, Scissors, Wand2, Hotel, Home, Heart, ShoppingBag } from "lucide-react"
 import { useUser, useAuth, useFirestore, useDoc, useMemoFirebase } from "@/firebase";
 import { doc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
@@ -27,6 +27,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services", hasDropdown: true },
   { href: "/match", label: "Find Your Match", icon: Sparkles },
+  { href: "/store", label: "Store", icon: ShoppingBag },
   { href: "/talent-agency", label: "Talent Agency" },
   { href: "/apply", label: "Join Our Team" },
   { href: "/pro-discounts", label: "Our Partners" },

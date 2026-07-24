@@ -1,4 +1,3 @@
-
 import { MetadataRoute } from 'next';
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
@@ -45,6 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '',
     '/services',
     '/match',
+    '/store',
     '/talent-agency',
     '/apply',
     '/pro-discounts',

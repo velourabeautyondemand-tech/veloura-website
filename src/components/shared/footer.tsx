@@ -40,7 +40,7 @@ export default function Footer() {
               <li><Link href="/venues/hotels" className="text-muted-foreground hover:text-primary transition-colors">Hotel Beauty</Link></li>
               <li><Link href="/venues/home-service" className="text-muted-foreground hover:text-primary transition-colors">At-Home Salon</Link></li>
               <li><Link href="/occasions/weddings" className="text-muted-foreground hover:text-primary transition-colors">Wedding Glam</Link></li>
-              <li><Link href="/solutions/seniors" className="text-muted-foreground hover:text-primary transition-colors">Senior Beauty Services</Link></li>
+              <li><Link href="/store" className="text-muted-foreground hover:text-primary transition-colors font-bold text-primary">Shop Essentials</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors font-bold">All Services</Link></li>
             </ul>
           </div>
