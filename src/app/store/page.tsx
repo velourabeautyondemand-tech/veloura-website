@@ -4,14 +4,17 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, CreditCard, Star, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import { ShoppingBag, CreditCard, Star, ArrowRight, ShieldCheck, Zap, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 /**
- * STRIPE PAYMENT LINK CONFIGURATION
- * Replace the 'stripeLink' values below with your actual URLs from the Stripe Dashboard.
+ * GLOBAL STORE CONFIGURATION
+ * Replace this single URL with your main Stripe Storefront or 
+ * a single Stripe Payment Link that handles your primary checkout.
  */
+const GLOBAL_STRIPE_STORE_LINK = 'https://buy.stripe.com/your_main_store_link'; 
+
 const storeItems = [
   {
     id: 'gift-card-50',
@@ -21,7 +24,6 @@ const storeItems = [
     category: 'Digital',
     image: 'https://images.unsplash.com/photo-1549461756-371237a4f41b?q=80&w=1080&auto=format&fit=crop',
     imageHint: 'gift card luxury',
-    stripeLink: 'https://buy.stripe.com/test_50_dollar_link' // REPLACE WITH YOUR STRIPE LINK
   },
   {
     id: 'pro-kit-starter',
@@ -31,7 +33,6 @@ const storeItems = [
     category: 'Pro Gear',
     image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=1080&auto=format&fit=crop',
     imageHint: 'beauty professional tools',
-    stripeLink: 'https://buy.stripe.com/test_pro_kit_link' // REPLACE WITH YOUR STRIPE LINK
   },
   {
     id: 'merch-tote',
@@ -41,7 +42,6 @@ const storeItems = [
     category: 'Merchandise',
     image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1080&auto=format&fit=crop',
     imageHint: 'canvas tote bag',
-    stripeLink: 'https://buy.stripe.com/test_merch_link' // REPLACE WITH YOUR STRIPE LINK
   }
 ];
 
@@ -53,22 +53,38 @@ export default function StorePage() {
         {/* Hero Section */}
         <section className="bg-secondary/30 py-16 md:py-24 border-b">
           <div className="container mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 uppercase tracking-widest">
-              <ShoppingBag className="w-4 h-4" />
-              <span>The VÉLOURA Collection</span>
+            <div className="max-w-3xl mx-auto space-y-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-2 uppercase tracking-widest">
+                <ShoppingBag className="w-4 h-4" />
+                <span>Official VÉLOURA Boutique</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-extrabold font-headline leading-tight">
+                Luxury Essentials <br /> <span className="text-primary">Curated for You</span>
+              </h1>
+              <p className="text-xl text-muted-foreground font-medium">
+                Browse our collection below and visit our secure Stripe-powered checkout to complete your purchase.
+              </p>
+              
+              {/* PRIMARY STORE BUTTON - This is the "One Link" for the whole store */}
+              <div className="pt-4">
+                <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-transform bg-primary">
+                  <a href={GLOBAL_STRIPE_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                    Visit the VÉLOURA Stripe Store <ExternalLink className="ml-2 w-6 h-6" />
+                  </a>
+                </Button>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold font-headline mb-6 tracking-tight">
-              Essential Luxury <br /> <span className="text-primary">Direct to You</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-medium">
-              From service gift cards to professional-grade gear, explore the curated VÉLOURA boutique.
-            </p>
           </div>
         </section>
 
         {/* Store Grid */}
         <section className="py-16 sm:py-24 bg-background">
           <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold font-headline mb-4">Featured Products</h2>
+                <p className="text-muted-foreground">Detailed view of our current inventory.</p>
+            </div>
+            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
               {storeItems.map((item) => (
                 <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group">
@@ -96,13 +112,10 @@ export default function StorePage() {
                     <p className="text-2xl font-bold font-headline text-primary">${item.price}</p>
                   </CardContent>
                   <CardFooter className="pt-0 pb-8 px-6">
-                    {/* 
-                      CRITICAL: Use target="_blank" to ensure the payment opens in a new tab, 
-                      keeping the user's session on your website active.
-                    */}
-                    <Button asChild className="w-full h-12 text-lg font-bold shadow-lg" variant="default">
-                      <a href={item.stripeLink} target="_blank" rel="noopener noreferrer">
-                        Buy Now <ArrowRight className="ml-2 w-4 h-4" />
+                    {/* All buttons now lead to the same global destination */}
+                    <Button asChild className="w-full h-12 text-sm font-bold" variant="outline">
+                      <a href={GLOBAL_STRIPE_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                        Purchase on Stripe <ArrowRight className="ml-2 w-4 h-4" />
                       </a>
                     </Button>
                   </CardFooter>
@@ -135,15 +148,15 @@ export default function StorePage() {
             </div>
         </section>
 
-        {/* Custom Order / Bulk Inquiry */}
-        <section className="py-20 bg-background text-center">
+        {/* Bulk Inquiry */}
+        <section className="py-20 bg-background text-center border-t">
             <div className="container mx-auto px-4 max-w-2xl">
-                <h2 className="text-3xl font-bold font-headline mb-4">Bulk Orders & Corporate Gifts</h2>
+                <h2 className="text-3xl font-bold font-headline mb-4">Questions about an order?</h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                    Need customized gift cards for your team or looking to purchase professional supplies in bulk? We offer tailored solutions for corporate wellness programs and large talent networks.
+                    If you have questions about your purchase or need help with a bulk order, our support team is available 7 days a week.
                 </p>
-                <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg font-bold border-primary text-primary hover:bg-primary/5">
-                    <Link href="/contact">Inquire About Bulk Orders</Link>
+                <Button asChild variant="ghost" size="lg" className="h-14 px-10 text-lg font-bold border-primary text-primary hover:bg-primary/5">
+                    <Link href="/contact">Contact Support</Link>
                 </Button>
             </div>
         </section>
