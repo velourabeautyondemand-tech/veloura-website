@@ -8,6 +8,10 @@ import { ShoppingBag, CreditCard, Star, ArrowRight, ShieldCheck, Zap } from 'luc
 import Image from 'next/image';
 import Link from 'next/link';
 
+/**
+ * STRIPE PAYMENT LINK CONFIGURATION
+ * Replace the 'stripeLink' values below with your actual URLs from the Stripe Dashboard.
+ */
 const storeItems = [
   {
     id: 'gift-card-50',
@@ -17,7 +21,7 @@ const storeItems = [
     category: 'Digital',
     image: 'https://images.unsplash.com/photo-1549461756-371237a4f41b?q=80&w=1080&auto=format&fit=crop',
     imageHint: 'gift card luxury',
-    stripeLink: 'https://buy.stripe.com/test_50_dollar_link' // Replace with your actual Stripe Link
+    stripeLink: 'https://buy.stripe.com/test_50_dollar_link' // REPLACE WITH YOUR STRIPE LINK
   },
   {
     id: 'pro-kit-starter',
@@ -27,7 +31,7 @@ const storeItems = [
     category: 'Pro Gear',
     image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=1080&auto=format&fit=crop',
     imageHint: 'beauty professional tools',
-    stripeLink: 'https://buy.stripe.com/test_pro_kit_link' // Replace with your actual Stripe Link
+    stripeLink: 'https://buy.stripe.com/test_pro_kit_link' // REPLACE WITH YOUR STRIPE LINK
   },
   {
     id: 'merch-tote',
@@ -37,7 +41,7 @@ const storeItems = [
     category: 'Merchandise',
     image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1080&auto=format&fit=crop',
     imageHint: 'canvas tote bag',
-    stripeLink: 'https://buy.stripe.com/test_merch_link' // Replace with your actual Stripe Link
+    stripeLink: 'https://buy.stripe.com/test_merch_link' // REPLACE WITH YOUR STRIPE LINK
   }
 ];
 
@@ -92,6 +96,10 @@ export default function StorePage() {
                     <p className="text-2xl font-bold font-headline text-primary">${item.price}</p>
                   </CardContent>
                   <CardFooter className="pt-0 pb-8 px-6">
+                    {/* 
+                      CRITICAL: Use target="_blank" to ensure the payment opens in a new tab, 
+                      keeping the user's session on your website active.
+                    */}
                     <Button asChild className="w-full h-12 text-lg font-bold shadow-lg" variant="default">
                       <a href={item.stripeLink} target="_blank" rel="noopener noreferrer">
                         Buy Now <ArrowRight className="ml-2 w-4 h-4" />
