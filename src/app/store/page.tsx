@@ -4,14 +4,13 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, CreditCard, Star, ArrowRight, ShieldCheck, Zap, ExternalLink } from 'lucide-react';
+import { ShoppingBag, Star, ArrowRight, ShieldCheck, Zap, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 /**
- * GLOBAL STORE CONFIGURATION
- * Replace this single URL with your main Stripe Storefront or 
- * a single Stripe Payment Link that handles your primary checkout.
+ * STEP 3: PASTE YOUR LINK BELOW
+ * Replace 'https://buy.stripe.com/your_main_store_link' with the link you copied from Stripe.
  */
 const GLOBAL_STRIPE_STORE_LINK = 'https://buy.stripe.com/your_main_store_link'; 
 
@@ -52,7 +51,7 @@ export default function StorePage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="bg-secondary/30 py-16 md:py-24 border-b">
-          <div className="container mx-auto px-4 text-center">
+          <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-2 uppercase tracking-widest">
                 <ShoppingBag className="w-4 h-4" />
@@ -62,14 +61,13 @@ export default function StorePage() {
                 Luxury Essentials <br /> <span className="text-primary">Curated for You</span>
               </h1>
               <p className="text-xl text-muted-foreground font-medium">
-                Browse our collection below and visit our secure Stripe-powered checkout to complete your purchase.
+                Browse our collection and use our secure Stripe checkout to complete your purchase.
               </p>
               
-              {/* PRIMARY STORE BUTTON - This is the "One Link" for the whole store */}
               <div className="pt-4">
                 <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-transform bg-primary">
                   <a href={GLOBAL_STRIPE_STORE_LINK} target="_blank" rel="noopener noreferrer">
-                    Visit the VÉLOURA Stripe Store <ExternalLink className="ml-2 w-6 h-6" />
+                    Visit the VÉLOURA Checkout <ExternalLink className="ml-2 w-6 h-6" />
                   </a>
                 </Button>
               </div>
@@ -82,7 +80,7 @@ export default function StorePage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
                 <h2 className="text-3xl font-bold font-headline mb-4">Featured Products</h2>
-                <p className="text-muted-foreground">Detailed view of our current inventory.</p>
+                <p className="text-muted-foreground">Select an item to view it in our secure shop.</p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
@@ -112,10 +110,9 @@ export default function StorePage() {
                     <p className="text-2xl font-bold font-headline text-primary">${item.price}</p>
                   </CardContent>
                   <CardFooter className="pt-0 pb-8 px-6">
-                    {/* All buttons now lead to the same global destination */}
                     <Button asChild className="w-full h-12 text-sm font-bold" variant="outline">
                       <a href={GLOBAL_STRIPE_STORE_LINK} target="_blank" rel="noopener noreferrer">
-                        Purchase on Stripe <ArrowRight className="ml-2 w-4 h-4" />
+                        Purchase Item <ArrowRight className="ml-2 w-4 h-4" />
                       </a>
                     </Button>
                   </CardFooter>
@@ -145,19 +142,6 @@ export default function StorePage() {
                         <p className="text-xs text-muted-foreground">Vetted products for elite pros.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        {/* Bulk Inquiry */}
-        <section className="py-20 bg-background text-center border-t">
-            <div className="container mx-auto px-4 max-w-2xl">
-                <h2 className="text-3xl font-bold font-headline mb-4">Questions about an order?</h2>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
-                    If you have questions about your purchase or need help with a bulk order, our support team is available 7 days a week.
-                </p>
-                <Button asChild variant="ghost" size="lg" className="h-14 px-10 text-lg font-bold border-primary text-primary hover:bg-primary/5">
-                    <Link href="/contact">Contact Support</Link>
-                </Button>
             </div>
         </section>
       </main>
