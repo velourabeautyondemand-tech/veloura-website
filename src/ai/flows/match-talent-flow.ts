@@ -51,13 +51,21 @@ Provide a suggested service name, a luxury-toned reasoning, and some helpful pro
 
 export async function matchTalent(input: MatchTalentInput): Promise<MatchTalentOutput> {
   try {
-    return await matchTalentFlow(input);
+    // Execute the flow
+    const response = await matchTalentFlow(input);
+    return response;
   } catch (error: any) {
-    console.error("Match Talent Flow Error:", error);
-    // Extract a cleaner error message if it's a quota issue
+    console.error("DEBUG: Match Talent Flow Error Detail:", error);
+    
+    // Provide specific feedback for configuration issues
+    if (error.message?.includes('API_KEY_INVALID') || error.message?.includes('API key not found')) {
+      throw new Error("AI CONFIGURATION ERROR: The Google GenAI API Key is missing or invalid in the hosting environment variables.");
+    }
+
     const message = error.message?.includes('429') 
-      ? "Our AI Concierge is currently at peak capacity. Please try again in a few moments or explore our services menu manually." 
-      : "We encountered a hiccup while matching you. Please try again or contact our support team.";
+      ? "Our AI Concierge is currently at peak capacity. Please try again in a few moments." 
+      : `AI CONNECTION ERROR: ${error.message || "We encountered a technical hiccup."}`;
+      
     throw new Error(message);
   }
 }
@@ -75,7 +83,7 @@ const matchTalentFlow = ai.defineFlow(
     });
     
     if (!output) {
-      throw new Error("No recommendation could be generated at this time.");
+      throw new Error("The AI model returned an empty response. This usually happens when the prompt is blocked by safety filters or quota limits.");
     }
     
     return output;
