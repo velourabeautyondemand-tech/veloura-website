@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import { Poppins } from 'next/font/google';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
+import { LanguageProvider } from '@/context/language-context';
 import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -79,9 +80,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn('font-body antialiased', poppins.variable)}>
-        <FirebaseClientProvider>
-          {children}
-        </FirebaseClientProvider>
+        <LanguageProvider>
+          <FirebaseClientProvider>
+            {children}
+          </FirebaseClientProvider>
+        </LanguageProvider>
         <Toaster />
         <Script
             src="https://dunsregistered.dnb.com/drsus.js?duns=f54604e6691278f60393f51e1c9ef37e&ProfileURL=https://www.dnb.com/business-directory/company-profiles.iamdreammaker_production_group_llc.f54604e6691278f60393f51e1c9ef37e.html?referrer=DRS"

@@ -6,6 +6,8 @@ import { useUser, useAuth, useFirestore, useDoc, useMemoFirebase } from "@/fireb
 import { doc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { ACTIVE_SERVICES } from "@/lib/marketplace-data";
+import { useLanguage } from "@/context/language-context";
+import { LanguageSwitcher } from "./language-switcher";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -22,23 +24,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { NailIcon } from "./logo";
 
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services", hasDropdown: true },
-  { href: "/match", label: "Find Your Match", icon: Sparkles },
-  { href: "/store", label: "Store", icon: ShoppingBag },
-  { href: "/talent-agency", label: "Talent Agency" },
-  { href: "/apply", label: "Join Our Team" },
-  { href: "/pro-discounts", label: "Our Partners" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "Our Story" },
-];
-
 function UserNavButtons() {
   const { user, isUserLoading } = useUser();
   const auth = useAuth();
   const firestore = useFirestore();
+  const { t } = useLanguage();
   const router = useRouter();
 
   const userDocRef = useMemoFirebase(() => {
@@ -61,7 +51,7 @@ function UserNavButtons() {
   if (!user) {
     return (
        <Button asChild variant="ghost">
-          <Link href="https://admin.velourabeautyondemand.com/login" target="_blank">Sign In</Link>
+          <Link href="https://admin.velourabeautyondemand.com/login" target="_blank">{t('nav.signIn')}</Link>
        </Button>
     )
   }
@@ -70,33 +60,46 @@ function UserNavButtons() {
     <>
       {userProfile?.role === 'admin' && (
         <Button variant="accent" asChild>
-          <Link href="/admin">Admin Dashboard</Link>
+          <Link href="/admin">Admin</Link>
         </Button>
       )}
       {userProfile?.role === 'technician' && (
         <Button asChild>
-          <Link href="/technician/dashboard">Professional Dashboard</Link>
+          <Link href="/technician/dashboard">Pro</Link>
         </Button>
       )}
       {userProfile?.role === 'customer' && (
          <Button asChild>
-            <Link href="/customer">My Dashboard</Link>
+            <Link href="/customer">Me</Link>
         </Button>
       )}
-      <Button onClick={handleSignOut} variant="outline">Sign Out</Button>
+      <Button onClick={handleSignOut} variant="outline" size="sm">Out</Button>
     </>
   )
 }
 
-
 export default function Header() {
+  const { t } = useLanguage();
+  
+  const navLinks = [
+    { href: "/", label: t('nav.home') },
+    { href: "/services", label: t('nav.services'), hasDropdown: true },
+    { href: "/match", label: t('nav.match'), icon: Sparkles },
+    { href: "/store", label: t('nav.store'), icon: ShoppingBag },
+    { href: "/talent-agency", label: t('nav.talent') },
+    { href: "/apply", label: t('nav.apply') },
+    { href: "/pro-discounts", label: t('nav.partners') },
+    { href: "/blog", label: t('nav.blog') },
+    { href: "/about", label: t('nav.about') },
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-auto flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <NailIcon className="h-6 w-6" />
-            <span className="font-bold inline-block font-headline text-lg">VÉLOURA Beauty on Demand</span>
+            <span className="font-bold inline-block font-headline text-lg">VÉLOURA</span>
           </Link>
           <nav className="hidden xl:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map(link => (
@@ -160,8 +163,11 @@ export default function Header() {
           </nav>
         </div>
 
-        <div className="hidden md:flex items-center space-x-4">
-          <UserNavButtons />
+        <div className="flex items-center space-x-2 md:space-x-4">
+          <LanguageSwitcher />
+          <div className="hidden md:flex items-center space-x-4">
+            <UserNavButtons />
+          </div>
         </div>
 
         <Sheet>
@@ -169,7 +175,7 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="xl:hidden"
+              className="xl:hidden ml-2"
             >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle Menu</span>
@@ -181,7 +187,7 @@ export default function Header() {
               <div className="flex items-center border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
                   <NailIcon className="h-6 w-6" />
-                  <span className="font-bold font-headline">VÉLOURA Beauty on Demand</span>
+                  <span className="font-bold font-headline">VÉLOURA</span>
                 </Link>
               </div>
               <div className="flex-1 flex flex-col pt-6 space-y-4">
