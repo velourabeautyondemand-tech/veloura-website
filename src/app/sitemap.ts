@@ -1,7 +1,9 @@
+
 import { MetadataRoute } from 'next';
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
 import { ACTIVE_SERVICES, ACTIVE_LOCATIONS } from '@/lib/marketplace-data';
 import { getAllPublishedSEONodes } from '@/lib/seo-marketplace';
+import { VÉLOURA_PROFESSIONALS } from '@/lib/talent-data';
 import { initializeFirebase } from '@/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -9,7 +11,7 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 // Ghost API Configuration
-const GHOST_URL = 'https://velourabeautyondemand.com/blog'; // Updated to point to the subfolder or main domain
+const GHOST_URL = 'https://velourabeautyondemand.com/blog';
 const GHOST_CONTENT_KEY = '29a6cc12d143f907f50654a724';
 
 async function getFirestoreBlogSlugs() {
@@ -25,7 +27,6 @@ async function getFirestoreBlogSlugs() {
 
 async function getGhostApiSlugs() {
   try {
-    // Note: This fetch might fail during build if networking is restricted or env vars are missing
     const res = await fetch(`https://veloura-beauty-on-demand.ghost.io/ghost/api/content/posts/?key=${GHOST_CONTENT_KEY}&fields=slug&limit=all`);
     if (!res.ok) return [];
     const data = await res.json();
@@ -80,6 +81,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.8
   }));
 
+  // Professional Profiles
+  const proEntries: MetadataRoute.Sitemap = VÉLOURA_PROFESSIONALS.map((p) => ({
+    url: `${baseUrl}/talent-agency/professionals/${p.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6
+  }));
+
   // Service Hubs
   const serviceEntries: MetadataRoute.Sitemap = ACTIVE_SERVICES.map((s) => ({
     url: `${baseUrl}/services/${s.slug}`,
@@ -131,6 +140,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...serviceEntries, 
     ...locationEntries, 
     ...seoEntries,
-    ...blogEntries
+    ...blogEntries,
+    ...proEntries
   ];
 }

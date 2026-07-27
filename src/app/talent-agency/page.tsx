@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Star, Award, MapPin, Layers, MessageSquare } from 'lucide-react';
+import { ProfessionalDirectory } from '@/components/features/professional-directory';
 
 const whyWorkWithUs = [
     {
@@ -77,6 +78,9 @@ export default function TalentAgencyPage() {
                         </div>
                     </div>
                 </section>
+
+                {/* Directory Section */}
+                <ProfessionalDirectory />
 
                 {/* Creative Showcase - Photos Only */}
                 <section className="py-16 sm:py-24 bg-background">
