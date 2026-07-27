@@ -21,9 +21,17 @@ const MatchTalentOutputSchema = z.object({
 });
 export type MatchTalentOutput = z.infer<typeof MatchTalentOutputSchema>;
 
+// Internal schema for the prompt to include the dynamic services list
+const PromptInputSchema = MatchTalentInputSchema.extend({
+  services: z.array(z.object({
+    name: z.string(),
+    description: z.string()
+  })),
+});
+
 const prompt = ai.definePrompt({
   name: 'matchTalentPrompt',
-  input: { schema: MatchTalentInputSchema },
+  input: { schema: PromptInputSchema },
   output: { schema: MatchTalentOutputSchema },
   prompt: `You are the VÉLOURA AI Concierge, a luxury beauty and lifestyle expert. 
 Your goal is to help users find the perfect service from the VÉLOURA menu based on their event description.
@@ -49,7 +57,7 @@ export async function matchTalent(input: MatchTalentInput): Promise<MatchTalentO
     // Extract a cleaner error message if it's a quota issue
     const message = error.message?.includes('429') 
       ? "Our AI Concierge is currently at peak capacity. Please try again in a few moments or explore our services menu manually." 
-      : "We encountered a hiccup while matching you. Please try again or contact support.";
+      : "We encountered a hiccup while matching you. Please try again or contact our support team.";
     throw new Error(message);
   }
 }
@@ -62,8 +70,7 @@ const matchTalentFlow = ai.defineFlow(
   },
   async (input) => {
     const { output } = await prompt({
-      ...input,
-      // @ts-ignore - Handlebars context
+      description: input.description,
       services: services.map(s => ({ name: s.name, description: s.description }))
     });
     
