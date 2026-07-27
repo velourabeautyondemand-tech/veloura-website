@@ -1,23 +1,33 @@
 
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { VÉLOURA_PROFESSIONALS, type PublicProfessional } from '@/lib/talent-data';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Search, MapPin, Award, Camera, Sparkles, ChevronRight, Smartphone, Filter } from 'lucide-react';
+import { Search, MapPin, Award, Camera, Sparkles, ChevronRight, Smartphone, Filter, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
 const ITEMS_PER_PAGE = 12;
 
-export function ProfessionalDirectory() {
+function DirectoryContent() {
+  const searchParams = useSearchParams();
+  const initialSpecialty = searchParams.get('specialty') || 'All Specialties';
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedState, setSelectedState] = useState('All States');
-  const [selectedSpecialty, setSelectedSpecialty] = useState('All Specialties');
+  const [selectedSpecialty, setSelectedSpecialty] = useState(initialSpecialty);
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Sync state if URL changes
+  useEffect(() => {
+    const spec = searchParams.get('specialty');
+    if (spec) setSelectedSpecialty(spec);
+  }, [searchParams]);
 
   const states = useMemo(() => {
     const s = new Set(VÉLOURA_PROFESSIONALS.map(p => p.state));
@@ -43,8 +53,7 @@ export function ProfessionalDirectory() {
   );
 
   return (
-    <section id="directory" className="py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+    <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold font-headline mb-4">Explore VÉLOURA Professionals</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -179,7 +188,21 @@ export function ProfessionalDirectory() {
             </Button>
           </div>
         )}
-      </div>
+    </div>
+  );
+}
+
+export function ProfessionalDirectory() {
+  return (
+    <section id="directory" className="py-24 bg-background">
+      <Suspense fallback={
+        <div className="flex flex-col items-center justify-center py-24 gap-4">
+          <Loader2 className="w-10 h-10 animate-spin text-primary" />
+          <p className="text-muted-foreground font-medium">Loading Professionals...</p>
+        </div>
+      }>
+        <DirectoryContent />
+      </Suspense>
     </section>
   );
 }

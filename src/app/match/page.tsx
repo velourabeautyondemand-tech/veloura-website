@@ -7,7 +7,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle, Smartphone } from 'lucide-react';
+import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle, Smartphone, Users } from 'lucide-react';
 import { matchTalent, type MatchTalentOutput } from '@/ai/flows/match-talent-flow';
 import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -33,6 +33,9 @@ export default function MatchPage() {
     }
   }
 
+  // Determine specialty based on suggestion for pre-filtering talent agency
+  const suggestedSpecialty = result?.suggestedService?.toLowerCase().includes('photograph') ? 'Photography' : 'Beauty';
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -48,6 +51,10 @@ export default function MatchPage() {
               <p className="text-lg text-muted-foreground">
                 Tell us about your event, your style, or your vibe. Our AI concierge will recommend the perfect service for you.
               </p>
+              <Link href="/talent-agency" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline group">
+                <Users className="w-4 h-4" />
+                Meet our professionals first <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
 
             {error && (
@@ -112,24 +119,33 @@ export default function MatchPage() {
                       </p>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                      <Button asChild size="lg" className="flex-1 h-14 text-lg font-bold shadow-lg">
+                    <div className="grid grid-cols-1 gap-4">
+                      <Button asChild size="lg" className="h-14 text-lg font-bold shadow-lg">
                         <Link href="/book" className="flex items-center gap-2">
                            <Smartphone className="w-5 h-5" />
                            Download the App to Book
                         </Link>
                       </Button>
-                      <Button 
-                        variant="outline" 
-                        size="lg" 
-                        className="flex-1 h-14 text-lg font-bold"
-                        onClick={() => {
-                          setResult(null);
-                          setDescription('');
-                        }}
-                      >
-                        Try Another Match
-                      </Button>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <Button asChild variant="outline" size="lg" className="h-14 text-lg font-bold">
+                           <Link href={`/talent-agency?specialty=${suggestedSpecialty}#directory`} className="flex items-center gap-2">
+                              <Users className="w-5 h-5" />
+                              Meet Our {suggestedSpecialty} Pros
+                           </Link>
+                        </Button>
+                        <Button 
+                          variant="ghost" 
+                          size="lg" 
+                          className="h-14 text-lg font-bold hover:bg-primary/5"
+                          onClick={() => {
+                            setResult(null);
+                            setDescription('');
+                          }}
+                        >
+                          Try Another Match
+                        </Button>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
