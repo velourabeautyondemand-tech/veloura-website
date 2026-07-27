@@ -2,12 +2,13 @@
 /**
  * @fileOverview VÉLOURA AI Concierge Flow.
  *
- * - matchTalent - Handles the talent matching process based on user event descriptions.
+ * - matchTalent - Handles the talent matching process based on user event descriptions and the verified professional roster.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import { services } from '@/lib/data';
+import { VÉLOURA_PROFESSIONALS } from '@/lib/talent-data';
 
 const MatchTalentInputSchema = z.object({
   description: z.string().describe('The user\'s description of their event or beauty needs.'),
@@ -21,11 +22,17 @@ const MatchTalentOutputSchema = z.object({
 });
 export type MatchTalentOutput = z.infer<typeof MatchTalentOutputSchema>;
 
-// Internal schema for the prompt to include the dynamic services list
+// Internal schema for the prompt to include the dynamic services list and professional roster
 const PromptInputSchema = MatchTalentInputSchema.extend({
   services: z.array(z.object({
     name: z.string(),
     description: z.string()
+  })),
+  professionals: z.array(z.object({
+    firstName: z.string(),
+    city: z.string(),
+    state: z.string(),
+    specialty: z.string()
   })),
 });
 
@@ -34,19 +41,30 @@ const prompt = ai.definePrompt({
   input: { schema: PromptInputSchema },
   output: { schema: MatchTalentOutputSchema },
   prompt: `You are the VÉLOURA AI Concierge, a luxury beauty and lifestyle expert. 
-Your goal is to help users find the perfect service from the VÉLOURA menu based on their event description.
+Your goal is to help users find the perfect service from the VÉLOURA menu based on their event description and our available talent roster.
 
 Available Services Menu:
 {{#each services}}
 - {{name}}: {{description}}
 {{/each}}
 
+Our Verified Professional Coverage (Snapshot):
+We have elite professionals in many cities, including:
+{{#each professionals}}
+- {{firstName}} ({{specialty}}) in {{city}}, {{state}}
+{{/each}}
+
 User's Request: "{{{description}}}"
 
-Analyze the user's request. Consider factors like event type (wedding, photoshoot, corporate), location/climate (humidity in Miami, dry heat in LA), and specific style preferences.
-Recommend the ONE most appropriate service. If multiple fit, choose the most comprehensive one (like a VIP package).
+Your Task:
+1. Analyze the user's request for event type, location, and style.
+2. Cross-reference their location with our coverage list.
+3. Recommend the ONE most appropriate service from our menu.
+4. If multiple fit, choose the most comprehensive one (like a VIP package) for big events.
+5. Provide a luxury-toned reasoning that mentions our expertise in their specific category.
+6. Provide helpful pro tips for the service.
 
-Provide a suggested service name, a luxury-toned reasoning, and some helpful pro tips.`,
+Tone: Professional, elite, and welcoming.`,
 });
 
 export async function matchTalent(input: MatchTalentInput): Promise<MatchTalentOutput> {
@@ -77,9 +95,16 @@ const matchTalentFlow = ai.defineFlow(
     outputSchema: MatchTalentOutputSchema,
   },
   async (input) => {
+    // We pass a subset of professional info to stay efficient while giving the AI enough context
     const { output } = await prompt({
       description: input.description,
-      services: services.map(s => ({ name: s.name, description: s.description }))
+      services: services.map(s => ({ name: s.name, description: s.description })),
+      professionals: VÉLOURA_PROFESSIONALS.slice(0, 100).map(p => ({
+        firstName: p.firstName,
+        city: p.city,
+        state: p.state,
+        specialty: p.specialty
+      }))
     });
     
     if (!output) {
