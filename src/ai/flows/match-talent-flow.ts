@@ -99,7 +99,8 @@ const matchTalentFlow = ai.defineFlow(
     const { output } = await prompt({
       description: input.description,
       services: services.map(s => ({ name: s.name, description: s.description })),
-      professionals: VÉLOURA_PROFESSIONALS.slice(0, 100).map(p => ({
+      // Reducing context slightly to avoid hitting payload-size related rate limits
+      professionals: VÉLOURA_PROFESSIONALS.slice(0, 70).map(p => ({
         firstName: p.firstName,
         city: p.city,
         state: p.state,
