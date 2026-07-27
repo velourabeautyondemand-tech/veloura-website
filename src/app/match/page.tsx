@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -7,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle, Smartphone, Users } from 'lucide-react';
+import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle, Smartphone, Users, Menu } from 'lucide-react';
 import { matchTalent, type MatchTalentOutput } from '@/ai/flows/match-talent-flow';
 import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -58,11 +57,27 @@ export default function MatchPage() {
             </div>
 
             {error && (
-              <Alert variant="destructive" className="animate-in fade-in slide-in-from-top-4 duration-300 shadow-lg">
-                <AlertTriangle className="h-4 w-4" />
-                <AlertTitle>Concierge Unavailable</AlertTitle>
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
+              <div className="space-y-6">
+                <Alert variant="destructive" className="animate-in fade-in slide-in-from-top-4 duration-300 shadow-lg">
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertTitle>Concierge Unavailable</AlertTitle>
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Button asChild variant="outline" className="h-12 font-bold">
+                    <Link href="/services">
+                      <Menu className="w-4 h-4 mr-2" />
+                      Browse All Services
+                    </Link>
+                  </Button>
+                  <Button asChild variant="default" className="h-12 font-bold">
+                    <Link href="/talent-agency">
+                      <Users className="w-4 h-4 mr-2" />
+                      Explore Talent Agency
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             )}
 
             {!result ? (
