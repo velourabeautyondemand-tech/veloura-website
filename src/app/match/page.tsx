@@ -6,7 +6,7 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle, Smartphone, Users, Menu, MessageSquare, Mail, Instagram } from 'lucide-react';
+import { Sparkles, Loader2, ArrowRight, CheckCircle2, Wand2, AlertTriangle, Smartphone, Users, Menu, MessageSquare, Mail, Instagram, Lightbulb } from 'lucide-react';
 import { matchTalent, type MatchTalentOutput } from '@/ai/flows/match-talent-flow';
 import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -16,6 +16,13 @@ export default function MatchPage() {
   const [result, setResult] = useState<MatchTalentOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const examples = [
+    "I need a natural makeup look for a beach wedding in Miami.",
+    "Looking for a photographer for corporate headshots in NYC.",
+    "I want long-lasting gel nails and a blowout for a gala in LA.",
+    "Need last-minute glam for a high-fashion photoshoot today."
+  ];
 
   async function handleMatch() {
     if (!description.trim()) return;
@@ -32,7 +39,6 @@ export default function MatchPage() {
     }
   }
 
-  // Determine specialty based on suggestion for pre-filtering talent agency
   const suggestedSpecialty = result?.suggestedService?.toLowerCase().includes('photograph') ? 'Photography' : 'Beauty';
 
   return (
@@ -112,20 +118,40 @@ export default function MatchPage() {
             {!result && !error ? (
               <Card className="shadow-2xl border-primary/10">
                 <CardHeader>
-                  <CardTitle className="font-headline">What are you looking for?</CardTitle>
+                  <CardTitle className="font-headline">How can we help you look your best?</CardTitle>
                   <CardDescription>
-                    e.g., "I'm looking for a nail tech in Miami who does luxury nail art," or "I need a photographer for a red carpet event in NYC."
+                    Provide details about your city, the event type, and any specific preferences (e.g., "fast-service" or "luxury").
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <Textarea
-                    placeholder="Describe your needs, city, or style here..."
-                    className="min-h-[150px] text-lg p-6 bg-background/50 focus:bg-background transition-all"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
+                  <div className="space-y-4">
+                    <Textarea
+                      placeholder="e.g. I need a luxury makeup artist in NYC for a photo shoot this Friday..."
+                      className="min-h-[150px] text-lg p-6 bg-background/50 focus:bg-background transition-all"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                    />
+                    
+                    <div className="space-y-3">
+                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+                        <Lightbulb className="w-3 h-3 text-primary" /> Example Requests
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {examples.map((ex, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setDescription(ex)}
+                            className="text-[10px] sm:text-xs bg-secondary hover:bg-secondary/80 text-secondary-foreground px-3 py-1.5 rounded-full border border-primary/5 transition-colors text-left"
+                          >
+                            {ex}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
                   <Button 
-                    className="w-full h-14 text-xl font-bold gap-3" 
+                    className="w-full h-14 text-xl font-bold gap-3 mt-4" 
                     onClick={handleMatch}
                     disabled={isLoading || !description.trim()}
                   >
