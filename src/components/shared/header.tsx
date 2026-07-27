@@ -51,7 +51,7 @@ function UserNavButtons() {
   if (!user) {
     return (
        <Button asChild variant="ghost">
-          <Link href="https://admin.velourabeautyondemand.com/login" target="_blank">{t('nav.signIn')}</Link>
+          <Link href="/login">{t('nav.signIn')}</Link>
        </Button>
     )
   }
