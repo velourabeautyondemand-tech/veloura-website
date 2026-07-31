@@ -37,6 +37,16 @@ const storeItems = [
     link: 'https://www.etsy.com/listing/4547689859/a03-soft-band-cat-eye-false-lashes?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_2&logging_key=9e1196062106034a04d286c514e06549f7df18b6%3A4547689859'
   },
   {
+    id: 'lash-715',
+    name: '715 Airy Wispy Feather False Eyelashes',
+    description: 'Ultra-lightweight feathered lashes for a voluminous yet airy doll-eye look. Designed for comfort and high-impact style.',
+    price: 19.99,
+    category: 'Beauty',
+    image: PlaceHolderImages.find(p => p.id === 'store_lash_715')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Wispy%20Doll%20Eye%20False%20Lashes%20Feathered%20Volume%20Lashes%20(1).png?alt=media&token=c87381b4-c2db-40e1-9fc9-9f4486c0fcd6',
+    imageHint: 'feathered eyelashes',
+    link: 'https://www.etsy.com/listing/4547739706/715-airy-wispy-feather-false-eyelashes'
+  },
+  {
     id: 'wax-heater',
     name: 'Mini Pink Professional Wax Heater (Pre-order)',
     description: 'The ultimate travel companion for beauty professionals. This compact, high-performance wax heater ensures you can deliver elite results anywhere. Stylish pink finish with precise temperature control.',
@@ -87,7 +97,7 @@ export default function StorePage() {
                 <p className="text-muted-foreground">Select an item to view it in our Etsy storefront.</p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
               {storeItems.map((item) => (
                 <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group">
                   <div className="relative aspect-[4/5] overflow-hidden">
@@ -105,8 +115,8 @@ export default function StorePage() {
                     </div>
                   </div>
                   <CardHeader className="pb-2">
-                    <CardTitle className="font-headline text-2xl">{item.name}</CardTitle>
-                    <CardDescription className="text-sm leading-relaxed line-clamp-3">
+                    <CardTitle className="font-headline text-xl line-clamp-2">{item.name}</CardTitle>
+                    <CardDescription className="text-xs leading-relaxed line-clamp-3">
                       {item.description}
                     </CardDescription>
                   </CardHeader>
