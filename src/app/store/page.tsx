@@ -40,7 +40,7 @@ const storeItems = [
     id: 'wax-heater',
     name: 'Mini Pink Professional Wax Heater (Pre-order)',
     description: 'The ultimate travel companion for beauty professionals. This compact, high-performance wax heater ensures you can deliver elite results anywhere. Stylish pink finish with precise temperature control.',
-    price: 49.99,
+    price: 39.99,
     category: 'Equipment',
     image: PlaceHolderImages.find(p => p.id === 'store_wax_heater')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater.png?alt=media&token=9de4db96-e50c-43c6-abc7-20e3bc87b0cd',
     imageHint: 'wax heater',
