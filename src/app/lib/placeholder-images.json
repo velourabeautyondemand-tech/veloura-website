@@ -76,7 +76,7 @@
     {
       "id": "makeup_4",
       "description": "Makeup Trial",
-      "imageUrl": "https://images.unsplash.com/photo-1552693673-1bf25c79b359?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEyfHxtYWtldXAlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE2NzIwMDMwNDB8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1552693673-1bf25c79b359?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEyfHxtYWtldXAlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE2NzIwMDMwNDB8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "makeup application"
     },
     {
@@ -348,6 +348,12 @@
       "description": "A03 Soft Band Cat Eye False Lashes",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5",
       "imageHint": "fake eyelashes"
+    },
+    {
+      "id": "store_wax_heater",
+      "description": "Mini Pink Professional Wax Heater",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater.png?alt=media&token=9de4db96-e50c-43c6-abc7-20e3bc87b0cd",
+      "imageHint": "wax heater"
     }
   ]
 }

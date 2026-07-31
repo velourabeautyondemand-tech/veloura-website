@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -34,6 +35,16 @@ const storeItems = [
     image: PlaceHolderImages.find(p => p.id === 'store_lash_a03')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5',
     imageHint: 'fake eyelashes',
     link: 'https://www.etsy.com/listing/4547689859/a03-soft-band-cat-eye-false-lashes?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_2&logging_key=9e1196062106034a04d286c514e06549f7df18b6%3A4547689859'
+  },
+  {
+    id: 'wax-heater',
+    name: 'Mini Pink Professional Wax Heater (Pre-order)',
+    description: 'The ultimate travel companion for beauty professionals. This compact, high-performance wax heater ensures you can deliver elite results anywhere. Stylish pink finish with precise temperature control.',
+    price: 49.99,
+    category: 'Equipment',
+    image: PlaceHolderImages.find(p => p.id === 'store_wax_heater')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater.png?alt=media&token=9de4db96-e50c-43c6-abc7-20e3bc87b0cd',
+    imageHint: 'wax heater',
+    link: 'https://www.etsy.com/listing/4543243247/pre-order-mini-pink-professional-wax?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_3&frs=1&logging_key=9c5917f53077bc7d7183037df065fb9e048b1f62%3A4543243247'
   }
 ];
 
@@ -76,7 +87,7 @@ export default function StorePage() {
                 <p className="text-muted-foreground">Select an item to view it in our Etsy storefront.</p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
               {storeItems.map((item) => (
                 <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group">
                   <div className="relative aspect-[4/5] overflow-hidden">
