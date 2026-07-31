@@ -208,7 +208,7 @@
     {
       "id": "tech_avatar_2",
       "description": "Avatar for Maria",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fDE3NTk1NDgyA9fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fDE3NTk1NDgyA9fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman smiling"
     },
     {
@@ -364,7 +364,7 @@
     {
       "id": "store_wax_bar",
       "description": "Popsicle Hard Wax Bar 100g",
-      "imageUrl": "https://picsum.photos/seed/waxbar/800/1000",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01",
       "imageHint": "wax bar"
     }
   ]

@@ -62,7 +62,7 @@ const storeItems = [
     description: 'High-quality popsicle hard wax bar for precise and comfortable hair removal. Perfect for professional use and on-the-go appointments.',
     price: 19.99,
     category: 'Equipment',
-    image: PlaceHolderImages.find(p => p.id === 'store_wax_bar')?.imageUrl || 'https://picsum.photos/seed/waxbar/800/1000',
+    image: PlaceHolderImages.find(p => p.id === 'store_wax_bar')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01',
     imageHint: 'wax bar',
     link: 'https://www.etsy.com/listing/4543705001/re-order-popsicle-hard-wax-bar-100g'
   }
