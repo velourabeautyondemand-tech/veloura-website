@@ -22,7 +22,7 @@ const storeItems = [
     description: 'Soft, wispy cat eye fake eyelashes for a natural yet dramatic look. High-quality synthetic fibers that blend seamlessly with your natural lashes.',
     price: 15.99, // Approximate price based on typical lash listings
     category: 'Beauty',
-    image: PlaceHolderImages.find(p => p.id === 'store_lash_a13')?.imageUrl || 'https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=1080&auto=format&fit=crop',
+    image: PlaceHolderImages.find(p => p.id === 'store_lash_a13')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99',
     imageHint: 'fake eyelashes',
     link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_1&logging_key=1f713f008480fce4a2c6ee320dbb7f8f9ab28da9%3A4547699063'
   }
