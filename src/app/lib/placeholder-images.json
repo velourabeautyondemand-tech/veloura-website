@@ -82,7 +82,7 @@
     {
       "id": "makeup_5",
       "description": "Bridesmaids Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridesmaids"
     },
     {
@@ -360,6 +360,12 @@
       "description": "715 Airy Wispy Feather False Eyelashes",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Wispy%20Doll%20Eye%20False%20Lashes%20Feathered%20Volume%20Lashes%20(1).png?alt=media&token=c87381b4-c2db-40e1-9fc9-9f4486c0fcd6",
       "imageHint": "feathered eyelashes"
+    },
+    {
+      "id": "store_wax_bar",
+      "description": "Popsicle Hard Wax Bar 100g",
+      "imageUrl": "https://picsum.photos/seed/waxbar/800/1000",
+      "imageHint": "wax bar"
     }
   ]
 }

@@ -55,6 +55,16 @@ const storeItems = [
     image: PlaceHolderImages.find(p => p.id === 'store_wax_heater')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater.png?alt=media&token=9de4db96-e50c-43c6-abc7-20e3bc87b0cd',
     imageHint: 'wax heater',
     link: 'https://www.etsy.com/listing/4543243247/pre-order-mini-pink-professional-wax?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_3&frs=1&logging_key=9c5917f53077bc7d7183037df065fb9e048b1f62%3A4543243247'
+  },
+  {
+    id: 'wax-bar',
+    name: 'Popsicle Hard Wax Bar (100g)',
+    description: 'High-quality popsicle hard wax bar for precise and comfortable hair removal. Perfect for professional use and on-the-go appointments.',
+    price: 19.99,
+    category: 'Equipment',
+    image: PlaceHolderImages.find(p => p.id === 'store_wax_bar')?.imageUrl || 'https://picsum.photos/seed/waxbar/800/1000',
+    imageHint: 'wax bar',
+    link: 'https://www.etsy.com/listing/4543705001/re-order-popsicle-hard-wax-bar-100g'
   }
 ];
 
