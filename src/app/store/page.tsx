@@ -9,9 +9,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 /**
- * Replace this URL with your actual Etsy shop link.
+ * Official Etsy shop link for iAmDreamMakerGroup.
  */
-const ETSY_STORE_LINK = 'https://www.etsy.com/shop/YourStoreName'; 
+const ETSY_STORE_LINK = 'https://www.etsy.com/shop/iAmDreamMakerGroup?ref=profile_header&section_id=49528058'; 
 
 const storeItems = [
   {
