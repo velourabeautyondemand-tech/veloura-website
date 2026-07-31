@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -7,6 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ShoppingBag, Star, ArrowRight, ShieldCheck, Zap, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 /**
  * Official Etsy shop link for iAmDreamMakerGroup.
@@ -15,31 +17,14 @@ const ETSY_STORE_LINK = 'https://www.etsy.com/shop/iAmDreamMakerGroup?ref=profil
 
 const storeItems = [
   {
-    id: 'gift-card-50',
-    name: 'VÉLOURA Digital Gift Card',
-    description: 'Give the gift of luxury. Valid for any at-home beauty or photography service booked through the app.',
-    price: 50,
-    category: 'Digital',
-    image: 'https://images.unsplash.com/photo-1549461756-371237a4f41b?q=80&w=1080&auto=format&fit=crop',
-    imageHint: 'gift card luxury',
-  },
-  {
-    id: 'pro-kit-starter',
-    name: 'Technician Starter Kit',
-    description: 'Essential professional supplies for new VÉLOURA partners. Includes branded cape, sanitized tool organizer, and safety lights.',
-    price: 129,
-    category: 'Pro Gear',
-    image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=1080&auto=format&fit=crop',
-    imageHint: 'beauty professional tools',
-  },
-  {
-    id: 'merch-tote',
-    name: 'VÉLOURA Canvas Tote',
-    description: 'Our signature heavy-duty canvas tote. Perfect for carrying your glam essentials or daily commute items.',
-    price: 35,
-    category: 'Merchandise',
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1080&auto=format&fit=crop',
-    imageHint: 'canvas tote bag',
+    id: 'lash-a13',
+    name: 'A13 Wispy Cat Eye Fake Eyelashes',
+    description: 'Soft, wispy cat eye fake eyelashes for a natural yet dramatic look. High-quality synthetic fibers that blend seamlessly with your natural lashes.',
+    price: 15.99, // Approximate price based on typical lash listings
+    category: 'Beauty',
+    image: PlaceHolderImages.find(p => p.id === 'store_lash_a13')?.imageUrl || 'https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=1080&auto=format&fit=crop',
+    imageHint: 'fake eyelashes',
+    link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_1&logging_key=1f713f008480fce4a2c6ee320dbb7f8f9ab28da9%3A4547699063'
   }
 ];
 
@@ -78,11 +63,11 @@ export default function StorePage() {
         <section className="py-16 sm:py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold font-headline mb-4">Featured Products</h2>
+                <h2 className="text-3xl font-bold font-headline mb-4">Featured Product</h2>
                 <p className="text-muted-foreground">Select an item to view it in our Etsy storefront.</p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-1 gap-12 max-w-md mx-auto">
               {storeItems.map((item) => (
                 <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group">
                   <div className="relative aspect-[4/5] overflow-hidden">
@@ -101,7 +86,7 @@ export default function StorePage() {
                   </div>
                   <CardHeader className="pb-2">
                     <CardTitle className="font-headline text-2xl">{item.name}</CardTitle>
-                    <CardDescription className="text-sm leading-relaxed line-clamp-2">
+                    <CardDescription className="text-sm leading-relaxed line-clamp-3">
                       {item.description}
                     </CardDescription>
                   </CardHeader>
@@ -110,7 +95,7 @@ export default function StorePage() {
                   </CardContent>
                   <CardFooter className="pt-0 pb-8 px-6">
                     <Button asChild className="w-full h-12 text-sm font-bold" variant="outline">
-                      <a href={ETSY_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                      <a href={item.link} target="_blank" rel="noopener noreferrer">
                         Shop on Etsy <ExternalLink className="ml-2 w-4 h-4" />
                       </a>
                     </Button>
