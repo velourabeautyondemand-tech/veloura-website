@@ -20,11 +20,21 @@ const storeItems = [
     id: 'lash-a13',
     name: 'A13 Wispy Cat Eye Fake Eyelashes',
     description: 'Soft, wispy cat eye fake eyelashes for a natural yet dramatic look. High-quality synthetic fibers that blend seamlessly with your natural lashes.',
-    price: 15.99, // Approximate price based on typical lash listings
+    price: 15.99,
     category: 'Beauty',
     image: PlaceHolderImages.find(p => p.id === 'store_lash_a13')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99',
     imageHint: 'fake eyelashes',
     link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_1&logging_key=1f713f008480fce4a2c6ee320dbb7f8f9ab28da9%3A4547699063'
+  },
+  {
+    id: 'lash-a03',
+    name: 'A03 Soft Band Cat Eye False Lashes',
+    description: 'Ultra-soft band lashes with a sophisticated cat eye sweep. Perfect for a seamless, comfortable all-day wear with a touch of drama.',
+    price: 15.99,
+    category: 'Beauty',
+    image: PlaceHolderImages.find(p => p.id === 'store_lash_a03')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5',
+    imageHint: 'fake eyelashes',
+    link: 'https://www.etsy.com/listing/4547689859/a03-soft-band-cat-eye-false-lashes?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_2&logging_key=9e1196062106034a04d286c514e06549f7df18b6%3A4547689859'
   }
 ];
 
@@ -63,11 +73,11 @@ export default function StorePage() {
         <section className="py-16 sm:py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold font-headline mb-4">Featured Product</h2>
+                <h2 className="text-3xl font-bold font-headline mb-4">Featured Products</h2>
                 <p className="text-muted-foreground">Select an item to view it in our Etsy storefront.</p>
             </div>
             
-            <div className="grid md:grid-cols-1 gap-12 max-w-md mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
               {storeItems.map((item) => (
                 <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group">
                   <div className="relative aspect-[4/5] overflow-hidden">
