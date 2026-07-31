@@ -9,10 +9,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 /**
- * STEP 3: PASTE YOUR LINK BELOW
- * Replace 'https://buy.stripe.com/your_main_store_link' with the link you copied from Stripe.
+ * Replace this URL with your actual Etsy shop link.
  */
-const GLOBAL_STRIPE_STORE_LINK = 'https://buy.stripe.com/your_main_store_link'; 
+const ETSY_STORE_LINK = 'https://www.etsy.com/shop/YourStoreName'; 
 
 const storeItems = [
   {
@@ -55,19 +54,19 @@ export default function StorePage() {
             <div className="max-w-3xl mx-auto space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-2 uppercase tracking-widest">
                 <ShoppingBag className="w-4 h-4" />
-                <span>Official VÉLOURA Boutique</span>
+                <span>Official Etsy Boutique</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold font-headline leading-tight">
-                Luxury Essentials <br /> <span className="text-primary">Curated for You</span>
+                Luxury Essentials <br /> <span className="text-primary">Shop on Etsy</span>
               </h1>
               <p className="text-xl text-muted-foreground font-medium">
-                Browse our collection and use our secure Stripe checkout to complete your purchase.
+                Browse our collection of curated beauty gear and gifts. All transactions are handled securely through our Etsy shop.
               </p>
               
               <div className="pt-4">
                 <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-transform bg-primary">
-                  <a href={GLOBAL_STRIPE_STORE_LINK} target="_blank" rel="noopener noreferrer">
-                    Visit the VÉLOURA Checkout <ExternalLink className="ml-2 w-6 h-6" />
+                  <a href={ETSY_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                    Visit Our Etsy Shop <ExternalLink className="ml-2 w-6 h-6" />
                   </a>
                 </Button>
               </div>
@@ -80,7 +79,7 @@ export default function StorePage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
                 <h2 className="text-3xl font-bold font-headline mb-4">Featured Products</h2>
-                <p className="text-muted-foreground">Select an item to view it in our secure shop.</p>
+                <p className="text-muted-foreground">Select an item to view it in our Etsy storefront.</p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
@@ -111,8 +110,8 @@ export default function StorePage() {
                   </CardContent>
                   <CardFooter className="pt-0 pb-8 px-6">
                     <Button asChild className="w-full h-12 text-sm font-bold" variant="outline">
-                      <a href={GLOBAL_STRIPE_STORE_LINK} target="_blank" rel="noopener noreferrer">
-                        Purchase Item <ArrowRight className="ml-2 w-4 h-4" />
+                      <a href={ETSY_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                        Shop on Etsy <ExternalLink className="ml-2 w-4 h-4" />
                       </a>
                     </Button>
                   </CardFooter>
@@ -128,18 +127,18 @@ export default function StorePage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
                     <div className="flex flex-col items-center gap-3">
                         <ShieldCheck className="w-8 h-8 text-primary opacity-60" />
-                        <h3 className="font-bold text-sm uppercase tracking-widest">Secure Checkout</h3>
-                        <p className="text-xs text-muted-foreground">Payments powered by Stripe.</p>
+                        <h3 className="font-bold text-sm uppercase tracking-widest">Etsy Secured</h3>
+                        <p className="text-xs text-muted-foreground">Trusted marketplace checkout.</p>
                     </div>
                     <div className="flex flex-col items-center gap-3">
                         <Zap className="w-8 h-8 text-primary opacity-60" />
-                        <h3 className="font-bold text-sm uppercase tracking-widest">Instant Delivery</h3>
-                        <p className="text-xs text-muted-foreground">Digital cards sent via email.</p>
+                        <h3 className="font-bold text-sm uppercase tracking-widest">Global Shipping</h3>
+                        <p className="text-xs text-muted-foreground">Available on most items.</p>
                     </div>
                     <div className="flex flex-col items-center gap-3">
                         <Star className="w-8 h-8 text-primary opacity-60" />
-                        <h3 className="font-bold text-sm uppercase tracking-widest">Premium Quality</h3>
-                        <p className="text-xs text-muted-foreground">Vetted products for elite pros.</p>
+                        <h3 className="font-bold text-sm uppercase tracking-widest">Handmade Quality</h3>
+                        <p className="text-xs text-muted-foreground">Unique items for elite pros.</p>
                     </div>
                 </div>
             </div>
