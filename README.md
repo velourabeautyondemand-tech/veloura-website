@@ -27,16 +27,18 @@ Use the **A/B Testing** tab within Remote Config to optimize your marketing copy
 
 ### **How to start a test:**
 1. Go to **Remote Config** -> **A/B Tests** -> **Create experiment**.
-2. **Variants (Step 1)**: Choose your parameter (e.g., `hero_title_override`). Set the baseline and your new test title.
+2. **Variants (Step 1)**: Choose your parameter (e.g., `hero_title_override`).
+   * **IMPORTANT**: Ensure "Variant A" has a different value than the Baseline. If both say "(no change)", the test won't provide any data.
 3. **Targeting (Step 2)**: If you don't see "All Users", click **"Choose or create new"** -> **"Create new condition"**, name it `All_Visitors`, and set the rule to **"App ID"** -> select your web app. Set exposure to 100%.
 4. **Goal (Step 3)**: Select **"User Engagement"** as the primary metric.
 5. **Name (Step 4)**: Give it a clear name like `Hero_SEO_Test_1`.
 6. **Start**: After clicking **Save**, you must click the **"Start Experiment"** button on the main A/B Testing dashboard.
 
 ### **⚠️ Common Errors & Fixes**
+*   **"A general error occurred"**: This is usually a transient connection issue. **Refresh your browser** and try again.
 *   **"Link an app to this condition"**: Click the pencil icon next to your condition. Ensure the rule is set to **App ID** and that the checkbox for your specific app is checked.
-*   **Changes not showing**: Changes can take up to 12 hours to appear for all users due to caching. For testing, clear your browser cache or wait 15 minutes.
-*   **Experiment not collecting data**: Ensure you clicked the final **"Start Experiment"** button after saving the draft.
+*   **Experiment says "Not Started"**: You have saved a draft. You must click the **"Start experiment"** button on the experiment details page.
+*   **Changes not showing**: Changes can take up to 12 hours to appear due to caching. For testing, clear your browser cache or wait 15 minutes.
 
 ## 💎 Strategic Foundation
 VÉLOURA is built on a foundation designed for premium scaling:
