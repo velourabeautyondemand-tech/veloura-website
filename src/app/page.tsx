@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Heart, HandHeart, Sparkles, Briefcase, Newspaper, Smartphone, Layout, Clock, Home, ShieldCheck, Zap, Star, Wand2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { SubscribeForm } from '@/components/features/subscribe-form';
