@@ -37,3 +37,31 @@ export function useRemoteConfigBoolean(key: string, defaultValue: boolean = fals
 
   return value;
 }
+
+/**
+ * Hook to retrieve a string value from Firebase Remote Config.
+ * 
+ * @param key The Remote Config parameter key.
+ * @param defaultValue The fallback value if the remote value is unavailable.
+ * @returns The string value for the specified key.
+ */
+export function useRemoteConfigString(key: string, defaultValue: string = '') {
+  const remoteConfig = useRemoteConfig();
+  const [value, setValue] = useState<string>(defaultValue);
+
+  useEffect(() => {
+    if (!remoteConfig) return;
+    const fetchConfig = async () => {
+      try {
+        await fetchAndActivate(remoteConfig);
+        const configValue = getValue(remoteConfig, key);
+        setValue(configValue.asString());
+      } catch (error) {
+        console.error('Remote Config fetch failed:', error);
+      }
+    };
+    fetchConfig();
+  }, [remoteConfig, key]);
+
+  return value;
+}

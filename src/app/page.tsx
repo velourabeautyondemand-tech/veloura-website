@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Heart, HandHeart, Sparkles, Briefcase, Newspaper, Smartphone, Layout, Clock, Home, ShieldCheck, Zap, Star, Wand2, ArrowRight } from 'lucide-react';
+import { Heart, HandHeart, Sparkles, Briefcase, Newspaper, Smartphone, Layout, Clock, Home, ShieldCheck, Zap, Star, Wand2, ArrowRight, ShoppingBag, Gift } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,7 +11,7 @@ import { SubscribeForm } from '@/components/features/subscribe-form';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DiscountPopup } from '@/components/features/discount-popup';
 import { useLanguage } from '@/context/language-context';
-import { useRemoteConfigBoolean } from '@/firebase';
+import { useRemoteConfigBoolean, useRemoteConfigString } from '@/firebase';
 
 const useCases = [
   { icon: Clock, title: 'Last-Minute Needs', description: 'Glam, photographer, or event support — right when you need it.' },
@@ -31,7 +31,10 @@ const howItWorks = [
 
 export default function HomePage() {
   const { t } = useLanguage();
+  
+  // Remote Config hooks for dynamic mission control
   const showAds = useRemoteConfigBoolean('show_ads', false);
+  const adBadgeText = useRemoteConfigString('ad_badge_text', 'Exclusive Partner Showcase');
 
   const interfaceImages = [
     PlaceHolderImages.find(p => p.id === 'interface_1'),
@@ -92,17 +95,39 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Remote Config Controlled Ad Section */}
+        {/* Remote Config Controlled Ad Section - Animated Showcase */}
         {showAds && (
-          <section className="bg-accent/10 py-10 border-y border-accent/20 animate-in fade-in duration-700">
-            <div className="container mx-auto px-4 md:px-6 text-center">
-              <div className="flex flex-col items-center gap-4">
-                <Badge variant="accent" className="animate-pulse">Limited Time Partner Offer</Badge>
-                <h3 className="text-2xl font-bold font-headline">Visit our Elite Partner Showcase</h3>
-                <p className="text-muted-foreground">Get exclusive access to premium beauty supplies from our top vendors.</p>
-                <Button asChild variant="accent">
-                  <Link href="/pro-discounts">View Offers</Link>
-                </Button>
+          <section className="bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 py-16 border-y border-accent/20 animate-in fade-in zoom-in-95 duration-1000">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 bg-card/80 backdrop-blur-sm p-8 md:p-12 rounded-[2rem] border-2 border-primary/20 shadow-2xl">
+                <div className="flex-1 space-y-6 text-center md:text-left">
+                  <Badge variant="accent" className="animate-pulse px-4 py-1 text-sm font-bold tracking-widest uppercase">
+                    {adBadgeText}
+                  </Badge>
+                  <h3 className="text-3xl md:text-4xl font-bold font-headline leading-tight">
+                    Premium Kits & <br /> <span className="text-primary italic">Pro Essentials</span>
+                  </h3>
+                  <p className="text-lg text-muted-foreground max-w-md">
+                    We've partnered with the industry's best to give VÉLOURA Pros exclusive discounts on high-end beauty equipment.
+                  </p>
+                  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <Button asChild size="lg" className="rounded-full px-8 font-bold">
+                      <Link href="/pro-discounts">
+                        Browse Partner Offers <ShoppingBag className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" size="lg" className="rounded-full px-8 font-bold border-primary text-primary">
+                       <Link href="/store">
+                         Visit Boutique <Gift className="ml-2 w-4 h-4" />
+                       </Link>
+                    </Button>
+                  </div>
+                </div>
+                <div className="flex-1 relative w-full aspect-square md:aspect-auto md:h-64 flex items-center justify-center">
+                   <div className="bg-primary/10 w-48 h-48 rounded-full absolute animate-ping opacity-20" />
+                   <div className="bg-primary/20 w-40 h-40 rounded-full absolute animate-pulse opacity-40" />
+                   <Sparkles className="w-32 h-32 text-primary opacity-90 drop-shadow-xl" />
+                </div>
               </div>
             </div>
           </section>
