@@ -27,14 +27,16 @@ Use the **A/B Testing** tab within Remote Config to optimize your marketing copy
 
 ### **How to start a test:**
 1. Go to **Remote Config** -> **A/B Tests** -> **Create experiment**.
-2. Choose your parameter (e.g., `hero_title_override`).
-3. **Targeting (Step 2)**: If you don't see "All Users", click **"Create new condition"**, name it `All_Users`, and set the rule to **"App ID"** -> select your web app.
-4. **Goal (Step 3)**: Select "User Engagement" as the primary metric.
-5. **Start**: Click **Start Experiment** on the main dashboard to begin collecting data.
+2. **Variants (Step 1)**: Choose your parameter (e.g., `hero_title_override`). Set the baseline and your new test title.
+3. **Targeting (Step 2)**: If you don't see "All Users", click **"Create new condition"**, name it `All_Users`, and set the rule to **"App ID"** -> select your web app. Set exposure to 100%.
+4. **Goal (Step 3)**: Select **"User Engagement"** as the primary metric. This tracks how long users stay or if they interact more with the new title.
+5. **Name (Step 4)**: Give it a clear name like `Hero_SEO_Keywords_Test_1`.
+6. **Start**: After clicking **Save**, you must click the **"Start Experiment"** button on the main A/B Testing dashboard to begin collecting data.
 
 ### **Why use this?**
 - **SEO Optimization**: Test which keywords in the title result in more organic search clicks.
 - **Conversion Lifting**: Find out if "20% Off" or "Free Consultation" leads to more actual bookings.
+- **Data-Driven Decisions**: Firebase will tell you with "95% confidence" which version is the winner.
 
 ## 💎 Strategic Foundation
 VÉLOURA is built on a foundation designed for premium scaling:
