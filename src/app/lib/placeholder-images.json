@@ -208,7 +208,7 @@
     {
       "id": "tech_avatar_2",
       "description": "Avatar for Maria",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fDE3NTk1NDgyA9fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fDE3NTk1NDgyA9fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman smiling"
     },
     {
@@ -238,55 +238,55 @@
     {
       "id": "team_roxanne",
       "description": "Roxanne Resma - Operations Director",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/IMG_4296.jpeg?alt=media&token=aaa00482-4898-479b-bbb9-1380333e38a9",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F78f53877-7b04-44aa-afc7-40bacb924a19/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAADZnQN_nORHcbPuQTrweG3B86-bTZ3hHQX5iY2Y4Mo1-&exp=1776341041&osig=AAAAAAAAAAAAAAAAAAAAACbH-w8Ij4NgXAGaBeWHy5K00AoO8MwZ94BDCCp4Pkgu&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "operations director"
     },
     {
       "id": "team_rini",
       "description": "Rini Sugianto - Media Lead",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/rini.jpeg?alt=media&token=e6377a50-402d-4602-976a-ee3544379d09",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F702e2bfd-68a3-43a5-8dcf-a328d607b5c7/watermark:F/width:600?csig=AAAAAAAAAAAAAAAAAAAAAFy30QdK_PWM4v4ZZ6LHNZ6o3Vg5xJyZo2X1ce1Lyg51&exp=1776143156&osig=AAAAAAAAAAAAAAAAAAAAAKzLHxzLNh7spRtG1KFKSJBbLBv3LV-gHSX0zpxm6tHP&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "media professional"
     },
     {
       "id": "event_hero",
       "description": "VÉLOURA New York Team",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/IMG_6003.jpeg?alt=media&token=424e4fb1-f7ca-40bb-9959-7e14ac139921",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2F75a8e094-1443-44ec-bbc9-3e42cdee7de2/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANQ9CjP9wxGmhSfCxbxnmUSNclr3qpoJ3q5LAYQ6xq6N&exp=1776341554&osig=AAAAAAAAAAAAAAAAAAAAAK9o2TsZ_hTmvV9Zj-bgbuiDR6ABKNB_OR6pyab2SSiC&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "new york team"
     },
     {
       "id": "west_palm_team",
       "description": "VÉLOURA West Palm Beach Team",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/1482523981896677157.jpeg?alt=media&token=ed3929e3-04e3-48b6-8f79-41946cadf951",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1200/quality:92/uri:ifs%3A%2F%2FM%2Fde80dc16-f67e-4709-a0e5-9d35a8c66fcc/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAANNvDgzfjvS3e4v8g0v9Ep1XcwnZI4xmBaRETMwule1n&exp=1776338242&osig=AAAAAAAAAAAAAAAAAAAAAKJxM7CdSYplR7Q62txD6li1dGJR0WU6JlEELIrMmA37&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "west palm team"
     },
     {
       "id": "magazine_feature",
       "description": "Global Woman Magazine Feature",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7285_a627dd652e4290d04e24f19ac71cbedf-4_9_2026%2C%2011_07_49%20AM.png?alt=media&token=401bd911-1a26-44db-bebe-a475b59d0452",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:PNG/height:800/quality:100/uri:ifs%3A%2F%2FM%2F017a498f-4bfd-4a85-be19-42f72b0f98b6/watermark:F/width:560?csig=AAAAAAAAAAAAAAAAAAAAAFDBKMThT2qBdPA-mBq32enPiC7R1AND9oSLhC2QsKhD&exp=1776340432&osig=AAAAAAAAAAAAAAAAAAAAANxzlB1sU0Gv4wQxu3yp5ZdGw9BA4JP3ewAq08I6c4rm&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "magazine cover"
     },
     {
       "id": "agency_hero",
       "description": "VÉLOURA Talent Agency Roster",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/join%20team%20picture%20.png?alt=media&token=43186769-9d30-4db6-a6f5-93815dd2ac21",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2F533f47c0-004b-43ef-a961-dbf40ff0d7e5/watermark:F/width:640?csig=AAAAAAAAAAAAAAAAAAAAAG5cAt7p1iu42dP4zQuZ6-1H3DUmlyIFCxqSfqFlrRIY&exp=1776338826&osig=AAAAAAAAAAAAAAAAAAAAAOhbJLSEkSvxbv1R3kKHPVW1cZ2G6pRLvCIZ5Hme7nyu&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "creative talent"
     },
     {
       "id": "agency_showcase_1",
       "description": "High Fashion Editorial by Michael Lee",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/michael-lee-5Z9bgfRZLLE-unsplash.jpg?alt=media&token=bde3c3ac-82f9-4b0a-b300-868b8ad8dd48",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1068/quality:92/uri:ifs%3A%2F%2FM%2F2864fd4a-902d-4620-b963-ccb2602aa0ca/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAJZ5oO4i_oB88txFZTgEwVTyRdnP16Hdyf_WL1ozVX5-&exp=1776344885&osig=AAAAAAAAAAAAAAAAAAAAAHASrH0N0UCrs8n6Jg1AbuhCc4AwOodxesKMRGq0zmjz&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "fashion photography"
     },
     {
       "id": "agency_showcase_2",
       "description": "Luxury Editorial by Michael Lee",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/michael-lee-Noqjeq2XJUk-unsplash.jpg?alt=media&token=578b9ece-7982-423c-8675-4f9396fe4920",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:1068/quality:92/uri:ifs%3A%2F%2FM%2F1f5d3c73-389c-4696-8087-274afdfc649c/watermark:F/width:1600?csig=AAAAAAAAAAAAAAAAAAAAAG5OvrzQU9f9McR4S30uwsvWWSk1KwH_yEmWeQEDVZPP&exp=1776345128&osig=AAAAAAAAAAAAAAAAAAAAAOk6tmJar6j5486LbxAFTZNSYVfDELbO7NsZ_hqMJ343&signer=media-rpc&x-canva-quality=screen_2x",
       "imageHint": "luxury editorial"
     },
     {
       "id": "team_group_photo",
       "description": "VÉLOURA Team Photo",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7291_85f0d71b5abea7ef2d20dfd6e7e10286-4_9_2026%2C%2011_08_02%20AM.jpg?alt=media&token=60df0d2d-d972-4d1a-b29d-4e4894c7969f",
+      "imageUrl": "https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fadda4ad4-baea-4f81-8e96-6f131d5f3ecc/watermark:F/width:502?csig=AAAAAAAAAAAAAAAAAAAAAC5Xr5tvybwNH5gmyhQm-9MVyXMrh5ZowuYvz-dlyB9J&exp=1776339687&osig=AAAAAAAAAAAAAAAAAAAAAKPoWdiwxQW-zelD5ZzW3MNJ_weMpXmrwRyHHFzkgwY8&signer=media-rpc&x-canva-quality=screen",
       "imageHint": "team group"
     },
     {
@@ -298,74 +298,14 @@
     {
       "id": "join_team_banner",
       "description": "Join Our Team Banner",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/join%20team%20picture%20.png?alt=media&token=43186769-9d30-4db6-a6f5-93815dd2ac21",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
       "imageHint": "team recruitment"
     },
     {
-      "id": "event_may_2026",
-      "description": "VÉLOURA Event May 2026",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/V%C3%89LOURA%20(1).png?alt=media&token=fd4b1045-5f8f-46b0-948b-51b27b7aadaf",
-      "imageHint": "event banner"
-    },
-    {
-      "id": "interface_1",
-      "description": "App Interface Screenshot 1",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image1.jpg?alt=media&token=b91b81dc-36fc-4540-818c-baeba4c47aa1",
-      "imageHint": "app interface"
-    },
-    {
-      "id": "interface_2",
-      "description": "App Interface Screenshot 2",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image2.jpg?alt=media&token=c6cf0b45-dc7b-42bf-8987-b6a47ef604cc",
-      "imageHint": "app interface"
-    },
-    {
-      "id": "interface_3",
-      "description": "App Interface Screenshot 3",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image3.jpg?alt=media&token=26b3c87e-61a8-4fb6-ad4c-6aec71869e4f",
-      "imageHint": "app interface"
-    },
-    {
-      "id": "interface_4",
-      "description": "App Interface Screenshot 4",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image4.jpg?alt=media&token=61a95617-aa56-4ecf-9f2a-0afd3bba2821",
-      "imageHint": "app interface"
-    },
-    {
-      "id": "interface_5",
-      "description": "App Interface Screenshot 5",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/image5.jpg?alt=media&token=95c53d38-e0b9-4e07-90e5-b51222cfed48",
-      "imageHint": "app interface"
-    },
-    {
-      "id": "store_lash_a13",
-      "description": "A13 Wispy Cat Eye Fake Eyelashes",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99",
-      "imageHint": "fake eyelashes"
-    },
-    {
-      "id": "store_lash_a03",
-      "description": "A03 Soft Band Cat Eye False Lashes",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5",
-      "imageHint": "fake eyelashes"
-    },
-    {
-      "id": "store_wax_heater",
-      "description": "Mini Pink Professional Wax Heater",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater.png?alt=media&token=9de4db96-e50c-43c6-abc7-20e3bc87b0cd",
-      "imageHint": "wax heater"
-    },
-    {
-      "id": "store_lash_715",
-      "description": "715 Airy Wispy Feather False Eyelashes",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Wispy%20Doll%20Eye%20False%20Lashes%20Feathered%20Volume%20Lashes%20(1).png?alt=media&token=c87381b4-c2db-40e1-9fc9-9f4486c0fcd6",
-      "imageHint": "feathered eyelashes"
-    },
-    {
-      "id": "store_wax_bar",
-      "description": "Popsicle Hard Wax Bar 100g",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01",
-      "imageHint": "wax bar"
+      "id": "store_eye_mask",
+      "description": "Japanese Steam Eye Mask - Rose Scent",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405",
+      "imageHint": "eye mask"
     }
   ]
 }

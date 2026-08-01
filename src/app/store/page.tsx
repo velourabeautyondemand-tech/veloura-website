@@ -5,7 +5,7 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, Star, ArrowRight, ShieldCheck, Zap, ExternalLink } from 'lucide-react';
+import { ShoppingBag, Star, ArrowRight, ShieldCheck, Zap, ExternalLink, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -16,6 +16,16 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const ETSY_STORE_LINK = 'https://www.etsy.com/shop/iAmDreamMakerGroup?ref=profile_header&section_id=49528058'; 
 
 const storeItems = [
+  {
+    id: 'eye-mask-rose',
+    name: 'Japanese Steam Eye Mask - Rose Scent',
+    description: 'A self-heating steam eye mask that releases warm, rose-scented steam to soothe tired eyes and promote relaxation. Perfect for after a long day or travel.',
+    price: 2.99,
+    category: 'Self-Care',
+    image: PlaceHolderImages.find(p => p.id === 'store_eye_mask')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405',
+    imageHint: 'eye mask',
+    link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
+  },
   {
     id: 'lash-a13',
     name: 'A13 Wispy Cat Eye Fake Eyelashes',
