@@ -17,6 +17,16 @@ const ETSY_STORE_LINK = 'https://www.etsy.com/shop/iAmDreamMakerGroup?ref=profil
 
 const storeItems = [
   {
+    id: 'eye-mask-bliss',
+    name: 'Luxury Steam Eye Mask - Moment of Bliss',
+    description: 'Wrap your eyes in a little moment of peace. This self-heating mask is designed for deep relaxation and pure tranquility.',
+    price: 2.99,
+    category: 'Self-Care',
+    image: PlaceHolderImages.find(p => p.id === 'store_eye_mask_bliss')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Aug%201%2C%202026%2C%2002_21_33%20PM.png?alt=media&token=af5a76bb-cf4c-42d8-b614-59847161fa9c',
+    imageHint: 'relaxation eye mask',
+    link: 'https://www.etsy.com/listing/4547869516/wrap-your-eyes-in-a-little-moment-of'
+  },
+  {
     id: 'eye-mask-rose',
     name: 'Japanese Steam Eye Mask - Rose Scent',
     description: 'A self-heating steam eye mask that releases warm, rose-scented steam to soothe tired eyes and promote relaxation. Perfect for after a long day or travel.',

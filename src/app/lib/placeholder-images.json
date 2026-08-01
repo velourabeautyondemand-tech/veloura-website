@@ -306,6 +306,12 @@
       "description": "Japanese Steam Eye Mask - Rose Scent",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405",
       "imageHint": "eye mask"
+    },
+    {
+      "id": "store_eye_mask_bliss",
+      "description": "Luxury Steam Eye Mask - Moment of Bliss",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Aug%201%2C%202026%2C%2002_21_33%20PM.png?alt=media&token=af5a76bb-cf4c-42d8-b614-59847161fa9c",
+      "imageHint": "relaxation eye mask"
     }
   ]
 }
