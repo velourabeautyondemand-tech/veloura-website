@@ -106,7 +106,7 @@
     {
       "id": "hair_3",
       "description": "Bridal Hair",
-      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDV8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal hair"
     },
     {
@@ -312,6 +312,12 @@
       "description": "Luxury Steam Eye Mask - Moment of Bliss",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924",
       "imageHint": "relaxation eye mask"
+    },
+    {
+      "id": "store_eye_mask_lavender",
+      "description": "Japanese Steam Eye Mask - Lavender Scent",
+      "imageUrl": "https://images.unsplash.com/photo-1596495944321-4d3f27477611?q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "lavender"
     }
   ]
 }
