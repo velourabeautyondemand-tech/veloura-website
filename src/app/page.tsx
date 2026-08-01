@@ -38,6 +38,7 @@ export default function HomePage() {
   const showPromoBanner = useRemoteConfigBoolean('show_promo_banner', false);
   const promoBannerText = useRemoteConfigString('promo_banner_text', 'Welcome to VÉLOURA — Your Elite Beauty Partner.');
   const heroTitleOverride = useRemoteConfigString('hero_title_override', '');
+  const heroSubtitleOverride = useRemoteConfigString('hero_subtitle_override', '');
 
   const interfaceImages = [
     PlaceHolderImages.find(p => p.id === 'interface_1'),
@@ -63,7 +64,7 @@ export default function HomePage() {
       <Header />
       <DiscountPopup />
       <main className="flex-1">
-        {/* Hero Section - Controlled by hero_title_override */}
+        {/* Hero Section - Controlled by hero_title_override and hero_subtitle_override */}
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-4xl mx-auto">
@@ -71,7 +72,7 @@ export default function HomePage() {
                  {heroTitleOverride || t('hero.title')}
               </h1>
               <p className="mt-4 text-lg text-muted-foreground font-semibold">
-                {t('hero.subtitle')}
+                {heroSubtitleOverride || t('hero.subtitle')}
               </p>
               
                <div className="mt-12 flex flex-col items-center gap-6">
