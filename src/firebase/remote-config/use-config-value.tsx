@@ -19,8 +19,9 @@ export function useRemoteConfigBoolean(key: string, defaultValue: boolean = fals
   useEffect(() => {
     if (!remoteConfig) return;
 
-    // Set minimum fetch interval for development
-    remoteConfig.settings.minimumFetchIntervalMillis = 3600000; // 1 hour
+    // Set minimum fetch interval for development to 0 to see changes instantly
+    // In production, the default is usually 12 hours.
+    remoteConfig.settings.minimumFetchIntervalMillis = 0;
 
     const fetchConfig = async () => {
       try {
@@ -51,6 +52,9 @@ export function useRemoteConfigString(key: string, defaultValue: string = '') {
 
   useEffect(() => {
     if (!remoteConfig) return;
+    
+    remoteConfig.settings.minimumFetchIntervalMillis = 0;
+
     const fetchConfig = async () => {
       try {
         await fetchAndActivate(remoteConfig);
