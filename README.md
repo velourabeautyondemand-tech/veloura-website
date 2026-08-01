@@ -18,14 +18,18 @@ We use Firebase Remote Config to toggle features dynamically without redeploying
 To show or hide the "Elite Partner Showcase" on the Home Page:
 1. Open the [Firebase Console](https://console.firebase.google.com/).
 2. Navigate to **Release & Monitor** -> **Remote Config** in the left sidebar.
-3. **If it's your first time:** Click the large **"Create configuration"** button in the center of the page.
-4. **If not:** Look for the **"Add parameter"** button located at the top right of the parameters table.
-5. In the drawer that opens:
+3. **Important:** Ensure you are on the **"Parameters"** tab (this is the default view). 
+4. **If you are on the "Conditions" tab (like in your screenshot):**
+   - This screen is for advanced targeting (e.g., only showing ads in specific countries).
+   - For a simple On/Off switch, click **"Cancel"** on that popup and switch to the **"Parameters"** tab at the top of the table.
+5. **If it's your first time:** Click the large **"Create configuration"** button.
+6. **If not:** Look for the **"Add parameter"** button (top right of the table).
+7. In the drawer that opens:
    - **Parameter key**: `show_ads`
    - **Data type**: `Boolean`
    - **Value**: `true` (Visible) or `false` (Hidden).
-6. Click **Save**.
-7. **CRITICAL:** Look for the blue banner at the top that says "You have unpublished changes" and click **Publish changes**. 
+8. Click **Save**.
+9. **CRITICAL:** Look for the blue banner at the top that says "You have unpublished changes" and click **Publish changes**. 
 
 ### **Troubleshooting:**
 - **I published but don't see the ads:** Remote Config values are cached for performance. Try opening the site in an **Incognito/Private window** or wait a few minutes and refresh.
