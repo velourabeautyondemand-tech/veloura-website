@@ -64,7 +64,7 @@
     {
       "id": "makeup_2",
       "description": "Event Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1616474235283-a4c1b6935242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDR8fGdsYW0lMjBtYWtldXB8ZW58MHx8fHwxNjY2NjE3NTE3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1616474235283-a4c1b6935242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDR8fGdsYW0lMjBtYWtldXB8ZW58MHx8fHwxNjY2NjE3NTE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "glam makeup"
     },
     {
@@ -136,7 +136,7 @@
     {
       "id": "waxing",
       "description": "Waxing service",
-      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leg waxing"
     },
     {
@@ -316,7 +316,7 @@
     {
       "id": "store_eye_mask_lavender",
       "description": "Japanese Steam Eye Mask - Lavender Scent",
-      "imageUrl": "https://images.unsplash.com/photo-1596495944321-4d3f27477611?q=80&w=1080&auto=format&fit=crop",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Aug%201%2C%202026%2C%2002_50_29%20PM.png?alt=media&token=9dabb713-2691-4d4b-b4d9-1962339a8980",
       "imageHint": "lavender"
     }
   ]
