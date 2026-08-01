@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Heart, HandHeart, Sparkles, Briefcase, Newspaper, Smartphone, Layout, Clock, Home, ShieldCheck, Zap, Star, Wand2, ArrowRight, ShoppingBag, Gift } from 'lucide-react';
+import { Heart, HandHeart, Sparkles, Briefcase, Newspaper, Smartphone, Layout, Clock, Home, ShieldCheck, Zap, Star, Wand2, ArrowRight, ShoppingBag, Gift, Bell } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -35,6 +35,11 @@ export default function HomePage() {
   // Remote Config hooks for dynamic mission control
   const showAds = useRemoteConfigBoolean('show_ads', false);
   const adBadgeText = useRemoteConfigString('ad_badge_text', 'Exclusive Partner Showcase');
+  
+  // New hooks for Search & Engagement
+  const showPromoBanner = useRemoteConfigBoolean('show_promo_banner', false);
+  const promoBannerText = useRemoteConfigString('promo_banner_text', 'Welcome to VÉLOURA — Your Elite Beauty Partner.');
+  const heroTitleOverride = useRemoteConfigString('hero_title_override', '');
 
   const interfaceImages = [
     PlaceHolderImages.find(p => p.id === 'interface_1'),
@@ -46,6 +51,17 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Dynamic Promo Banner - SEO/Engagement Booster */}
+      {showPromoBanner && (
+        <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-xs font-bold tracking-widest uppercase animate-in slide-in-from-top duration-500">
+          <div className="container mx-auto flex items-center justify-center gap-2">
+            <Bell className="w-3 h-3" />
+            <span>{promoBannerText}</span>
+            <Link href="/book" className="underline ml-2 hover:text-white/80 transition-colors">Download Now</Link>
+          </div>
+        </div>
+      )}
+
       <Header />
       <DiscountPopup />
       <main className="flex-1">
@@ -54,7 +70,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline uppercase">
-                 {t('hero.title')}
+                 {heroTitleOverride || t('hero.title')}
               </h1>
               <p className="mt-4 text-lg text-muted-foreground font-semibold">
                 {t('hero.subtitle')}

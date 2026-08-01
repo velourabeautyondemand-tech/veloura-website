@@ -11,29 +11,29 @@ VÉLOURA is built on a foundation designed for premium scaling and operational e
 - **Omni-Channel Revenue**: Seamlessly bridges the gap between digital service bookings and physical product sales via the integrated Etsy Boutique.
 - **Global Readiness**: Full i18n support (English, Chinese, Italian) allows for immediate expansion into diverse and international luxury markets.
 
-## 🚀 Remote Config Controls
-We use Firebase Remote Config to toggle features dynamically without redeploying code.
+## 🚀 Remote Config Controls (Mission Control)
+We use Firebase Remote Config to control visibility and content dynamically without redeploying code.
 
-### **How to toggle the Ad Section:**
-To show or hide the "Elite Partner Showcase" on the Home Page:
+### **Available Parameters:**
+| Parameter Key | Data Type | Description |
+| :--- | :--- | :--- |
+| `show_ads` | Boolean | Toggles the "Elite Partner Showcase" on the Home Page. |
+| `ad_badge_text` | String | Changes the text in the animated ad badge. |
+| `show_promo_banner` | Boolean | Toggles an announcement bar at the very top of the site. |
+| `promo_banner_text` | String | Content for the top promo bar. |
+| `hero_title_override` | String | Replaces the main Home Page H1 (Great for testing SEO keywords). |
+
+### **How to update these settings:**
 1. Open the [Firebase Console](https://console.firebase.google.com/).
-2. Navigate to **Release & Monitor** -> **Remote Config** in the left sidebar.
-3. **Important:** Ensure you are on the **"Parameters"** tab (this is the default view). 
-4. **If you are on the "Conditions" tab (like in your screenshot):**
-   - This screen is for advanced targeting (e.g., only showing ads in specific countries).
-   - For a simple On/Off switch, click **"Cancel"** on that popup and switch to the **"Parameters"** tab at the top of the table.
-5. **If it's your first time:** Click the large **"Create configuration"** button.
-6. **If not:** Look for the **"Add parameter"** button (top right of the table).
-7. In the drawer that opens:
-   - **Parameter key**: `show_ads`
-   - **Data type**: `Boolean`
-   - **Value**: `true` (Visible) or `false` (Hidden).
-8. Click **Save**.
-9. **CRITICAL:** Look for the blue banner at the top that says "You have unpublished changes" and click **Publish changes**. 
+2. Navigate to **Release & Monitor** -> **Remote Config**.
+3. Ensure you are on the **"Parameters"** tab.
+4. Click **"Add parameter"** or edit an existing one.
+5. Enter the Key and Value as shown in the table above.
+6. Click **Save** and then **Publish changes** in the blue banner at the top.
 
 ### **Troubleshooting:**
-- **I published but don't see the ads:** Remote Config values are cached for performance. Try opening the site in an **Incognito/Private window** or wait a few minutes and refresh.
-- **Still not working:** Double check that the parameter key is exactly `show_ads` (all lowercase, with an underscore).
+- **I published but don't see the changes:** Remote Config values are cached for performance. Try opening the site in an **Incognito/Private window** or wait a few minutes and refresh.
+- **Still not working:** Double check that the parameter key is spelled exactly as shown above (case-sensitive).
 
 ## 🛠 Tech Stack
 - **Framework**: Next.js 15 (App Router)
