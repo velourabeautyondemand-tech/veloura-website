@@ -8,11 +8,14 @@ We use Firebase Remote Config to toggle features dynamically without redeploying
 ### **How to toggle the Ad Section:**
 To show or hide the "Elite Partner Showcase" on the Home Page:
 1. Open the [Firebase Console](https://console.firebase.google.com/).
-2. Navigate to **Remote Config** (under Release & Monitor).
-3. Look for the parameter: `show_ads`.
-4. If it doesn't exist, create it as a **Boolean**.
-5. Set the value to `true` (Visible) or `false` (Hidden).
-6. Click **Save** and then **Publish changes** in the top banner.
+2. Navigate to **Release & Monitor** -> **Remote Config** in the left sidebar.
+3. **If it's your first time:** Click the large **"Create configuration"** button in the center of the page.
+4. **If not:** Look for the **"Add parameter"** button located at the top right of the parameters table.
+5. In the drawer that opens:
+   - **Parameter key**: `show_ads`
+   - **Data type**: `Boolean`
+   - **Value**: `true` (Visible) or `false` (Hidden).
+6. Click **Save** and then look for the **"Publish changes"** button in the blue banner at the top of the screen.
 
 ## 🛠 Tech Stack
 - **Framework**: Next.js 15 (App Router)
