@@ -17,13 +17,16 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://velourabeautyondemand.com'),
   title: {
-    default: 'VÉLOURA Beauty On Demand',
+    default: 'VÉLOURA Beauty On Demand | Mobile Beauty Services App',
     template: '%s | VÉLOURA Beauty On Demand',
   },
-  description: 'Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.',
+  description: 'Book trusted mobile beauty professionals for hair, makeup, nails, skincare, lashes, photography, and event services. VÉLOURA connects customers with licensed professionals at home, hotels, offices, and events.',
+  alternates: {
+    canonical: 'https://velourabeautyondemand.com',
+  },
   openGraph: {
-    title: 'VÉLOURA Beauty On Demand',
-    description: 'Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.',
+    title: 'VÉLOURA Beauty On Demand | Mobile Beauty Services App',
+    description: 'Book trusted mobile beauty professionals for hair, makeup, nails, skincare, lashes, photography, and event services. VÉLOURA connects customers with licensed professionals at home, hotels, offices, and events.',
     url: 'https://velourabeautyondemand.com',
     siteName: 'VÉLOURA Beauty On Demand',
     locale: 'en_US',
@@ -39,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VÉLOURA Beauty On Demand',
-    description: 'Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.',
+    title: 'VÉLOURA Beauty On Demand | Mobile Beauty Services App',
+    description: 'Book trusted mobile beauty professionals for hair, makeup, nails, skincare, lashes, photography, and event services. VÉLOURA connects customers with licensed professionals at home, hotels, offices, and events.',
     images: ['/twitter-image.png'],
   },
   robots: {
