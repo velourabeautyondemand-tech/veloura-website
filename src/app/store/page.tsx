@@ -27,14 +27,14 @@ const storeItems = [
     link: 'https://www.etsy.com/listing/4547869516/wrap-your-eyes-in-a-little-moment-of'
   },
   {
-    id: 'eye-mask-lavender',
-    name: 'Japanese Steam Eye Mask - Lavender Scent',
-    description: 'Experience deep relaxation with the calming aroma of lavender. This self-heating mask releases gentle steam to soothe tired eyes.',
+    id: 'eye-mask-glow',
+    name: 'Glow starts before the makeup Deep Moisture Eye Mask',
+    description: 'The ultimate pre-makeup essential. Deeply hydrates and refreshes the delicate eye area for a radiant, prepared glow.',
     price: 2.99,
     category: 'Self-Care',
     image: PlaceHolderImages.find(p => p.id === 'store_eye_mask_lavender')?.imageUrl || 'https://images.unsplash.com/photo-1596495944321-4d3f27477611?q=80&w=1080',
     imageHint: 'lavender',
-    link: 'https://www.etsy.com/listing/4547862207'
+    link: 'https://www.etsy.com/your/shops/me/listing-editor/edit/4547862207'
   },
   {
     id: 'eye-mask-rose',
