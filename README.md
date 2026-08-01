@@ -23,19 +23,18 @@ We use Firebase Remote Config to control visibility and content dynamically with
 5. **IMPORTANT:** Click the blue **"Publish changes"** button in the top right banner to make them live.
 
 ## 🧪 A/B Testing for SEO & Growth
-You can use the **A/B Testing** section in the Firebase Console to optimize your marketing.
-
-### **Why use this?**
-- **SEO Optimization**: Test which keywords in the `hero_title_override` result in more user engagement.
-- **Conversion Lifting**: Find out if "20% Off" or "Free Consultation" leads to more app downloads.
-- **Risk Reduction**: Test new features on 10% of your audience before rolling them out to everyone.
+Use the **A/B Testing** tab within Remote Config to optimize your marketing copy.
 
 ### **How to start a test:**
-1. Go to **Release & Monitor** -> **A/B Testing**.
-2. Click **Create experiment** -> **Remote Config**.
-3. Target your `hero_title_override` parameter.
-4. Define two variants (e.g., "Luxury Beauty" vs "Pro Mobile Glam").
-5. Set the goal to "User Engagement" and start the experiment.
+1. Go to **Remote Config** -> **A/B Tests** -> **Create experiment**.
+2. Choose your parameter (e.g., `hero_title_override`).
+3. **Targeting (Step 2)**: If you don't see "All Users", click **"Create new condition"**, name it `All_Users`, and set the rule to **"App ID"** -> select your web app.
+4. **Goal (Step 3)**: Select "User Engagement" as the primary metric.
+5. **Start**: Click **Start Experiment** on the main dashboard to begin collecting data.
+
+### **Why use this?**
+- **SEO Optimization**: Test which keywords in the title result in more organic search clicks.
+- **Conversion Lifting**: Find out if "20% Off" or "Free Consultation" leads to more actual bookings.
 
 ## 💎 Strategic Foundation
 VÉLOURA is built on a foundation designed for premium scaling:
