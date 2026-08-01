@@ -15,7 +15,12 @@ To show or hide the "Elite Partner Showcase" on the Home Page:
    - **Parameter key**: `show_ads`
    - **Data type**: `Boolean`
    - **Value**: `true` (Visible) or `false` (Hidden).
-6. Click **Save** and then look for the **"Publish changes"** button in the blue banner at the top of the screen.
+6. Click **Save**.
+7. **CRITICAL:** Look for the blue banner at the top that says "You have unpublished changes" and click **Publish changes**. 
+
+### **Troubleshooting:**
+- **I published but don't see the ads:** Remote Config values are cached for performance. Try opening the site in an **Incognito/Private window** or wait a few minutes and refresh.
+- **Still not working:** Double check that the parameter key is exactly `show_ads` (all lowercase, with an underscore).
 
 ## 🛠 Tech Stack
 - **Framework**: Next.js 15 (App Router)
