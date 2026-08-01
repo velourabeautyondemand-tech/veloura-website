@@ -2,9 +2,15 @@ import { firebaseConfig } from '@/firebase/config';
 import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
 import { getAuth, Auth } from 'firebase/auth';
 import { getFirestore, Firestore } from 'firebase/firestore';
+import { getRemoteConfig, RemoteConfig } from 'firebase/remote-config';
 
 // Core SDKs initialization logic that is safe for both client and server.
-export function initializeFirebase(): { firebaseApp: FirebaseApp; auth: Auth; firestore: Firestore } {
+export function initializeFirebase(): { 
+  firebaseApp: FirebaseApp; 
+  auth: Auth; 
+  firestore: Firestore;
+  remoteConfig: RemoteConfig;
+} {
   let firebaseApp: FirebaseApp;
 
   if (!getApps().length) {
@@ -25,7 +31,8 @@ export function initializeFirebase(): { firebaseApp: FirebaseApp; auth: Auth; fi
   return {
     firebaseApp,
     auth: getAuth(firebaseApp),
-    firestore: getFirestore(firebaseApp)
+    firestore: getFirestore(firebaseApp),
+    remoteConfig: getRemoteConfig(firebaseApp)
   };
 }
 
@@ -35,6 +42,7 @@ export * from './provider';
 export * from './client-provider';
 export * from './firestore/use-collection';
 export * from './firestore/use-doc';
+export * from './remote-config/use-config-value';
 export * from './non-blocking-updates';
 export * from './non-blocking-login';
 export * from './errors';

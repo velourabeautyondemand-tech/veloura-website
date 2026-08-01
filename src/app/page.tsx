@@ -10,6 +10,7 @@ import { SubscribeForm } from '@/components/features/subscribe-form';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DiscountPopup } from '@/components/features/discount-popup';
 import { useLanguage } from '@/context/language-context';
+import { useRemoteConfigBoolean } from '@/firebase';
 
 const useCases = [
   { icon: Clock, title: 'Last-Minute Needs', description: 'Glam, photographer, or event support — right when you need it.' },
@@ -29,6 +30,8 @@ const howItWorks = [
 
 export default function HomePage() {
   const { t } = useLanguage();
+  const showAds = useRemoteConfigBoolean('show_ads', false);
+
   const interfaceImages = [
     PlaceHolderImages.find(p => p.id === 'interface_1'),
     PlaceHolderImages.find(p => p.id === 'interface_2'),
@@ -87,6 +90,22 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Remote Config Controlled Ad Section */}
+        {showAds && (
+          <section className="bg-accent/10 py-10 border-y border-accent/20 animate-in fade-in duration-700">
+            <div className="container mx-auto px-4 md:px-6 text-center">
+              <div className="flex flex-col items-center gap-4">
+                <Badge variant="accent" className="animate-pulse">Limited Time Partner Offer</Badge>
+                <h3 className="text-2xl font-bold font-headline">Visit our Elite Partner Showcase</h3>
+                <p className="text-muted-foreground">Get exclusive access to premium beauty supplies from our top vendors.</p>
+                <Button asChild variant="accent">
+                  <Link href="/pro-discounts">View Offers</Link>
+                </Button>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* AI Concierge Promo Section */}
         <section className="py-16 bg-primary text-primary-foreground overflow-hidden">
