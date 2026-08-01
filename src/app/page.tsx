@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -32,11 +33,8 @@ const howItWorks = [
 export default function HomePage() {
   const { t } = useLanguage();
   
-  // Remote Config hooks for dynamic mission control
+  // Remote Config hooks synced with console screenshot
   const showAds = useRemoteConfigBoolean('show_ads', false);
-  const adBadgeText = useRemoteConfigString('ad_badge_text', 'Exclusive Partner Showcase');
-  
-  // New hooks for Search & Engagement
   const showPromoBanner = useRemoteConfigBoolean('show_promo_banner', false);
   const promoBannerText = useRemoteConfigString('promo_banner_text', 'Welcome to VÉLOURA — Your Elite Beauty Partner.');
   const heroTitleOverride = useRemoteConfigString('hero_title_override', '');
@@ -51,13 +49,13 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Dynamic Promo Banner - SEO/Engagement Booster */}
+      {/* Dynamic Promo Banner - Controlled by show_promo_banner and promo_banner_text */}
       {showPromoBanner && (
         <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-xs font-bold tracking-widest uppercase animate-in slide-in-from-top duration-500">
           <div className="container mx-auto flex items-center justify-center gap-2">
             <Bell className="w-3 h-3" />
-            <span>{promoBannerText}</span>
-            <Link href="/book" className="underline ml-2 hover:text-white/80 transition-colors">Download Now</Link>
+            <span>{promoBannerText || 'Welcome to VÉLOURA — Your Elite Beauty Partner.'}</span>
+            <Link href="/book" className="underline ml-2 hover:text-white/80 transition-colors font-black">Download Now</Link>
           </div>
         </div>
       )}
@@ -65,7 +63,7 @@ export default function HomePage() {
       <Header />
       <DiscountPopup />
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Hero Section - Controlled by hero_title_override */}
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-4xl mx-auto">
@@ -111,14 +109,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Remote Config Controlled Ad Section - Animated Showcase */}
+        {/* Remote Config Controlled Ad Section - Controlled by show_ads */}
         {showAds && (
           <section className="bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 py-16 border-y border-accent/20 animate-in fade-in zoom-in-95 duration-1000">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 bg-card/80 backdrop-blur-sm p-8 md:p-12 rounded-[2rem] border-2 border-primary/20 shadow-2xl">
                 <div className="flex-1 space-y-6 text-center md:text-left">
                   <Badge variant="accent" className="animate-pulse px-4 py-1 text-sm font-bold tracking-widest uppercase">
-                    {adBadgeText}
+                    Partner Showcase
                   </Badge>
                   <h3 className="text-3xl md:text-4xl font-bold font-headline leading-tight">
                     Premium Kits & <br /> <span className="text-primary italic">Pro Essentials</span>
