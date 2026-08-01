@@ -28,19 +28,18 @@ Use the **A/B Testing** tab within Remote Config to optimize your marketing copy
 ### **How to start a test:**
 1. Go to **Remote Config** -> **A/B Tests** -> **Create experiment**.
 2. **Variants (Step 1)**: Choose your parameter (e.g., `hero_title_override`). Set the baseline and your new test title.
-3. **Targeting (Step 2)**: If you don't see "All Users", click **"Create new condition"**, name it `All_Users`, and set the rule to **"App ID"** -> select your web app. Set exposure to 100%.
-4. **Goal (Step 3)**: Select **"User Engagement"** as the primary metric. This tracks how long users stay or if they interact more with the new title.
-5. **Name (Step 4)**: Give it a clear name like `Hero_SEO_Keywords_Test_1`.
-6. **Start**: After clicking **Save**, you must click the **"Start Experiment"** button on the main A/B Testing dashboard to begin collecting data.
+3. **Targeting (Step 2)**: If you don't see "All Users", click **"Choose or create new"** -> **"Create new condition"**, name it `All_Visitors`, and set the rule to **"App ID"** -> select your web app. Set exposure to 100%.
+4. **Goal (Step 3)**: Select **"User Engagement"** as the primary metric.
+5. **Name (Step 4)**: Give it a clear name like `Hero_SEO_Test_1`.
+6. **Start**: After clicking **Save**, you must click the **"Start Experiment"** button on the main A/B Testing dashboard.
 
-### **Why use this?**
-- **SEO Optimization**: Test which keywords in the title result in more organic search clicks.
-- **Conversion Lifting**: Find out if "20% Off" or "Free Consultation" leads to more actual bookings.
-- **Data-Driven Decisions**: Firebase will tell you with "95% confidence" which version is the winner.
+### **⚠️ Common Errors & Fixes**
+*   **"Link an app to this condition"**: Click the pencil icon next to your condition. Ensure the rule is set to **App ID** and that the checkbox for your specific app is checked.
+*   **Changes not showing**: Changes can take up to 12 hours to appear for all users due to caching. For testing, clear your browser cache or wait 15 minutes.
+*   **Experiment not collecting data**: Ensure you clicked the final **"Start Experiment"** button after saving the draft.
 
 ## 💎 Strategic Foundation
 VÉLOURA is built on a foundation designed for premium scaling:
-
 - **AI-Powered Concierge**: Automates matchmaking between event needs and elite talent.
 - **Trust & Verification**: Integrated systems for onboarding and professional vetting.
 - **SEO Engine**: Dynamic marketplace nodes for Locations, Venues, and Occasions.
