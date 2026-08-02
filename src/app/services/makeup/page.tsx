@@ -15,9 +15,10 @@ import {
   ArrowRight, 
   Smartphone, 
   Star,
-  Users,
+  ChevronRight,
   Heart,
-  Camera
+  Camera,
+  Users
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -44,6 +45,14 @@ export default function MakeupServicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://velourabeautyondemand.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://velourabeautyondemand.com/services" },
+          { "@type": "ListItem", "position": 3, "name": "Makeup Artistry" }
+        ]
+      },
       {
         "@type": "Service",
         "name": "Professional Makeup Artistry On-Demand",
@@ -92,6 +101,19 @@ export default function MakeupServicePage() {
       />
       <Header />
       <main className="flex-1">
+        {/* Breadcrumbs Navigation */}
+        <div className="bg-background py-4 border-b">
+            <div className="container mx-auto px-4 md:px-6">
+                <nav className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest font-bold">
+                    <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <Link href="/services" className="hover:text-primary transition-colors">Services</Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-primary">Makeup Artistry</span>
+                </nav>
+            </div>
+        </div>
+
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 bg-secondary/50 overflow-hidden">
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -121,12 +143,11 @@ export default function MakeupServicePage() {
               </div>
             </div>
           </div>
-          {/* Decorative element */}
           <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
         </section>
 
-        {/* The Experience Section */}
+        {/* Value Proposition */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
@@ -159,7 +180,7 @@ export default function MakeupServicePage() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg">Seamless In-App Experience</h3>
-                      <p className="text-muted-foreground text-sm">From professional portfolios and client reviews to secure Stripe payments, everything is in one app.</p>
+                      <p className="text-muted-foreground text-sm">From professional portfolios and client reviews to secure Stripe payments, everything is handled inside the app.</p>
                     </div>
                   </div>
                 </div>
@@ -168,7 +189,7 @@ export default function MakeupServicePage() {
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white">
                 <Image
                   src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1080&auto=format&fit=crop"
-                  alt="Professional Makeup Application"
+                  alt="Professional Makeup Artist at Work"
                   fill
                   className="object-cover"
                   data-ai-hint="makeup artist"
@@ -178,21 +199,20 @@ export default function MakeupServicePage() {
           </div>
         </section>
 
-        {/* Glam Categories */}
+        {/* Services Categories Grid */}
         <section className="py-24 bg-secondary/20 border-y border-primary/5">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold font-headline mb-4">Choose Your Look</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">From soft naturals to high-fashion drama, we have the perfect artist for your vibe.</p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">From soft naturals to high-fashion drama, our network features specialists in every category.</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Category 1 */}
               <Card className="group overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src={naturalMakeup?.imageUrl || "https://picsum.photos/seed/natural/800/1000"}
-                    alt="Everyday Glam"
+                    alt="Natural Makeup Look"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     data-ai-hint="natural makeup"
@@ -200,17 +220,16 @@ export default function MakeupServicePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <h3 className="text-2xl font-bold font-headline">Everyday Essentials</h3>
-                    <p className="text-sm opacity-90 mt-2">Perfect for meetings, dates, or a "no-makeup" glow.</p>
+                    <p className="text-sm opacity-90 mt-2">Soft glam for meetings, dates, or a "no-makeup" glow.</p>
                   </div>
                 </div>
               </Card>
 
-              {/* Category 2 */}
               <Card className="group overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src={eventMakeup?.imageUrl || "https://picsum.photos/seed/event/800/1000"}
-                    alt="Event Glam"
+                    alt="Event Makeup Glam"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     data-ai-hint="glam makeup"
@@ -223,12 +242,11 @@ export default function MakeupServicePage() {
                 </div>
               </Card>
 
-              {/* Category 3 */}
               <Card className="group overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src={bridalMakeup?.imageUrl || "https://picsum.photos/seed/bridal/800/1000"}
-                    alt="Bridal Makeup"
+                    alt="Bridal Makeup Artistry"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     data-ai-hint="bridal makeup"
@@ -236,7 +254,7 @@ export default function MakeupServicePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <h3 className="text-2xl font-bold font-headline">Bridal & Wedding</h3>
-                    <p className="text-sm opacity-90 mt-2">Timeless, photo-ready elegance for your big day.</p>
+                    <p className="text-sm opacity-90 mt-2">Timeless, high-definition elegance for your big day.</p>
                   </div>
                 </div>
               </Card>
@@ -244,7 +262,7 @@ export default function MakeupServicePage() {
           </div>
         </section>
 
-        {/* Coverage Areas */}
+        {/* Location Hubs */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="bg-primary rounded-[3rem] p-12 md:p-20 text-primary-foreground text-center relative overflow-hidden shadow-2xl">
@@ -271,31 +289,7 @@ export default function MakeupServicePage() {
           </div>
         </section>
 
-        {/* Trust Stats */}
-        <section className="py-16 border-y bg-secondary/10">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
-                    <div className="space-y-2">
-                        <p className="text-4xl font-bold font-headline text-primary">500+</p>
-                        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Vetted Pros</p>
-                    </div>
-                    <div className="space-y-2">
-                        <p className="text-4xl font-bold font-headline text-primary">15k+</p>
-                        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Glam Sessions</p>
-                    </div>
-                    <div className="space-y-2">
-                        <p className="text-4xl font-bold font-headline text-primary">4.9/5</p>
-                        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Average Rating</p>
-                    </div>
-                    <div className="space-y-2">
-                        <p className="text-4xl font-bold font-headline text-primary">100%</p>
-                        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Licensed</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {/* Detailed FAQ */}
+        {/* FAQ Section */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-bold font-headline text-center mb-12">Makeup FAQs</h2>
@@ -303,63 +297,66 @@ export default function MakeupServicePage() {
               <AccordionItem value="prep">
                 <AccordionTrigger className="text-left font-bold">How should I prepare for my makeup session?</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">
-                  Please have a clean, moisturized face and arrive with any facial hair groomed as desired. Ensure you have a space with good natural light and a chair near a power outlet if your artist needs to use hair tools as well.
+                  Please have a clean, moisturized face and arrive with any facial hair groomed as desired. Ensure you have a space with good natural light and a chair near a power outlet if your artist needs to use hair tools for a total look.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="sanitation">
-                <AccordionTrigger className="text-left font-bold">What are your sanitation standards?</AccordionTrigger>
+                <AccordionTrigger className="text-left font-bold">What are VÉLOURA's sanitation standards?</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">
-                  Hygiene is our top priority. All VÉLOURA artists must wear masks during application. They use sanitized brushes, disposable applicators for mascara and lips, and hospital-grade disinfectants for their palettes and tools between every client.
+                  Hygiene is our top priority. All VÉLOURA artists must wear masks during application. They use sanitized brushes, disposable applicators, and hospital-grade disinfectants for their palettes and toolkits between every client.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="products">
-                <AccordionTrigger className="text-left font-bold">What brands do the artists use?</AccordionTrigger>
+                <AccordionTrigger className="text-left font-bold">What product brands do the artists use?</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">
-                  Our professionals use high-performance, professional-grade kits featuring brands like MAC, NARS, Charlotte Tilbury, Danessa Myricks, and more, ensuring your look lasts through events and flash photography.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="large-groups">
-                <AccordionTrigger className="text-left font-bold">Can I book for a bridal party or group?</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  Absolutely. For groups of 3 or more, we recommend using our Talent Agency service. We can deploy a coordinated team of multiple artists to ensure everyone is ready simultaneously.
+                  Our professionals use high-performance, professional-grade kits featuring luxury brands like MAC, NARS, Charlotte Tilbury, and Danessa Myricks, ensuring your look lasts through events and high-res photography.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
           </div>
         </section>
 
-        {/* Final SEO Footer Section */}
+        {/* Internal SEO Linking & Footer */}
         <section className="py-24 bg-secondary/30">
           <div className="container mx-auto px-4 md:px-6">
              <div className="max-w-4xl mx-auto space-y-12">
                 <div className="prose lg:prose-lg max-w-none text-muted-foreground">
                     <h2 className="text-3xl font-bold font-headline text-foreground">Why VÉLOURA is the Best Choice for On-Demand Makeup</h2>
                     <p>
-                        In today’s fast-paced environment, the luxury of time is unparalleled. Searching for a <strong>makeup artist near me</strong> often leads to salon directories with limited availability or unverified freelance listings. VÉLOURA changes the search by offering a centralized, premium marketplace where quality is guaranteed.
+                        In today’s fast-paced environment, the luxury of time is unparalleled. Searching for a <strong>makeup artist near me</strong> often leads to unverified freelance listings. VÉLOURA changes the search by offering a centralized, premium marketplace where quality is guaranteed.
                     </p>
                     <p>
-                        Whether you are a traveler needing <strong>hotel room makeup services</strong> in Midtown Manhattan, a bride looking for <strong>on-site bridal glam</strong> in Beverly Hills, or a professional needing a quick refresh in South Beach, our platform scales to meet your needs. We move with you.
+                        Whether you are a traveler needing <strong>hotel room makeup services</strong> in Midtown, a bride looking for <strong>on-site bridal glam</strong> in Beverly Hills, or a professional needing a quick refresh in Miami, our platform scales to meet your needs.
                     </p>
                 </div>
                 
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 not-prose">
-                    <Link href="/services/hair" className="flex items-center justify-between p-6 bg-card rounded-2xl border hover:border-primary transition-colors">
-                        <span className="font-bold">Hair Styling</span>
-                        <ArrowRight className="w-4 h-4 text-primary" />
+                    <Link href="/services/hair" className="flex items-center justify-between p-6 bg-card rounded-2xl border hover:border-primary transition-colors group">
+                        <div className="flex flex-col">
+                            <span className="font-bold">Hair Styling</span>
+                            <span className="text-[10px] text-muted-foreground">Blowouts & Updos</span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-primary transition-transform group-hover:translate-x-1" />
                     </Link>
-                    <Link href="/services/nails" className="flex items-center justify-between p-6 bg-card rounded-2xl border hover:border-primary transition-colors">
-                        <span className="font-bold">Nail Services</span>
-                        <ArrowRight className="w-4 h-4 text-primary" />
+                    <Link href="/services/nails" className="flex items-center justify-between p-6 bg-card rounded-2xl border hover:border-primary transition-colors group">
+                        <div className="flex flex-col">
+                            <span className="font-bold">Nail Services</span>
+                            <span className="text-[10px] text-muted-foreground">Manis & Pedis</span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-primary transition-transform group-hover:translate-x-1" />
                     </Link>
-                    <Link href="/match" className="flex items-center justify-between p-6 bg-primary/10 rounded-2xl border-2 border-primary/20 hover:bg-primary/20 transition-all">
-                        <span className="font-bold text-primary">AI Concierge</span>
-                        <Wand2 className="w-4 h-4 text-primary" />
+                    <Link href="/match" className="flex items-center justify-between p-6 bg-primary/10 rounded-2xl border-2 border-primary/20 hover:bg-primary/20 transition-all group">
+                        <div className="flex flex-col">
+                            <span className="font-bold text-primary">AI Concierge</span>
+                            <span className="text-[10px] text-primary/70">Smart Matching</span>
+                        </div>
+                        <Wand2 className="w-4 h-4 text-primary transition-transform group-hover:scale-110" />
                     </Link>
                 </div>
 
                 <div className="text-center pt-8">
                    <Button asChild size="lg" className="rounded-full h-16 px-12 text-xl font-bold shadow-2xl">
-                      <Link href="/book">Request Your Artist Now</Link>
+                      <Link href="/book">Download & Book Your Artist</Link>
                    </Button>
                 </div>
              </div>
