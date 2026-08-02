@@ -1,116 +1,196 @@
 import { SEONode } from './types';
 
 export const SEO_MARKETPLACE_NODES: SEONode[] = [
+  // BEAUTY ESSENTIALS
+  {
+    id: 'service-makeup',
+    type: 'service',
+    slug: 'makeup',
+    displayName: 'Makeup Artistry',
+    shortDescription: 'Professional on-site glam for everyday, events, and photoshoots.',
+    displayCategory: 'Beauty Essentials',
+    filterCategory: 'beauty',
+    iconName: 'Sparkles',
+    isPublished: true,
+    metadata: {
+      title: 'Professional Mobile Makeup Artist Services | VÉLOURA',
+      description: 'Book elite makeup artists for on-demand glam. At-home and hotel services for weddings, events, and photoshoots in LA, NYC, and Miami.',
+    },
+    content: {
+      h1: 'Professional Makeup Artist On-Demand',
+      intro: 'VÉLOURA connects you with the top 10% of licensed makeup artists specializing in everyday essentials, red-carpet events, and bridal beauty.',
+      howItWorks: [
+        { title: 'Request Look', text: 'Select your style and location in the VÉLOURA app.' },
+        { title: 'Artist Match', text: 'Vetted professionals review your request.' },
+        { title: 'Glam Delivery', text: 'The pro arrives with a full kit to your door.' }
+      ],
+      faqs: [
+        { q: 'Do I need my own makeup?', a: 'No, pros arrive with fully equipped professional kits.' },
+        { q: 'How long does it take?', a: 'Standard sessions are 60-90 minutes.' }
+      ]
+    },
+    cta: { label: 'Explore Makeup', href: '/services/makeup' }
+  },
+  {
+    id: 'service-hair',
+    type: 'service',
+    slug: 'hair',
+    displayName: 'Hair Styling',
+    shortDescription: 'Salon-quality blowouts, updos, and expert styling delivered to you.',
+    displayCategory: 'Beauty Essentials',
+    filterCategory: 'beauty',
+    iconName: 'Scissors',
+    isPublished: true,
+    metadata: {
+      title: 'Mobile Hair Stylists | At-Home Blowouts & Styling | VÉLOURA',
+      description: 'Professional hair styling delivered to your door. Book blowouts, updos, and bridal hair with licensed stylists.',
+    },
+    content: {
+      h1: 'Expert Hair Stylists & Blowouts On-Demand',
+      intro: 'Skip the commute. Whether you need a sleek blowout or an intricate updo, our mobile stylists bring the salon expertise to you.',
+      howItWorks: [],
+      faqs: []
+    },
+    cta: { label: 'Explore Hair', href: '/services/hair' }
+  },
+  {
+    id: 'service-nails',
+    type: 'service',
+    slug: 'nails',
+    displayName: 'Nail Services',
+    shortDescription: 'Luxury manicures, gel, and spa pedicures in your own space.',
+    displayCategory: 'Beauty Essentials',
+    filterCategory: 'beauty',
+    iconName: 'HandHeart',
+    isPublished: true,
+    metadata: {
+      title: 'At-Home Nail Services | Mobile Manicures & Pedicures | VÉLOURA',
+      description: 'Get salon-quality nails at home. Licensed technicians offering gel manicures, pedicures, and nail art.',
+    },
+    content: {
+      h1: 'Luxury Manicures & Pedicures at Home',
+      intro: 'Transform your living room into a relaxing spa with premium nail services delivered directly to your door.',
+      howItWorks: [],
+      faqs: []
+    },
+    cta: { label: 'Explore Nails', href: '/services/nails' }
+  },
+  // SPECIAL OCCASIONS
+  {
+    id: 'occasion-weddings',
+    type: 'occasion',
+    slug: 'weddings',
+    displayName: 'Bridal & Wedding',
+    shortDescription: 'Comprehensive on-site beauty support for brides and bridal parties.',
+    displayCategory: 'Special Occasions',
+    filterCategory: 'wedding-event',
+    iconName: 'Heart',
+    isPublished: true,
+    metadata: {
+      title: 'Wedding Beauty Services | VÉLOURA Luxury Bridal Glam',
+      description: 'Elite bridal beauty that comes to you. Book mobile makeup artists and hairstylists for brides and bridal parties.',
+    },
+    content: {
+      h1: 'Luxury Wedding Beauty That Comes to You',
+      intro: 'Ensure a stress-free wedding morning with elite on-site beauty support tailored to your unique style.',
+      howItWorks: [
+        { title: 'Bridal Consultation', text: 'Connect with our team to discuss your bridal vision.' },
+        { title: 'Trial Session', text: 'Book a trial to perfect your look before the big day.' },
+        { title: 'Wedding Day', text: 'A coordinated team arrives at your venue or suite.' }
+      ],
+      faqs: []
+    },
+    cta: { label: 'Bridal Services', href: '/occasions/weddings' }
+  },
+  // LIFESTYLE & CREATIVE
+  {
+    id: 'service-photography',
+    type: 'service',
+    slug: 'photography',
+    displayName: 'Photography',
+    shortDescription: 'Professional event, portrait, and glamour photography on-demand.',
+    displayCategory: 'Lifestyle & Creative',
+    filterCategory: 'creative',
+    iconName: 'Camera',
+    isPublished: true,
+    metadata: {
+      title: 'On-Demand Photographers | Event & Portrait Sessions | VÉLOURA',
+      description: 'Book professional photographers for event coverage and portrait sessions. Integrated beauty and photography.',
+    },
+    content: {
+      h1: 'Professional Event & Portrait Photography',
+      intro: 'Capture your best moments. VÉLOURA is the first platform to fully integrate elite beauty and professional photography.',
+      howItWorks: [],
+      faqs: []
+    },
+    cta: { label: 'Explore Photo', href: '/services/photography' }
+  },
+  // VENUE-BASED
   {
     id: 'venue-hotels',
     type: 'venue',
     slug: 'hotels',
+    displayName: 'Hotel Services',
+    shortDescription: 'Five-star beauty delivered directly to your hotel suite.',
+    displayCategory: 'Venue-Based Services',
+    filterCategory: 'venue',
+    iconName: 'Hotel',
     isPublished: true,
     metadata: {
       title: 'Hotel Beauty Services On-Demand | VÉLOURA Mobile Glam',
-      description: 'Book elite beauty professionals for your hotel suite. On-demand blowouts, makeup, and nails delivered to your room in LA, NYC, and Miami.',
+      description: 'Book elite beauty professionals for your hotel suite. On-demand services in LA, NYC, and Miami.',
     },
     content: {
-      h1: 'Five-Star Beauty, Delivered to Your Hotel Suite',
-      intro: 'Traveling shouldn’t mean compromising your self-care routine. VÉLOURA partners with leading hotels to bring licensed beauty professionals directly to your door. Whether you’re preparing for a red-carpet event, a business conference, or simply need a moment of calm, our elite pros arrive fully equipped to transform your suite into a private salon.',
-      howItWorks: [
-        { title: 'Book Your Suite', text: 'Select your hotel location and desired service through the VÉLOURA app.' },
-        { title: 'Match with Talent', text: 'Browse vetted portfolios of professionals available in your area.' },
-        { title: 'Suite-Side Delivery', text: 'Your professional arrives at your room, ready to provide a five-star experience.' }
-      ],
-      faqs: [
-        { q: 'Do I need to notify the hotel concierge?', a: 'While not required, it is often helpful. Our professionals are used to working within luxury hotel environments.' },
-        { q: 'Can I book for multiple people in one suite?', a: 'Yes, VÉLOURA is perfect for groups getting ready together before an event.' },
-        { q: 'What if I don’t have a salon-style chair?', a: 'Our pros are experienced in mobile setups and will adapt to your suite layout and furniture.' }
-      ]
+      h1: 'Five-Star Beauty, Delivered to Your Suite',
+      intro: 'Traveling shouldn’t mean compromising your routine. We partner with hotels to bring pros directly to your door.',
+      howItWorks: [],
+      faqs: []
     },
-    cta: {
-      label: 'Find My Match',
-      href: '/match'
-    }
+    cta: { label: 'Hotel Service', href: '/venues/hotels' }
   },
   {
     id: 'venue-home',
     type: 'venue',
     slug: 'home-service',
+    displayName: 'At-Home Beauty',
+    shortDescription: 'Your home is your sanctuary. We bring the luxury studio to you.',
+    displayCategory: 'Venue-Based Services',
+    filterCategory: 'venue',
+    iconName: 'Home',
     isPublished: true,
     metadata: {
       title: 'At-Home Beauty Services | VÉLOURA Professional Salon Results',
-      description: 'Skip the salon commute. VÉLOURA brings licensed beauty experts to your home for manicures, blowouts, and makeup. Professional, safe, and convenient.',
+      description: 'Skip the commute. VÉLOURA brings licensed beauty experts to your home for manicures and hair.',
     },
     content: {
-      h1: 'Professional Salon Services in the Comfort of Your Home',
-      intro: 'Your home is your sanctuary. VÉLOURA brings the luxury of a high-end studio to your living room, eliminating the stress of traffic, parking, and waiting rooms. Our mobile-first platform connects you with the top 10% of local talent, ensuring you receive personalized, one-on-one attention in the environment where you feel most relaxed.',
-      howItWorks: [
-        { title: 'Request Service', text: 'Choose your beauty service and set your home address in the app.' },
-        { title: 'Choose Your Pro', text: 'Review ratings and verified work samples from local experts.' },
-        { title: 'Relax at Home', text: 'Your pro arrives with everything needed for a salon-quality result.' }
-      ],
-      faqs: [
-        { q: 'How much space do I need?', a: 'A standard chair and access to a power outlet is usually all that is required for most services.' },
-        { q: 'Is it safe to have a professional in my home?', a: 'Yes. Every VÉLOURA pro undergoes multi-step background and identity verification.' },
-        { q: 'Do you clean up after the service?', a: 'Absolutely. Our professionals are trained to leave your space exactly as they found it.' }
-      ]
+      h1: 'Professional Salon Services at Home',
+      intro: 'Enjoy personalized, one-on-one attention in the environment where you feel most relaxed.',
+      howItWorks: [],
+      faqs: []
     },
-    cta: {
-      label: 'Book at Home',
-      href: '/match'
-    }
+    cta: { label: 'Home Service', href: '/venues/home-service' }
   },
-  {
-    id: 'occasion-weddings',
-    type: 'occasion',
-    slug: 'weddings',
-    isPublished: true,
-    metadata: {
-      title: 'Wedding Beauty Services | VÉLOURA Luxury Bridal Glam',
-      description: 'Elite bridal beauty that comes to you. Book mobile makeup artists and hairstylists for brides and bridal parties in LA, NYC, and Miami.',
-    },
-    content: {
-      h1: 'Luxury Wedding Beauty That Comes to You',
-      intro: 'Your wedding morning should be as beautiful as the ceremony itself. VÉLOURA provides comprehensive on-site beauty support for brides and bridal parties, ensuring a stress-free environment while you get ready. Our elite network specializes in long-wear, photo-ready glam that honors your unique style.',
-      howItWorks: [
-        { title: 'Bridal Consultation', text: 'Connect with our team to discuss your bridal vision and headcount.' },
-        { title: 'Professional Match', text: 'We match you with specialists who excel in wedding and event styling.' },
-        { title: 'Wedding Day Support', text: 'A coordinated team arrives at your venue or suite for seamless execution.' }
-      ],
-      faqs: [
-        { q: 'How early should I book for my wedding?', a: 'We recommend booking 3-6 months in advance to secure your preferred professional.' },
-        { q: 'Can you handle large bridal parties?', a: 'Yes, VÉLOURA can deploy multiple professionals to ensure everyone is ready on time.' },
-        { q: 'Do you provide on-site touch-ups?', a: 'Yes, many of our bridal packages include optional touch-up support through photos.' }
-      ]
-    },
-    cta: {
-      label: 'Inquire About Bridal Talent',
-      href: 'mailto:support@velourabeautyondemand.com?subject=Bridal%20Service%20Inquiry'
-    }
-  },
+  // SOLUTIONS
   {
     id: 'solution-seniors',
     type: 'solution',
     slug: 'seniors',
+    displayName: 'Senior Beauty',
+    shortDescription: 'Gentle, respectful grooming and care for seniors at home.',
+    displayCategory: 'Customer Solutions',
+    filterCategory: 'solution',
+    iconName: 'Heart',
     isPublished: true,
     metadata: {
-      title: 'Senior Beauty Services | VÉLOURA Accessible On-Demand Beauty',
-      description: 'Professional, gentle beauty services for seniors and individuals with limited mobility. Licensed pros providing nails, hair, and care at home.',
+      title: 'Senior Beauty Services | VÉLOURA Accessible On-Demand',
+      description: 'Professional, gentle beauty services for seniors and individuals with limited mobility.',
     },
     content: {
       h1: 'Accessible Beauty Services for Seniors',
-      intro: 'Self-care is a vital part of dignity and well-being at every age. VÉLOURA offers specialized beauty services designed specifically for seniors and those with limited mobility. Our professionals are trained to be gentle, patient, and respectful, providing essential grooming and uplifting experiences right at home.',
-      howItWorks: [
-        { title: 'Gentle Match', text: 'We match the client with a professional experienced in mobility-limited care.' },
-        { title: 'Safe Environment', text: 'Services are adapted to the client’s comfort and physical needs.' },
-        { title: 'Dignified Results', text: 'Professional care that restores confidence and routine without the stress of travel.' }
-      ],
-      faqs: [
-        { q: 'Are the products safe for sensitive skin?', a: 'Yes, our professionals prioritize fragrance-free and non-toxic formulas suitable for mature skin.' },
-        { q: 'Can you provide services in assisted living?', a: 'Yes, we can visit private residences or approved senior living communities.' },
-        { q: 'Is this a medical service?', a: 'No, VÉLOURA provides non-medical beauty and lifestyle services. We do not provide nursing or healthcare services.' }
-      ]
+      intro: 'Self-care is vital to dignity at every age. Our pros are trained to be gentle, patient, and respectful.',
+      howItWorks: [],
+      faqs: []
     },
-    cta: {
-      label: 'Contact Care Team',
-      href: '/contact'
-    }
+    cta: { label: 'Care Services', href: '/solutions/seniors' }
   }
 ];
