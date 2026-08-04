@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://velourabeautyondemand.com';
   const currentDate = new Date();
 
+  // Static core routes
   const staticRoutes = [
     '',
     '/services',
@@ -31,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : 0.8
   }));
 
+  // Market hub entries
   const cityEntries: MetadataRoute.Sitemap = CITIES.map((city) => ({
     url: `${baseUrl}/locations/${city.slug}`,
     lastModified: currentDate,
@@ -38,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }));
 
+  // Localized service entries (intersections)
   const intersectionEntries: MetadataRoute.Sitemap = PAGE_COMBINATIONS
     .filter(p => p.enabled)
     .map((p) => ({
