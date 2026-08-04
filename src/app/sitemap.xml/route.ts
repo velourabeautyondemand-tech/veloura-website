@@ -1,6 +1,8 @@
+
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
 import { initializeFirebase } from '@/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { ACTIVE_LOCATIONS, ACTIVE_SERVICES } from '@/lib/marketplace-data';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
@@ -64,7 +66,8 @@ export async function GET() {
     '/on-demand-beauty-app',
     '/compare-beauty-apps',
     '/hotel-partners',
-    '/vendor-partners'
+    '/vendor-partners',
+    '/download-app'
   ];
 
   const firestoreSlugs = await getFirestoreBlogSlugs();
@@ -86,6 +89,19 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>${route === '' ? '1.0' : '0.8'}</priority>
   </url>`;
+  });
+
+  // Add Intersection Routes (Location + Service)
+  ACTIVE_LOCATIONS.forEach(loc => {
+    ACTIVE_SERVICES.forEach(service => {
+      xml += `
+  <url>
+    <loc>${baseUrl}/locations/${loc.slug}/${service.slug}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+    });
   });
 
   // Add Blog Post Routes

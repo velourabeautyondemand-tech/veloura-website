@@ -5,7 +5,7 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MapPin, Star, ShieldCheck, ArrowRight, Home, Building2, Palmtree } from 'lucide-react';
+import { MapPin, ArrowRight, Home, Building2, Palmtree, Smartphone, Wand2 } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -58,16 +58,25 @@ export default async function LocationHubPage({ params }: Props) {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
               {location.description}
             </p>
-            <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full">
-              <Link href="/match">Book Your Session Near Me</Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
+                <Link href="/match">Try AI Concierge <Wand2 className="ml-2 w-5 h-5" /></Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg font-bold rounded-full bg-white/80">
+                <Link href="/book" className="flex items-center gap-2">
+                   <Smartphone className="w-5 h-5" />
+                   Download App
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 
         {/* Coverage Areas */}
         <section className="py-12 bg-background border-b">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-8 text-sm font-semibold text-muted-foreground uppercase tracking-widest">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-8">Serving Your Neighborhood</h2>
+            <div className="flex flex-wrap justify-center gap-8 text-sm font-semibold uppercase tracking-widest">
               {location.areas.map((area, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <span className="text-primary">•</span>
@@ -78,24 +87,24 @@ export default async function LocationHubPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Services in this Location */}
+        {/* Localized Services Grid */}
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold font-headline mb-4">Services Available in {location.name}</h2>
-              <p className="text-muted-foreground">Book elite local talent for any occasion.</p>
+              <h2 className="text-3xl font-bold font-headline mb-4">{location.name} Local Service Hubs</h2>
+              <p className="text-muted-foreground">Select a specific service for localized expertise and pricing in {location.name}.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {ACTIVE_SERVICES.map((service) => (
-                <Card key={service.slug} className="hover:shadow-lg transition-shadow border-primary/10 overflow-hidden">
+                <Card key={service.slug} className="hover:shadow-lg transition-all border-primary/10 overflow-hidden group">
                   <CardHeader className="bg-primary/5 border-b">
-                    <CardTitle className="font-headline">{service.name}</CardTitle>
+                    <CardTitle className="font-headline">{service.name} in {location.name}</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6">
-                    <p className="text-sm text-muted-foreground mb-6">{service.description}</p>
-                    <Button asChild variant="outline" className="w-full group">
-                      <Link href={`/services/${service.slug}`}>
-                        Explore {service.name} <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <p className="text-sm text-muted-foreground mb-6 line-clamp-2">Elite mobile {service.name.toLowerCase()} delivered to your door in {location.name}.</p>
+                    <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                      <Link href={`/locations/${location.slug}/${service.slug}`}>
+                        Explore Local {service.name} <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </Link>
                     </Button>
                   </CardContent>
@@ -141,7 +150,7 @@ export default async function LocationHubPage({ params }: Props) {
             <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Redefining Beauty in {location.name}</h2>
             <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Join thousands of satisfied clients who choose VÉLOURA for elite on-demand beauty.</p>
             <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full">
-              <Link href="/match">Book in {location.name}</Link>
+              <Link href="/book">Find Professionals in the App</Link>
             </Button>
           </div>
         </section>

@@ -9,7 +9,7 @@ export function initializeFirebase(): {
   firebaseApp: FirebaseApp; 
   auth: Auth; 
   firestore: Firestore;
-  remoteConfig: RemoteConfig;
+  remoteConfig: RemoteConfig | null;
 } {
   let firebaseApp: FirebaseApp;
 
@@ -28,11 +28,20 @@ export function initializeFirebase(): {
     firebaseApp = getApp();
   }
 
+  const auth = getAuth(firebaseApp);
+  const firestore = getFirestore(firebaseApp);
+  
+  // Remote Config is only supported in the browser
+  let remoteConfig: RemoteConfig | null = null;
+  if (typeof window !== 'undefined') {
+    remoteConfig = getRemoteConfig(firebaseApp);
+  }
+
   return {
     firebaseApp,
-    auth: getAuth(firebaseApp),
-    firestore: getFirestore(firebaseApp),
-    remoteConfig: getRemoteConfig(firebaseApp)
+    auth,
+    firestore,
+    remoteConfig
   };
 }
 

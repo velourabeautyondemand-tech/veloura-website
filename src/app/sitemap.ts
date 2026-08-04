@@ -10,8 +10,6 @@ import { collection, getDocs } from 'firebase/firestore';
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
-// Ghost API Configuration
-const GHOST_URL = 'https://velourabeautyondemand.com/blog';
 const GHOST_CONTENT_KEY = '29a6cc12d143f907f50654a724';
 
 async function getFirestoreBlogSlugs() {
@@ -81,6 +79,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.8
   }));
 
+  // Intersection Pages (Location + Service)
+  const intersectionEntries: MetadataRoute.Sitemap = [];
+  ACTIVE_LOCATIONS.forEach(loc => {
+    ACTIVE_SERVICES.forEach(service => {
+      intersectionEntries.push({
+        url: `${baseUrl}/locations/${loc.slug}/${service.slug}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7
+      });
+    });
+  });
+
   // Professional Profiles
   const proEntries: MetadataRoute.Sitemap = VÉLOURA_PROFESSIONALS.map((p) => ({
     url: `${baseUrl}/talent-agency/professionals/${p.slug}`,
@@ -139,6 +150,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticEntries, 
     ...serviceEntries, 
     ...locationEntries, 
+    ...intersectionEntries,
     ...seoEntries,
     ...blogEntries,
     ...proEntries
