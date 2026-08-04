@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Star, Award, MapPin, Layers, MessageSquare } from 'lucide-react';
 import { ProfessionalDirectory } from '@/components/features/professional-directory';
+import Script from 'next/script';
 
 const whyWorkWithUs = [
     {
@@ -32,11 +33,26 @@ export default function TalentAgencyPage() {
     const michaelLee1 = PlaceHolderImages.find(p => p.id === 'agency_showcase_1');
     const michaelLee2 = PlaceHolderImages.find(p => p.id === 'agency_showcase_2');
 
+    const agencySchema = {
+      "@context": "https://schema.org",
+      "@type": "TalentAgency",
+      "name": "VÉLOURA Beauty On Demand - Talent Agency",
+      "url": "https://velourabeautyondemand.com/talent-agency",
+      "telephone": "+1-305-317-2759",
+      "areaServed": "Major US cities",
+      "description": "VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers. We bridge the gap between creative professionals and premium opportunities.",
+      "numberOfEmployees": 500
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
+            <Script
+              id="agency-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(agencySchema) }}
+            />
             <Header />
             <main className="flex-1">
-                {/* Hero Section */}
                 <section className="relative py-20 md:py-32 bg-secondary/30">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -67,11 +83,11 @@ export default function TalentAgencyPage() {
                             </div>
                             <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
                                 <Image
-                                    src={agencyHero?.imageUrl || "https://picsum.photos/seed/agency/1200/800"}
+                                    src={agencyHero?.imageUrl || "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop"}
                                     alt={agencyHero?.description || "Talent Agency Editorial"}
                                     fill
                                     className="object-cover"
-                                    data-ai-hint="creative talent"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                     priority
                                 />
                             </div>
@@ -79,14 +95,11 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Directory Section */}
                 <ProfessionalDirectory />
 
-                {/* Creative Showcase - Photos Only */}
                 <section className="py-16 sm:py-24 bg-background">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="space-y-12 max-w-6xl mx-auto">
-                            {/* Showcase Item 1 - Horizontal */}
                             {michaelLee1 && (
                                 <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
                                     <Image
@@ -94,7 +107,7 @@ export default function TalentAgencyPage() {
                                         alt={michaelLee1.description}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        data-ai-hint="fashion photography"
+                                        sizes="100vw"
                                     />
                                     <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
                                         Photography by Michael Lee
@@ -102,7 +115,6 @@ export default function TalentAgencyPage() {
                                 </div>
                             )}
                             
-                            {/* Showcase Item 2 - Horizontal */}
                             {michaelLee2 && (
                                 <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-xl group">
                                     <Image
@@ -110,7 +122,7 @@ export default function TalentAgencyPage() {
                                         alt={michaelLee2.description}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        data-ai-hint="luxury editorial"
+                                        sizes="100vw"
                                     />
                                     <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
                                         Photography by Michael Lee
@@ -121,7 +133,6 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Why Work With Us */}
                 <section className="py-16 bg-secondary/10">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center mb-16">
@@ -142,7 +153,6 @@ export default function TalentAgencyPage() {
                     </div>
                 </section>
 
-                {/* Partnership CTA - Ultra Compact Design */}
                 <section className="py-12 bg-background">
                     <div className="container mx-auto px-4 md:px-6 max-w-lg">
                         <div className="bg-primary p-6 rounded-3xl text-primary-foreground text-center space-y-4 shadow-lg">

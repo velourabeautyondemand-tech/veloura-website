@@ -13,6 +13,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DiscountPopup } from '@/components/features/discount-popup';
 import { useLanguage } from '@/context/language-context';
 import { useRemoteConfigBoolean, useRemoteConfigString } from '@/firebase';
+import Script from 'next/script';
 
 const useCases = [
   { icon: Clock, title: 'Last-Minute Needs', description: 'Glam, photographer, or event support — right when you need it.' },
@@ -33,7 +34,6 @@ const howItWorks = [
 export default function HomePage() {
   const { t } = useLanguage();
   
-  // Remote Config hooks synced with console screenshot
   const showAds = useRemoteConfigBoolean('show_ads', false);
   const showPromoBanner = useRemoteConfigBoolean('show_promo_banner', false);
   const promoBannerText = useRemoteConfigString('promo_banner_text', 'Welcome to VÉLOURA — Your Elite Beauty Partner.');
@@ -48,9 +48,39 @@ export default function HomePage() {
     PlaceHolderImages.find(p => p.id === 'interface_5'),
   ].filter(Boolean);
 
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "VÉLOURA Beauty On Demand",
+    "url": "https://velourabeautyondemand.com",
+    "description": "Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "VÉLOURA Beauty On Demand",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c"
+      }
+    }
+  };
+
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VÉLOURA Beauty On Demand App",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "Lifestyle",
+    "description": "Book licensed beauty professionals for on-demand mobile beauty services via the VÉLOURA app.",
+    "downloadUrl": "https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Dynamic Promo Banner - Controlled by show_promo_banner and promo_banner_text */}
+      <Script
+        id="home-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([homeSchema, appSchema]) }}
+      />
       {showPromoBanner && (
         <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-xs font-bold tracking-widest uppercase animate-in slide-in-from-top duration-500">
           <div className="container mx-auto flex items-center justify-center gap-2">
@@ -64,12 +94,11 @@ export default function HomePage() {
       <Header />
       <DiscountPopup />
       <main className="flex-1">
-        {/* Hero Section - Controlled by hero_title_override and hero_subtitle_override */}
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline uppercase">
-                 {heroTitleOverride || t('hero.title')}
+                 {heroTitleOverride || "VÉLOURA Beauty on Demand - In-Home Beauty App"}
               </h1>
               <p className="mt-4 text-lg text-muted-foreground font-semibold">
                 {heroSubtitleOverride || t('hero.subtitle')}
@@ -102,7 +131,7 @@ export default function HomePage() {
               <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                 {interfaceImages.map((img, index) => (
                   <div key={index} className="relative aspect-[9/19.5] overflow-hidden shadow-2xl border-4 border-white rounded-2xl">
-                    <Image src={img!.imageUrl} alt={img!.description} fill className="object-cover" />
+                    <Image src={img!.imageUrl} alt={img!.description} fill className="object-cover" sizes="(max-width: 768px) 50vw, 20vw" />
                   </div>
                 ))}
               </div>
@@ -110,7 +139,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Remote Config Controlled Ad Section - Controlled by show_ads */}
         {showAds && (
           <section className="bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 py-16 border-y border-accent/20 animate-in fade-in zoom-in-95 duration-1000">
             <div className="container mx-auto px-4 md:px-6">
@@ -148,7 +176,6 @@ export default function HomePage() {
           </section>
         )}
 
-        {/* AI Concierge Promo Section */}
         <section className="py-16 bg-primary text-primary-foreground overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
@@ -169,7 +196,6 @@ export default function HomePage() {
             </div>
         </section>
 
-        {/* Use Cases Section */}
         <section className="py-16 sm:py-24 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-16">
@@ -204,7 +230,6 @@ export default function HomePage() {
             </div>
         </section>
 
-        {/* Subscribe Section */}
         <section className="py-16 sm:py-24 bg-secondary/30">
             <div className="container mx-auto px-4 md:px-6 text-center">
                 <div className="flex items-center justify-center gap-2 mb-4">

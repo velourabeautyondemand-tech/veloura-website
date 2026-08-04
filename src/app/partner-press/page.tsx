@@ -7,11 +7,33 @@ import { Handshake, Megaphone, Mail } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Script from 'next/script';
 
 export default function PartnerPressPage() {
+    const pressSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Partner & Press - VÉLOURA Beauty On Demand",
+      "url": "https://velourabeautyondemand.com/partner-press",
+      "description": "Collaborate with VÉLOURA. Information for beauty suppliers, brand partners, and press inquiries.",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "VÉLOURA",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@velourabeautyondemand.com",
+          "contactType": "press contact"
+        }
+      }
+    };
 
     return (
         <div className="flex flex-col min-h-screen">
+            <Script
+              id="press-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(pressSchema) }}
+            />
             <Header />
             <main className="flex-1 bg-secondary/30 py-12 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">
@@ -28,7 +50,6 @@ export default function PartnerPressPage() {
                         
                         <Separator className="my-12" />
 
-                        {/* Partner Section */}
                         <section id="partner" className="mb-16">
                             <div className="flex flex-col md:flex-row items-center gap-8">
                                 <div className="flex-shrink-0">
@@ -58,7 +79,6 @@ export default function PartnerPressPage() {
 
                         <Separator className="my-12" />
 
-                        {/* Press Section */}
                         <section id="press">
                              <div className="flex flex-col md:flex-row items-center gap-8">
                                 <div className="flex-shrink-0 md:order-2">

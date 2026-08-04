@@ -1,13 +1,17 @@
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { MapPin, Home, Building2, Palmtree, Navigation } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
+  title: 'VÉLOURA Beauty On Demand: At-Home Elite Pros Near You',
+  description: 'Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions near you.',
   alternates: {
-    canonical: '/beauty-services-near-me',
+    canonical: 'https://velourabeautyondemand.com/beauty-services-near-me',
   },
 };
 
@@ -18,8 +22,24 @@ export default function BeautyServicesNearMePage() {
         { name: "Miami", icon: Palmtree, areas: "South Beach, Brickell, Coral Gables" }
     ];
 
+    const localServiceSchema = {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "VÉLOURA Beauty On Demand",
+      "url": "https://velourabeautyondemand.com/beauty-services-near-me",
+      "image": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
+      "priceRange": "$$",
+      "areaServed": locations.map(l => ({ "@type": "City", "name": l.name })),
+      "description": "Mobile beauty services provided by elite professionals who come to your location for various events and personal care."
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
+            <Script
+              id="local-service-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(localServiceSchema) }}
+            />
             <Header />
             <main className="flex-1">
                 <section className="relative py-20 md:py-32 bg-secondary/50">
@@ -54,34 +74,11 @@ export default function BeautyServicesNearMePage() {
                                 <p>
                                     The biggest hurdle to self-care is often the commute. Parking in LA, traffic in NYC, and the heat in Miami can ruin your salon experience before it even begins. VÉLOURA eliminates these stressors. Our professionals arrive fully equipped at your doorstep.
                                 </p>
-
-                                <div className="bg-primary/5 p-8 rounded-2xl my-12 border border-primary/10">
-                                    <h3 className="text-xl font-bold text-foreground mb-4">Where Can You Book?</h3>
-                                    <ul className="grid sm:grid-cols-2 gap-4">
-                                        <li className="flex items-center gap-2 font-medium text-foreground">
-                                            <Home className="w-5 h-5 text-primary" /> At Your Home
-                                        </li>
-                                        <li className="flex items-center gap-2 font-medium text-foreground">
-                                            <Building2 className="w-5 h-5 text-primary" /> At Your Office
-                                        </li>
-                                        <li className="flex items-center gap-2 font-medium text-foreground">
-                                            <Palmtree className="w-5 h-5 text-primary" /> At Your Hotel
-                                        </li>
-                                        <li className="flex items-center gap-2 font-medium text-foreground">
-                                            <MapPin className="w-5 h-5 text-primary" /> At Your Event Venue
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-foreground">Elite Professionals in Your Area</h3>
-                                <p>
-                                    We recruit the top 10% of talent in every city we serve. By choosing VÉLOURA, you're supporting local independent professionals while receiving a level of service that meets global luxury standards.
-                                </p>
                             </div>
 
                             <div className="mt-16 text-center">
                                 <Button asChild size="lg" className="font-bold rounded-full px-12">
-                                    <Link href="/">Find a Pro Near Me</Link>
+                                    <Link href="/book">Find a Pro Near Me</Link>
                                 </Button>
                             </div>
                         </div>

@@ -1,8 +1,11 @@
+
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'VÉLOURA Beauty Events & Exclusive Networking Seminars',
+  description: 'Join VÉLOURA for exclusive beauty industry events, networking opportunities, and professional recruitment seminars across major cities.',
   alternates: {
-    canonical: '/events',
+    canonical: 'https://velourabeautyondemand.com/events',
   },
 };
 

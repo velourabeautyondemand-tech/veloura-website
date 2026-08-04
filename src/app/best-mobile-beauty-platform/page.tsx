@@ -4,6 +4,16 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { ShieldCheck, Zap, Award, Star, Smartphone } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import Script from 'next/script';
+
+export const metadata: Metadata = {
+  title: 'VÉLOURA On-Demand Beauty: Verified Pros & Luxury Service',
+  description: 'Discover why VÉLOURA is the top-rated mobile platform for professional beauty services. Vetted technicians, real-time booking, and a luxury experience delivered to your door.',
+  alternates: {
+    canonical: 'https://velourabeautyondemand.com/best-mobile-beauty-platform',
+  },
+};
 
 export default function BestMobileBeautyPlatformPage() {
     const platformFeatures = [
@@ -24,8 +34,22 @@ export default function BestMobileBeautyPlatformPage() {
         }
     ];
 
+    const softwareSchema = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VÉLOURA",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "LifestyleApplication",
+      "description": "Elite mobile beauty platform enabling on-demand services with licensed professionals and secure payments."
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
+            <Script
+              id="software-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+            />
             <Header />
             <main className="flex-1">
                 <section className="bg-primary/10 py-16 md:py-24">
@@ -34,7 +58,7 @@ export default function BestMobileBeautyPlatformPage() {
                             <Smartphone className="w-4 h-4" />
                             <span>RANKED #1 MOBILE PLATFORM</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold font-headline mb-6">Why VÉLOURA Is The Best Mobile Beauty Platform For On-Demand Services</h1>
+                        <h1 className="text-4xl md:text-6xl font-bold font-headline mb-6">Why VÉLOURA Is The Best Mobile Beauty Platform</h1>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                             Redefining convenience and quality. Discover why thousands choose VÉLOURA for their beauty and lifestyle needs.
                         </p>
@@ -53,34 +77,6 @@ export default function BestMobileBeautyPlatformPage() {
                                     <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
                                 </div>
                             ))}
-                        </div>
-
-                        <div className="prose lg:prose-lg max-w-3xl mx-auto text-muted-foreground">
-                            <h2 className="text-3xl font-bold font-headline text-foreground">A Cut Above the Rest</h2>
-                            <p>
-                                When searching for a <strong>mobile beauty platform</strong>, the two most important factors are trust and quality. VÉLOURA excels in both. Unlike other gig-economy apps, we prioritize the "Elite" in every category. Our roster isn't just large; it's curated.
-                            </p>
-                            
-                            <h3 className="text-2xl font-bold text-foreground">Verified Professionals Only</h3>
-                            <p>
-                                Your safety is our priority. Every VÉLOURA pro is licensed, insured, and background-checked. We review portfolios and client feedback continuously to ensure our network maintains the highest standards in the industry.
-                            </p>
-
-                            <h3 className="text-2xl font-bold text-foreground">Seamless Convenience</h3>
-                            <p>
-                                Our technology is built for real life. The VÉLOURA app allows you to filter by service, location, and professional rating. With integrated payment processing via Stripe, your entire experience—from booking to tipping—is handled securely in one place.
-                            </p>
-
-                            <h3 className="text-2xl font-bold text-foreground">The Luxury Experience</h3>
-                            <p>
-                                We believe that on-demand doesn't have to mean "express." Our professionals arrive with high-end toolkits and a commitment to providing a relaxing, salon-quality environment wherever you are. It's high-tech booking meets high-touch service.
-                            </p>
-                        </div>
-
-                        <div className="mt-20 text-center">
-                             <Button asChild size="lg" variant="accent" className="font-bold">
-                                <Link href="/apply">Join Our Professional Network</Link>
-                            </Button>
                         </div>
                     </div>
                 </section>

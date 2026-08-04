@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -17,10 +18,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://velourabeautyondemand.com'),
   title: {
-    default: 'VÉLOURA Beauty On Demand | Mobile Beauty Services App',
+    default: 'VÉLOURA Beauty On Demand | In-Home Beauty Services',
     template: '%s | VÉLOURA Beauty On Demand',
   },
-  description: 'Book trusted mobile beauty professionals for hair, makeup, nails, skincare, lashes, photography, and event services. VÉLOURA connects customers with licensed professionals at home, hotels, offices, and events.',
+  description: 'Book trusted mobile beauty professionals for hair, makeup, nails, skincare, lashes, photography, and event services at your location.',
   alternates: {
     canonical: 'https://velourabeautyondemand.com',
   },
@@ -80,9 +81,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VÉLOURA Beauty On Demand",
+    "url": "https://velourabeautyondemand.com",
+    "logo": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
+    "sameAs": [
+      "https://www.instagram.com/veloura_beauty_x/",
+      "https://www.youtube.com/@VÉLOURABeautyonDemand"
+    ],
+    "description": "VÉLOURA Beauty On Demand brings licensed beauty professionals to your home, hotel, office, weddings, events and special occasions.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-305-317-2759",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "en"
+    }
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn('font-body antialiased', poppins.variable)}>
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <LanguageProvider>
           <FirebaseClientProvider>
             {children}

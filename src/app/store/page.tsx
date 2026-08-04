@@ -9,10 +9,8 @@ import { ShoppingBag, Star, ArrowRight, ShieldCheck, Zap, ExternalLink, Sparkles
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Script from 'next/script';
 
-/**
- * Official Etsy shop link for iAmDreamMakerGroup.
- */
 const ETSY_STORE_LINK = 'https://www.etsy.com/shop/iAmDreamMakerGroup?ref=profile_header&section_id=49528058'; 
 
 const storeItems = [
@@ -22,7 +20,7 @@ const storeItems = [
     description: 'Wrap your eyes in a little moment of peace. This self-heating mask is designed for deep relaxation and pure tranquility.',
     price: 2.99,
     category: 'Self-Care',
-    image: PlaceHolderImages.find(p => p.id === 'store_eye_mask_bliss')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924',
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924",
     imageHint: 'relaxation eye mask',
     link: 'https://www.etsy.com/listing/4547869516/wrap-your-eyes-in-a-little-moment-of'
   },
@@ -32,7 +30,7 @@ const storeItems = [
     description: 'The ultimate pre-makeup essential. Deeply hydrates and refreshes the delicate eye area for a radiant, prepared glow.',
     price: 2.99,
     category: 'Self-Care',
-    image: PlaceHolderImages.find(p => p.id === 'store_eye_mask_lavender')?.imageUrl || 'https://images.unsplash.com/photo-1596495944321-4d3f27477611?q=80&w=1080',
+    image: "https://images.unsplash.com/photo-1596495944321-4d3f27477611?q=80&w=1080",
     imageHint: 'lavender',
     link: 'https://www.etsy.com/your/shops/me/listing-editor/edit/4547862207'
   },
@@ -42,68 +40,47 @@ const storeItems = [
     description: 'A self-heating steam eye mask that releases warm, rose-scented steam to soothe tired eyes and promote relaxation. Perfect for after a long day or travel.',
     price: 2.99,
     category: 'Self-Care',
-    image: PlaceHolderImages.find(p => p.id === 'store_eye_mask')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405',
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405",
     imageHint: 'eye mask',
     link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
-  },
-  {
-    id: 'lash-a13',
-    name: 'A13 Wispy Cat Eye Fake Eyelashes',
-    description: 'Soft, wispy cat eye fake eyelashes for a natural yet dramatic look. High-quality synthetic fibers that blend seamlessly with your natural lashes.',
-    price: 19.99,
-    category: 'Beauty',
-    image: PlaceHolderImages.find(p => p.id === 'store_lash_a13')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99',
-    imageHint: 'fake eyelashes',
-    link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_1&logging_key=1f713f008480fce4a2c6ee320dbb7f8f9ab28da9%3A4547699063'
-  },
-  {
-    id: 'lash-a03',
-    name: 'A03 Soft Band Cat Eye False Lashes',
-    description: 'Ultra-soft band lashes with a sophisticated cat eye sweep. Perfect for a seamless, comfortable all-day wear with a touch of drama.',
-    price: 19.99,
-    category: 'Beauty',
-    image: PlaceHolderImages.find(p => p.id === 'store_lash_a03')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5',
-    imageHint: 'fake eyelashes',
-    link: 'https://www.etsy.com/listing/4547689859/a03-soft-band-cat-eye-false-lashes?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_2&logging_key=9e1196062106034a04d286c514e06549f7df18b6%3A4547689859'
-  },
-  {
-    id: 'lash-715',
-    name: '715 Airy Wispy Feather False Eyelashes',
-    description: 'Ultra-lightweight feathered lashes for a voluminous yet airy doll-eye look. Designed for comfort and high-impact style.',
-    price: 19.99,
-    category: 'Beauty',
-    image: PlaceHolderImages.find(p => p.id === 'store_lash_715')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Wispy%20Doll%20Eye%20False%20Lashes%20Feathered%20Volume%20Lashes%20(1).png?alt=media&token=c87381b4-c2db-40e1-9fc9-9f4486c0fcd6',
-    imageHint: 'feathered eyelashes',
-    link: 'https://www.etsy.com/listing/4547739706/715-airy-wispy-feather-false-eyelashes'
-  },
-  {
-    id: 'wax-heater',
-    name: 'Mini Pink Professional Wax Heater (Pre-order)',
-    description: 'The ultimate travel companion for beauty professionals. This compact, high-performance wax heater ensures you can deliver elite results anywhere. Stylish pink finish with precise temperature control.',
-    price: 39.99,
-    category: 'Equipment',
-    image: PlaceHolderImages.find(p => p.id === 'store_wax_heater')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater.png?alt=media&token=9de4db96-e50c-43c6-abc7-20e3bc87b0cd',
-    imageHint: 'wax heater',
-    link: 'https://www.etsy.com/listing/4543243247/pre-order-mini-pink-professional-wax?sr_prefetch=1&pf_from=shop_home&ref=shop_home_active_3&frs=1&logging_key=9c5917f53077bc7d7183037df065fb9e048b1f62%3A4543243247'
-  },
-  {
-    id: 'wax-bar',
-    name: 'Popsicle Hard Wax Bar (100g)',
-    description: 'High-quality popsicle hard wax bar for precise and comfortable hair removal. Perfect for professional use and on-the-go appointments.',
-    price: 19.99,
-    category: 'Equipment',
-    image: PlaceHolderImages.find(p => p.id === 'store_wax_bar')?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01',
-    imageHint: 'wax bar',
-    link: 'https://www.etsy.com/listing/4543705001/re-order-popsicle-hard-wax-bar-100g'
   }
 ];
 
 export default function StorePage() {
+  const storeSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "VÉLOURA Luxury Essentials Boutique",
+    "description": "Handpicked beauty gear and self-care essentials for professionals and clients.",
+    "itemListElement": storeItems.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": item.name,
+        "description": item.description,
+        "image": item.image,
+        "brand": { "@type": "Brand", "name": "VÉLOURA" },
+        "offers": {
+          "@type": "Offer",
+          "price": item.price,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": item.link
+        }
+      }
+    }))
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <Script
+        id="store-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(storeSchema) }}
+      />
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
         <section className="bg-secondary/30 py-16 md:py-24 border-b">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto space-y-8">
@@ -112,12 +89,11 @@ export default function StorePage() {
                 <span>Official Etsy Boutique</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold font-headline leading-tight">
-                Luxury Essentials <br /> <span className="text-primary">Shop on Etsy</span>
+                Luxury Beauty Gear & Gifts: Self-Care & Eyelashes
               </h1>
               <p className="text-xl text-muted-foreground font-medium">
                 Browse our collection of curated beauty gear and gifts. All transactions are handled securely through our Etsy shop.
               </p>
-              
               <div className="pt-4">
                 <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-transform bg-primary">
                   <a href={ETSY_STORE_LINK} target="_blank" rel="noopener noreferrer">
@@ -129,15 +105,9 @@ export default function StorePage() {
           </div>
         </section>
 
-        {/* Store Grid */}
         <section className="py-16 sm:py-24 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold font-headline mb-4">Featured Products</h2>
-                <p className="text-muted-foreground">Select an item to view it in our Etsy storefront.</p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {storeItems.map((item) => (
                 <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group">
                   <div className="relative aspect-[4/5] overflow-hidden">
@@ -147,56 +117,25 @@ export default function StorePage() {
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       data-ai-hint={item.imageHint}
+                      sizes="(max-width: 768px) 100vw, 300px"
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/90 backdrop-blur-sm text-primary text-[10px] font-bold px-3 py-1 rounded-full shadow-sm uppercase tracking-widest border border-primary/10">
-                        {item.category}
-                      </span>
-                    </div>
                   </div>
                   <CardHeader className="pb-2">
                     <CardTitle className="font-headline text-xl line-clamp-2">{item.name}</CardTitle>
-                    <CardDescription className="text-xs leading-relaxed line-clamp-3">
-                      {item.description}
-                    </CardDescription>
+                    <CardDescription className="text-xs line-clamp-2">{item.description}</CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-grow pt-2">
-                    <p className="text-2xl font-bold font-headline text-primary">${item.price}</p>
+                  <CardContent className="flex-grow">
+                    <p className="text-2xl font-bold text-primary">${item.price}</p>
                   </CardContent>
-                  <CardFooter className="pt-0 pb-8 px-6">
-                    <Button asChild className="w-full h-12 text-sm font-bold" variant="outline">
-                      <a href={item.link} target="_blank" rel="noopener noreferrer">
-                        Shop on Etsy <ExternalLink className="ml-2 w-4 h-4" />
-                      </a>
+                  <CardFooter className="pb-8">
+                    <Button asChild className="w-full" variant="outline">
+                      <a href={item.link} target="_blank" rel="noopener noreferrer">Shop on Etsy</a>
                     </Button>
                   </CardFooter>
                 </Card>
               ))}
             </div>
           </div>
-        </section>
-
-        {/* Trust Bar */}
-        <section className="py-12 bg-secondary/20 border-y border-primary/5">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
-                    <div className="flex flex-col items-center gap-3">
-                        <ShieldCheck className="w-8 h-8 text-primary opacity-60" />
-                        <h3 className="font-bold text-sm uppercase tracking-widest">Etsy Secured</h3>
-                        <p className="text-xs text-muted-foreground">Trusted marketplace checkout.</p>
-                    </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <Zap className="w-8 h-8 text-primary opacity-60" />
-                        <h3 className="font-bold text-sm uppercase tracking-widest">Global Shipping</h3>
-                        <p className="text-xs text-muted-foreground">Available on most items.</p>
-                    </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <Star className="w-8 h-8 text-primary opacity-60" />
-                        <h3 className="font-bold text-sm uppercase tracking-widest">Handmade Quality</h3>
-                        <p className="text-xs text-muted-foreground">Unique items for elite pros.</p>
-                    </div>
-                </div>
-            </div>
         </section>
       </main>
       <Footer />

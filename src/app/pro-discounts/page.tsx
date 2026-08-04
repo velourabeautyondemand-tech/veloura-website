@@ -1,4 +1,6 @@
 
+'use client';
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
@@ -6,9 +8,10 @@ import { ArrowRight, Mail } from 'lucide-react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Script from 'next/script';
 
 export default function ProDiscountsPage() {
-    const silentBeaconImage = PlaceHolderImages.find(p => p.id === 'silent_beacon_logo');
+    const silentBeaconLogo = "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c";
 
     const partners = [
         {
@@ -27,18 +30,31 @@ export default function ProDiscountsPage() {
         },
         {
             name: "Silent Beacon",
-            logoUrl: silentBeaconImage?.imageUrl || "https://picsum.photos/seed/silent/200/100",
-            hint: silentBeaconImage?.imageHint || "Silent Beacon logo",
+            logoUrl: silentBeaconLogo,
+            hint: "Silent Beacon logo",
             description: "Personal safety devices designed to support and protect beauty professionals during on-demand mobile appointments.",
             link: "https://silentbeacon.com/"
         }
     ]
 
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://velourabeautyondemand.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Our Partners", "item": "https://velourabeautyondemand.com/pro-discounts" }
+      ]
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
+            <Script
+              id="breadcrumb-schema"
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <Header />
             <main className="flex-1">
-                {/* Hero Section */}
                 <section className="bg-secondary/50 py-20 md:py-32 text-center">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="max-w-3xl mx-auto">
@@ -52,7 +68,6 @@ export default function ProDiscountsPage() {
                     </div>
                 </section>
 
-                {/* Partners Section */}
                 <section id="partners" className="py-16 sm:py-24">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center mb-12">
@@ -71,6 +86,7 @@ export default function ProDiscountsPage() {
                                                     fill
                                                     data-ai-hint={partner.hint}
                                                     className="object-contain"
+                                                    sizes="200px"
                                                 />
                                              </div>
                                         </CardHeader>
@@ -78,7 +94,7 @@ export default function ProDiscountsPage() {
                                             <p className="text-muted-foreground flex-grow mb-4">{partner.description}</p>
                                              <div className="mt-auto">
                                                 <Button variant="link" asChild className="p-0">
-                                                    <span>Learn More <ArrowRight className="ml-2 h-4 w-4" /></span>
+                                                    <span>Learn More <ArrowRight className="ml-2 w-4 h-4" /></span>
                                                 </Button>
                                              </div>
                                         </CardContent>
@@ -89,7 +105,6 @@ export default function ProDiscountsPage() {
                     </div>
                 </section>
 
-                {/* CTA Section */}
                 <section className="py-16 sm:py-24 bg-primary/10">
                     <div className="container mx-auto px-4 md:px-6 text-center">
                          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">Become a VÉLOURA Partner Brand</h2>
@@ -104,7 +119,6 @@ export default function ProDiscountsPage() {
                          </div>
                     </div>
                 </section>
-
             </main>
             <Footer />
         </div>
