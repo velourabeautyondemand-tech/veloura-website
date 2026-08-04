@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Youtube, Briefcase, ShieldCheck } from "lucide-react";
+import { Instagram, Youtube, Briefcase, ShieldCheck, MapPin } from "lucide-react";
 import { NailIcon } from "./logo";
-import { ACTIVE_LOCATIONS } from "@/lib/marketplace-data";
 import { useLanguage } from "@/context/language-context";
 
 export default function Footer() {
@@ -41,6 +40,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-sm uppercase tracking-widest mb-4">{t('footer.marketplace')}</h3>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/locations" className="text-primary font-bold hover:underline flex items-center gap-1"><MapPin className="w-3 h-3" /> All Locations</Link></li>
               <li><Link href="/venues/hotels" className="text-muted-foreground hover:text-primary transition-colors">Hotel Beauty</Link></li>
               <li><Link href="/venues/home-service" className="text-muted-foreground hover:text-primary transition-colors">At-Home Salon</Link></li>
               <li><Link href="/occasions/weddings" className="text-muted-foreground hover:text-primary transition-colors">Wedding Glam</Link></li>
@@ -49,11 +49,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-widest mb-4">{t('footer.markets')}</h3>
-            <ul className="space-y-2 text-sm">
-              {ACTIVE_LOCATIONS.map(l => (
-                <li key={l.slug}><Link href={`/locations/${l.slug}`} className="text-muted-foreground hover:text-primary transition-colors">{l.name}</Link></li>
-              ))}
+            <h3 className="font-bold text-sm uppercase tracking-widest mb-4">Top Markets</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/locations/beverly-hills" className="hover:text-primary transition-colors">Beverly Hills, CA</Link></li>
+              <li><Link href="/locations/manhattan" className="hover:text-primary transition-colors">Manhattan, NY</Link></li>
+              <li><Link href="/locations/miami" className="hover:text-primary transition-colors">Miami, FL</Link></li>
+              <li><Link href="/locations/pasadena" className="hover:text-primary transition-colors">Pasadena, CA</Link></li>
             </ul>
           </div>
 
