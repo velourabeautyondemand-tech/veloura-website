@@ -174,23 +174,30 @@ export const SEO_MARKETPLACE_NODES: SEONode[] = [
   {
     id: 'solution-seniors',
     type: 'solution',
-    slug: 'seniors',
-    displayName: 'Senior Beauty',
-    shortDescription: 'Gentle, respectful grooming and care for seniors at home.',
+    slug: 'senior-care',
+    displayName: 'VÉLOURA Senior Care',
+    shortDescription: 'Gentle, respectful grooming and companionship for seniors at home.',
     displayCategory: 'Customer Solutions',
     filterCategory: 'solution',
     iconName: 'Heart',
     isPublished: true,
     metadata: {
-      title: 'Senior Beauty Services | VÉLOURA Accessible On-Demand',
-      description: 'Professional, gentle beauty services for seniors and individuals with limited mobility.',
+      title: 'Senior Beauty Services at Home | VÉLOURA Senior Care',
+      description: 'Professional, gentle beauty and companionship services for seniors and individuals with limited mobility.',
     },
     content: {
-      h1: 'Accessible Beauty Services for Seniors',
-      intro: 'Self-care is vital to dignity at every age. Our pros are trained to be gentle, patient, and respectful.',
-      howItWorks: [],
-      faqs: []
+      h1: 'VÉLOURA Senior Care: Beauty & Companionship',
+      intro: 'Self-care is vital to dignity at every age. Our pros are trained to be gentle, patient, and respectful, providing essential grooming right at home.',
+      howItWorks: [
+        { title: 'Gentle Assessment', text: 'We match you with a pro experienced in senior care.' },
+        { title: 'Comfortable Visit', text: 'Services are adapted to the client’s comfort and pace.' },
+        { title: 'Restored Routine', text: 'Professional care that restores confidence and social connection.' }
+      ],
+      faqs: [
+        { q: 'Are the products safe for sensitive skin?', a: 'Yes, our pros prioritize fragrance-free and gentle formulas for mature skin.' },
+        { q: 'Can you provide services in assisted living?', a: 'Yes, we visit private homes, assisted living, and retirement communities.' }
+      ]
     },
-    cta: { label: 'Care Services', href: '/solutions/seniors' }
+    cta: { label: 'Senior Care Hub', href: '/services/senior-care' }
   }
 ];

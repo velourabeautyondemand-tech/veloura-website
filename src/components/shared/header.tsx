@@ -116,7 +116,7 @@ export default function Header() {
                             </h4>
                             <div className="flex flex-col gap-2">
                                 <Link href="/services" className="hover:text-primary transition-colors font-bold">Overview</Link>
-                                {ACTIVE_SERVICES.slice(0, 4).map(s => (
+                                {ACTIVE_SERVICES.filter(s => s.slug !== 'senior-care').slice(0, 4).map(s => (
                                     <Link key={s.slug} href={`/services/${s.slug}`} className="hover:text-primary transition-colors text-foreground/70">{s.name}</Link>
                                 ))}
                             </div>
@@ -142,7 +142,7 @@ export default function Header() {
                                 <Heart className="w-3 h-3" /> Personalized
                             </h4>
                             <div className="flex flex-col gap-2 text-foreground/70">
-                                <Link href="/solutions/seniors" className="hover:text-primary transition-colors">Senior Beauty</Link>
+                                <Link href="/services/senior-care" className="hover:text-primary transition-colors font-bold">Senior Care</Link>
                                 <Link href="/match" className="hover:text-primary transition-colors font-bold text-primary">AI Concierge</Link>
                             </div>
                         </div>

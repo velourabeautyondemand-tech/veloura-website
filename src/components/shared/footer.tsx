@@ -41,6 +41,7 @@ export default function Footer() {
             <h3 className="font-bold text-sm uppercase tracking-widest mb-4">{t('footer.marketplace')}</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/locations" className="text-primary font-bold hover:underline flex items-center gap-1"><MapPin className="w-3 h-3" /> All Locations</Link></li>
+              <li><Link href="/services/senior-care" className="text-muted-foreground hover:text-primary transition-colors font-bold">Senior Care</Link></li>
               <li><Link href="/venues/hotels" className="text-muted-foreground hover:text-primary transition-colors">Hotel Beauty</Link></li>
               <li><Link href="/venues/home-service" className="text-muted-foreground hover:text-primary transition-colors">At-Home Salon</Link></li>
               <li><Link href="/occasions/weddings" className="text-muted-foreground hover:text-primary transition-colors">Wedding Glam</Link></li>

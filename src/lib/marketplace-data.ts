@@ -1,4 +1,3 @@
-
 export interface ServiceHub {
   slug: string;
   name: string;
@@ -81,17 +80,18 @@ export const ACTIVE_SERVICES: ServiceHub[] = [
     ]
   },
   {
-    slug: 'photography',
-    name: 'Photography',
-    h1: 'Professional Event & Portrait Photography',
-    description: 'Capture your best moments with on-demand professional photographers.',
-    longDescription: 'VÉLOURA is the first platform to integrate elite beauty and photography. Book your glam and your photographer in one place for high-fashion portraits, event coverage, or glamour shoots.',
-    category: 'Photography',
-    iconName: 'Camera',
-    seoTitle: 'On-Demand Photographers | Event & Portrait Sessions',
-    seoDescription: 'Book professional photographers for event coverage and portrait sessions. Integrated beauty and photography services.',
+    slug: 'senior-care',
+    name: 'Senior Care',
+    h1: 'VÉLOURA Senior Care: Beauty & Companionship',
+    description: 'Professional, gentle beauty and non-medical companionship services for seniors at home.',
+    longDescription: 'VÉLOURA Senior Care brings caring beauty and companionship services directly to the senior’s home, assisted living residence, retirement community, or senior apartment. Our professionals are trained to be gentle, patient, and respectful, providing essential grooming and uplifting social interaction.',
+    category: 'Customer Solutions',
+    iconName: 'Heart',
+    seoTitle: 'Senior Beauty Services at Home | VÉLOURA Senior Care',
+    seoDescription: 'Book gentle in-home hair, nail, and companionship services for seniors. VÉLOURA brings professional care directly to the door.',
     faqs: [
-      { q: "When do I receive my photos?", a: "Standard delivery for digital galleries is within 7-10 business days, with preview images often available sooner." }
+      { q: "What are Senior Care services?", a: "These are specially priced and designed services for older adults that may include extra time and gentle techniques." },
+      { q: "Do you provide medical care?", a: "No, VÉLOURA provides non-medical companionship and beauty services only." }
     ]
   }
 ];

@@ -24,7 +24,7 @@ const filterOptions = [
   { label: 'Weddings & Events', value: 'wedding-event' },
   { label: 'Creative', value: 'creative' },
   { label: 'At Home & Hotel', value: 'venue' },
-  { label: 'Solutions', value: 'solution' },
+  { label: 'Senior Care', value: 'solution' },
 ];
 
 interface ServicesFilterProps {
