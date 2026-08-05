@@ -39,7 +39,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/compare-beauty-apps',
     '/hotel-partners',
     '/vendor-partners',
-    '/download-app'
+    '/download-app',
+    '/senior-care'
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
