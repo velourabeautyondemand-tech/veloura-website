@@ -48,38 +48,52 @@ export default function HomePage() {
     PlaceHolderImages.find(p => p.id === 'interface_5'),
   ].filter(Boolean);
 
-  const homeSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "VÉLOURA Beauty On Demand",
-    "url": "https://velourabeautyondemand.com",
-    "description": "Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.",
-    "publisher": {
+  const homeSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "VÉLOURA Beauty On Demand",
+      "url": "https://velourabeautyondemand.com",
+      "image": "https://velourabeautyondemand.com/og-image.jpg",
+      "description": "Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "VÉLOURA Beauty On Demand",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://velourabeautyondemand.com/logo.png"
+        }
+      }
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
       "name": "VÉLOURA Beauty On Demand",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c"
-      }
+      "url": "https://velourabeautyondemand.com",
+      "logo": "https://velourabeautyondemand.com/logo.png",
+      "description": "VÉLOURA Beauty On Demand brings licensed beauty professionals to your home, hotel, office, weddings, events and special occasions."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VÉLOURA Beauty On Demand App",
+      "description": "Book licensed beauty professionals for on-demand mobile beauty services via the VÉLOURA app.",
+      "downloadUrl": "https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "Lifestyle"
     }
-  };
-
-  const appSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "VÉLOURA Beauty On Demand App",
-    "operatingSystem": "iOS, Android",
-    "applicationCategory": "Lifestyle",
-    "description": "Book licensed beauty professionals for on-demand mobile beauty services via the VÉLOURA app.",
-    "downloadUrl": "https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381"
-  };
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">
+      <title>VÉLOURA Beauty on Demand - In-Home Beauty App</title>
+      <meta name="description" content="Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions." />
+      <link rel="canonical" href="https://velourabeautyondemand.com" />
       <Script
-        id="home-schema"
+        id="home-jsonld"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([homeSchema, appSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
       />
       {showPromoBanner && (
         <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-xs font-bold tracking-widest uppercase animate-in slide-in-from-top duration-500">

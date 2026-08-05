@@ -6,9 +6,10 @@ import Footer from '@/components/shared/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Award, MapPin, Layers, MessageSquare } from 'lucide-react';
+import { Star, Award, MapPin, Layers, MessageSquare, Briefcase } from 'lucide-react';
 import { ProfessionalDirectory } from '@/components/features/professional-directory';
 import Script from 'next/script';
+import Link from 'next/link';
 
 const whyWorkWithUs = [
     {
@@ -33,21 +34,36 @@ export default function TalentAgencyPage() {
     const michaelLee1 = PlaceHolderImages.find(p => p.id === 'agency_showcase_1');
     const michaelLee2 = PlaceHolderImages.find(p => p.id === 'agency_showcase_2');
 
-    const agencySchema = {
-      "@context": "https://schema.org",
-      "@type": "TalentAgency",
-      "name": "VÉLOURA Beauty On Demand - Talent Agency",
-      "url": "https://velourabeautyondemand.com/talent-agency",
-      "telephone": "+1-305-317-2759",
-      "areaServed": "Major US cities",
-      "description": "VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers. We bridge the gap between creative professionals and premium opportunities.",
-      "numberOfEmployees": 500
-    };
+    const agencySchema = [
+      {
+        "@context": "https://schema.org",
+        "@type": "TalentAgency",
+        "name": "VÉLOURA Beauty On Demand",
+        "url": "https://velourabeautyondemand.com/talent-agency",
+        "telephone": "+1-305-317-2759",
+        "areaServed": "Major cities",
+        "description": "VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers. We bridge the gap between creative professionals and premium opportunities.",
+        "numberOfEmployees": 500
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "VÉLOURA Talent Agency: Makeup Artists & Hairstylists",
+        "description": "VÉLOURA Talent Agency connects brands with licensed, vetted makeup artists, hairstylists, and photographers for productions and events. Inquire about talent today.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "VÉLOURA Beauty On Demand"
+        }
+      }
+    ];
 
     return (
         <div className="flex flex-col min-h-screen">
+            <title>VÉLOURA Talent Agency: Makeup Artists & Hairstylists</title>
+            <meta name="description" content="VÉLOURA Talent Agency connects brands with licensed, vetted makeup artists, hairstylists, and photographers for productions and events. Inquire about talent today." />
+            <link rel="canonical" href="https://velourabeautyondemand.com/talent-agency" />
             <Script
-              id="agency-schema"
+              id="agency-jsonld"
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(agencySchema) }}
             />
@@ -69,21 +85,21 @@ export default function TalentAgencyPage() {
                                     VÉLOURA Talent Agency represents a network of licensed, vetted makeup artists, hairstylists, and photographers. We bridge the gap between creative professionals and premium opportunities.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <Button size="lg" asChild>
+                                    <Button size="lg" asChild className="rounded-full shadow-lg">
                                         <a href="mailto:support@velourabeautyondemand.com?subject=Talent%20Agency%20Inquiry">
                                             Inquire About Talent
                                         </a>
                                     </Button>
-                                    <Button size="lg" variant="outline" asChild>
-                                        <a href="/apply">
+                                    <Button size="lg" variant="outline" asChild className="rounded-full">
+                                        <Link href="/apply">
                                             Apply to Join Agency
-                                        </a>
+                                        </Link>
                                     </Button>
                                 </div>
                             </div>
                             <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
                                 <Image
-                                    src={agencyHero?.imageUrl || "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop"}
+                                    src={agencyHero?.imageUrl || "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200"}
                                     alt={agencyHero?.description || "Talent Agency Editorial"}
                                     fill
                                     className="object-cover"
@@ -107,10 +123,10 @@ export default function TalentAgencyPage() {
                                         alt={michaelLee1.description}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        sizes="100vw"
+                                        sizes="(max-width: 1200px) 100vw, 1200px"
                                     />
                                     <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                                        Photography by Michael Lee
+                                        VÉLOURA Featured Editorial
                                     </div>
                                 </div>
                             )}
@@ -122,10 +138,10 @@ export default function TalentAgencyPage() {
                                         alt={michaelLee2.description}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        sizes="100vw"
+                                        sizes="(max-width: 1200px) 100vw, 1200px"
                                     />
                                     <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                                        Photography by Michael Lee
+                                        High-Fashion Production Support
                                     </div>
                                 </div>
                             )}

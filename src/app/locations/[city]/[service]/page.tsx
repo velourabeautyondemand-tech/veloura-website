@@ -1,180 +1,132 @@
+
 'use client';
 
-import { use, useMemo } from 'react';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import { use } from 'react';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CITIES, SERVICES, PAGE_COMBINATIONS } from '@/data/locationSeo';
-import { MapPin, ChevronRight, Smartphone, CheckCircle2, Home, Hotel, Building2, Sparkles, Star, Wand2, Camera, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
+import { Sparkles, MapPin, ShieldCheck, Clock, CheckCircle2, ChevronRight, Smartphone, Wand2, Star, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 import Script from 'next/script';
 
-export default function LocationServicePage({ params }: { params: Promise<{ city: string; service: string }> }) {
-  const { city: citySlug, service: serviceSlug } = use(params);
-  
-  const city = useMemo(() => CITIES.find(c => c.slug === citySlug), [citySlug]);
-  const service = useMemo(() => SERVICES.find(s => s.slug === serviceSlug), [serviceSlug]);
-  const combination = useMemo(() => 
-    PAGE_COMBINATIONS.find(p => p.citySlug === citySlug && p.serviceSlug === serviceSlug && p.enabled),
-  [citySlug, serviceSlug]);
+export default function MarketIntersectionPage({ params }: { params: Promise<{ city: string, service: string }> }) {
+  const resolvedParams = use(params);
+  const city = CITIES.find(c => c.slug === resolvedParams.city);
+  const service = SERVICES.find(s => s.slug === resolvedParams.service);
+  const combination = PAGE_COMBINATIONS.find(p => p.citySlug === resolvedParams.city && p.serviceSlug === resolvedParams.service && p.enabled);
 
   if (!city || !service || !combination) {
     notFound();
   }
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://velourabeautyondemand.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://velourabeautyondemand.com/locations" },
-      { "@type": "ListItem", "position": 3, "name": city.name, "item": `https://velourabeautyondemand.com/locations/${city.slug}` },
-      { "@type": "ListItem", "position": 4, "name": service.name }
-    ]
-  };
-
-  const serviceSchema = {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": `${service.name} in ${city.name}`,
     "description": combination.uniqueIntro,
-    "provider": {
-      "@type": "Organization",
-      "name": "VÉLOURA Beauty On Demand"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": city.name
-    }
+    "provider": { "@type": "Organization", "name": "VÉLOURA" },
+    "areaServed": { "@type": "City", "name": city.name },
+    "url": `https://velourabeautyondemand.com/locations/${city.slug}/${service.slug}`
   };
 
   return (
     <div className="flex flex-col min-h-screen">
-      <title>{`${service.name} in ${city.name}, ${city.stateCode} | VÉLOURA`}</title>
-      <meta name="description" content={`Book professional ${service.name.toLowerCase()} in ${city.name} with VÉLOURA. Mobile service delivered to your home or hotel suite.`} />
+      <title>{combination.customTitle || `${service.name} in ${city.name} | VÉLOURA Mobile Glam`}</title>
+      <meta name="description" content={combination.customDescription || combination.uniqueIntro} />
       <link rel="canonical" href={`https://velourabeautyondemand.com/locations/${city.slug}/${service.slug}`} />
-
-      <Script id="intersection-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <Script id="intersection-service-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <Script id="intersection-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Header />
       <main className="flex-1">
-        <div className="bg-background py-4 border-b">
-          <div className="container mx-auto px-4 md:px-6">
-            <nav className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-              <Link href="/" className="hover:text-primary">Home</Link>
-              <ChevronRight className="w-3 h-3" />
-              <Link href="/locations" className="hover:text-primary">Locations</Link>
-              <ChevronRight className="w-3 h-3" />
-              <Link href={`/locations/${city.slug}`} className="hover:text-primary">{city.name}</Link>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-primary">{service.name}</span>
-            </nav>
-          </div>
-        </div>
-
-        <section className="bg-secondary/30 py-20 md:py-32 border-b">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-7xl font-extrabold font-headline mb-6 tracking-tight">
-              {service.name} in {city.name}, {city.stateCode}
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-              {combination.uniqueIntro} VÉLOURA connects you with approved professionals serving {city.name} and the surrounding metropolitan area.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="h-16 px-10 text-xl font-bold rounded-full shadow-2xl hover:scale-105 transition-transform">
-                <Link href="/book" className="flex items-center gap-2">
-                  <Smartphone className="w-6 h-6" />
-                  Book in the App
+        <section className="bg-secondary/30 py-16 border-b">
+          <div className="container mx-auto px-4">
+             <Button asChild variant="ghost" className="mb-6 -ml-4 hover:bg-transparent text-muted-foreground hover:text-primary">
+                <Link href={`/locations/${city.slug}`} className="flex items-center gap-2">
+                   <ArrowLeft className="w-4 h-4" /> Back to {city.name} Hub
                 </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-16 px-10 text-xl font-bold rounded-full">
-                <Link href="/match" className="flex items-center gap-2">
-                  <Wand2 className="w-6 h-6" />
-                  Match with a Pro
-                </Link>
-              </Button>
-            </div>
+             </Button>
+             <div className="text-center space-y-6">
+                <h1 className="text-4xl md:text-6xl font-extrabold font-headline leading-tight tracking-tight">
+                  {service.name} <br /> in <span className="text-primary italic">{city.name}</span>
+                </h1>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{combination.uniqueIntro}</p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                  <Button asChild size="lg" className="rounded-full h-14 px-10 text-lg font-bold shadow-lg">
+                    <Link href="/book">Book Now in {city.name}</Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="rounded-full h-14 px-10 text-lg font-bold bg-white/80">
+                    <Link href="/match">Try AI Concierge <Wand2 className="ml-2 w-5 h-5" /></Link>
+                  </Button>
+                </div>
+             </div>
           </div>
         </section>
 
         <section className="py-24 bg-background">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+           <div className="container mx-auto px-4 max-w-4xl">
+              <div className="prose lg:prose-lg max-w-none text-muted-foreground mb-16">
+                 <h2 className="text-3xl font-bold font-headline text-foreground">Premium {service.name} Delivered To Your Door</h2>
+                 <p>{combination.uniqueLocalDetails}</p>
+                 <p>{service.customerIntent}</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-16">
+                 <div className="space-y-6">
+                    <h3 className="text-xl font-bold font-headline flex items-center gap-2"><Star className="w-5 h-5 text-primary" /> Key Benefits</h3>
+                    <ul className="space-y-3">
+                       {service.benefits.map(b => (
+                          <li key={b} className="flex items-center gap-2 text-sm font-semibold">
+                             <CheckCircle2 className="w-4 h-4 text-primary" /> {b}
+                          </li>
+                       ))}
+                    </ul>
+                 </div>
+                 <Card className="border-primary/10 shadow-xl bg-primary/5">
+                    <CardHeader>
+                       <CardTitle className="text-lg font-bold">Market Standards</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                       <div className="flex items-center gap-3">
+                          <ShieldCheck className="w-5 h-5 text-primary" />
+                          <p className="text-xs font-bold uppercase">Licensed {city.name} Pros</p>
+                       </div>
+                       <div className="flex items-center gap-3">
+                          <Clock className="w-5 h-5 text-primary" />
+                          <p className="text-xs font-bold uppercase">Real-Time Reliability</p>
+                       </div>
+                    </CardContent>
+                 </Card>
+              </div>
+
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-bold font-headline">Market Expertise in <span className="text-primary">{city.name}</span></h2>
-                <p className="text-lg text-muted-foreground">
-                  {combination.uniqueLocalDetails} Our local professionals arrive fully equipped with professional kits, ensuring a luxury studio experience without the commute.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {service.benefits.map((b, i) => (
-                    <div key={i} className="flex items-center gap-3 font-semibold text-foreground/80">
-                      <CheckCircle2 className="w-5 h-5 text-primary" />
-                      <span>{b}</span>
-                    </div>
-                  ))}
-                </div>
+                 <h2 className="text-3xl font-bold font-headline text-center">Frequently Asked Questions</h2>
+                 <Accordion type="single" collapsible className="bg-card border rounded-xl px-6 shadow-sm">
+                    {combination.customFAQs ? combination.customFAQs.map((faq, i) => (
+                      <AccordionItem key={i} value={`custom-${i}`}>
+                        <AccordionTrigger className="text-left font-bold">{faq.q}</AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                      </AccordionItem>
+                    )) : city.uniqueFAQs.map((faq, i) => (
+                      <AccordionItem key={i} value={`city-${i}`}>
+                        <AccordionTrigger className="text-left font-bold">{faq.q}</AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                      </AccordionItem>
+                    ))}
+                 </Accordion>
               </div>
-              <div className="bg-secondary/20 p-10 rounded-[3rem] border-4 border-white shadow-2xl space-y-6">
-                <h3 className="text-2xl font-bold font-headline text-center">Suitable For</h3>
-                <ul className="space-y-4">
-                  {service.suitableFor.map((s, i) => (
-                    <li key={i} className="flex items-center gap-3 text-lg text-muted-foreground">
-                      <Star className="w-5 h-5 text-primary fill-primary" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="grid sm:grid-cols-3 gap-8 mb-24">
-              <div className="text-center space-y-4 p-8 bg-card rounded-2xl border border-primary/5">
-                <Home className="w-10 h-10 text-primary mx-auto" />
-                <h3 className="font-bold">At Home</h3>
-                <p className="text-sm text-muted-foreground">Private sessions in your most comfortable environment.</p>
-              </div>
-              <div className="text-center space-y-4 p-8 bg-card rounded-2xl border border-primary/5">
-                <Hotel className="w-10 h-10 text-primary mx-auto" />
-                <h3 className="font-bold">At Hotels</h3>
-                <p className="text-sm text-muted-foreground">Elite suite-side service for travelers and event guests.</p>
-              </div>
-              <div className="text-center space-y-4 p-8 bg-card rounded-2xl border border-primary/5">
-                <Building2 className="w-10 h-10 text-primary mx-auto" />
-                <h3 className="font-bold">At Offices</h3>
-                <p className="text-sm text-muted-foreground">Quick, efficient glam for busy professional schedules.</p>
-              </div>
-            </div>
-
-            <div className="max-w-3xl mx-auto space-y-8">
-              <h2 className="text-3xl font-bold font-headline text-center">Frequently Asked Questions</h2>
-              <Accordion type="single" collapsible className="bg-card border rounded-xl px-6">
-                <AccordionItem value="local-q1">
-                  <AccordionTrigger className="text-left font-bold">Do you cover all areas of {city.name}?</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    Yes, we serve the main metropolitan area and key neighborhoods including {city.neighborhoods.slice(0, 4).join(', ')}. When booking in the app, your professional's availability will be based on your specific location.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="local-q2">
-                  <AccordionTrigger className="text-left font-bold">How soon can I book {service.name.toLowerCase()} in {city.name}?</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    The VÉLOURA app shows real-time availability. While we recommend booking 24-48 hours in advance for specific time slots, you can often find same-day availability for last-minute needs.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-          </div>
+           </div>
         </section>
 
         <section className="py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience {city.name}'s Best {service.name}</h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">Luxury beauty is just a few clicks away. Download the app to match with a {city.name} local expert today.</p>
-            <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full">
-              <Link href="/book">Download & Book Now</Link>
+            <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Experience {service.name} in {city.name}</h2>
+            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">VÉLOURA connects you with the top 10% of local talent. Download the app to book your professional.</p>
+            <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold text-primary rounded-full shadow-2xl">
+              <Link href="/book">Download the VÉLOURA App</Link>
             </Button>
           </div>
         </section>
