@@ -45,15 +45,6 @@ export default function CityHubPage({ params }: { params: Promise<{ city: string
       "addressLocality": city.name,
       "addressRegion": city.stateCode,
       "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": city.slug === 'miami' ? 25.7617 : city.slug === 'new-york' ? 40.7128 : 34.0522,
-        "longitude": city.slug === 'miami' ? -80.1918 : city.slug === 'new-york' ? -74.0060 : -118.2437
-      },
-      "geoRadius": "10000"
     }
   };
 

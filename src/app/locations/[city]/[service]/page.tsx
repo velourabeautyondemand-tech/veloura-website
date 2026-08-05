@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CITIES, SERVICES, PAGE_COMBINATIONS } from '@/data/locationSeo';
-import { MapPin, ChevronRight, Smartphone, CheckCircle2, Home, Hotel, Building2, Sparkles, Star, Wand2, Camera } from 'lucide-react';
+import { MapPin, ChevronRight, Smartphone, CheckCircle2, Home, Hotel, Building2, Sparkles, Star, Wand2, Camera, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
 import Script from 'next/script';
 
 export default function LocationServicePage({ params }: { params: Promise<{ city: string; service: string }> }) {
@@ -131,7 +131,6 @@ export default function LocationServicePage({ params }: { params: Promise<{ city
               </div>
             </div>
 
-            {/* Venue Icons */}
             <div className="grid sm:grid-cols-3 gap-8 mb-24">
               <div className="text-center space-y-4 p-8 bg-card rounded-2xl border border-primary/5">
                 <Home className="w-10 h-10 text-primary mx-auto" />
