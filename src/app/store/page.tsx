@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -6,7 +5,7 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, ExternalLink, AlertCircle, TrendingDown, Bell, Loader2, PartyPopper } from 'lucide-react';
+import { ShoppingBag, ExternalLink, AlertCircle, TrendingDown, Bell, Loader2, PartyPopper, Clock } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Badge } from '@/components/ui/badge';
