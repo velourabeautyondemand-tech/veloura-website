@@ -178,7 +178,7 @@
     {
       "id": "vip_3",
       "description": "Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDdfMA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal beauty"
     },
     {
@@ -336,6 +336,12 @@
       "description": "Deep Moisture Eye Mask Ad",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Aug%201%2C%202026%2C%2002_50_29%20PM.png?alt=media&token=9dabb713-2691-4d4b-b4d9-1962339a8980",
       "imageHint": "eye mask"
+    },
+    {
+      "id": "eye_mask_bliss_ad",
+      "description": "Luxury Steam Eye Mask Ad",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924",
+      "imageHint": "steam mask"
     }
   ]
 }

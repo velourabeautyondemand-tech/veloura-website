@@ -29,7 +29,7 @@ const storeItems = [
     description: 'Wrap your eyes in a little moment of peace. This self-heating mask is designed for deep relaxation and pure tranquility.',
     price: 2.99,
     category: 'Self-Care',
-    image: "https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=1080",
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924",
     imageHint: 'relaxation mask',
     link: 'https://www.etsy.com/listing/4547869516/wrap-your-eyes-in-a-little-moment-of'
   },
