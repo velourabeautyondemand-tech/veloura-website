@@ -9,94 +9,95 @@ import { ShoppingBag, ExternalLink, AlertCircle } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Badge } from '@/components/ui/badge';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const ETSY_STORE_LINK = 'https://www.etsy.com/shop/iAmDreamMakerGroup?ref=profile_header&section_id=49528058'; 
 
-const storeItems = [
-  {
-    id: 'eye-mask-glow',
-    name: 'Glow starts before the makeup Deep Moisture Eye Mask',
-    description: 'The ultimate pre-makeup essential. Deeply hydrates and refreshes the delicate eye area for a radiant, prepared glow.',
-    price: 2.99,
-    category: 'Self-Care',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Aug%201%2C%202026%2C%2002_50_29%20PM.png?alt=media&token=9dabb713-2691-4d4b-b4d9-1962339a8980",
-    imageHint: 'eye mask',
-    link: 'https://www.etsy.com/listing/4547862207/glow-starts-before-the-makeup-deep'
-  },
-  {
-    id: 'eye-mask-bliss',
-    name: 'Luxury Steam Eye Mask - Moment of Bliss',
-    description: 'Wrap your eyes in a little moment of peace. This self-heating mask is designed for deep relaxation and pure tranquility.',
-    price: 2.99,
-    category: 'Self-Care',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924",
-    imageHint: 'relaxation mask',
-    link: 'https://www.etsy.com/listing/4547869516/wrap-your-eyes-in-a-little-moment-of'
-  },
-  {
-    id: 'eye-mask-rose',
-    name: 'Japanese Steam Eye Mask - Rose Scent',
-    description: 'A self-heating steam eye mask that releases warm, rose-scented steam to soothe tired eyes. Perfect for travel.',
-    price: 2.99,
-    category: 'Self-Care',
-    image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?q=80&w=1080",
-    imageHint: 'rose skincare',
-    link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
-  },
-  {
-    id: 'lashes-forest-green',
-    name: 'Forest Green Fake Eyelashes - Wispy',
-    description: 'Bespoke, handcrafted wispy eyelashes in a deep forest green. Perfect for adding a unique, high-fashion touch.',
-    price: 6.99,
-    category: 'Beauty',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/b29f13e6-3b18-451e-acc3-820dfebcdfe8.png?alt=media&token=e9f79bb1-140d-48d3-9ef2-fab162fdbc41",
-    imageHint: 'green eyelashes',
-    link: 'https://www.etsy.com/listing/4550694042/forest-green-fake-eyelashes-wispy',
-    isLastOne: true
-  },
-  {
-    id: 'lashes-a13',
-    name: 'A13 Wispy Cat Eye Fake Eyelashes',
-    description: 'Soft, wispy cat eye fake eyelashes for a natural yet dramatic look. High-quality synthetic fibers.',
-    price: 19.99,
-    category: 'Beauty',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99",
-    imageHint: 'a13 lashes',
-    link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?ls=r&sr_prefetch=1&pf_from=shop_home&ref=items-pagination-6&content_source=deacb997de09ebc43df1e142a1cff129%253ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164&logging_key=deacb997de09ebc43df1e142a1cff129%3ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164'
-  },
-  {
-    id: 'lashes-a03',
-    name: 'A03 Soft Band Cat Eye False Lashes',
-    description: 'Ultra-soft band lashes with a sophisticated cat eye sweep. Perfect for a seamless, comfortable all-day wear.',
-    price: 19.99,
-    category: 'Beauty',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5",
-    imageHint: 'soft lashes',
-    link: 'https://www.etsy.com/listing/4547689859/a03-soft-band-cat-eye-false-lashes?ls=r&sr_prefetch=1&pf_from=shop_home&ref=items-pagination-5&content_source=deacb997de09ebc43df1e142a1cff129%253ALTe05ba5d038778914fd2e3331f7d0a837cd21f4e4&logging_key=deacb997de09ebc43df1e142a1cff129%3ALTe05ba5d038778914fd2e3331f7d0a837cd21f4e4'
-  },
-  {
-    id: 'wax-heater',
-    name: 'Mini Pink Professional Wax Heater',
-    description: 'The ultimate travel companion for beauty professionals. Precise temperature control in a stylish pink finish.',
-    price: 39.99,
-    category: 'Equipment',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater%20(1).png?alt=media&token=e7237c20-2630-4e54-96f9-badedf6ba93c",
-    imageHint: 'pink wax heater',
-    link: 'https://www.etsy.com/listing/4547862207'
-  },
-  {
-    id: 'wax-bar',
-    name: 'Popsicle Hard Wax Bar (100g)',
-    description: 'High-quality popsicle hard wax bar for precise and comfortable hair removal. Perfect for on-the-go appointments.',
-    price: 19.99,
-    category: 'Supplies',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01",
-    imageHint: 'hard wax',
-    link: 'https://www.etsy.com/listing/4547862207'
-  }
-];
-
 export default function StorePage() {
+  const storeItems = [
+    {
+      id: 'eye-mask-glow',
+      name: 'Glow starts before the makeup Deep Moisture Eye Mask',
+      description: 'The ultimate pre-makeup essential. Deeply hydrates and refreshes the delicate eye area for a radiant, prepared glow.',
+      price: 2.99,
+      category: 'Self-Care',
+      image: PlaceHolderImages.find(p => p.id === 'eye_mask_glow_ad')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Aug%201%2C%202026%2C%2002_50_29%20PM.png?alt=media&token=9dabb713-2691-4d4b-b4d9-1962339a8980",
+      imageHint: 'eye mask',
+      link: 'https://www.etsy.com/listing/4547862207/glow-starts-before-the-makeup-deep'
+    },
+    {
+      id: 'eye-mask-bliss',
+      name: 'Luxury Steam Eye Mask - Moment of Bliss',
+      description: 'Wrap your eyes in a little moment of peace. This self-heating mask is designed for deep relaxation and pure tranquility.',
+      price: 2.99,
+      category: 'Self-Care',
+      image: PlaceHolderImages.find(p => p.id === 'eye_mask_bliss_ad')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924",
+      imageHint: 'relaxation mask',
+      link: 'https://www.etsy.com/listing/4547869516/wrap-your-eyes-in-a-little-moment-of'
+    },
+    {
+      id: 'eye-mask-rose',
+      name: 'Japanese Steam Eye Mask - Rose Scent',
+      description: 'A self-heating steam eye mask that releases warm, rose-scented steam to soothe tired eyes. Perfect for travel.',
+      price: 2.99,
+      category: 'Self-Care',
+      image: PlaceHolderImages.find(p => p.id === 'eye_mask_rose_ad')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405",
+      imageHint: 'rose mask',
+      link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
+    },
+    {
+      id: 'lashes-forest-green',
+      name: 'Forest Green Fake Eyelashes - Wispy',
+      description: 'Bespoke, handcrafted wispy eyelashes in a deep forest green. Perfect for adding a unique, high-fashion touch.',
+      price: 6.99,
+      category: 'Beauty',
+      image: PlaceHolderImages.find(p => p.id === 'lashes_forest_green')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/b29f13e6-3b18-451e-acc3-820dfebcdfe8.png?alt=media&token=e9f79bb1-140d-48d3-9ef2-fab162fdbc41",
+      imageHint: 'green eyelashes',
+      link: 'https://www.etsy.com/listing/4550694042/forest-green-fake-eyelashes-wispy',
+      isLastOne: true
+    },
+    {
+      id: 'lashes-a13',
+      name: 'A13 Wispy Cat Eye Fake Eyelashes',
+      description: 'Soft, wispy cat eye fake eyelashes for a natural yet dramatic look. High-quality synthetic fibers.',
+      price: 19.99,
+      category: 'Beauty',
+      image: PlaceHolderImages.find(p => p.id === 'lashes_a13')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99",
+      imageHint: 'a13 lashes',
+      link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?ls=r&sr_prefetch=1&pf_from=shop_home&ref=items-pagination-6&content_source=deacb997de09ebc43df1e142a1cff129%253ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164&logging_key=deacb997de09ebc43df1e142a1cff129%3ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164'
+    },
+    {
+      id: 'lashes-a03',
+      name: 'A03 Soft Band Cat Eye False Lashes',
+      description: 'Ultra-soft band lashes with a sophisticated cat eye sweep. Perfect for a seamless, comfortable all-day wear.',
+      price: 19.99,
+      category: 'Beauty',
+      image: PlaceHolderImages.find(p => p.id === 'lashes_a03')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5",
+      imageHint: 'soft lashes',
+      link: 'https://www.etsy.com/listing/4547689859/a03-soft-band-cat-eye-false-lashes?ls=r&sr_prefetch=1&pf_from=shop_home&ref=items-pagination-5&content_source=deacb997de09ebc43df1e142a1cff129%253ALTe05ba5d038778914fd2e3331f7d0a837cd21f4e4&logging_key=deacb997de09ebc43df1e142a1cff129%3ALTe05ba5d038778914fd2e3331f7d0a837cd21f4e4'
+    },
+    {
+      id: 'wax-heater',
+      name: 'Mini Pink Professional Wax Heater',
+      description: 'The ultimate travel companion for beauty professionals. Precise temperature control in a stylish pink finish.',
+      price: 39.99,
+      category: 'Equipment',
+      image: PlaceHolderImages.find(p => p.id === 'wax_heater_pink')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater%20(1).png?alt=media&token=e7237c20-2630-4e54-96f9-badedf6ba93c",
+      imageHint: 'pink wax heater',
+      link: 'https://www.etsy.com/listing/4547862207'
+    },
+    {
+      id: 'wax-bar',
+      name: 'Popsicle Hard Wax Bar (100g)',
+      description: 'High-quality popsicle hard wax bar for precise and comfortable hair removal. Perfect for on-the-go appointments.',
+      price: 19.99,
+      category: 'Supplies',
+      image: PlaceHolderImages.find(p => p.id === 'wax_bar_popsicle')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01",
+      imageHint: 'hard wax',
+      link: 'https://www.etsy.com/listing/4547862207'
+    }
+  ];
+
   const storeSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",

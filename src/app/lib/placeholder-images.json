@@ -342,6 +342,12 @@
       "description": "Luxury Steam Eye Mask Ad",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.8372618205_fd1v.jpg?alt=media&token=45607840-ba57-4ffc-ac6f-9006f791e924",
       "imageHint": "steam mask"
+    },
+    {
+      "id": "eye_mask_rose_ad",
+      "description": "Japanese Rose Eye Mask Ad",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405",
+      "imageHint": "rose mask"
     }
   ]
 }
