@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/shared/header';
@@ -44,6 +43,16 @@ export default function StorePage() {
       image: PlaceHolderImages.find(p => p.id === 'eye_mask_rose_ad')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405",
       imageHint: 'rose mask',
       link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
+    },
+    {
+      id: 'lashes-715',
+      name: '715 Airy Wispy Feather Handmade Eyelash',
+      description: 'Premium feathered volume lashes for a dramatic doll-eye effect. Lightweight, airy, and handcrafted for superior quality.',
+      price: 19.99,
+      category: 'Beauty',
+      image: PlaceHolderImages.find(p => p.id === 'lashes_715_feather')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Wispy%20Doll%20Eye%20False%20Lashes%20Feathered%20Volume%20Lashes%20(1).png?alt=media&token=c87381b4-c2db-40e1-9fc9-9f4486c0fcd6",
+      imageHint: 'feathered lashes',
+      link: 'https://www.etsy.com/listing/4547739706/715-airy-wispy-feather-handmade-eyelash'
     },
     {
       id: 'lashes-forest-green',
