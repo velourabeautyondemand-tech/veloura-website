@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -59,8 +60,8 @@ const storeItems = [
     description: 'Soft, wispy cat eye fake eyelashes for a natural yet dramatic look. High-quality synthetic fibers.',
     price: 19.99,
     category: 'Beauty',
-    image: "https://images.unsplash.com/photo-1583006290544-824f6068a44b?q=80&w=1080",
-    imageHint: 'cat eye lashes',
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99",
+    imageHint: 'a13 lashes',
     link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?ls=r&sr_prefetch=1&pf_from=shop_home&ref=items-pagination-6&content_source=deacb997de09ebc43df1e142a1cff129%253ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164&logging_key=deacb997de09ebc43df1e142a1cff129%3ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164'
   },
   {
