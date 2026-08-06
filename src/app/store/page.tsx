@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -50,7 +51,7 @@ export default function StorePage() {
       description: 'Premium feathered volume lashes for a dramatic doll-eye effect. Lightweight, airy, and handcrafted for superior quality.',
       price: 19.99,
       category: 'Beauty',
-      image: PlaceHolderImages.find(p => p.id === 'lashes_715_feather')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Wispy%20Doll%20Eye%20False%20Lashes%20Feathered%20Volume%20Lashes%20(1).png?alt=media&token=c87381b4-c2db-40e1-9fc9-9f4486c0fcd6",
+      image: PlaceHolderImages.find(p => p.id === 'lashes_715_feather')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Jul%2031%2C%202026%2C%2003_59_47%20PM.png?alt=media&token=1d202628-b3fc-4350-aa3d-e24c61b97f7c",
       imageHint: 'feathered lashes',
       link: 'https://www.etsy.com/listing/4547739706/715-airy-wispy-feather-handmade-eyelash'
     },
