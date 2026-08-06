@@ -90,6 +90,12 @@
       "description": "Mini Pink Professional Wax Heater",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater%20(1).png?alt=media&token=e7237c20-2630-4e54-96f9-badedf6ba93c",
       "imageHint": "pink wax heater"
+    },
+    {
+      "id": "wax_bar_popsicle",
+      "description": "Popsicle Hard Wax Bar (100g)",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01",
+      "imageHint": "hard wax"
     }
   ]
 }
