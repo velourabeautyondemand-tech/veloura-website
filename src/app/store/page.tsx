@@ -5,11 +5,12 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, Star, ArrowRight, ShieldCheck, Zap, ExternalLink, Sparkles } from 'lucide-react';
+import { ShoppingBag, Star, ArrowRight, ShieldCheck, Zap, ExternalLink, Sparkles, AlertCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Script from 'next/script';
+import { Badge } from '@/components/ui/badge';
 
 const ETSY_STORE_LINK = 'https://www.etsy.com/shop/iAmDreamMakerGroup?ref=profile_header&section_id=49528058'; 
 
@@ -43,6 +44,17 @@ const storeItems = [
     image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/2c23697c-e405-4d34-9d08-2e39b29ca362.png?alt=media&token=a420a44c-3793-4292-a39b-116c040c1405",
     imageHint: 'eye mask',
     link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
+  },
+  {
+    id: 'lashes-forest-green',
+    name: 'Forest Green Fake Eyelashes - Wispy',
+    description: 'Bespoke, handcrafted wispy eyelashes in a deep forest green. Perfect for adding a unique, high-fashion touch to your look.',
+    price: 6.99,
+    category: 'Beauty',
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/b29f13e6-3b18-451e-acc3-820dfebcdfe8.png?alt=media",
+    imageHint: 'green eyelashes',
+    link: 'https://www.etsy.com/listing/4550694042/forest-green-fake-eyelashes-wispy',
+    isLastOne: true
   }
 ];
 
@@ -65,7 +77,7 @@ export default function StorePage() {
           "@type": "Offer",
           "price": item.price,
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
+          "availability": item.isLastOne ? "https://schema.org/InStock" : "https://schema.org/InStock",
           "url": item.link
         }
       }
@@ -109,7 +121,12 @@ export default function StorePage() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {storeItems.map((item) => (
-                <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group">
+                <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group relative">
+                  {item.isLastOne && (
+                    <Badge variant="destructive" className="absolute top-4 right-4 z-10 px-4 py-1 font-bold animate-pulse">
+                      <AlertCircle className="w-3 h-3 mr-1" /> LAST ONE
+                    </Badge>
+                  )}
                   <div className="relative aspect-[4/5] overflow-hidden">
                     <Image
                       src={item.image}
