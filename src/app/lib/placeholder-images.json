@@ -366,6 +366,12 @@
       "description": "Natural fake Eyelashes: Everyday Wear, Bridal Glamour - 10 Pairs",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.7211702176_lpdj.webp?alt=media&token=36cb11a7-d5b8-46ff-8260-b91c44f511d3",
       "imageHint": "natural eyelashes"
+    },
+    {
+      "id": "lashes_cross_4",
+      "description": "Wispy False Eyelashes Cross Pattern 4",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/cross%204.png?alt=media&token=f7fd8f90-2d4c-471a-b14d-952288e198ad",
+      "imageHint": "wispy lashes"
     }
   ]
 }

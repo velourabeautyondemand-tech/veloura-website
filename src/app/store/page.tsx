@@ -5,7 +5,7 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, ExternalLink, AlertCircle } from 'lucide-react';
+import { ShoppingBag, ExternalLink, AlertCircle, TrendingDown } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Badge } from '@/components/ui/badge';
@@ -46,12 +46,23 @@ export default function StorePage() {
       link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
     },
     {
+      id: 'lashes-cross-4',
+      name: 'Wispy False Eyelashes Cross Pattern 4',
+      description: 'Handcrafted cross-pattern wispy lashes designed for a sophisticated, textured look. Lightweight and perfect for adding elegant volume.',
+      price: 19.99,
+      category: 'Beauty',
+      image: PlaceHolderImages.find(p => p.id === 'lashes_cross_4')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/cross%204.png?alt=media&token=f7fd8f90-2d4c-471a-b14d-952288e198ad",
+      imageHint: 'wispy lashes',
+      link: 'https://www.etsy.com/listing/4550762046/wispy-false-eyelashes-cross-pattern-4',
+      stockStatus: 'ONLY 3 LEFT'
+    },
+    {
       id: 'lashes-natural-10pairs',
       name: 'Natural fake Eyelashes: Everyday Wear, Bridal Glamour eyelashes extension- 10 Pairs',
       description: 'Handmade, high-quality natural lashes perfect for everyday wear or bridal elegance. This value pack includes 10 pairs of soft, wispy extensions.',
       price: 19.99,
       category: 'Beauty',
-      image: PlaceHolderImages.find(p => p.id === 'lashes_natural_10pairs')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.7211702176_lpdj.webp?alt=media&token=36cb11a7-d5b8-4ffc-ac6f-9006f791e924",
+      image: PlaceHolderImages.find(p => p.id === 'lashes_natural_10pairs')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.7211702176_lpdj.webp?alt=media&token=36cb11a7-d5b8-46ff-8260-b91c44f511d3",
       imageHint: 'natural lashes',
       link: 'https://www.etsy.com/listing/1743477091/handmade-natural-false-eyelashes'
     },
@@ -84,7 +95,7 @@ export default function StorePage() {
       image: PlaceHolderImages.find(p => p.id === 'lashes_forest_green')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/b29f13e6-3b18-451e-acc3-820dfebcdfe8.png?alt=media&token=e9f79bb1-140d-48d3-9ef2-fab162fdbc41",
       imageHint: 'green eyelashes',
       link: 'https://www.etsy.com/listing/4550694042/forest-green-fake-eyelashes-wispy',
-      isLastOne: true
+      stockStatus: 'LAST ONE'
     },
     {
       id: 'lashes-a13',
@@ -193,10 +204,10 @@ export default function StorePage() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
               {storeItems.map((item) => (
-                <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 border-primary/5 bg-card group relative">
-                  {item.isLastOne && (
+                <Card key={item.id} className="flex flex-col overflow-hidden hover:shadow-xl transition-all duration-300 border-primary/5 bg-card group relative">
+                  {item.stockStatus && (
                     <Badge variant="destructive" className="absolute top-4 right-4 z-10 px-4 py-1 font-bold animate-pulse">
-                      <AlertCircle className="w-3 h-3 mr-1" /> LAST ONE
+                      <AlertCircle className="w-3 h-3 mr-1" /> {item.stockStatus}
                     </Badge>
                   )}
                   <div className="relative aspect-[4/5] overflow-hidden">
