@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/shared/header';
@@ -62,7 +61,7 @@ const storeItems = [
     category: 'Beauty',
     image: "https://images.unsplash.com/photo-1583006290544-824f6068a44b?q=80&w=1080",
     imageHint: 'cat eye lashes',
-    link: 'https://www.etsy.com/listing/4547862207'
+    link: 'https://www.etsy.com/listing/4547699063/a13-wispy-cat-eye-fake-eyelashes-soft?ls=r&sr_prefetch=1&pf_from=shop_home&ref=items-pagination-6&content_source=deacb997de09ebc43df1e142a1cff129%253ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164&logging_key=deacb997de09ebc43df1e142a1cff129%3ALT747963d8f4fc6a960bf2b3428db8cbe9952c8164'
   },
   {
     id: 'lashes-a03',
