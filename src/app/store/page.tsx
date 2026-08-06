@@ -56,6 +56,16 @@ export default function StorePage() {
       link: 'https://www.etsy.com/listing/4547739706/715-airy-wispy-feather-handmade-eyelash'
     },
     {
+      id: 'lashes-black-red',
+      name: 'Black Red Accent Wispy False Eyelashes',
+      description: 'Bold black wispy lashes featuring striking red accents. Handcrafted for a dramatic, high-fashion statement that stands out.',
+      price: 19.99,
+      category: 'Beauty',
+      image: PlaceHolderImages.find(p => p.id === 'lashes_black_red')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a3636fc6-c875-4c8d-85e4-314c523aef8a.png?alt=media&token=567f469f-3223-4585-b4d0-436a16cbb650",
+      imageHint: 'red accent lashes',
+      link: 'https://www.etsy.com/listing/4550044956/black-red-accent-wispy-false-eyelashes'
+    },
+    {
       id: 'lashes-forest-green',
       name: 'Forest Green Fake Eyelashes - Wispy',
       description: 'Bespoke, handcrafted wispy eyelashes in a deep forest green. Perfect for adding a unique, high-fashion touch.',
