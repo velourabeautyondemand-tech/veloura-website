@@ -46,6 +46,16 @@ export default function StorePage() {
       link: 'https://www.etsy.com/listing/4547845649/japanese-steam-eye-mask-rose-scent'
     },
     {
+      id: 'lashes-natural-10pairs',
+      name: 'Natural fake Eyelashes: Everyday Wear, Bridal Glamour eyelashes extension- 10 Pairs',
+      description: 'Handmade, high-quality natural lashes perfect for everyday wear or bridal elegance. This value pack includes 10 pairs of soft, wispy extensions.',
+      price: 19.99,
+      category: 'Beauty',
+      image: PlaceHolderImages.find(p => p.id === 'lashes_natural_10pairs')?.imageUrl || "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.7211702176_lpdj.webp?alt=media&token=36cb11a7-d5b8-4ffc-ac6f-9006f791e924",
+      imageHint: 'natural lashes',
+      link: 'https://www.etsy.com/listing/1743477091/handmade-natural-false-eyelashes'
+    },
+    {
       id: 'lashes-715',
       name: '715 Airy Wispy Feather Handmade Eyelash',
       description: 'Premium feathered volume lashes for a dramatic doll-eye effect. Lightweight, airy, and handcrafted for superior quality.',

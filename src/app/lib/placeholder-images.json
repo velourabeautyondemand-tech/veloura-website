@@ -10,7 +10,7 @@
     {
       "id": "service_2",
       "description": "Gel Manicure",
-      "imageUrl": "https://images.unsplash.com/photo-1693776528358-57530ad993ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnZWwlMjBuYWlsc3xlbnwwfHx8fDE3NTk1MDkzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693776528358-57530ad993ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnZWwlMjBuYWlsc3xlbnwwfHx8fDE3NTk1MDkzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "gel nails"
     },
     {
@@ -70,7 +70,7 @@
     {
       "id": "makeup_3",
       "description": "Bridal Makeup",
-      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMG1ha2V1cHxlbnwwfHx8fDE2NjY2MTc1Mzh8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMG1ha2V1cHxlbnwwfHx8fDE2NjY2MTc1Mzh8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "bridal makeup"
     },
     {
@@ -136,7 +136,7 @@
     {
       "id": "waxing",
       "description": "Waxing service",
-      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leg waxing"
     },
     {
@@ -360,6 +360,12 @@
       "description": "Black Red Accent Wispy False Eyelashes",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a3636fc6-c875-4c8d-85e4-314c523aef8a.png?alt=media&token=567f469f-3223-4585-b4d0-436a16cbb650",
       "imageHint": "red accent lashes"
+    },
+    {
+      "id": "lashes_natural_10pairs",
+      "description": "Natural fake Eyelashes: Everyday Wear, Bridal Glamour - 10 Pairs",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/il_fullxfull.7211702176_lpdj.webp?alt=media&token=36cb11a7-d5b8-46ff-8260-b91c44f511d3",
+      "imageHint": "natural eyelashes"
     }
   ]
 }
