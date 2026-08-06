@@ -31,7 +31,7 @@ const storeItems = [
     description: 'The ultimate pre-makeup essential. Deeply hydrates and refreshes the delicate eye area for a radiant, prepared glow.',
     price: 2.99,
     category: 'Self-Care',
-    image: "https://images.unsplash.com/photo-1596495944321-4d3f27477611?q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1596496057842-5363e75f5b59?q=80&w=1080",
     imageHint: 'lavender',
     link: 'https://www.etsy.com/your/shops/me/listing-editor/edit/4547862207'
   },
@@ -51,7 +51,7 @@ const storeItems = [
     description: 'Bespoke, handcrafted wispy eyelashes in a deep forest green. Perfect for adding a unique, high-fashion touch to your look.',
     price: 6.99,
     category: 'Beauty',
-    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/b29f13e6-3b18-451e-acc3-820dfebcdfe8.png?alt=media",
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/b29f13e6-3b18-451e-acc3-820dfebcdfe8.png?alt=media&token=e9f79bb1-140d-48d3-9ef2-fab162fdbc41",
     imageHint: 'green eyelashes',
     link: 'https://www.etsy.com/listing/4550694042/forest-green-fake-eyelashes-wispy',
     isLastOne: true
@@ -86,6 +86,9 @@ export default function StorePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <title>Luxury Beauty Gear & Gifts: Self-Care & Eyelashes</title>
+      <meta name="description" content="Shop VÉLOURA’s Etsy boutique for curated beauty gear, lashes, and self-care essentials. Secure checkout, fast shipping—browse the collection now." />
+      <link rel="canonical" href="https://velourabeautyondemand.com/store" />
       <Script
         id="store-schema"
         type="application/ld+json"
