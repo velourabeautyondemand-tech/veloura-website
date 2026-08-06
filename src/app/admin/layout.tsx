@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -14,7 +15,7 @@ import {
   SidebarInset,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut, User, Bell } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, CreditCard, BarChart3, Settings, LogOut, User, Bell, ShoppingBag } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NailIcon } from "@/components/shared/logo";
 import { useAuth, useUser, useDoc, useFirestore, useMemoFirebase, useCollection } from "@/firebase";
@@ -26,6 +27,7 @@ import { doc, collection, query, where } from 'firebase/firestore';
 const adminNavItems = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
     { href: "/admin/applications", label: "Applications", icon: Users, notificationKey: "pendingApplications" },
+    { href: "/admin/product-inquiries", label: "Restock Requests", icon: ShoppingBag },
     { href: "/admin/bookings", label: "Bookings", icon: BookOpen },
     { href: "/admin/subscribers", label: "Subscribers", icon: Bell },
     { href: "/admin/payments", label: "Payments", icon: CreditCard },
