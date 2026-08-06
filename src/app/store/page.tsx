@@ -19,9 +19,9 @@ const storeItems = [
     description: 'The ultimate pre-makeup essential. Deeply hydrates and refreshes the delicate eye area for a radiant, prepared glow.',
     price: 2.99,
     category: 'Self-Care',
-    image: "https://images.unsplash.com/photo-1596496057842-5363e75f5b59?q=80&w=1080",
-    imageHint: 'lavender mask',
-    link: 'https://www.etsy.com/your/shops/me/listing-editor/edit/4547862207'
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/ChatGPT%20Image%20Aug%201%2C%202026%2C%2002_50_29%20PM.png?alt=media&token=9dabb713-2691-4d4b-b4d9-1962339a8980",
+    imageHint: 'eye mask',
+    link: 'https://www.etsy.com/listing/4547862207/glow-starts-before-the-makeup-deep'
   },
   {
     id: 'eye-mask-bliss',
