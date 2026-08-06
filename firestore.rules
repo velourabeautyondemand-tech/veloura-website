@@ -24,8 +24,6 @@ service cloud.firestore {
 
     match /blogPosts/{slug} {
       allow get, list: if true;
-      // Allow write for the CMS sync webhooks. 
-      // In production, consider using Firebase Admin SDK or a specific service user.
       allow write: if true; 
     }
 
@@ -44,7 +42,6 @@ service cloud.firestore {
 
     match /webhook_logs/{logId} {
         allow read: if isAdmin();
-        // Allow the webhook handlers to log activity
         allow write: if true; 
     }
 
@@ -94,6 +91,12 @@ service cloud.firestore {
         allow create: if true;
         allow update: if false;
         allow delete: if isAdmin();
+    }
+
+    match /product_inquiries/{inquiryId} {
+        allow get, list: if isAdmin();
+        allow create: if true;
+        allow update, delete: if isAdmin();
     }
   }
 }
