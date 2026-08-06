@@ -70,9 +70,9 @@ const storeItems = [
     description: 'Ultra-soft band lashes with a sophisticated cat eye sweep. Perfect for a seamless, comfortable all-day wear.',
     price: 19.99,
     category: 'Beauty',
-    image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1080",
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5",
     imageHint: 'soft lashes',
-    link: 'https://www.etsy.com/listing/4547862207'
+    link: 'https://www.etsy.com/listing/4547689859/a03-soft-band-cat-eye-false-lashes?ls=r&sr_prefetch=1&pf_from=shop_home&ref=items-pagination-5&content_source=deacb997de09ebc43df1e142a1cff129%253ALTe05ba5d038778914fd2e3331f7d0a837cd21f4e4&logging_key=deacb997de09ebc43df1e142a1cff129%3ALTe05ba5d038778914fd2e3331f7d0a837cd21f4e4'
   },
   {
     id: 'wax-heater',

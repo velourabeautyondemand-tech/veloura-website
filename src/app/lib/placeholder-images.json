@@ -44,6 +44,18 @@
       "imageHint": "foot spa"
     },
     {
+      "id": "service_spa_mani",
+      "description": "Spa Manicure with hot towels",
+      "imageUrl": "https://images.unsplash.com/photo-1700760933910-d3c03aa18b65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcGElMjBtYW5pY3VyZXxlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spa manicure"
+    },
+    {
+      "id": "service_spa_pedi",
+      "description": "Spa Pedicure with hot towels",
+      "imageUrl": "https://images.unsplash.com/photo-1537725052-6cbbab31db1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzcGElMjBwZWRpY3VyZXxlbnwwfHx8fDE3NjE0NTQ0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spa pedicure"
+    },
+    {
       "id": "makeup_1",
       "description": "Natural Makeup",
       "imageUrl": "https://images.unsplash.com/photo-1596496057842-5363e75f5b59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEwfHxuYXR1cmFsJTIwbWFrZXVwfGVufDB8fHx8MTY3MjAwMzA1NXww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -62,6 +74,24 @@
       "imageHint": "bridal makeup"
     },
     {
+      "id": "makeup_4",
+      "description": "Makeup Trial",
+      "imageUrl": "https://images.unsplash.com/photo-1552693673-1bf25c79b359?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEyfHxtYWtldXAlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE2NzIwMDMwNDB8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "makeup application"
+    },
+    {
+      "id": "makeup_5",
+      "description": "Bridesmaids Makeup",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzfGVufDB8fHx8MTY2NjYxNzU3M3ww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridesmaids"
+    },
+    {
+      "id": "makeup_6",
+      "description": "Bridal on-site",
+      "imageUrl": "https://images.unsplash.com/photo-1597873496053-10df3a4c36531?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDZ8fGJyaWRhbCUyMGdldHRpbmclMjByZWFkeXxlbnwwfHx8fDE2NzIwMDMxMjF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridal getting ready"
+    },
+    {
       "id": "hair_1",
       "description": "Hair Blowout",
       "imageUrl": "https://images.unsplash.com/photo-1620021944546-2592a8239d57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDEwfHxoYWlyJTIwYmxvd291dHxlbnwwfHx8fDE2NzIwMDMyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080",
@@ -74,22 +104,208 @@
       "imageHint": "hair updo"
     },
     {
+      "id": "hair_3",
+      "description": "Bridal Hair",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGhhaXJ8ZW58MHx8fHwxNjY2NjE3NjA3fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridal hair"
+    },
+    {
+      "id": "hair_4",
+      "description": "Hair Trial",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "woman face"
+    },
+    {
+      "id": "facial_hydrating",
+      "description": "Hydrating Facial",
+      "imageUrl": "https://images.unsplash.com/photo-1670201203208-055d6d79db4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoeWRyYXRpbmclMjBmYWNpYWx8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hydrating facial"
+    },
+    {
+      "id": "facial_cleansing",
+      "description": "Deep Cleansing Facial",
+      "imageUrl": "https://images.unsplash.com/photo-1762411746871-7e90cae55f9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xlYW5zaW5nJTIwZmFjaWFsfGVufDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cleansing facial"
+    },
+    {
+      "id": "facial_anti_aging",
+      "description": "Anti-Aging Facial",
+      "imageUrl": "https://images.unsplash.com/photo-1761718210089-ba3bb5ccb54f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhbnRpLWFnaW5nJTIwZmFjaWFsfGVufDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "anti-aging facial"
+    },
+    {
+      "id": "waxing",
+      "description": "Waxing service",
+      "imageUrl": "https://images.unsplash.com/photo-1695044063262-ad2a4837f287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsZWclMjB3YXhpbmd8ZW58MHx8fHwxNzY0NjU5NDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leg waxing"
+    },
+    {
+      "id": "brows_microblading",
+      "description": "Brows & Microblading",
+      "imageUrl": "https://images.unsplash.com/photo-1716833322888-9c6e7549fa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxleWVicm93JTIwbWljcm9ibGFkaW5nfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eyebrow microblading"
+    },
+    {
+      "id": "lashes_classic",
+      "description": "Classic Lash Extensions",
+      "imageUrl": "https://images.unsplash.com/photo-1735151226446-1d364b4adc2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxleWVsYXNoJTIwZXh0ZW5zaW9uc3xlbnwwfHx8fDE3NjQ2MjU0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eyelash extensions"
+    },
+    {
+      "id": "lashes_refill",
+      "description": "Lash Refill",
+      "imageUrl": "https://images.unsplash.com/photo-1644903751036-adeda377f28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxleWVsYXNoJTIwcmVmaWxsfGVufDB8fHx8MTc2NDY1OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eyelash refill"
+    },
+    {
+      "id": "hair_5",
+      "description": "Bridesmaids Hairstyling",
+      "imageUrl": "https://images.unsplash.com/photo-1567150033104-5dade31de236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDJ8fGJyaWRlc21haWRzJTIwaGFpcnN0eWxpbmd8ZW58MHx8fHwxNjc3MDIyNTM5fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridesmaids hairstyling"
+    },
+    {
+      "id": "vip_1",
+      "description": "Glam Essentials Package (Makeup & Hair)",
+      "imageUrl": "https://images.unsplash.com/photo-1620022240599-4c1d4869e5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDEyfHxoYWlyJTIwbWFrZXVwJTIwY29tYm98ZW58MHx8fHwxNjY2NjE3NzAxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "hair makeup combo"
+    },
+    {
+      "id": "vip_2",
+      "description": "Wedding/Fashion Shows/Events (Makeup & Hair)",
+      "imageUrl": "https://images.unsplash.com/photo-1595792383563-d34505498a39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3zNzYyOXwwfDF8c2VhcmNofDV8fGZhc2hpb24lMjBzaG93JTIwbWFrZXVwfGVufDB8fHx8MTY2NjYxNzcyOHww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "fashion show makeup"
+    },
+    {
+      "id": "vip_3",
+      "description": "Wedding/Fashion Shows/Events Day Package (Makeup, Hair & Nails)",
+      "imageUrl": "https://images.unsplash.com/photo-1595982248316-52de80608518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDF8fGJyaWRhbCUyMGJlYXV0eXxlbnwwfHx8fDE2NjY2MTc3NDdfMA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "bridal beauty"
+    },
+    {
+      "id": "photo_1",
+      "description": "Event Photography",
+      "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxldmVudCUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event photography"
+    },
+    {
+      "id": "photo_2",
+      "description": "Portrait Session",
+      "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3R0cmFpdCUyMHBob3RvZ3JhcGh5fDB8fHx8MTc2NDYyNTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait photography"
+    },
+    {
+      "id": "photo_3",
+      "description": "Glamour Shoot",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnbGFtb3VyJTIwc2hvb3R8ZW58MHx8fHwxNzY0NjI1NDcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glamour shoot"
+    },
+    {
+      "id": "tech_avatar_1",
+      "description": "Avatar for Jessica",
+      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "tech_avatar_2",
+      "description": "Avatar for Maria",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfH3b21hbiUyMHNtaWxpbmd8ZW58MHx8fDE3NTk1NDgyA9fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "tech_avatar_3",
+      "description": "Avatar for Chloe",
+      "imageUrl": "https://images.unsplash.com/photo-1616002411355-49593fd89721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzYyOXwwfDF8c2VhcmNofDZ8fHdvbWFuJTIwZmFjZXxlbnwwfHx8fDE2NjY2MjMyNzF8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "woman face"
+    },
+    {
+      "id": "tech_avatar_4",
+      "description": "Avatar for Ben",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3RcmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "tech_avatar_5",
+      "description": "Avatar for Sarah",
+      "imageUrl": "https://images.unsplash.com/photo-1614436201459-156d322d38c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbWlsaW5nJTIwd29tYW58ZW58MHx8fHwxNzU5NTExMjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling woman"
+    },
+    {
       "id": "founder_photo",
       "description": "VÉLOURA Founder",
       "imageUrl": "https://i.imgur.com/wjTMG9D.png",
       "imageHint": "woman portrait"
     },
     {
+      "id": "team_roxanne",
+      "description": "Roxanne Resma - Operations Director",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800",
+      "imageHint": "operations director"
+    },
+    {
+      "id": "team_rini",
+      "description": "Rini Sugianto - Media Lead",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800",
+      "imageHint": "media professional"
+    },
+    {
+      "id": "event_hero",
+      "description": "VÉLOURA New York Team",
+      "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop",
+      "imageHint": "new york team"
+    },
+    {
+      "id": "west_palm_team",
+      "description": "VÉLOURA West Palm Beach Team",
+      "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600&auto=format&fit=crop",
+      "imageHint": "west palm team"
+    },
+    {
+      "id": "magazine_feature",
+      "description": "Global Woman Magazine Feature",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800",
+      "imageHint": "magazine cover"
+    },
+    {
+      "id": "agency_hero",
+      "description": "VÉLOURA Talent Agency Roster",
+      "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200",
+      "imageHint": "creative talent"
+    },
+    {
+      "id": "agency_showcase_1",
+      "description": "High Fashion Editorial",
+      "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600",
+      "imageHint": "fashion photography"
+    },
+    {
+      "id": "agency_showcase_2",
+      "description": "Luxury Editorial",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600",
+      "imageHint": "luxury editorial"
+    },
+    {
+      "id": "team_group_photo",
+      "description": "VÉLOURA Team Photo",
+      "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200",
+      "imageHint": "team group"
+    },
+    {
+      "id": "silent_beacon_logo",
+      "description": "Silent Beacon logo",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/Veloura%20NEw%20Logo.png?alt=media&token=e5b06483-4af8-4051-a21d-704398c3966c",
+      "imageHint": "silent beacon"
+    },
+    {
+      "id": "join_team_banner",
+      "description": "Join Our Team Banner",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1664882424626-f2f4cb557527?q=80&w=1170&auto=format&fit=crop",
+      "imageHint": "team recruitment"
+    },
+    {
       "id": "lashes_forest_green",
       "description": "Forest Green Fake Eyelashes - Wispy",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/b29f13e6-3b18-451e-acc3-820dfebcdfe8.png?alt=media&token=e9f79bb1-140d-48d3-9ef2-fab162fdbc41",
       "imageHint": "green eyelashes"
-    },
-    {
-      "id": "lashes_a13",
-      "description": "A13 Wispy Cat Eye Fake Eyelashes",
-      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99",
-      "imageHint": "a13 lashes"
     },
     {
       "id": "wax_heater_pink",
@@ -102,6 +318,18 @@
       "description": "Popsicle Hard Wax Bar (100g)",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20PRE-ORDER%20_%20Ice%20Cream%20Hard%20Wax%20Bar%20(100g).png?alt=media&token=dc84810b-5833-45e4-99df-673003279f01",
       "imageHint": "hard wax"
+    },
+    {
+      "id": "lashes_a13",
+      "description": "A13 Wispy Cat Eye Fake Eyelashes",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/7d693407-9ff8-475d-9793-3a787d390aa7.png?alt=media&token=00c2722e-ceb4-4a3c-aff5-7e85a6d52c99",
+      "imageHint": "a13 lashes"
+    },
+    {
+      "id": "lashes_a03",
+      "description": "A03 Soft Band Cat Eye False Lashes",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/a96af003-bd2c-4211-a443-7f7580ec25b7.png?alt=media&token=205749b0-61d4-4816-997b-02c56586d6f5",
+      "imageHint": "soft lashes"
     }
   ]
 }
