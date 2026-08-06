@@ -5,9 +5,8 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShoppingBag, ArrowRight, ExternalLink, AlertCircle } from 'lucide-react';
+import { ShoppingBag, ExternalLink, AlertCircle } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import Script from 'next/script';
 import { Badge } from '@/components/ui/badge';
 
@@ -81,8 +80,8 @@ const storeItems = [
     description: 'The ultimate travel companion for beauty professionals. Precise temperature control in a stylish pink finish.',
     price: 39.99,
     category: 'Equipment',
-    image: "https://images.unsplash.com/photo-1552693673-1bf25c79b359?q=80&w=1080",
-    imageHint: 'wax heater',
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/AI%20image%20ad%20for%20Mini-Travel%20Wax%20Heater%20(1).png?alt=media&token=e7237c20-2630-4e54-96f9-badedf6ba93c",
+    imageHint: 'pink wax heater',
     link: 'https://www.etsy.com/listing/4547862207'
   },
   {
