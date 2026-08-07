@@ -1,4 +1,3 @@
-
 import { notFound } from 'next/navigation';
 import { getSEONodeBySlug, getAllPublishedSEONodes } from '@/lib/seo-marketplace';
 import Header from '@/components/shared/header';
@@ -6,9 +5,21 @@ import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Heart, ShieldCheck, ArrowRight, Wand2, CheckCircle2, ChevronRight, Smartphone } from 'lucide-react';
+import { 
+  Heart, 
+  ShieldCheck, 
+  ArrowRight, 
+  Wand2, 
+  CheckCircle2, 
+  ChevronRight, 
+  Smartphone,
+  Scissors,
+  HandHeart,
+  Sparkles
+} from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Script from 'next/script';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -51,22 +62,52 @@ export default async function SolutionHubPage({ params }: Props) {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://velourabeautyondemand.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://velourabeautyondemand.com/solutions" },
+          { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://velourabeautyondemand.com/services" },
           { "@type": "ListItem", "position": 3, "name": node.content.h1 }
         ]
       },
       {
         "@type": "WebPage",
+        "@id": `https://velourabeautyondemand.com/solutions/${node.slug}`,
         "name": node.content.h1,
         "description": node.metadata.description,
         "publisher": { "@id": "https://velourabeautyondemand.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": node.content.faqs.map(f => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": f.a
+          }
+        }))
+      },
+      {
+        "@type": "CollectionPage",
+        "name": node.displayName,
+        "description": node.metadata.description,
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Hair Styling", "url": "https://velourabeautyondemand.com/services/hair" },
+            { "@type": "ListItem", "position": 2, "name": "Nail Services", "url": "https://velourabeautyondemand.com/services/nails" },
+            { "@type": "ListItem", "position": 3, "name": "Skincare & Facials", "url": "https://velourabeautyondemand.com/services/skincare" },
+            { "@type": "ListItem", "position": 4, "name": "Senior Care", "url": "https://velourabeautyondemand.com/services/senior-care" }
+          ]
+        }
       }
     ]
   };
 
   return (
     <div className="flex flex-col min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Script
+        id="solution-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="flex-1">
          {/* Breadcrumbs */}
@@ -77,7 +118,7 @@ export default async function SolutionHubPage({ params }: Props) {
                     <ChevronRight className="w-3 h-3" />
                     <span className="text-foreground/40">Solutions</span>
                     <ChevronRight className="w-3 h-3" />
-                    <span className="text-primary">{node.slug.replace('-', ' ')}</span>
+                    <span className="text-primary">{node.slug.replace(/-/g, ' ')}</span>
                 </nav>
             </div>
         </div>
@@ -86,18 +127,21 @@ export default async function SolutionHubPage({ params }: Props) {
           <div className="container mx-auto px-4 text-center">
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 uppercase tracking-widest">
               <Heart className="w-4 h-4" />
-              <span>Personalized Beauty Solution</span>
+              <span>{node.displayCategory}</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold font-headline mb-6 tracking-tight">{node.content.h1}</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">{node.content.intro}</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">{node.content.intro}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" className="h-14 px-10 text-lg font-bold rounded-full shadow-lg">
-                <Link href={node.cta.href}>{node.cta.label}</Link>
-              </Button>
-               <Button asChild size="lg" variant="outline" className="h-14 px-10 text-lg font-bold rounded-full">
                 <Link href="/book" className="flex items-center gap-2">
                    <Smartphone className="w-5 h-5" />
                    Download the App
+                </Link>
+              </Button>
+               <Button asChild size="lg" variant="outline" className="h-14 px-10 text-lg font-bold rounded-full bg-white/80">
+                <Link href="/match" className="flex items-center gap-2">
+                   <Wand2 className="w-5 h-5 text-primary" />
+                   AI Concierge Match
                 </Link>
               </Button>
             </div>
@@ -127,7 +171,7 @@ export default async function SolutionHubPage({ params }: Props) {
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="p-8 space-y-4">
-                    <p className="text-muted-foreground italic">"We believe that beauty services are essential to dignity, routine, and emotional well-being."</p>
+                    <p className="text-muted-foreground italic">"We believe that beauty services are essential to dignity, routine, and emotional well-being, especially during times of healing."</p>
                     <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-sm font-medium text-foreground"><CheckCircle2 className="text-primary w-5 h-5" /> Background-checked professionals</li>
                         <li className="flex items-center gap-3 text-sm font-medium text-foreground"><CheckCircle2 className="text-primary w-5 h-5" /> Experience with mobility-limited clients</li>
@@ -136,13 +180,33 @@ export default async function SolutionHubPage({ params }: Props) {
                 </CardContent>
             </Card>
 
+            <div className="mt-20 mb-20 space-y-12">
+                <h2 className="text-3xl font-bold font-headline text-center">Gentle Services for Your Sanctuary</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {[
+                        { name: 'Hair Styling', href: '/services/hair', icon: Scissors, desc: 'Gentle blowouts & styling' },
+                        { name: 'Nail Services', href: '/services/nails', icon: HandHeart, desc: 'Restorative manis & pedis' },
+                        { name: 'Skincare', href: '/services/skincare', icon: Sparkles, desc: 'Hydrating, gentle facials' },
+                        { name: 'Senior Care', href: '/services/senior-care', icon: Heart, desc: 'Patient, empathetic grooming' },
+                    ].map((s) => (
+                        <Link key={s.name} href={s.href} className="group p-6 bg-card border rounded-2xl hover:border-primary transition-all text-center flex flex-col">
+                            <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                <s.icon className="w-6 h-6 text-primary" />
+                            </div>
+                            <h3 className="font-bold text-lg mb-1">{s.name}</h3>
+                            <p className="text-xs text-muted-foreground mt-auto">{s.desc}</p>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
             <div className="space-y-8">
               <h2 className="text-3xl font-bold font-headline text-center">Frequently Asked Questions</h2>
               <Accordion type="single" collapsible className="bg-card border rounded-xl px-6">
                 {node.content.faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
                     <AccordionTrigger className="text-left font-bold">{faq.q}</AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">{faq.a}</AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
@@ -153,13 +217,16 @@ export default async function SolutionHubPage({ params }: Props) {
         <section className="py-20 bg-secondary/50 text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-5xl font-bold font-headline mb-6">Restoring Routine & Confidence</h2>
-            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">Discuss a personalized professional beauty plan for your loved one or yourself.</p>
+            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">Discuss a personalized professional beauty plan for your recovery or for a loved one.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
                  <Button asChild size="lg" className="h-14 px-12 text-lg font-bold rounded-full">
                     <Link href="/contact">Contact Our Team</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="h-14 px-12 text-lg font-bold rounded-full border-primary text-primary">
-                    <Link href="/book">Find Beauty Professionals in the App</Link>
+                <Button asChild size="lg" variant="outline" className="h-14 px-12 text-lg font-bold rounded-full border-primary text-primary bg-white">
+                    <Link href="/match" className="flex items-center gap-2">
+                       <Wand2 className="w-5 h-5" />
+                       Try AI Concierge
+                    </Link>
                 </Button>
             </div>
           </div>

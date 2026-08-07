@@ -75,6 +75,28 @@ export const SEO_MARKETPLACE_NODES: SEONode[] = [
     },
     cta: { label: 'Explore Nails', href: '/services/nails' }
   },
+  {
+    id: 'service-skincare',
+    type: 'service',
+    slug: 'skincare',
+    displayName: 'Skincare & Facials',
+    shortDescription: 'Expert estheticians providing glow-inducing treatments at home.',
+    displayCategory: 'Beauty Essentials',
+    filterCategory: 'beauty',
+    iconName: 'Sparkles',
+    isPublished: true,
+    metadata: {
+      title: 'Mobile Skincare & Facials | At-Home Esthetician Services | VÉLOURA',
+      description: 'Professional skincare and facials delivered to your home or hotel. Licensed estheticians for glow-inducing treatments.',
+    },
+    content: {
+      h1: 'Mobile Skin Wellness & Hydrating Facials',
+      intro: 'Achieve radiant skin without the stress of travel. Our licensed estheticians provide hydrating, deep-cleansing, and anti-aging facials using professional-grade products.',
+      howItWorks: [],
+      faqs: []
+    },
+    cta: { label: 'Explore Skincare', href: '/services/skincare' }
+  },
   // SPECIAL OCCASIONS
   {
     id: 'occasion-weddings',
@@ -195,9 +217,39 @@ export const SEO_MARKETPLACE_NODES: SEONode[] = [
       ],
       faqs: [
         { q: 'Are the products safe for sensitive skin?', a: 'Yes, our pros prioritize fragrance-free and gentle formulas for mature skin.' },
-        { q: 'Can you provide services in assisted living?', a: 'Yes, we visit private homes, assisted living, and retirement communities.' }
+        { q: 'Can you provide services in assisted living?', a: 'Yes, we can visit private homes, assisted living, and retirement communities.' }
       ]
     },
     cta: { label: 'Senior Care Hub', href: '/services/senior-care' }
+  },
+  {
+    id: 'solution-recovery',
+    type: 'solution',
+    slug: 'post-surgery-recovery',
+    displayName: 'Recovery & Wellness',
+    shortDescription: 'Gentle beauty services brought to you during recovery, injury, or postpartum.',
+    displayCategory: 'Recovery & Wellness',
+    filterCategory: 'solution',
+    iconName: 'Heart',
+    isPublished: true,
+    metadata: {
+      title: 'Post-Surgery & Injury Recovery Beauty Services | VÉLOURA Home Care',
+      description: 'Professional home beauty services for those recovering from surgery, injury, or childbirth. Gentle hair, nail, and skincare delivered to your door.',
+    },
+    content: {
+      h1: 'Recovery & Wellness: Beauty for Your Sanctuary',
+      intro: 'When movement is limited, self-care shouldn’t be. Whether you are recovering from a scheduled procedure, navigating an injury, or adjusting to life with a newborn, VÉLOURA brings professional beauty services to your home. We focus on restoring comfort and confidence while you focus on healing.',
+      howItWorks: [
+        { title: 'Gentle Match', text: 'Use our app or AI concierge to find a professional experienced in gentle, mobile care.' },
+        { title: 'Prepared Space', text: 'We work around your recovery setup—whether that is a chair, a bed, or a favorite sofa.' },
+        { title: 'Restorative Care', text: 'Enjoy a professional treatment designed to help you feel refreshed and like yourself again.' }
+      ],
+      faqs: [
+        { q: 'Can you work around recovery equipment?', a: 'Yes, our professionals are accustomed to mobile environments and can adapt to your comfort requirements.' },
+        { q: 'Are services available immediately after surgery?', a: 'We recommend checking with your healthcare provider to ensure you are ready for a relaxation or grooming visit.' },
+        { q: 'Can I book for a friend who is recovering?', a: 'Absolutely. Many clients book VÉLOURA as a thoughtful gift for friends or family members during their recovery.' }
+      ]
+    },
+    cta: { label: 'Explore Recovery Services', href: '/solutions/post-surgery-recovery' }
   }
 ];
