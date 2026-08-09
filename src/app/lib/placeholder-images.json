@@ -274,13 +274,13 @@
     {
       "id": "agency_showcase_1",
       "description": "High Fashion Editorial",
-      "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/michael-lee-5Z9bgfRZLLE-unsplash.jpg?alt=media&token=bde3c3ac-82f9-4b0a-b300-868b8ad8dd48",
       "imageHint": "fashion photography"
     },
     {
       "id": "agency_showcase_2",
       "description": "Luxury Editorial",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/studio-8096841563-8bcb9.firebasestorage.app/o/michael-lee-5Z9bgfRZLLE-unsplash.jpg?alt=media&token=bde3c3ac-82f9-4b0a-b300-868b8ad8dd48",
       "imageHint": "luxury editorial"
     },
     {
