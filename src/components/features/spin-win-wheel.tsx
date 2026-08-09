@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -153,7 +152,7 @@ export function SpinWinWheel() {
     setRotation(finalRotation);
 
     setTimeout(() => {
-      // The prize is determined by where the pointer (top center) lands
+      // The prize is determined by where the pointer (top center landed) lands
       // We calculate the prize index based on the final rotation offset
       const actualPrize = prizes[(prizes.length - (prizeIndex % prizes.length)) % prizes.length];
       setResult(actualPrize);
@@ -270,9 +269,9 @@ export function SpinWinWheel() {
             <div className="relative w-64 h-64 md:w-80 md:h-80 pt-10">
                {/* High-Visibility Prize Pointer - Positioned absolutely at top center */}
                <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[110] drop-shadow-xl">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 48L44.7846 12H3.21539L24 48Z" fill="white" stroke="#fb5185" strokeWidth="2"/>
-                    <path d="M24 40L37.8564 16H10.1436L24 40Z" fill="#fb5185" />
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 64L58 16H6L32 64Z" fill="white" stroke="#fb5185" strokeWidth="3"/>
+                    <path d="M32 54L48 20H16L32 54Z" fill="#fb5185" />
                   </svg>
                </div>
                

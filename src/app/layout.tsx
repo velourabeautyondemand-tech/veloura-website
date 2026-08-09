@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -6,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { Poppins } from 'next/font/google';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 import { LanguageProvider } from '@/context/language-context';
+import { SpinWinWheel } from '@/components/features/spin-win-wheel';
 import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -112,6 +112,7 @@ export default function RootLayout({
         <LanguageProvider>
           <FirebaseClientProvider>
             {children}
+            <SpinWinWheel />
           </FirebaseClientProvider>
         </LanguageProvider>
         <Toaster />
