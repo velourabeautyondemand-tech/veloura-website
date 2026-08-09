@@ -84,7 +84,6 @@ export function SpinWinWheel() {
   const checkEligibility = async (email: string) => {
     if (!firestore) return { isEligible: true };
 
-    // 1. Check LocalStorage first (Fast)
     const localLastSpin = localStorage.getItem(`veloura_spin_${email}`);
     if (localLastSpin) {
       const nextEligible = addDays(new Date(localLastSpin), SPIN_LIMIT_DAYS);
@@ -93,26 +92,27 @@ export function SpinWinWheel() {
       }
     }
 
-    // 2. Server-side check (Reliable)
-    // Simplified query to avoid index requirement
     const q = query(
       collection(firestore, 'spin_records'),
       where('email', '==', email)
     );
 
-    const snapshot = await getDocs(q);
-    if (!snapshot.empty) {
-      // Find latest date manually on client to avoid composite index requirement
-      const records = snapshot.docs.map(doc => doc.data());
-      const sortedRecords = records.sort((a, b) => 
-        new Date(b.spinDate).getTime() - new Date(a.spinDate).getTime()
-      );
-      
-      const lastRecord = sortedRecords[0];
-      const nextEligible = new Date(lastRecord.nextEligibleSpinDate);
-      if (isAfter(nextEligible, new Date())) {
-        return { isEligible: false, nextDate: nextEligible };
-      }
+    try {
+        const snapshot = await getDocs(q);
+        if (!snapshot.empty) {
+          const records = snapshot.docs.map(doc => doc.data());
+          const sortedRecords = records.sort((a, b) => 
+            new Date(b.spinDate).getTime() - new Date(a.spinDate).getTime()
+          );
+          
+          const lastRecord = sortedRecords[0];
+          const nextEligible = new Date(lastRecord.nextEligibleSpinDate);
+          if (isAfter(nextEligible, new Date())) {
+            return { isEligible: false, nextDate: nextEligible };
+          }
+        }
+    } catch (e) {
+        console.error("Eligibility check error:", e);
     }
 
     return { isEligible: true };
@@ -187,19 +187,20 @@ export function SpinWinWheel() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button 
-          className="fixed bottom-6 right-6 z-[100] h-14 w-14 rounded-full shadow-2xl p-0 hover:scale-110 transition-transform bg-primary"
+          className="fixed bottom-6 right-6 z-[100] h-14 w-14 rounded-full shadow-2xl p-0 hover:scale-110 transition-transform bg-primary group"
           onClick={() => {
             setStep('email');
             setResult(null);
             setEligibility(null);
           }}
         >
-          <Gift className="h-6 w-6 text-white" />
+          <Gift className="h-6 w-6 text-white group-hover:animate-bounce" />
+          <span className="absolute -top-2 -right-2 bg-accent text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse shadow-sm">SPIN</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[460px] rounded-[2rem] overflow-hidden border-2 border-primary/20 bg-background">
+      <DialogContent className="sm:max-w-[480px] rounded-[2rem] overflow-hidden border-2 border-primary/20 bg-background">
         <DialogHeader className="text-center pt-4">
-          <DialogTitle className="text-3xl font-bold font-headline text-foreground">VÉLOURA Spin & Win</DialogTitle>
+          <DialogTitle className="text-3xl font-bold font-headline text-foreground tracking-tight">VÉLOURA Spin & Win</DialogTitle>
           <DialogDescription className="text-muted-foreground font-medium">
             Try your luck and win an elite beauty reward!
           </DialogDescription>
@@ -214,9 +215,9 @@ export function SpinWinWheel() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Enter your email to start</FormLabel>
+                      <FormLabel className="font-semibold">Enter your email to start</FormLabel>
                       <FormControl>
-                        <Input placeholder="jessica@example.com" {...field} className="h-12 text-lg rounded-xl" />
+                        <Input placeholder="jessica@example.com" {...field} className="h-12 text-lg rounded-xl border-primary/20 focus:border-primary" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -228,14 +229,14 @@ export function SpinWinWheel() {
                       One spin every 10 days. Save your prize and coupon code — you won't be able to spin again until your next eligible date.
                    </p>
                 </div>
-                <Button type="submit" className="w-full h-12 text-lg font-bold rounded-xl" disabled={form.formState.isSubmitting}>
-                  {form.formState.isSubmitting ? "Checking..." : "Check Eligibility"}
+                <Button type="submit" className="w-full h-12 text-lg font-bold rounded-xl shadow-md" disabled={form.formState.isSubmitting}>
+                  {form.formState.isSubmitting ? "Checking..." : "Enter to Spin"}
                 </Button>
               </form>
             </Form>
 
             {eligibility?.isEligible === false && (
-              <div className="bg-destructive/10 p-6 rounded-2xl border border-destructive/20 text-center animate-in fade-in slide-in-from-bottom-2">
+              <div className="bg-destructive/5 p-6 rounded-2xl border border-destructive/20 text-center animate-in fade-in slide-in-from-bottom-2">
                  <h4 className="font-bold text-destructive flex items-center justify-center gap-2 mb-2">
                     <Calendar className="h-4 w-4" /> Already Spun
                  </h4>
@@ -248,10 +249,11 @@ export function SpinWinWheel() {
         )}
 
         {step === 'wheel' && (
-          <div className="flex flex-col items-center py-8 space-y-10">
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-20 w-8 h-8">
-                  <div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[24px] border-t-primary drop-shadow-md" />
+          <div className="flex flex-col items-center py-10 space-y-10">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 pt-4">
+               {/* Prize Pointer (The Pin) */}
+               <div className="absolute top-2 left-1/2 -translate-x-1/2 z-30 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+                  <div className="w-0 h-0 border-l-[18px] border-l-transparent border-r-[18px] border-r-transparent border-t-[28px] border-t-white relative after:content-[''] after:absolute after:-top-[26px] after:-left-[14px] after:w-0 after:h-0 after:border-l-[14px] after:border-l-transparent after:border-r-[14px] after:border-r-transparent after:border-t-[22px] after:border-t-primary" />
                </div>
                
                <div 
@@ -275,15 +277,15 @@ export function SpinWinWheel() {
                         </div>
                     </div>
                   ))}
-                  <div className="absolute inset-0 m-auto w-12 h-12 bg-white rounded-full z-10 flex items-center justify-center shadow-lg border-2 border-primary/20">
-                     <Sparkles className="h-5 w-5 text-primary" />
+                  <div className="absolute inset-0 m-auto w-14 h-14 bg-white rounded-full z-10 flex items-center justify-center shadow-lg border-4 border-primary/10">
+                     <Sparkles className="h-6 w-6 text-primary" />
                   </div>
                </div>
             </div>
 
             <Button 
               size="lg" 
-              className="h-14 px-12 text-xl font-black rounded-full shadow-xl w-full animate-pulse" 
+              className="h-14 px-12 text-xl font-black rounded-full shadow-xl w-full animate-pulse tracking-widest bg-gradient-to-r from-primary to-accent" 
               onClick={handleSpin}
               disabled={isSpinning}
             >
@@ -295,8 +297,8 @@ export function SpinWinWheel() {
         {step === 'result' && result && (
           <div className="text-center py-6 space-y-8 animate-in zoom-in-95 duration-500">
              <div className="space-y-2">
-                <p className="text-sm font-bold uppercase tracking-widest text-primary">Result</p>
-                <h3 className="text-4xl font-black font-headline text-foreground">{result.label}</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-primary">Your Prize</p>
+                <h3 className="text-4xl font-black font-headline text-foreground leading-tight">{result.label}</h3>
              </div>
 
              {result.code ? (
@@ -304,21 +306,21 @@ export function SpinWinWheel() {
                   <div className="bg-secondary p-6 rounded-3xl border-2 border-primary/10 shadow-inner">
                     <p className="text-xs font-bold text-muted-foreground mb-3 uppercase">Your Exclusive Coupon Code</p>
                     <div className="flex items-center gap-2">
-                       <code className="flex-1 text-3xl font-black tracking-widest text-primary bg-white py-3 rounded-xl border-2 border-dashed border-primary/20">
+                       <code className="flex-1 text-3xl font-black tracking-widest text-primary bg-white py-3 rounded-xl border-2 border-dashed border-primary/20 select-all">
                           {result.code}
                        </code>
-                       <Button size="icon" variant="outline" className="h-14 w-14 shrink-0 rounded-xl" onClick={copyCode}>
+                       <Button size="icon" variant="outline" className="h-14 w-14 shrink-0 rounded-xl hover:bg-primary hover:text-white transition-colors" onClick={copyCode}>
                           {isCopied ? <Check className="h-6 w-6 text-green-500" /> : <Copy className="h-6 w-6" />}
                        </Button>
                     </div>
                     {result.label === 'Free Add-On' && (
-                       <p className="text-[10px] text-primary font-bold mt-4">Redeem this code at checkout for your complimentary upgrade!</p>
+                       <p className="text-[10px] text-primary font-bold mt-4 italic">Redeem this code at checkout for your complimentary upgrade!</p>
                     )}
                   </div>
                   <p className="text-xs text-muted-foreground italic">Don't forget to save this code. Your next spin is available in 10 days.</p>
                </div>
              ) : (
-               <div className="bg-muted p-8 rounded-3xl border border-muted-foreground/10">
+               <div className="bg-muted/50 p-8 rounded-3xl border border-muted-foreground/10">
                   <p className="text-lg font-medium text-muted-foreground leading-relaxed">
                     So close! No prize this time — come back in 10 days for another spin.
                   </p>
@@ -329,7 +331,7 @@ export function SpinWinWheel() {
                 <Button asChild size="lg" className="h-14 text-lg font-bold rounded-xl shadow-lg">
                    <Link href="/book">Book Your Beauty Service</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-14 text-lg font-bold rounded-xl border-primary text-primary">
+                <Button asChild variant="outline" size="lg" className="h-14 text-lg font-bold rounded-xl border-primary text-primary hover:bg-primary/5">
                    <Link href="/download-app" className="flex items-center gap-2">
                       <Smartphone className="h-5 w-5" />
                       Download VÉLOURA App
