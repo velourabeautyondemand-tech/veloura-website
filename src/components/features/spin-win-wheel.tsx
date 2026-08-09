@@ -24,10 +24,9 @@ import {
 } from '@/components/ui/form';
 import { useFirestore, useUser, addDocumentNonBlocking } from '@/firebase';
 import { collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore';
-import { Gift, Sparkles, AlertCircle, Copy, Check, Download, Calendar, Smartphone } from 'lucide-react';
+import { Gift, Sparkles, AlertCircle, Copy, Check, Calendar, Smartphone } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useToast } from '@/hooks/use-toast';
-import { cn } from '@/lib/utils';
 import { addDays, format, isAfter } from 'date-fns';
 import Link from 'next/link';
 
@@ -62,6 +61,26 @@ export function SpinWinWheel() {
     resolver: zodResolver(FormSchema),
     defaultValues: { email: '' },
   });
+
+  // Auto-popup logic
+  useEffect(() => {
+    const hasSeenThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
+    if (hasSeenThisSession) return;
+
+    const timer = setTimeout(() => {
+      // Check if they've spun recently globally before popping
+      const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
+      if (lastSpinGlobal) {
+        const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
+        if (isAfter(nextEligible, new Date())) return;
+      }
+
+      setIsOpen(true);
+      sessionStorage.setItem('veloura_spin_auto_opened', 'true');
+    }, 3000); // 3 second delay
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const checkEligibility = async (email: string) => {
     if (!firestore) return { isEligible: true };
@@ -129,12 +148,13 @@ export function SpinWinWheel() {
         });
       }
 
-      // Save to Firestore
+      // Save to Firestore & LocalStorage
       const email = form.getValues('email');
       const now = new Date();
       const nextEligible = addDays(now, SPIN_LIMIT_DAYS);
 
       localStorage.setItem(`veloura_spin_${email}`, now.toISOString());
+      localStorage.setItem('veloura_last_spin_timestamp', now.toISOString());
 
       if (firestore) {
         addDocumentNonBlocking(collection(firestore, 'spin_records'), {
