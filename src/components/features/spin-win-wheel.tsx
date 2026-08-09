@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -57,33 +58,45 @@ export function SpinWinWheel() {
   const [rotation, setRotation] = useState(0);
   const [step, setStep] = useState<'email' | 'wheel' | 'result'>('email');
 
+  const hasAttemptedAutoOpen = useRef(false);
+
   // Auto-popup logic
   useEffect(() => {
+    if (hasAttemptedAutoOpen.current) return;
+
+    const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
+    if (lastSpinGlobal) {
+      const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
+      if (isAfter(nextEligible, new Date())) return;
+    }
+
     const hasSeenThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
-    if (hasSeenThisSession) return;
-
-    const timer = setTimeout(() => {
-      const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
-      if (lastSpinGlobal) {
-        const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
-        if (isAfter(nextEligible, new Date())) return;
-      }
-
-      setIsOpen(true);
-      sessionStorage.setItem('veloura_spin_auto_opened', 'true');
-    }, 3000);
-
-    return () => clearTimeout(timer);
+    if (!hasSeenThisSession) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        sessionStorage.setItem('veloura_spin_auto_opened', 'true');
+        hasAttemptedAutoOpen.current = true;
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: { email: '' },
+    defaultValues: { email: user?.email || '' },
   });
+
+  // Sync email if user logs in while dialog is closed
+  useEffect(() => {
+    if (user?.email && !form.getValues('email')) {
+      form.setValue('email', user.email);
+    }
+  }, [user, form]);
 
   const checkEligibility = async (email: string) => {
     if (!firestore) return { isEligible: true };
 
+    // Quick local check
     const localLastSpin = localStorage.getItem(`veloura_spin_${email}`);
     if (localLastSpin) {
       const nextEligible = addDays(new Date(localLastSpin), SPIN_LIMIT_DAYS);
@@ -92,6 +105,7 @@ export function SpinWinWheel() {
       }
     }
 
+    // Firestore check (client-side sort to avoid index requirement)
     const q = query(
       collection(firestore, 'spin_records'),
       where('email', '==', email)
@@ -133,11 +147,14 @@ export function SpinWinWheel() {
     const extraSpins = 5 + Math.floor(Math.random() * 5);
     const prizeIndex = Math.floor(Math.random() * prizes.length);
     const segmentAngle = 360 / prizes.length;
+    // We target the prize by adding rotations
     const finalRotation = rotation + (extraSpins * 360) + (prizeIndex * segmentAngle);
 
     setRotation(finalRotation);
 
     setTimeout(() => {
+      // The prize is determined by where the pointer (top center) lands
+      // Because the wheel rotates clockwise, we calculate backwards from the top
       const actualPrize = prizes[(prizes.length - (prizeIndex % prizes.length)) % prizes.length];
       setResult(actualPrize);
       setIsSpinning(false);
@@ -250,10 +267,10 @@ export function SpinWinWheel() {
 
         {step === 'wheel' && (
           <div className="flex flex-col items-center py-10 space-y-10">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 pt-4">
-               {/* Prize Pointer (The Pin) */}
-               <div className="absolute top-2 left-1/2 -translate-x-1/2 z-30 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-                  <div className="w-0 h-0 border-l-[18px] border-l-transparent border-r-[18px] border-r-transparent border-t-[28px] border-t-white relative after:content-[''] after:absolute after:-top-[26px] after:-left-[14px] after:w-0 after:h-0 after:border-l-[14px] after:border-l-transparent after:border-r-[14px] after:border-r-transparent after:border-t-[22px] after:border-t-primary" />
+            <div className="relative w-64 h-64 md:w-80 md:h-80 pt-6">
+               {/* Prize Pointer (The Pin) - Redesigned for maximum visibility */}
+               <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)]">
+                  <div className="w-0 h-0 border-l-[22px] border-l-transparent border-r-[22px] border-r-transparent border-t-[34px] border-t-white relative after:content-[''] after:absolute after:-top-[32px] after:-left-[18px] after:w-0 after:h-0 after:border-l-[18px] after:border-l-transparent after:border-r-[18px] after:border-r-transparent after:border-t-[28px] after:border-t-primary" />
                </div>
                
                <div 
@@ -306,7 +323,7 @@ export function SpinWinWheel() {
                   <div className="bg-secondary p-6 rounded-3xl border-2 border-primary/10 shadow-inner">
                     <p className="text-xs font-bold text-muted-foreground mb-3 uppercase">Your Exclusive Coupon Code</p>
                     <div className="flex items-center gap-2">
-                       <code className="flex-1 text-3xl font-black tracking-widest text-primary bg-white py-3 rounded-xl border-2 border-dashed border-primary/20 select-all">
+                       <code className="flex-1 text-2xl md:text-3xl font-black tracking-widest text-primary bg-white py-3 rounded-xl border-2 border-dashed border-primary/20 select-all">
                           {result.code}
                        </code>
                        <Button size="icon" variant="outline" className="h-14 w-14 shrink-0 rounded-xl hover:bg-primary hover:text-white transition-colors" onClick={copyCode}>
