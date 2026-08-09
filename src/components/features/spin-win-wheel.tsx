@@ -23,11 +23,11 @@ import {
   FormMessage 
 } from '@/components/ui/form';
 import { useFirestore, useUser, addDocumentNonBlocking } from '@/firebase';
-import { collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { Gift, Sparkles, AlertCircle, Copy, Check, Calendar, Smartphone } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useToast } from '@/hooks/use-toast';
-import { addDays, format, isAfter } from 'date-fns';
+import { addDays, isAfter, format } from 'date-fns';
 import Link from 'next/link';
 
 const SPIN_LIMIT_DAYS = 10;
@@ -57,18 +57,12 @@ export function SpinWinWheel() {
   const [rotation, setRotation] = useState(0);
   const [step, setStep] = useState<'email' | 'wheel' | 'result'>('email');
 
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: { email: '' },
-  });
-
   // Auto-popup logic
   useEffect(() => {
     const hasSeenThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
     if (hasSeenThisSession) return;
 
     const timer = setTimeout(() => {
-      // Check if they've spun recently globally before popping
       const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
       if (lastSpinGlobal) {
         const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
@@ -77,15 +71,20 @@ export function SpinWinWheel() {
 
       setIsOpen(true);
       sessionStorage.setItem('veloura_spin_auto_opened', 'true');
-    }, 3000); // 3 second delay
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: { email: '' },
+  });
+
   const checkEligibility = async (email: string) => {
     if (!firestore) return { isEligible: true };
 
-    // Check LocalStorage first
+    // 1. Check LocalStorage first (Fast)
     const localLastSpin = localStorage.getItem(`veloura_spin_${email}`);
     if (localLastSpin) {
       const nextEligible = addDays(new Date(localLastSpin), SPIN_LIMIT_DAYS);
@@ -94,17 +93,22 @@ export function SpinWinWheel() {
       }
     }
 
-    // Server-side check
+    // 2. Server-side check (Reliable)
+    // Simplified query to avoid index requirement
     const q = query(
       collection(firestore, 'spin_records'),
-      where('email', '==', email),
-      orderBy('spinDate', 'desc'),
-      limit(1)
+      where('email', '==', email)
     );
 
     const snapshot = await getDocs(q);
     if (!snapshot.empty) {
-      const lastRecord = snapshot.docs[0].data();
+      // Find latest date manually on client to avoid composite index requirement
+      const records = snapshot.docs.map(doc => doc.data());
+      const sortedRecords = records.sort((a, b) => 
+        new Date(b.spinDate).getTime() - new Date(a.spinDate).getTime()
+      );
+      
+      const lastRecord = sortedRecords[0];
       const nextEligible = new Date(lastRecord.nextEligibleSpinDate);
       if (isAfter(nextEligible, new Date())) {
         return { isEligible: false, nextDate: nextEligible };
@@ -148,7 +152,6 @@ export function SpinWinWheel() {
         });
       }
 
-      // Save to Firestore & LocalStorage
       const email = form.getValues('email');
       const now = new Date();
       const nextEligible = addDays(now, SPIN_LIMIT_DAYS);
@@ -225,7 +228,9 @@ export function SpinWinWheel() {
                       One spin every 10 days. Save your prize and coupon code — you won't be able to spin again until your next eligible date.
                    </p>
                 </div>
-                <Button type="submit" className="w-full h-12 text-lg font-bold rounded-xl">Check Eligibility</Button>
+                <Button type="submit" className="w-full h-12 text-lg font-bold rounded-xl" disabled={form.formState.isSubmitting}>
+                  {form.formState.isSubmitting ? "Checking..." : "Check Eligibility"}
+                </Button>
               </form>
             </Form>
 
@@ -245,12 +250,10 @@ export function SpinWinWheel() {
         {step === 'wheel' && (
           <div className="flex flex-col items-center py-8 space-y-10">
             <div className="relative w-64 h-64 md:w-80 md:h-80">
-               {/* Arrow */}
                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-20 w-8 h-8">
                   <div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[24px] border-t-primary drop-shadow-md" />
                </div>
                
-               {/* The Wheel */}
                <div 
                  className="w-full h-full rounded-full border-8 border-white shadow-2xl relative overflow-hidden transition-transform duration-[4000ms] cubic-bezier(0.15, 0, 0.15, 1)"
                  style={{ transform: `rotate(${rotation}deg)` }}
@@ -272,7 +275,6 @@ export function SpinWinWheel() {
                         </div>
                     </div>
                   ))}
-                  {/* Inner center decoration */}
                   <div className="absolute inset-0 m-auto w-12 h-12 bg-white rounded-full z-10 flex items-center justify-center shadow-lg border-2 border-primary/20">
                      <Sparkles className="h-5 w-5 text-primary" />
                   </div>
