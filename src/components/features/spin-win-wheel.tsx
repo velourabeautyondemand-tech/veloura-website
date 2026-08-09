@@ -58,22 +58,19 @@ export function SpinWinWheel() {
   const [rotation, setRotation] = useState(0);
   const [step, setStep] = useState<'email' | 'wheel' | 'result'>('email');
 
-  // AGGRESSIVE AUTO-POPUP LOGIC
+  // Automatic entrance logic
   useEffect(() => {
-    // 1. Session check to avoid opening on every internal page load
     const hasAutoOpenedThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
     if (hasAutoOpenedThisSession) return;
 
-    // 2. Check persistence for 10-day limit
     const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
     if (lastSpinGlobal) {
       const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
       if (isAfter(nextEligible, new Date())) {
-          return; // Still in wait period, do not auto-pop
+          return; 
       }
     }
 
-    // 3. Trigger immediate auto-open with a short delay for comfort
     const timer = setTimeout(() => {
       setIsOpen(true);
       sessionStorage.setItem('veloura_spin_auto_opened', 'true');
@@ -113,7 +110,8 @@ export function SpinWinWheel() {
         const snapshot = await getDocs(q);
         if (!snapshot.empty) {
           const records = snapshot.docs.map(doc => doc.data());
-          const sortedRecords = records.sort((a, b) => 
+          // Client-side sort to avoid requiring composite index
+          const sortedRecords = records.sort((a: any, b: any) => 
             new Date(b.spinDate).getTime() - new Date(a.spinDate).getTime()
           );
           
@@ -150,6 +148,7 @@ export function SpinWinWheel() {
     setRotation(finalRotation);
 
     setTimeout(() => {
+      // Find prize based on rotation
       const actualPrize = prizes[(prizes.length - (prizeIndex % prizes.length)) % prizes.length];
       setResult(actualPrize);
       setIsSpinning(false);
@@ -232,7 +231,7 @@ export function SpinWinWheel() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-bold text-base">Where should we send your prize?</FormLabel>
+                      <FormLabel className="font-bold text-base text-foreground">Where should we send your prize?</FormLabel>
                       <FormControl>
                         <Input placeholder="jessica@example.com" {...field} className="h-14 text-lg rounded-2xl border-primary/20 focus:border-primary shadow-inner" />
                       </FormControl>
@@ -243,7 +242,7 @@ export function SpinWinWheel() {
                 <div className="bg-secondary/50 p-4 rounded-2xl border border-primary/10 flex gap-3">
                    <AlertCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      <strong>Policy:</strong> One spin every 10 days. Rewards are valid for new bookings through the VÉLOURA app.
+                      <strong>One spin every 10 days.</strong> Save your prize and coupon code — you won't be able to spin again until your next eligible date.
                    </p>
                 </div>
                 <Button type="submit" className="w-full h-14 text-xl font-black rounded-2xl shadow-xl hover:scale-[1.02] transition-transform" disabled={form.formState.isSubmitting}>
@@ -258,7 +257,7 @@ export function SpinWinWheel() {
                     <Calendar className="h-5 w-5" /> Spin Limit Reached
                  </h4>
                  <p className="text-muted-foreground">
-                    You've already claimed your prize for this period. Your next attempt is available on <span className="font-bold text-foreground">{format(eligibility.nextDate!, 'PPP')}</span>.
+                    You've already used your Spin & Win. Your next spin is available on <span className="font-bold text-foreground">{format(eligibility.nextDate!, 'PPP')}</span>. Don't forget to save your prize!
                  </p>
               </div>
             )}
@@ -268,6 +267,7 @@ export function SpinWinWheel() {
         {step === 'wheel' && (
           <div className="flex flex-col items-center py-6 space-y-10">
             <div className="relative w-64 h-64 md:w-80 md:h-80 pt-16">
+               {/* High-visibility Prize Pointer (Pin) */}
                <div className="absolute top-2 left-1/2 -translate-x-1/2 z-[150] drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">
                   <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30 60L55 15H5L30 60Z" fill="white" stroke="#fb5185" strokeWidth="4"/>
@@ -321,7 +321,7 @@ export function SpinWinWheel() {
                     <Sparkles className="w-3 h-3" />
                     <span>WINNER!</span>
                 </div>
-                <h3 className="text-4xl font-black font-headline text-foreground leading-tight">
+                <h3 className="text-4xl font-black font-headline text-foreground leading-tight uppercase">
                   {result.code === 'luckyou' ? "FREE ADD-ON SERVICE!" : result.label}
                 </h3>
              </div>
@@ -338,7 +338,7 @@ export function SpinWinWheel() {
                           {isCopied ? <Check className="h-8 w-8 text-green-500" /> : <Copy className="h-8 w-8" />}
                        </Button>
                     </div>
-                    <p className="text-[10px] text-primary font-bold mt-4 italic uppercase tracking-tighter">Save this code now. You won't see it again!</p>
+                    <p className="text-[10px] text-primary font-bold mt-4 italic uppercase tracking-tighter">Save this code now. You won't be able to spin again for 10 days!</p>
                   </div>
                </div>
              ) : (
@@ -351,12 +351,12 @@ export function SpinWinWheel() {
 
              <div className="grid gap-3 pt-4">
                 <Button asChild size="lg" className="h-16 text-xl font-bold rounded-2xl shadow-xl bg-primary">
-                   <Link href="/book">Book Now & Redeem</Link>
+                   <Link href="/book">Book Your Beauty Service</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-16 text-xl font-bold rounded-2xl border-primary text-primary hover:bg-primary/5">
                    <Link href="/download-app">
                       <Smartphone className="h-6 w-6 mr-2" />
-                      Get the App
+                      Download the VÉLOURA App
                    </Link>
                 </Button>
              </div>

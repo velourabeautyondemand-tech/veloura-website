@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "UserProfile": {
@@ -109,20 +110,6 @@
         }
       },
       "required": ["id", "firstName", "lastName", "email", "phone", "serviceArea", "applicationStatus", "licenseNumber"]
-    },
-    "ProductInquiry": {
-      "title": "Product Restock Inquiry",
-      "type": "object",
-      "description": "Represents a customer restock notification request and price willingness data.",
-      "properties": {
-        "productId": { "type": "string" },
-        "productName": { "type": "string" },
-        "email": { "type": "string", "format": "email" },
-        "quantity": { "type": "string" },
-        "priceWillingness": { "type": "string" },
-        "submittedAt": { "type": "string", "format": "date-time" }
-      },
-      "required": ["productId", "productName", "email", "submittedAt"]
     },
     "PressInquiry": {
       "title": "Press Inquiry",
@@ -246,12 +233,6 @@
             "$ref": "#/entities/PartnershipInquiry"
         },
         "description": "Stores submitted partnership inquiries."
-      },
-      "/product_inquiries/{inquiryId}": {
-        "schema": {
-            "$ref": "#/entities/ProductInquiry"
-        },
-        "description": "Stores customer restock and pricing inquiries."
       },
       "/subscribers/{subscriberId}": {
         "schema": {
