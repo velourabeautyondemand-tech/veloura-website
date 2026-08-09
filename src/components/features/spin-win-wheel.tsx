@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -25,7 +25,7 @@ import {
 } from '@/components/ui/form';
 import { useFirestore, useUser, addDocumentNonBlocking } from '@/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { Gift, Sparkles, AlertCircle, Copy, Check, Calendar, Smartphone, ArrowRight } from 'lucide-react';
+import { Gift, Sparkles, AlertCircle, Copy, Check, Calendar, Smartphone } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useToast } from '@/hooks/use-toast';
 import { addDays, isAfter, format } from 'date-fns';
@@ -58,30 +58,26 @@ export function SpinWinWheel() {
   const [rotation, setRotation] = useState(0);
   const [step, setStep] = useState<'email' | 'wheel' | 'result'>('email');
 
-  const hasAttemptedAutoOpen = useRef(false);
-
   // Robust Auto-popup logic
   useEffect(() => {
-    // Only attempt auto-open once per session
-    if (hasAttemptedAutoOpen.current) return;
-    hasAttemptedAutoOpen.current = true;
+    // 1. Check if we've already tried to open this session
+    const hasAutoOpened = sessionStorage.getItem('veloura_spin_auto_opened');
+    if (hasAutoOpened) return;
 
-    // Check Local Storage first for immediate blocking
+    // 2. Check if they have spun recently in this browser (localStorage)
     const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
     if (lastSpinGlobal) {
       const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
       if (isAfter(nextEligible, new Date())) return;
     }
 
-    // Check Session Storage to ensure only once per tab/session
-    const hasSeenThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
-    if (!hasSeenThisSession) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        sessionStorage.setItem('veloura_spin_auto_opened', 'true');
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
+    // 3. Trigger delay
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      sessionStorage.setItem('veloura_spin_auto_opened', 'true');
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -108,7 +104,7 @@ export function SpinWinWheel() {
       }
     }
 
-    // Firestore check (client-side sort to avoid index requirement)
+    // Firestore check
     const q = query(
       collection(firestore, 'spin_records'),
       where('email', '==', email)
@@ -118,6 +114,7 @@ export function SpinWinWheel() {
         const snapshot = await getDocs(q);
         if (!snapshot.empty) {
           const records = snapshot.docs.map(doc => doc.data());
+          // Sort client-side to avoid index requirement
           const sortedRecords = records.sort((a, b) => 
             new Date(b.spinDate).getTime() - new Date(a.spinDate).getTime()
           );
@@ -157,7 +154,7 @@ export function SpinWinWheel() {
 
     setTimeout(() => {
       // The prize is determined by where the pointer (top center) lands
-      // Backwards calculation from top segment
+      // We calculate the prize index based on the final rotation offset
       const actualPrize = prizes[(prizes.length - (prizeIndex % prizes.length)) % prizes.length];
       setResult(actualPrize);
       setIsSpinning(false);
@@ -218,7 +215,7 @@ export function SpinWinWheel() {
           <span className="absolute -top-2 -right-2 bg-accent text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse shadow-sm">SPIN</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[480px] rounded-[2rem] overflow-hidden border-2 border-primary/20 bg-background">
+      <DialogContent className="sm:max-w-[480px] rounded-[2rem] overflow-hidden border-2 border-primary/20 bg-background z-[1000]">
         <DialogHeader className="text-center pt-4">
           <DialogTitle className="text-3xl font-bold font-headline text-foreground tracking-tight uppercase">VÉLOURA Spin & Win</DialogTitle>
           <DialogDescription className="text-muted-foreground font-medium">
@@ -271,11 +268,11 @@ export function SpinWinWheel() {
         {step === 'wheel' && (
           <div className="flex flex-col items-center py-10 space-y-10">
             <div className="relative w-64 h-64 md:w-80 md:h-80 pt-10">
-               {/* High-Visibility Prize Pointer */}
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[60] drop-shadow-lg">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 40L37.3205 10H2.67949L20 40Z" fill="white" />
-                    <path d="M20 34L32.1244 13H7.87564L20 34Z" fill="#fb5185" />
+               {/* High-Visibility Prize Pointer - Positioned absolutely at top center */}
+               <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[110] drop-shadow-xl">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 48L44.7846 12H3.21539L24 48Z" fill="white" stroke="#fb5185" strokeWidth="2"/>
+                    <path d="M24 40L37.8564 16H10.1436L24 40Z" fill="#fb5185" />
                   </svg>
                </div>
                
@@ -360,8 +357,8 @@ export function SpinWinWheel() {
                    <Link href="/book">Book Your Beauty Service</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-14 text-lg font-bold rounded-xl border-primary text-primary hover:bg-primary/5">
-                   <Link href="/download-app" className="flex items-center gap-2">
-                      <Smartphone className="h-5 w-5" />
+                   <Link href="/download-app">
+                      <Smartphone className="h-5 w-5 mr-2" />
                       Download VÉLOURA App
                    </Link>
                 </Button>
