@@ -58,27 +58,26 @@ export function SpinWinWheel() {
   const [rotation, setRotation] = useState(0);
   const [step, setStep] = useState<'email' | 'wheel' | 'result'>('email');
 
-  // Robust Auto-popup logic for "Anywhere on the website"
+  // AGGRESSIVE AUTO-POPUP LOGIC
   useEffect(() => {
-    // 1. Check if they have spun recently in this browser (localStorage)
+    // 1. Session check to avoid opening on every internal page load
+    const hasAutoOpenedThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
+    if (hasAutoOpenedThisSession) return;
+
+    // 2. Check persistence for 10-day limit
     const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
     if (lastSpinGlobal) {
       const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
       if (isAfter(nextEligible, new Date())) {
-          // If they already spun and aren't eligible, don't auto-pop
-          return;
+          return; // Still in wait period, do not auto-pop
       }
     }
 
-    // 2. Session check to avoid annoying the user on every single internal click
-    const hasAutoOpenedThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
-    if (hasAutoOpenedThisSession) return;
-
-    // 3. Trigger delay for entrance
+    // 3. Trigger immediate auto-open with a short delay for comfort
     const timer = setTimeout(() => {
       setIsOpen(true);
       sessionStorage.setItem('veloura_spin_auto_opened', 'true');
-    }, 4000); // 4 seconds to let the page settle
+    }, 1500); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -88,7 +87,6 @@ export function SpinWinWheel() {
     defaultValues: { email: user?.email || '' },
   });
 
-  // Sync email if user logs in while dialog is closed
   useEffect(() => {
     if (user?.email && !form.getValues('email')) {
       form.setValue('email', user.email);
@@ -98,7 +96,6 @@ export function SpinWinWheel() {
   const checkEligibility = async (email: string) => {
     if (!firestore) return { isEligible: true };
 
-    // Quick local check
     const localLastSpin = localStorage.getItem(`veloura_spin_${email}`);
     if (localLastSpin) {
       const nextEligible = addDays(new Date(localLastSpin), SPIN_LIMIT_DAYS);
@@ -107,7 +104,6 @@ export function SpinWinWheel() {
       }
     }
 
-    // Firestore check (Client-side sort to avoid index requirement)
     const q = query(
       collection(firestore, 'spin_records'),
       where('email', '==', email)
@@ -146,17 +142,14 @@ export function SpinWinWheel() {
     if (isSpinning) return;
     setIsSpinning(true);
 
-    const extraSpins = 7 + Math.floor(Math.random() * 5);
+    const extraSpins = 8 + Math.floor(Math.random() * 5);
     const prizeIndex = Math.floor(Math.random() * prizes.length);
     const segmentAngle = 360 / prizes.length;
     
-    // Determine target rotation
     const finalRotation = rotation + (extraSpins * 360) + (prizeIndex * segmentAngle);
-
     setRotation(finalRotation);
 
     setTimeout(() => {
-      // The prize is determined by the landing index
       const actualPrize = prizes[(prizes.length - (prizeIndex % prizes.length)) % prizes.length];
       setResult(actualPrize);
       setIsSpinning(false);
@@ -224,8 +217,8 @@ export function SpinWinWheel() {
                 <Gift className="h-8 w-8 text-primary" />
              </div>
           </div>
-          <DialogTitle className="text-3xl font-bold font-headline text-foreground tracking-tight uppercase">VÉLOURA Spin & Win</DialogTitle>
-          <DialogDescription className="text-muted-foreground font-medium text-lg">
+          <DialogTitle className="text-3xl font-bold font-headline text-foreground tracking-tight uppercase">VÉLOURA SPIN & WIN</DialogTitle>
+          <DialogDescription className="text-muted-foreground font-medium text-lg leading-tight">
             Unlock your exclusive beauty reward.
           </DialogDescription>
         </DialogHeader>
@@ -274,9 +267,8 @@ export function SpinWinWheel() {
 
         {step === 'wheel' && (
           <div className="flex flex-col items-center py-6 space-y-10">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 pt-12">
-               {/* ELEVATED PRIZE POINTER */}
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[150] drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 pt-16">
+               <div className="absolute top-2 left-1/2 -translate-x-1/2 z-[150] drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">
                   <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30 60L55 15H5L30 60Z" fill="white" stroke="#fb5185" strokeWidth="4"/>
                     <path d="M30 50L45 18H15L30 50Z" fill="#fb5185" />
@@ -348,15 +340,11 @@ export function SpinWinWheel() {
                     </div>
                     <p className="text-[10px] text-primary font-bold mt-4 italic uppercase tracking-tighter">Save this code now. You won't see it again!</p>
                   </div>
-                  <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground font-medium italic">
-                     <Calendar className="w-3 h-3" />
-                     <span>Next spin available: {format(addDays(new Date(), SPIN_LIMIT_DAYS), 'MMM d, yyyy')}</span>
-                  </div>
                </div>
              ) : (
                <div className="bg-muted/50 p-10 rounded-[2rem] border border-muted-foreground/10">
                   <p className="text-xl font-medium text-muted-foreground leading-relaxed">
-                    So close! No prize this time — come back in 10 days for another spin at the wheel.
+                    So close! No prize this time — come back in 10 days for another spin.
                   </p>
                </div>
              )}
