@@ -98,5 +98,13 @@ service cloud.firestore {
         allow create: if true;
         allow update, delete: if isAdmin();
     }
+
+    match /spin_records/{recordId} {
+        allow get: if true;
+        allow list: if true; // Required for eligibility check by email
+        allow create: if true;
+        allow update: if isAdmin();
+        allow delete: if isAdmin();
+    }
   }
 }

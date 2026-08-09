@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -11,6 +10,7 @@ import Footer from '@/components/shared/footer';
 import { SubscribeForm } from '@/components/features/subscribe-form';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DiscountPopup } from '@/components/features/discount-popup';
+import { SpinWinWheel } from '@/components/features/spin-win-wheel';
 import { useLanguage } from '@/context/language-context';
 import { useRemoteConfigBoolean, useRemoteConfigString } from '@/firebase';
 import Script from 'next/script';
@@ -107,6 +107,7 @@ export default function HomePage() {
 
       <Header />
       <DiscountPopup />
+      <SpinWinWheel />
       <main className="flex-1">
         <section className="relative w-full py-20 md:py-32 lg:py-40 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6 text-center">

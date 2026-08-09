@@ -1,4 +1,3 @@
-
 {
   "entities": {
     "UserProfile": {
@@ -190,6 +189,24 @@
         }
       },
       "required": ["email", "subscribedAt"]
+    },
+    "SpinRecord": {
+      "title": "Spin & Win Record",
+      "type": "object",
+      "description": "Represents a user's attempt on the discount wheel.",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "prize": { "type": "string" },
+        "couponCode": { "type": "string" },
+        "discountPercent": { "type": "number" },
+        "spinDate": { "type": "string", "format": "date-time" },
+        "nextEligibleSpinDate": { "type": "string", "format": "date-time" },
+        "redeemed": { "type": "boolean" },
+        "redeemedDate": { "type": "string", "format": "date-time" },
+        "source": { "type": "string" },
+        "userId": { "type": "string" }
+      },
+      "required": ["email", "prize", "spinDate", "nextEligibleSpinDate"]
     }
   },
   "auth": {
@@ -241,6 +258,12 @@
           "$ref": "#/entities/Subscriber"
         },
         "description": "Stores email addresses of users who subscribed for news."
+      },
+      "/spin_records/{recordId}": {
+        "schema": {
+          "$ref": "#/entities/SpinRecord"
+        },
+        "description": "Stores user entries and results for the Spin & Win game."
       }
     }
   }
