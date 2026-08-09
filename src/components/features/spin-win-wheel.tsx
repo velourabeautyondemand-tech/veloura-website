@@ -25,7 +25,7 @@ import {
 } from '@/components/ui/form';
 import { useFirestore, useUser, addDocumentNonBlocking } from '@/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { Gift, Sparkles, AlertCircle, Copy, Check, Calendar, Smartphone } from 'lucide-react';
+import { Gift, Sparkles, AlertCircle, Copy, Check, Calendar, Smartphone, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useToast } from '@/hooks/use-toast';
 import { addDays, isAfter, format } from 'date-fns';
@@ -60,22 +60,25 @@ export function SpinWinWheel() {
 
   const hasAttemptedAutoOpen = useRef(false);
 
-  // Auto-popup logic
+  // Robust Auto-popup logic
   useEffect(() => {
+    // Only attempt auto-open once per session
     if (hasAttemptedAutoOpen.current) return;
+    hasAttemptedAutoOpen.current = true;
 
+    // Check Local Storage first for immediate blocking
     const lastSpinGlobal = localStorage.getItem('veloura_last_spin_timestamp');
     if (lastSpinGlobal) {
       const nextEligible = addDays(new Date(lastSpinGlobal), SPIN_LIMIT_DAYS);
       if (isAfter(nextEligible, new Date())) return;
     }
 
+    // Check Session Storage to ensure only once per tab/session
     const hasSeenThisSession = sessionStorage.getItem('veloura_spin_auto_opened');
     if (!hasSeenThisSession) {
       const timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem('veloura_spin_auto_opened', 'true');
-        hasAttemptedAutoOpen.current = true;
       }, 3000);
       return () => clearTimeout(timer);
     }
@@ -154,7 +157,7 @@ export function SpinWinWheel() {
 
     setTimeout(() => {
       // The prize is determined by where the pointer (top center) lands
-      // Because the wheel rotates clockwise, we calculate backwards from the top
+      // Backwards calculation from top segment
       const actualPrize = prizes[(prizes.length - (prizeIndex % prizes.length)) % prizes.length];
       setResult(actualPrize);
       setIsSpinning(false);
@@ -217,7 +220,7 @@ export function SpinWinWheel() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[480px] rounded-[2rem] overflow-hidden border-2 border-primary/20 bg-background">
         <DialogHeader className="text-center pt-4">
-          <DialogTitle className="text-3xl font-bold font-headline text-foreground tracking-tight">VÉLOURA Spin & Win</DialogTitle>
+          <DialogTitle className="text-3xl font-bold font-headline text-foreground tracking-tight uppercase">VÉLOURA Spin & Win</DialogTitle>
           <DialogDescription className="text-muted-foreground font-medium">
             Try your luck and win an elite beauty reward!
           </DialogDescription>
@@ -267,14 +270,17 @@ export function SpinWinWheel() {
 
         {step === 'wheel' && (
           <div className="flex flex-col items-center py-10 space-y-10">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 pt-6">
-               {/* Prize Pointer (The Pin) - Redesigned for maximum visibility */}
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)]">
-                  <div className="w-0 h-0 border-l-[22px] border-l-transparent border-r-[22px] border-r-transparent border-t-[34px] border-t-white relative after:content-[''] after:absolute after:-top-[32px] after:-left-[18px] after:w-0 after:h-0 after:border-l-[18px] after:border-l-transparent after:border-r-[18px] after:border-r-transparent after:border-t-[28px] after:border-t-primary" />
+            <div className="relative w-64 h-64 md:w-80 md:h-80 pt-10">
+               {/* High-Visibility Prize Pointer */}
+               <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[60] drop-shadow-lg">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 40L37.3205 10H2.67949L20 40Z" fill="white" />
+                    <path d="M20 34L32.1244 13H7.87564L20 34Z" fill="#fb5185" />
+                  </svg>
                </div>
                
                <div 
-                 className="w-full h-full rounded-full border-8 border-white shadow-2xl relative overflow-hidden transition-transform duration-[4000ms] cubic-bezier(0.15, 0, 0.15, 1)"
+                 className="w-full h-full rounded-full border-[10px] border-white shadow-2xl relative overflow-hidden transition-transform duration-[4000ms] cubic-bezier(0.15, 0, 0.15, 1)"
                  style={{ transform: `rotate(${rotation}deg)` }}
                >
                   {prizes.map((prize, idx) => (
@@ -294,8 +300,8 @@ export function SpinWinWheel() {
                         </div>
                     </div>
                   ))}
-                  <div className="absolute inset-0 m-auto w-14 h-14 bg-white rounded-full z-10 flex items-center justify-center shadow-lg border-4 border-primary/10">
-                     <Sparkles className="h-6 w-6 text-primary" />
+                  <div className="absolute inset-0 m-auto w-16 h-16 bg-white rounded-full z-10 flex items-center justify-center shadow-lg border-4 border-primary/10">
+                     <Sparkles className="h-7 w-7 text-primary" />
                   </div>
                </div>
             </div>
@@ -314,8 +320,10 @@ export function SpinWinWheel() {
         {step === 'result' && result && (
           <div className="text-center py-6 space-y-8 animate-in zoom-in-95 duration-500">
              <div className="space-y-2">
-                <p className="text-sm font-bold uppercase tracking-widest text-primary">Your Prize</p>
-                <h3 className="text-4xl font-black font-headline text-foreground leading-tight">{result.label}</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-primary">Your Reward</p>
+                <h3 className="text-4xl font-black font-headline text-foreground leading-tight">
+                  {result.code === 'luckyou' ? "FREE ADD-ON SERVICE!" : result.label}
+                </h3>
              </div>
 
              {result.code ? (
@@ -330,11 +338,14 @@ export function SpinWinWheel() {
                           {isCopied ? <Check className="h-6 w-6 text-green-500" /> : <Copy className="h-6 w-6" />}
                        </Button>
                     </div>
-                    {result.label === 'Free Add-On' && (
+                    {result.code === 'luckyou' && (
                        <p className="text-[10px] text-primary font-bold mt-4 italic">Redeem this code at checkout for your complimentary upgrade!</p>
                     )}
                   </div>
-                  <p className="text-xs text-muted-foreground italic">Don't forget to save this code. Your next spin is available in 10 days.</p>
+                  <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground italic">
+                     <Calendar className="w-3 h-3" />
+                     <span>Next spin available in 10 days</span>
+                  </div>
                </div>
              ) : (
                <div className="bg-muted/50 p-8 rounded-3xl border border-muted-foreground/10">
