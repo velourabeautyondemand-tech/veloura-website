@@ -1,4 +1,3 @@
-
 import { blogPosts as legacyPosts } from '@/lib/blog-data';
 import { initializeFirebase } from '@/firebase';
 import { collection, getDocs } from 'firebase/firestore';
@@ -7,9 +6,9 @@ import { ACTIVE_LOCATIONS, ACTIVE_SERVICES } from '@/lib/marketplace-data';
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
-// Ghost API Configuration
+// Ghost API Configuration moved to environment variables
 const GHOST_URL = 'https://veloura-beauty-on-demand.ghost.io';
-const GHOST_CONTENT_KEY = '29a6cc12d143f907f50654a724';
+const GHOST_CONTENT_KEY = process.env.GHOST_CONTENT_KEY;
 
 async function getFirestoreBlogSlugs() {
   try {

@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { initializeFirebase } from '@/firebase';
 import { doc, setDoc, addDoc, collection } from 'firebase/firestore';
 
-// Secret token for Bearer authentication
-const BABYLOVEGROWTH_WEBHOOK_SECRET = 'blg_3f8a92b1e7c5d401'; 
+// Secret token moved to environment variables for security
+const BABYLOVEGROWTH_WEBHOOK_SECRET = process.env.BABYLOVEGROWTH_WEBHOOK_SECRET; 
 
 export async function GET() {
   return NextResponse.json({ status: 'online', message: 'Send POST with Bearer token' }, { status: 200 });
