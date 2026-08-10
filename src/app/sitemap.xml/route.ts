@@ -6,7 +6,7 @@ import { ACTIVE_LOCATIONS, ACTIVE_SERVICES } from '@/lib/marketplace-data';
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
-// Ghost API Configuration moved to environment variables
+// Ghost API Configuration uses environment variables for security
 const GHOST_URL = 'https://veloura-beauty-on-demand.ghost.io';
 const GHOST_CONTENT_KEY = process.env.GHOST_CONTENT_KEY;
 
@@ -22,6 +22,7 @@ async function getFirestoreBlogSlugs() {
 }
 
 async function getGhostApiSlugs() {
+  if (!GHOST_CONTENT_KEY) return [];
   try {
     const res = await fetch(`${GHOST_URL}/ghost/api/content/posts/?key=${GHOST_CONTENT_KEY}&fields=slug&limit=all`);
     if (!res.ok) return [];
