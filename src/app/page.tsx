@@ -86,9 +86,6 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <title>VÉLOURA Beauty on Demand - In-Home Beauty App</title>
-      <meta name="description" content="Book licensed beauty professionals for mobile beauty services at your home, hotel, office, weddings, events and special occasions." />
-      <link rel="canonical" href="https://velourabeautyondemand.com" />
       <Script
         id="home-jsonld"
         type="application/ld+json"

@@ -59,9 +59,6 @@ export default function TalentAgencyPage() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <title>VÉLOURA Talent Agency: Makeup Artists & Hairstylists</title>
-            <meta name="description" content="VÉLOURA Talent Agency connects brands with licensed, vetted makeup artists, hairstylists, and photographers for productions and events. Inquire about talent today." />
-            <link rel="canonical" href="https://velourabeautyondemand.com/talent-agency" />
             <Script
               id="agency-jsonld"
               type="application/ld+json"
