@@ -38,6 +38,22 @@ export interface PageCombination {
 
 export const CITIES: City[] = [
   {
+    name: "Los Angeles",
+    slug: "los-angeles",
+    stateName: "California",
+    stateCode: "CA",
+    marketStatus: "active",
+    introduction: "VÉLOURA connects Los Angeles clients with mobile beauty professionals for appointments at homes, hotels, offices, weddings, photoshoots, and approved event locations across the city.",
+    localHighlights: ["Hotel and suite appointments", "Wedding and red-carpet preparation", "On-location beauty for productions and events"],
+    neighborhoods: ["Downtown Los Angeles", "Hollywood", "West Hollywood", "Los Feliz", "Silver Lake", "Century City"],
+    nearbyCitySlugs: ["beverly-hills", "santa-monica", "pasadena"],
+    venueTypes: ["Private Homes", "Hotels", "Production Sets", "Corporate Offices"],
+    uniqueFAQs: [
+      { q: "Where are mobile beauty appointments available in Los Angeles?", a: "Availability varies by professional and appointment time. Customers can use the VÉLOURA app to request service at eligible homes, hotels, offices, weddings, and event locations across Los Angeles." },
+      { q: "Can I request hair and makeup at a Los Angeles hotel?", a: "Yes. Hotel and suite requests are supported where the property permits outside beauty professionals and the appointment can be completed safely." }
+    ]
+  },
+  {
     name: "Pasadena",
     slug: "pasadena",
     stateName: "California",
@@ -154,6 +170,24 @@ export const SERVICES: Service[] = [
 ];
 
 export const PAGE_COMBINATIONS: PageCombination[] = [
+  {
+    citySlug: "los-angeles",
+    serviceSlug: "mobile-makeup-artist",
+    enabled: true,
+    uniqueIntro: "Request professional mobile makeup in Los Angeles for events, photoshoots, weddings, hotel stays, and everyday appointments without traveling to a salon.",
+    uniqueLocalDetails: "VÉLOURA supports eligible appointments across Los Angeles neighborhoods, hotels, private residences, offices, and approved production or event locations.",
+    customTitle: "Mobile Makeup Artist Los Angeles | VÉLOURA",
+    customDescription: "Request a mobile makeup artist in Los Angeles for home, hotel, wedding, event, and photoshoot appointments through VÉLOURA."
+  },
+  {
+    citySlug: "los-angeles",
+    serviceSlug: "mobile-hairstylist",
+    enabled: true,
+    uniqueIntro: "Request a mobile hairstylist in Los Angeles for blowouts, styling, updos, events, hotel stays, and special occasions at an eligible location.",
+    uniqueLocalDetails: "Appointments may be requested for Los Angeles homes, hotels, offices, weddings, productions, and approved event venues based on professional availability.",
+    customTitle: "Mobile Hair Stylist Los Angeles | VÉLOURA",
+    customDescription: "Request a mobile hairstylist in Los Angeles for home, hotel, wedding, event, and special-occasion appointments through VÉLOURA."
+  },
   {
     citySlug: "pasadena",
     serviceSlug: "mobile-makeup-artist",
