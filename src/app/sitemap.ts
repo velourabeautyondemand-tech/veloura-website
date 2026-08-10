@@ -2,6 +2,7 @@
 import { MetadataRoute } from 'next';
 import { CITIES, PAGE_COMBINATIONS } from '@/data/locationSeo';
 import { blogPosts } from '@/lib/blog-data';
+import { ACTIVE_SERVICES } from '@/lib/marketplace-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://velourabeautyondemand.com';
@@ -40,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/hotel-partners',
     '/vendor-partners',
     '/download-app',
-    '/senior-care'
+    '/services/senior-care'
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -56,6 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: currentDate,
     changeFrequency: 'weekly',
     priority: 0.7
+  }));
+
+  const serviceEntries: MetadataRoute.Sitemap = ACTIVE_SERVICES.map((service) => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly',
+    priority: 0.8,
   }));
 
   // Service Intersections
@@ -78,6 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticEntries,
+    ...serviceEntries,
     ...cityEntries,
     ...intersectionEntries,
     ...blogEntries,

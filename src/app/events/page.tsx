@@ -9,56 +9,14 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Suspense } from 'react';
-import Script from 'next/script';
 
 function EventsContent() {
     const eventHeroImage = PlaceHolderImages.find(p => p.id === 'event_hero');
     const westPalmImage = PlaceHolderImages.find(p => p.id === 'west_palm_team');
     const eventMay2026Image = PlaceHolderImages.find(p => p.id === 'event_may_2026');
 
-    const eventsSchema = {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Upcoming VÉLOURA Events",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "Event",
-            "name": "VÉLOURA Special Event",
-            "startDate": "2026-05-07",
-            "location": {
-              "@type": "Place",
-              "name": "Location Details in Invitation"
-            },
-            "description": "An exclusive gathering for creative talent and industry leaders."
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "Event",
-            "name": "VÉLOURA Recruiting Seminar - Miami",
-            "startDate": "2025-12-11",
-            "location": {
-              "@type": "Place",
-              "name": "Miami, FL"
-            },
-            "description": "Exclusive, Invitation-Only Recruitment Event."
-          }
-        }
-      ]
-    };
-
     return (
         <div className="flex flex-col min-h-screen">
-            <Script
-              id="events-schema"
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsSchema) }}
-            />
             <Header />
             <main className="flex-1 bg-secondary/30 py-12 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">

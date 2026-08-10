@@ -1,8 +1,6 @@
 
-'use client';
-
 import { notFound } from 'next/navigation';
-import { use } from 'react';
+import type { Metadata } from 'next';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
@@ -10,10 +8,28 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CITIES, SERVICES, PAGE_COMBINATIONS } from '@/data/locationSeo';
 import { MapPin, ChevronRight, Smartphone, Wand2, Star, ShieldCheck, Clock, Home, Hotel, Building2 } from 'lucide-react';
 import Link from 'next/link';
-import Script from 'next/script';
+type Props = { params: Promise<{ city: string }> };
 
-export default function CityHubPage({ params }: { params: Promise<{ city: string }> }) {
-  const resolvedParams = use(params);
+export function generateStaticParams() {
+  return CITIES.map((city) => ({ city: city.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { city: citySlug } = await params;
+  const city = CITIES.find((item) => item.slug === citySlug);
+  if (!city) return {};
+  const title = `Mobile Beauty Services in ${city.name} | VÉLOURA`;
+  const canonical = `/locations/${city.slug}`;
+  return {
+    title,
+    description: city.introduction,
+    alternates: { canonical },
+    openGraph: { title, description: city.introduction, url: canonical, type: 'website' },
+  };
+}
+
+export default async function CityHubPage({ params }: Props) {
+  const resolvedParams = await params;
   const city = CITIES.find(c => c.slug === resolvedParams.city);
 
   if (!city) {
@@ -40,10 +56,7 @@ export default function CityHubPage({ params }: { params: Promise<{ city: string
 
   return (
     <div className="flex flex-col min-h-screen">
-      <title>{`VÉLOURA ${city.name} | Mobile Beauty & Glam Hub`}</title>
-      <meta name="description" content={city.introduction} />
-      <link rel="canonical" href={`https://velourabeautyondemand.com/locations/${city.slug}`} />
-      <Script id="city-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script id="city-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Header />
       <main className="flex-1">

@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CheckCircle2, Clock, MapPin, ArrowRight, ShieldCheck, Wand2, Hotel, Home, Sparkles, ChevronRight, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { PAGE_COMBINATIONS, SERVICES as LOCAL_SERVICES, CITIES as LOCAL_CITIES } from '@/data/locationSeo';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -54,14 +55,36 @@ export default async function ServiceHubPage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": service.name,
-    "description": service.description,
-    "provider": {
-      "@id": "https://velourabeautyondemand.com/#organization"
-    },
-    "areaServed": ACTIVE_LOCATIONS.map(l => ({ "@type": "City", "name": l.name }))
+    "@graph": [{
+      "@type": "Service",
+      "name": service.name,
+      "description": service.description,
+      "provider": { "@id": "https://velourabeautyondemand.com/#organization" },
+      "areaServed": ACTIVE_LOCATIONS.map(l => ({ "@type": "City", "name": l.name }))
+    }, {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://velourabeautyondemand.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://velourabeautyondemand.com/services" },
+        { "@type": "ListItem", "position": 3, "name": service.name }
+      ]
+    }]
   };
+
+  const localServiceSlug = service.slug === 'makeup'
+    ? 'mobile-makeup-artist'
+    : service.slug === 'hair'
+      ? 'mobile-hairstylist'
+      : null;
+  const enabledLocalHubs = localServiceSlug
+    ? PAGE_COMBINATIONS.filter((item) => item.enabled && item.serviceSlug === localServiceSlug)
+        .map((item) => ({
+          combination: item,
+          city: LOCAL_CITIES.find((city) => city.slug === item.citySlug),
+          localService: LOCAL_SERVICES.find((entry) => entry.slug === item.serviceSlug),
+        }))
+        .filter((item) => item.city && item.localService)
+    : [];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -114,25 +137,25 @@ export default async function ServiceHubPage({ params }: Props) {
               <h2 className="text-3xl font-bold font-headline mb-4">Localized {service.name} Hubs</h2>
               <p className="text-muted-foreground">Select your city for neighborhood-specific coverage and local {service.name.toLowerCase()} experts.</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-               {ACTIVE_LOCATIONS.map((loc) => (
-                  <Card key={loc.slug} className="hover:shadow-xl transition-all border-primary/10 overflow-hidden group">
+            {enabledLocalHubs.length > 0 && <div className="grid md:grid-cols-3 gap-8">
+               {enabledLocalHubs.map(({ combination, city }) => (
+                  <Card key={`${combination.citySlug}-${combination.serviceSlug}`} className="hover:shadow-xl transition-all border-primary/10 overflow-hidden group">
                     <CardHeader className="bg-primary/5">
                       <CardTitle className="font-headline flex items-center gap-2">
-                        <MapPin className="w-5 h-5 text-primary" /> {loc.name}
+                        <MapPin className="w-5 h-5 text-primary" /> {city!.name}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="pt-6">
-                      <p className="text-sm text-muted-foreground mb-6">Expert {service.name.toLowerCase()} professionals serving {loc.areas.slice(0, 3).join(', ')}, and beyond.</p>
+                      <p className="text-sm text-muted-foreground mb-6">{combination.uniqueIntro}</p>
                       <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
-                        <Link href={`/locations/${loc.slug}/${service.slug}`}>
-                          {service.name} in {loc.name} <ArrowRight className="ml-2 w-4 h-4" />
+                        <Link href={`/locations/${combination.citySlug}/${combination.serviceSlug}`}>
+                          {service.name} in {city!.name} <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
                     </CardContent>
                   </Card>
                 ))}
-            </div>
+            </div>}
           </div>
         </section>
 
