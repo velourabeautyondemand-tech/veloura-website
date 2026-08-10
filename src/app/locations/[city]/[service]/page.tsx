@@ -1,8 +1,6 @@
 
-'use client';
-
 import { notFound } from 'next/navigation';
-import { use } from 'react';
+import type { Metadata } from 'next';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
@@ -11,10 +9,36 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CITIES, SERVICES, PAGE_COMBINATIONS } from '@/data/locationSeo';
 import { Sparkles, MapPin, ShieldCheck, Clock, CheckCircle2, ChevronRight, Smartphone, Wand2, Star, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import Script from 'next/script';
+type Props = { params: Promise<{ city: string; service: string }> };
 
-export default function MarketIntersectionPage({ params }: { params: Promise<{ city: string, service: string }> }) {
-  const resolvedParams = use(params);
+export function generateStaticParams() {
+  return PAGE_COMBINATIONS.filter((item) => item.enabled).map((item) => ({
+    city: item.citySlug,
+    service: item.serviceSlug,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const city = CITIES.find((item) => item.slug === resolvedParams.city);
+  const service = SERVICES.find((item) => item.slug === resolvedParams.service);
+  const combination = PAGE_COMBINATIONS.find((item) =>
+    item.citySlug === resolvedParams.city && item.serviceSlug === resolvedParams.service && item.enabled
+  );
+  if (!city || !service || !combination) return {};
+  const title = combination.customTitle || `${service.name} in ${city.name} | VÉLOURA`;
+  const description = combination.customDescription || combination.uniqueIntro;
+  const canonical = `/locations/${city.slug}/${service.slug}`;
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { title, description, url: canonical, type: 'website' },
+  };
+}
+
+export default async function MarketIntersectionPage({ params }: Props) {
+  const resolvedParams = await params;
   const city = CITIES.find(c => c.slug === resolvedParams.city);
   const service = SERVICES.find(s => s.slug === resolvedParams.service);
   const combination = PAGE_COMBINATIONS.find(p => p.citySlug === resolvedParams.city && p.serviceSlug === resolvedParams.service && p.enabled);
@@ -23,7 +47,7 @@ export default function MarketIntersectionPage({ params }: { params: Promise<{ c
     notFound();
   }
 
-  const jsonLd = {
+  const jsonLd = [{
     "@context": "https://schema.org",
     "@type": "Service",
     "name": `${service.name} in ${city.name}`,
@@ -31,14 +55,20 @@ export default function MarketIntersectionPage({ params }: { params: Promise<{ c
     "provider": { "@type": "Organization", "name": "VÉLOURA" },
     "areaServed": { "@type": "City", "name": city.name },
     "url": `https://velourabeautyondemand.com/locations/${city.slug}/${service.slug}`
-  };
+  }, {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://velourabeautyondemand.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://velourabeautyondemand.com/locations" },
+      { "@type": "ListItem", "position": 3, "name": city.name, "item": `https://velourabeautyondemand.com/locations/${city.slug}` },
+      { "@type": "ListItem", "position": 4, "name": service.name }
+    ]
+  }];
 
   return (
     <div className="flex flex-col min-h-screen">
-      <title>{combination.customTitle || `${service.name} in ${city.name} | VÉLOURA Mobile Glam`}</title>
-      <meta name="description" content={combination.customDescription || combination.uniqueIntro} />
-      <link rel="canonical" href={`https://velourabeautyondemand.com/locations/${city.slug}/${service.slug}`} />
-      <Script id="intersection-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script id="intersection-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Header />
       <main className="flex-1">
