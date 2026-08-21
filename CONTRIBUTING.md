@@ -30,33 +30,25 @@ We're always looking for ways to improve the VÉLOURA experience:
 
 If you discover a security vulnerability, please **do not** open a public issue.
 
-Instead, contact us directly at: **security@velourabeautyondemand.com**
+Instead, contact us directly at: **support@velourabeautyondemand.com**
 
 ---
 
-## 🤝 Want to Partner?
+## 📱 Download the App
 
-Are you a beauty professional, photographer, or event planner?
+Experience  beauty on demand:
 
-Apply to join the VÉLOURA network:
-👉 [https://velourabeautyondemand.com/apply](https://velourabeautyondemand.com/apply)
-
----
-
-## 📱 Using VÉLOURA?
-
-Download the app and experience luxury beauty on demand:
-- **iOS:** [App Store Link]
-- **Android:** [Google Play Link]
+- **iOS:** [Download on the App Store](https://apps.apple.com/us/app/veloura-beauty-on-demand/id6757140381)
+- **Android:** [Get it on Google Play](https://play.google.com/store/apps/details?id=com.veloura.app&pcampaignid=web_share)
 
 ---
 
 ## 🌐 Connect With Us
 
 - **Website:** [https://velourabeautyondemand.com](https://velourabeautyondemand.com)
-- **YouTube:** [@veloura07](https://youtube.com/@veloura07)
-- **Instagram:** [Link]
-- **TikTok:** [Link]
+- **YouTube:** [@VÉLOURABeautyonDemand](https://www.youtube.com/@V%C3%89LOURABeautyonDemand)
+- **Instagram:** [@veloura_beauty_x](https://www.instagram.com/veloura_beauty_x)
+- 
 
 ---
 
