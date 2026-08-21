@@ -2,7 +2,7 @@
 
 **Live Website:** [https://velourabeautyondemand.com](https://velourabeautyondemand.com)
 
-VÉLOURA is a luxury beauty marketplace connecting elite professionals with clients — on-demand, in-home, and on your schedule. No traffic. No waiting. Just beauty, delivered.
+VÉLOURAWhere tech meets touch. We share the love of luxury beauty by connecting the industry's finest with the clients who value them most. A commitment to convenience, excellence, and the transformative power of feeling seen—right where you belong. Built for the moment you trade rushing for receiving.
 
 ---
 
