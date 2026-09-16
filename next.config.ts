@@ -121,7 +121,13 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
-    return [];
+    return [
+      {
+        source: '/refer-a-technician',
+        destination: 'https://veloura-referral.vercel.app/refer-a-technician',
+        permanent: false,
+      },
+    ];
   },
   async rewrites() {
     return [];
